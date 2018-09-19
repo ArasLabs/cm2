@@ -1,0 +1,260 @@
+﻿<AML>
+ <Item type="RelationshipType" id="468B3D33E0C04C44A1FC4760AC56F3BC" action="add" dependencyLevel="0">
+  <auto_search>1</auto_search>
+  <behavior>float</behavior>
+  <copy_permissions>0</copy_permissions>
+  <create_related>0</create_related>
+  <hide_in_all>0</hide_in_all>
+  <inc_rel_key_name>1</inc_rel_key_name>
+  <inc_related_key_name>1</inc_related_key_name>
+  <is_list_type>0</is_list_type>
+  <label xml:lang="en">Cost Sheet</label>
+  <new_show_related>0</new_show_related>
+  <related_notnull>0</related_notnull>
+  <related_option>2</related_option>
+  <relationship_id keyed_name="CR Cost" type="ItemType" name="CR Cost">
+   <Item type="ItemType" id="4A856E695F6F4A1688FEE1670AC5E673" action="add">
+    <allow_private_permission>1</allow_private_permission>
+    <auto_search>0</auto_search>
+    <enforce_discovery>0</enforce_discovery>
+    <hide_where_used>0</hide_where_used>
+    <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+    <implementation_type>table</implementation_type>
+    <instance_data>CR_COST</instance_data>
+    <is_dependent>0</is_dependent>
+    <is_relationship>1</is_relationship>
+    <is_versionable>0</is_versionable>
+    <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+    <show_parameters_tab>1</show_parameters_tab>
+    <structure_view>tabs off</structure_view>
+    <unlock_on_logout>0</unlock_on_logout>
+    <use_src_access>0</use_src_access>
+    <name>CR Cost</name>
+    <Relationships>
+     <Item type="Property" id="EE3C2A856DBA4019B8591F46B5FF8449" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</data_source>
+      <data_type>item</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <item_behavior>float</item_behavior>
+      <label xml:lang="en">Affected Item/Doc</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>4352</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <track_history>0</track_history>
+      <name>affected_ref</name>
+     </Item>
+     <Item type="Property" id="21F710ED21FB44F288555425FD469563" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>400</column_width>
+      <data_type>text</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Comments</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>4480</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <track_history>1</track_history>
+      <name>comments</name>
+     </Item>
+     <Item type="Property" id="98468E730661478CBCC427E557D06E09" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>decimal</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Cost</label>
+      <prec>10</prec>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <scale>3</scale>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <track_history>1</track_history>
+      <name>cost</name>
+     </Item>
+     <Item type="Property" id="3C6C1065D0B34AC39B951807086C3304" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source keyed_name="CM2 CR Cost Type">D781E57782E5447A95362ABCCDBAAA55</data_source>
+      <data_type>filter list</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Cost Type</label>
+      <pattern>recur</pattern>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3712</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <stored_length>256</stored_length>
+      <track_history>1</track_history>
+      <name>cost_type</name>
+     </Item>
+     <Item type="Property" id="EF1B343C3C6345D4988D1C5DAEF82E79" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source keyed_name="Currency">D6E6EB783356462D84B992716C9AEC8D</data_source>
+      <data_type>list</data_type>
+      <default_value xml:lang="en">USD</default_value>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Currency</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3968</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <stored_length>256</stored_length>
+      <track_history>0</track_history>
+      <name>cost_units</name>
+     </Item>
+     <Item type="Property" id="5E72798B678B4C019D7EC0DDBD5ABCE5" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>decimal</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Duration</label>
+      <prec>7</prec>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <scale>1</scale>
+      <sort_order>4096</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <track_history>0</track_history>
+      <name>duration</name>
+     </Item>
+     <Item type="Property" id="0E76D064C0344B6B87B7125EB92DAE27" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source keyed_name="Duration Unit">D09163D96DF94F498604F8611A436A3D</data_source>
+      <data_type>list</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Duration Units</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>4224</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <stored_length>256</stored_length>
+      <track_history>0</track_history>
+      <name>duration_units</name>
+     </Item>
+     <Item type="Property" id="7E9D6FC4280D4C6CB9895CA3205749F6" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source keyed_name="CM2 CR Cost Recurring">9287B8A07D764C2A9FD791AA13D87D44</data_source>
+      <data_type>list</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Recur/Non-Recur</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <stored_length>256</stored_length>
+      <track_history>1</track_history>
+      <name>recur</name>
+     </Item>
+     <Item type="View" id="DCF7FCFBB496472C924D4131BCCD739C" action="add">
+      <client>js</client>
+      <related_id keyed_name="CR Cost" type="Form">DC5E451A829D4D8285CEDEEC7405DB57</related_id>
+      <role keyed_name="World" type="Identity">
+       <Item type="Identity" action="get" select="id">
+        <name>World</name>
+       </Item>
+      </role>
+      <show_ssvc>0</show_ssvc>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+      <type>default</type>
+     </Item>
+     <Item type="Can Add" id="36515FE00915426D93371763ACFF7777" action="add">
+      <can_add>1</can_add>
+      <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+     </Item>
+     <Item type="Allowed Permission" id="E23847B4345945B498EDFEDC35F085AF" action="add">
+      <is_default>1</is_default>
+      <related_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>640</sort_order>
+  <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+  <name>CR Cost</name>
+ </Item>
+ <Item type="ItemType" id="4A856E695F6F4A1688FEE1670AC5E673" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='4A856E695F6F4A1688FEE1670AC5E673' and name='modified_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="User" type="ItemType" name="User">45E899CD2859442982EB22BB2DF683E5</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Est By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+    <track_history>0</track_history>
+    <name>modified_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='4A856E695F6F4A1688FEE1670AC5E673' and name='modified_on'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Est On</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
+    <track_history>0</track_history>
+    <name>modified_on</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

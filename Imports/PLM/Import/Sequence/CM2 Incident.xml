@@ -1,0 +1,9 @@
+﻿<AML>
+ <Item type="Sequence" id="30EEB71F46F248309A1D84E1D8F03E7C" action="add">
+  <initial_value>0</initial_value>
+  <pad_to>5</pad_to>
+  <pad_with>0</pad_with>
+  <prefix>IN</prefix>
+  <name>CM2 Incident</name>
+ </Item>
+</AML>

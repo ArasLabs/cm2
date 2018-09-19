@@ -1,0 +1,850 @@
+﻿<AML>
+ <Item type="ItemType" id="2D4799413792453DA08C1EDE6AA22A76" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <close_icon>../images/ECR.svg</close_icon>
+  <default_page_size>25</default_page_size>
+  <enforce_discovery>1</enforce_discovery>
+  <help_url xml:lang="en">mergedProjects/ProductEngineering/plm_The_ECR.htm</help_url>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>ECR</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">CR</label>
+  <label_plural xml:lang="en">CRs</label_plural>
+  <large_icon>../images/ECR.svg</large_icon>
+  <open_icon>../images/ECR.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>ECR</name>
+  <Relationships>
+   <Item type="DiscussionTemplate" id="9EBDCC39EC0A49849AB8829162D13C4C" action="add">
+    <file_selection_depth>2</file_selection_depth>
+    <item_selection_depth>2</item_selection_depth>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <visibility_supported>1</visibility_supported>
+    <Relationships>
+     <Item type="FeedTemplate" id="DBC3E9A019414F96ACDB512A6EAC92D0" action="add">
+      <feed_type>Board</feed_type>
+      <reference>this</reference>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="9EBDCC39EC0A49849AB8829162D13C4C" type="DiscussionTemplate">9EBDCC39EC0A49849AB8829162D13C4C</source_id>
+      <Relationships>
+       <Item type="FileSelectorTemplate" id="BE46934F6AC241399EEDF19308A38DD3" action="add">
+        <filter>7869D76D50ED4BD4985BECB20B1102F7|992B142FCE6C4EF8B71417220CD7E92D|50AF497B7A114235979F882CEC8EFDF6|8A85DD9A6E0346F5AE423314E3650041</filter>
+        <reference>ECR File(related_id)</reference>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="DBC3E9A019414F96ACDB512A6EAC92D0" type="FeedTemplate">DBC3E9A019414F96ACDB512A6EAC92D0</source_id>
+        <tooltip_template xml:lang="en">File ${File:filename} from ${ItemType:label} ${Item:keyed_name}</tooltip_template>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="FeedTemplate" id="EF66B79E449143999880715ECDF41111" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>CAD</polysource_type_name>
+      <reference>&lt;Item type="ECR" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="9EBDCC39EC0A49849AB8829162D13C4C" type="DiscussionTemplate">9EBDCC39EC0A49849AB8829162D13C4C</source_id>
+     </Item>
+     <Item type="FeedTemplate" id="C7A79B5DC98247D1A82D6F7E5465F752" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>Document</polysource_type_name>
+      <reference>&lt;Item type="ECR" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="9EBDCC39EC0A49849AB8829162D13C4C" type="DiscussionTemplate">9EBDCC39EC0A49849AB8829162D13C4C</source_id>
+     </Item>
+     <Item type="FeedTemplate" id="2FE4606326244C75AC22CA427CFFF6A8" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>Part</polysource_type_name>
+      <reference>&lt;Item type="ECR" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="9EBDCC39EC0A49849AB8829162D13C4C" type="DiscussionTemplate">9EBDCC39EC0A49849AB8829162D13C4C</source_id>
+     </Item>
+     <Item type="DiscussionTemplateView" id="7D43D7B329A840FEBBFE7BA7CCC7FAB8" action="add">
+      <client>js</client>
+      <related_id keyed_name="18D6E3B2858341E6A0D43C87C62AA4C5" type="SSVCPresentationConfiguration">
+       <Item type="SSVCPresentationConfiguration" id="18D6E3B2858341E6A0D43C87C62AA4C5" action="add">
+        <discussion_panel_behavior>discPanelOff</discussion_panel_behavior>
+        <form_tooltip_template xml:lang="en">Form of ${ItemType:label} ${Item:keyed_name}</form_tooltip_template>
+        <sm_template keyed_name="F1E9620C1AB3408588708B68E18D51DE" type="SecureMessageViewTemplate">F1E9620C1AB3408588708B68E18D51DE</sm_template>
+        <name>18D6E3B2858341E6A0D43C87C62AA4C5</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="9EBDCC39EC0A49849AB8829162D13C4C" type="DiscussionTemplate">9EBDCC39EC0A49849AB8829162D13C4C</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="ITPresentationConfiguration" id="32BB827EAC3047ADAD660B1752A31C07" action="add">
+    <client>js</client>
+    <related_id keyed_name="D71DFFF991104F749892D5C816E1F5A2" type="PresentationConfiguration">D71DFFF991104F749892D5C816E1F5A2</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="Property" id="EF15840ABDA0438FAF7299996D1A25E5" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Additional Details</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6528</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>adnl_details</name>
+   </Item>
+   <Item type="Property" id="635A566F9B984272BC1871762832DD89" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">ARA</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>5760</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>ara_id</name>
+   </Item>
+   <Item type="Property" id="396DD81CBCDD41259F3EA5666A8E44D3" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>200</column_width>
+    <data_source keyed_name="Change Basis">C31D90F608B3471088A59A8EBE7F0370</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Basis</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1156</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>basis</name>
+   </Item>
+   <Item type="Property" id="92715D2A1B44451CAF9C592ABC87602D" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Change Admin</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>change_admin</name>
+   </Item>
+   <Item type="Property" id="003F601FB8BD486C8A23FFAD1B3B5584" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_source keyed_name="Change Types">D7D72BF68937462B947DAC6BE7E28322</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Reason</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>change_type</name>
+   </Item>
+   <Item type="Property" id="9645B584F0964BB3AEFEDAF4B543F682" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">CIL</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>5888</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>cil_id</name>
+   </Item>
+   <Item type="Property" id="3B8C27F6214A41A2B1B7386BFB7E9EC1" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="332237DAFA0F4FF5822CEE9317692E63" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">CR Comments</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2560</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>ecr_comments</name>
+   </Item>
+   <Item type="Property" id="1A1AA52797A748AB8E97304F886C58FA" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>boolean</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Fast Track</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>fast_track</name>
+   </Item>
+   <Item type="Property" id="E8EF4A90940147B29CC9DBEBCD9E08AF" action="add">
+    <column_alignment>center</column_alignment>
+    <data_source keyed_name="Change Priorities">2AC3F078B8FD4509856D31A0FBD92DF8</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Implementation Priority</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2432</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>implementation_priority</name>
+   </Item>
+   <Item type="Property" id="F1E77A88ACF94917A2074DC04463A098" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Implementation Timing</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2304</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>implementation_timing</name>
+   </Item>
+   <Item type="Property" id="9110E797851145C0B05D302A65DBF194" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="ECR">998C92934CB54D78A184FE3DD5B3E81D</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">CR Number</label>
+    <order_by>1</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="FF7DB7A240AD45BABCAC6B0A3C8B0D4D" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Key Dates</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6656</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>key_dates</name>
+   </Item>
+   <Item type="Property" id="1E34C0D51F5E4EE786DEF8D399811D4B" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>boolean</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Low Nonrecurring Cost</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2816</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>low_nonrecurring_cost</name>
+   </Item>
+   <Item type="Property" id="9EDD900C221A458DBB49712418AA72D7" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Nonrecurring Cost</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2944</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>nonrecurring_cost</name>
+   </Item>
+   <Item type="Property" id="C98D479B46AB4DDCBA371EEDEDDE943E" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_source keyed_name="Change Priorities">2AC3F078B8FD4509856D31A0FBD92DF8</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Priority</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>priority</name>
+   </Item>
+   <Item type="Property" id="C65633A07C4A4D2E8343D3732C708092" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Problem Status">F6FFD6A7E3FB4208AC66C7CC49286EF3</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Problem Status</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1920</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>problem_status</name>
+   </Item>
+   <Item type="Property" id="3BF016100BFD4B7BAD35F282E87E9CC3" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Project" type="ItemType" name="CM2 Project">553342EB14CD4FC4BC84CCC2FA619D52</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Project</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6784</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>project</name>
+   </Item>
+   <Item type="Property" id="3210172D045B467F94AEF3D4859DEB66" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Proposed Solution</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>proposed_solution</name>
+   </Item>
+   <Item type="Property" id="9B6AFBB990F6423FBBD753E761C496F2" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Ramifications</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6400</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>ramifications</name>
+   </Item>
+   <Item type="Property" id="20B99234C5A5422F983368C9FC1A3766" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Recurring Cost</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>recurring_cost</name>
+   </Item>
+   <Item type="Property" id="AD9E344ACA1948AFB5FE6760EFDA7638" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Recurring Cost Direction">19D1F99D4F754721A6D300C903496F07</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Recurring Cost Direction</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>recurring_cost_direction</name>
+   </Item>
+   <Item type="Property" id="726A255E2A2A46979F851D8E2F63EE34" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2688</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="6FB90A47EF874F7DAA104DD69C1E5BED" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Requested By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>requested_by</name>
+   </Item>
+   <Item type="Property" id="97544D1324C9410486FEB7BC7D1DC8EE" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Routing">5CCD7DF5FF35425DB830C3723BC82CF1</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Routing</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2176</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>routing</name>
+   </Item>
+   <Item type="Property" id="38F3CE9CF0F344788080D4123C5F3218" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Security">C4D805D51E71449888DC93946862F2D5</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Security</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6016</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>security</name>
+   </Item>
+   <Item type="Property" id="821F8BB5AC2748AEAE27ECFB40B0AE17" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Severity">5B7E831D13D44F27A18AC05E878AF9BD</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Severity</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6272</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>severity</name>
+   </Item>
+   <Item type="Property" id="A7040CE98D974F09A9295B864661599A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Problem Solution">AA78E0C1F44E4956BF9DF6CA5F3757B7</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Soltion</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2048</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>solution</name>
+   </Item>
+   <Item type="Property" id="B1A05409008C4900BC7CE693163119E9" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_source keyed_name="Change Sources">E602F0779B924AE7B63C5096812B6804</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Source</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>source</name>
+   </Item>
+   <Item type="Property" id="942B3E2A0001400FBC4ADCF797CCD6A9" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Status">29A36AFC386546E9B790E99FA2FF61E6</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Status</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6144</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>status</name>
+   </Item>
+   <Item type="Property" id="56A182A463554B9DBA9132AC072C217C" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Technical Review</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>technical_review</name>
+   </Item>
+   <Item type="Property" id="200478AA209B4F9E9C3D11217CE66238" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>200</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Title</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>128</stored_length>
+    <track_history>1</track_history>
+    <name>title</name>
+   </Item>
+   <Item type="View" id="81F27277C8404CB88A2010DCE335F496" action="add">
+    <client>js</client>
+    <display_priority>0</display_priority>
+    <related_id keyed_name="CM2 CR" type="Form">6A7BC6A7507C4AA8A7005B684524CA51</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="View" id="85E0FCFD249B41B9935A813826B8D755" action="add">
+    <client>js</client>
+    <display_priority>1</display_priority>
+    <related_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="63BB1C1057AD45669B8E2D4E1928020A" action="add">
+    <related_id keyed_name="VC_AddItemsToBookmarks" type="Action">FD4D2BE9E2B14919BF1973842A556AFD</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="Item Action" id="5943F4C755BF4945A12301686A7C2D3F" action="add">
+    <related_id keyed_name="CM2 CR to CN" type="Action">CAE190FA95C14DAF91462112D6F6BB4C</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="9534273AA2644052B9E4D436E8BF2517" action="add">
+    <related_id keyed_name="ECR" type="Life Cycle Map">B55B3F9D1F30465F8F6B83F55FECBAEF</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="1E74F0775D35464491204B7DF1BDFC25" action="add">
+    <is_default>0</is_default>
+    <related_id keyed_name="ECR" type="Workflow Map">7408BB5F5D974E758690B29694C544B6</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="4CEACAF7C17B4C0AAECE8EA30B22AEFC" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="TOC Access" id="17BBFB48FAC34450B622C4FE0D3B5940" action="add">
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Can Add" id="293D5AD661614CAE9575EDF107E6120E" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="2A04499A678341E981D3F5D6242A8C01" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="New ECR" type="Permission">1DAC88DF968B4451B877A2E7D9703163</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="Item Report" id="E58B7FF8F87D44F09F450C28AF12E210" action="add">
+    <related_id keyed_name="ECR Log Report" type="Report">485D52BE44B4409F956BF037480572D1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+   <Item type="Item Report" id="07E65E1866F84838BFE4BBAB1BBA94AD" action="add">
+    <related_id keyed_name="ECR Report" type="Report">104E644AA2E74515B67EAC52790137D5</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2D4799413792453DA08C1EDE6AA22A76" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='2D4799413792453DA08C1EDE6AA22A76' and name='managed_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Change Leader</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>managed_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='2D4799413792453DA08C1EDE6AA22A76' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Change Owner</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='2D4799413792453DA08C1EDE6AA22A76' and name='state'">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='2D4799413792453DA08C1EDE6AA22A76' and name='team_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Team" type="ItemType" name="Team">CC23F9130F574E7D99DF9659F27590A6</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">CRB</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>5632</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>team_id</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

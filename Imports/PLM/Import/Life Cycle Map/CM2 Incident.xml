@@ -1,0 +1,90 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="64432002FBD94EA38F9FC783EE40B48C" action="add">
+  <start_state keyed_name="Start" type="Life Cycle State">044A384AC22548F391C435538FEDA9FC</start_state>
+  <name>CM2 Incident</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="4FBB028A7780433287505DAE927EA69D" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <x>286</x>
+    <y>23</y>
+    <name>Assigned</name>
+   </Item>
+   <Item type="Life Cycle State" id="1B0419BA8F2C454C929D47FC7C49A3DF" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <x>419</x>
+    <y>132</y>
+    <name>Closed Change Started</name>
+   </Item>
+   <Item type="Life Cycle State" id="BF6ABD801ED149CEA178CF1A38290E75" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <x>414</x>
+    <y>22</y>
+    <name>Closed OK</name>
+   </Item>
+   <Item type="Life Cycle State" id="044A384AC22548F391C435538FEDA9FC" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <x>20</x>
+    <y>20</y>
+    <name>Start</name>
+   </Item>
+   <Item type="Life Cycle State" id="79BD8C1B767C4954991F602C6349B09C" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <x>156</x>
+    <y>21</y>
+    <name>Submitted</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="BCA93D92157A4762BF99FD24FD22D01F" action="add">
+    <from_state keyed_name="Start" type="Life Cycle State">044A384AC22548F391C435538FEDA9FC</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <to_state keyed_name="Submitted" type="Life Cycle State">79BD8C1B767C4954991F602C6349B09C</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="587BBC21C89E496CA3831B9FBA6C1743" action="add">
+    <from_state keyed_name="Assigned" type="Life Cycle State">4FBB028A7780433287505DAE927EA69D</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <to_state keyed_name="Closed Change Started" type="Life Cycle State">1B0419BA8F2C454C929D47FC7C49A3DF</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="A7BE114DF2CA477E900F5A600C82984B" action="add">
+    <from_state keyed_name="Assigned" type="Life Cycle State">4FBB028A7780433287505DAE927EA69D</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <to_state keyed_name="Closed OK" type="Life Cycle State">BF6ABD801ED149CEA178CF1A38290E75</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="22F3FCAF476C454F9ADA442F593FD200" action="add">
+    <from_state keyed_name="Submitted" type="Life Cycle State">79BD8C1B767C4954991F602C6349B09C</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Life Cycle Map">64432002FBD94EA38F9FC783EE40B48C</source_id>
+    <to_state keyed_name="Assigned" type="Life Cycle State">4FBB028A7780433287505DAE927EA69D</to_state>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

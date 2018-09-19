@@ -1,0 +1,19 @@
+﻿<AML>
+ <Item type="List" id="C4D805D51E71449888DC93946862F2D5" action="add">
+  <name>CM2 Security</name>
+  <Relationships>
+   <Item type="Value" id="A6F30BCEA8674FAABD081A17CD96A56A" action="add">
+    <label xml:lang="en">Confidential</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Security" type="List">C4D805D51E71449888DC93946862F2D5</source_id>
+    <value>Confidential</value>
+   </Item>
+   <Item type="Value" id="385B277EE2EF4C5AB4BB85BDA98B3380" action="add">
+    <label xml:lang="en">Proprietary</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 Security" type="List">C4D805D51E71449888DC93946862F2D5</source_id>
+    <value>Proprietary</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

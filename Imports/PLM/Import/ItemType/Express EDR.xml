@@ -1,0 +1,322 @@
+﻿<AML>
+ <Item type="ItemType" id="EA86051664F44D48AE48226ABC4E570E" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <close_icon>../images/ExpressEDR.svg</close_icon>
+  <default_page_size>50</default_page_size>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>EXPRESS_EDR</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">EDR</label>
+  <label_plural xml:lang="en">EDRs</label_plural>
+  <large_icon>../images/ExpressEDR.svg</large_icon>
+  <open_icon>../images/ExpressEDR.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>0</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Express EDR</name>
+  <Relationships>
+   <Item type="DiscussionTemplate" id="86AB24B4F7C34DC28BFD279A4BC1A508" action="add">
+    <file_selection_depth>2</file_selection_depth>
+    <item_selection_depth>2</item_selection_depth>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <visibility_supported>1</visibility_supported>
+    <Relationships>
+     <Item type="FeedTemplate" id="0994C98B4764475380D6D2A97AA05B2D" action="add">
+      <feed_type>Board</feed_type>
+      <history_events>Add</history_events>
+      <reference>this</reference>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="86AB24B4F7C34DC28BFD279A4BC1A508" type="DiscussionTemplate">86AB24B4F7C34DC28BFD279A4BC1A508</source_id>
+      <Relationships>
+       <Item type="FileSelectorTemplate" id="8AD4B1D8B1D44A77BA96662640553E56" action="add">
+        <filter>7869D76D50ED4BD4985BECB20B1102F7|992B142FCE6C4EF8B71417220CD7E92D|50AF497B7A114235979F882CEC8EFDF6|8A85DD9A6E0346F5AE423314E3650041</filter>
+        <reference>Express EDR File(related_id)</reference>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="0994C98B4764475380D6D2A97AA05B2D" type="FeedTemplate">0994C98B4764475380D6D2A97AA05B2D</source_id>
+        <tooltip_template xml:lang="en">File ${File:filename} from ${ItemType:label} ${Item:keyed_name}</tooltip_template>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="FeedTemplate" id="D6673317B70F48BBB6D64D42664E65D3" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>Document</polysource_type_name>
+      <reference>&lt;Item type="Express EDR" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="86AB24B4F7C34DC28BFD279A4BC1A508" type="DiscussionTemplate">86AB24B4F7C34DC28BFD279A4BC1A508</source_id>
+     </Item>
+     <Item type="FeedTemplate" id="67BBAE2A966048258F00B69EB51B6C44" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>CAD</polysource_type_name>
+      <reference>&lt;Item type="Express EDR" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="86AB24B4F7C34DC28BFD279A4BC1A508" type="DiscussionTemplate">86AB24B4F7C34DC28BFD279A4BC1A508</source_id>
+     </Item>
+     <Item type="DiscussionTemplateView" id="7B01BB6670654A238C98BCFE7651F6A9" action="add">
+      <client>js</client>
+      <related_id keyed_name="B614374A3275475899199EF5C0A0E4CA" type="SSVCPresentationConfiguration">
+       <Item type="SSVCPresentationConfiguration" id="B614374A3275475899199EF5C0A0E4CA" action="add">
+        <discussion_panel_behavior>discPanelOff</discussion_panel_behavior>
+        <form_tooltip_template xml:lang="en">Form of ${ItemType:label} ${Item:keyed_name}</form_tooltip_template>
+        <sm_template keyed_name="F1E9620C1AB3408588708B68E18D51DE" type="SecureMessageViewTemplate">F1E9620C1AB3408588708B68E18D51DE</sm_template>
+        <name>B614374A3275475899199EF5C0A0E4CA</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="86AB24B4F7C34DC28BFD279A4BC1A508" type="DiscussionTemplate">86AB24B4F7C34DC28BFD279A4BC1A508</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="ITPresentationConfiguration" id="4DEF6FBEC0EA4E128C3F364A9D42AAEF" action="add">
+    <client>js</client>
+    <related_id keyed_name="97B643AB64E14CC3897229C1E22DCF85" type="PresentationConfiguration">97B643AB64E14CC3897229C1E22DCF85</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="Property" id="67D59F1C9C734B528FF29536D08C662B" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Change Reason</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>change_reason</name>
+   </Item>
+   <Item type="Property" id="4D295472DBEC49DD9A4DDF7C81356EE4" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Change Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="83B88E315E1A497D985C934F3041CE93" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_source keyed_name="Express EDR">DAE4EC8DBEB740EC81DAADC496311E7B</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Number</label>
+    <order_by>1</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="8E4A429238944CACA9904A98BD03C73C" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>60</column_width>
+    <data_source keyed_name="Express Change Priorities">15B69C0E360D47FD8B482C1144EF7173</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Priority</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>priority</name>
+   </Item>
+   <Item type="Property" id="BBE78AB7024F4876969C8F676119C9FE" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="AD968E6AC9AA43CDB67F280E3B6D7509" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Title</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <stored_length>60</stored_length>
+    <track_history>0</track_history>
+    <name>title</name>
+   </Item>
+   <Item type="View" id="4C24BDDB5D714904A153EA6BBC80F132" action="add">
+    <client>js</client>
+    <related_id keyed_name="Express EDR" type="Form">02D5E4BBEB0E4CA69A5134DBB1C66C85</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="D6FEF24ECFB64D73844A3A1842BBAB78" action="add">
+    <related_id keyed_name="PE_CompletenessCheck" type="Action">06621636DB7A41B29AD2D6BBF1AB7A61</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="Item Action" id="50D0C803F6E44492BAD4C007F0961394" action="add">
+    <related_id keyed_name="VC_AddItemsToBookmarks" type="Action">FD4D2BE9E2B14919BF1973842A556AFD</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="Item Action" id="30FC2A13143A42B58AF56CEEBA71BBA3" action="add">
+    <related_id keyed_name="EDR Restart" type="Action">E23F3F775B464347B0FFFD9BB1E78E9E</related_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="E85AF033949E463390D34549317C8ED7" action="add">
+    <related_id keyed_name="Express EDR" type="Life Cycle Map">E7663CE00F39465997EED8128F2D195E</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="021C645D531644398C22ACC3606D7707" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Express EDR" type="Workflow Map">D159EB0E227040B8958A891AB706F90D</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="TOC Access" id="7F06C10F802A44719804D1EC5EE65519" action="add">
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Client Event" id="EC6DE3A1653546AAAB417272357BF502" action="add">
+    <client_event>OnAfterNew</client_event>
+    <related_id keyed_name="PE_SetOriginator" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_SetOriginator</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="Client Event" id="EB031B71FA1F4D3FBA0F87F0BD1CC8A4" action="add">
+    <client_event>OnAfterNew</client_event>
+    <related_id keyed_name="PE_SetTeam" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_SetTeam</name>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="Can Add" id="4D09AE934A0244DDB54D62BD9FE142E5" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="8D1EEE3BE5E4418EA1A8CCBFB715264C" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Express Change - New" type="Permission">536B5CB5F11C400F9046ABC2E9F5F64B</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="EA86051664F44D48AE48226ABC4E570E" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='EA86051664F44D48AE48226ABC4E570E' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Change Coordinator</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='EA86051664F44D48AE48226ABC4E570E' and name='state'">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Status</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Express EDR" type="ItemType" name="Express EDR">EA86051664F44D48AE48226ABC4E570E</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

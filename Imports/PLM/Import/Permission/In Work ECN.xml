@@ -1,0 +1,71 @@
+﻿<AML>
+ <Item type="Permission" id="4C4647116F04475794F23B0852715FCE" action="add">
+  <is_private>0</is_private>
+  <name>In Work ECN</name>
+  <Relationships>
+   <Item type="Access" id="0A33249C7EF2405F9DF2800BF2C952CF" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="In Work ECN" type="Permission">4C4647116F04475794F23B0852715FCE</source_id>
+   </Item>
+   <Item type="Access" id="27F95EA298934D9ABF6661A5F79E7119" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Change Implementation Leader" type="Identity">81CFAC7D108C43CDBD5A1C5112020E3F</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="In Work ECN" type="Permission">4C4647116F04475794F23B0852715FCE</source_id>
+   </Item>
+   <Item type="Access" id="2C23C44C8CC345F09CD012B9494E86A8" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Manager" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Manager</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="In Work ECN" type="Permission">4C4647116F04475794F23B0852715FCE</source_id>
+   </Item>
+   <Item type="Access" id="9AA2882D8F6A4612A44678EBF6BCB9E1" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="In Work ECN" type="Permission">4C4647116F04475794F23B0852715FCE</source_id>
+   </Item>
+   <Item type="Access" id="A5F705A9450A4A00B25C663A0B016769" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="In Work ECN" type="Permission">4C4647116F04475794F23B0852715FCE</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,645 @@
+﻿<AML>
+ <Item type="ItemType" id="BFAAB0F6838D4F80BF12CB328FF5B097" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>1</auto_search>
+  <close_icon>../images/AffectedItem.svg</close_icon>
+  <default_page_size>25</default_page_size>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>AFFECTED_ITEM</instance_data>
+  <is_dependent>1</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Affected Item</label>
+  <label_plural xml:lang="en">Affected Items</label_plural>
+  <large_icon>../images/AffectedItem.svg</large_icon>
+  <open_icon>../images/AffectedItem.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Affected Item</name>
+  <Relationships>
+   <Item type="Property" id="0B5961440D414B70A0D576593A0A98CB" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>70</column_width>
+    <data_source keyed_name="Affected Item Actions">5C72C69E1762447FAB17F8AD2B3F5DFC</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Action</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>action</name>
+    <Relationships>
+     <Item type="Grid Event" id="6FF6F2FD5A1340CEB591C42F67420A62" action="add">
+      <grid_event>onchangecell</grid_event>
+      <related_id keyed_name="PE_AffectedItemGridHandler" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_AffectedItemGridHandler</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="action" type="Property">0B5961440D414B70A0D576593A0A98CB</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Property" id="E673F552428B49E2A36944803C2D943C" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_source keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>1</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>fixed</item_behavior>
+    <label xml:lang="en">Old Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>affected_id</name>
+    <Relationships>
+     <Item type="Grid Event" id="74DCFF022CC5439682F8BDEDDDF072F9" action="add">
+      <grid_event>onchangecell</grid_event>
+      <related_id keyed_name="checkAffectedType" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>checkAffectedType</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="affected_id" type="Property">E673F552428B49E2A36944803C2D943C</source_id>
+     </Item>
+     <Item type="Grid Event" id="B55A401058514A68BC71BDCAC05DF5EC" action="add">
+      <grid_event>onchangecell</grid_event>
+      <related_id keyed_name="restrictAffectedType" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>restrictAffectedType</name>
+       </Item>
+      </related_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="affected_id" type="Property">E673F552428B49E2A36944803C2D943C</source_id>
+     </Item>
+     <Item type="Grid Event" id="1614FCE51809425D90D168DD6CBECFE9" action="add">
+      <grid_event>oneditstart</grid_event>
+      <related_id keyed_name="PE_AffectedItemGridHandler" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_AffectedItemGridHandler</name>
+       </Item>
+      </related_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="affected_id" type="Property">E673F552428B49E2A36944803C2D943C</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Property" id="5B6FED3F6EE842ECA85EA48293E4BA9C" action="add">
+    <column_alignment>center</column_alignment>
+    <column_width>70</column_width>
+    <data_source>
+     <Item type="Property" action="get" select="id">
+      <name>affected_id</name>
+      <source_id>BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+     </Item>
+    </data_source>
+    <data_type>foreign</data_type>
+    <foreign_property>
+     <Item type="Property" action="get" select="id">
+      <keyed_name>major_rev</keyed_name>
+      <source_id>
+       <Item type="ItemType" action="get" select="id">
+        <name>Change Controlled Item</name>
+       </Item>
+      </source_id>
+     </Item>
+    </foreign_property>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Old Revision</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>affected_rev</name>
+   </Item>
+   <Item type="Property" id="AC171595E70F4FD0BD801FCB5005B7C0" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>40</column_width>
+    <data_type>federated</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>affected_type</name>
+   </Item>
+   <Item type="Property" id="FD4BBB685C804ECB97BAC94DC44DA534" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Effective Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>effective_date</name>
+   </Item>
+   <Item type="Property" id="C9752E16B19E4A029BB90917C74E1BCF" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>90</column_width>
+    <data_source keyed_name="Affected Item Disposition">4F0EABD6883348A5BF3CD4C6AAA2873D</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">In Build</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>in_build_disposition</name>
+    <Relationships>
+     <Item type="Grid Event" id="5ABBB55CD56B4F67BD6E71582346F8F9" action="add">
+      <grid_event>oneditstart</grid_event>
+      <related_id keyed_name="PE_AffectedItemGridHandler" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_AffectedItemGridHandler</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="in_build_disposition" type="Property">C9752E16B19E4A029BB90917C74E1BCF</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Property" id="0EF6B03DCBDD4E7697AC452CA40E7F11" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>90</column_width>
+    <data_source keyed_name="Affected Item Disposition">4F0EABD6883348A5BF3CD4C6AAA2873D</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">In Service</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>in_service_disposition</name>
+    <Relationships>
+     <Item type="Grid Event" id="EF225E4D110142F2B3E248DB46FF182D" action="add">
+      <grid_event>oneditstart</grid_event>
+      <related_id keyed_name="PE_AffectedItemGridHandler" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_AffectedItemGridHandler</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="in_service_disposition" type="Property">0EF6B03DCBDD4E7697AC452CA40E7F11</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Property" id="309CB6C09A3542F49E77BC5E13C20C16" action="add">
+    <column_alignment>center</column_alignment>
+    <column_width>90</column_width>
+    <data_type>boolean</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Interchangeable</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>interchangeable</name>
+    <Relationships>
+     <Item type="Grid Event" id="ABF35636188F4223AAB60C87F639646D" action="add">
+      <grid_event>oneditstart</grid_event>
+      <related_id keyed_name="PE_AffectedItemGridHandler" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_AffectedItemGridHandler</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="interchangeable" type="Property">309CB6C09A3542F49E77BC5E13C20C16</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Property" id="6D86F636B0834917A46440C9DBB55B5E" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Is</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>is_condition</name>
+   </Item>
+   <Item type="Property" id="0191884D116244CA8F71133AB63290DF" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Extended Affected Item Actions">50AB0A69063D4AFBA7E4CADFDD444C8A</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>0</keyed_name_order>
+    <label xml:lang="en">Item Action</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>257</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>item_action</name>
+   </Item>
+   <Item type="Property" id="B0C0850295AF4552BE828B932A0A4D8E" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_source keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>1</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>fixed</item_behavior>
+    <label xml:lang="en">New Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>new_item_id</name>
+    <Relationships>
+     <Item type="Grid Event" id="F6B9EF2DB7FF465BB91C060593D99C37" action="add">
+      <grid_event>onchangecell</grid_event>
+      <related_id keyed_name="checkAffectedType" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>checkAffectedType</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="new_item_id" type="Property">B0C0850295AF4552BE828B932A0A4D8E</source_id>
+     </Item>
+     <Item type="Grid Event" id="BECA25883E384FC0A6C0516A25B34BC4" action="add">
+      <grid_event>onchangecell</grid_event>
+      <related_id keyed_name="PE_AffectedItemGridHandler" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_AffectedItemGridHandler</name>
+       </Item>
+      </related_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="new_item_id" type="Property">B0C0850295AF4552BE828B932A0A4D8E</source_id>
+     </Item>
+     <Item type="Grid Event" id="EAF66276510447CC9A1F11BD8555FBA3" action="add">
+      <grid_event>onchangecell</grid_event>
+      <related_id keyed_name="restrictAffectedType" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>restrictAffectedType</name>
+       </Item>
+      </related_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="new_item_id" type="Property">B0C0850295AF4552BE828B932A0A4D8E</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Property" id="98163F17A1E949ECAF48FA38CEEEE222" action="add">
+    <column_alignment>center</column_alignment>
+    <column_width>75</column_width>
+    <data_source>
+     <Item type="Property" action="get" select="id">
+      <name>new_item_id</name>
+      <source_id>BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+     </Item>
+    </data_source>
+    <data_type>foreign</data_type>
+    <foreign_property>
+     <Item type="Property" action="get" select="id">
+      <keyed_name>major_rev</keyed_name>
+      <source_id>
+       <Item type="ItemType" action="get" select="id">
+        <name>Change Controlled Item</name>
+       </Item>
+      </source_id>
+     </Item>
+    </foreign_property>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">New Revision</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>new_item_rev</name>
+   </Item>
+   <Item type="Property" id="98CECEF1B2554FB5960B9F695AD6282E" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source>
+     <Item type="Property" action="get" select="id">
+      <name>new_item_id</name>
+      <source_id>BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+     </Item>
+    </data_source>
+    <data_type>foreign</data_type>
+    <foreign_property>
+     <Item type="Property" action="get" select="id">
+      <keyed_name>release_date</keyed_name>
+      <source_id>
+       <Item type="ItemType" action="get" select="id">
+        <name>Change Controlled Item</name>
+       </Item>
+      </source_id>
+     </Item>
+    </foreign_property>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>new_release_date</name>
+   </Item>
+   <Item type="Property" id="6D6CADE8687C486A89EF4D3733979B3E" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="RelationshipType" type="ItemType" name="RelationshipType">471932C33B604C3099070F4106EE5024</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">RelationshipType</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>relationshiptype</name>
+   </Item>
+   <Item type="Property" id="1C86293A5DBD4E89B5C2C23A62A0AF1C" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="5043E7E47E084032AA130B03A51D29BF" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Planned Release Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>release_date_plan</name>
+   </Item>
+   <Item type="Property" id="113B5BEE95F74C278451DCFFF9AA27DE" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Was</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>was_condition</name>
+   </Item>
+   <Item type="View" id="5669686649C844BBAFAC2FA2B5C0E5FC" action="add">
+    <client>js</client>
+    <related_id keyed_name="Affected Item" type="Form">B1364B03CD9A4E89A1D1D9B674F5CEEB</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="32DF0F88DD514AA999969296070EF0CA" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_ChangeItemFloatNewItem" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_ChangeItemFloatNewItem</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterAdd</server_event>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Server Event" id="225B82D7E06442798A9A38E2EE3A7127" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2_SetPlanRelEffDates" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2_SetPlanRelEffDates</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterAdd</server_event>
+    <sort_order>3</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Server Event" id="2DE4BD132B0A4789BE1131C9A669DDF3" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_update_has_change_pending" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_update_has_change_pending</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterUpdate</server_event>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Server Event" id="D5047D9A4C004BC4B2C186A3CB85F646" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_ChangeItemFloatNewItem" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_ChangeItemFloatNewItem</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterUpdate</server_event>
+    <sort_order>2</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Server Event" id="93E80D3BA2D04D4DA4A6FF730EB566A7" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2_SetPlanRelEffDates" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2_SetPlanRelEffDates</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterUpdate</server_event>
+    <sort_order>3</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Server Event" id="4EC13D2179824343941ACCBA4A15B1B2" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="checkAffectedTypeOnServer" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>checkAffectedTypeOnServer</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Server Event" id="CA8D4AF4FA074371BA9310C5A08B0ABA" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="checkAffectedTypeOnServer" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>checkAffectedTypeOnServer</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Server Event" id="C8C32FD5F1B341D6B41B3C38DFA307AD" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_update_has_change_pending" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_update_has_change_pending</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>2</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="EDC06A18B09D4E7F87EE1107F0A29004" action="add">
+    <related_id keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="TOC Access" id="C5CA9FF9949E4A74B678524310022F5C" action="add">
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Can Add" id="D1120FD2C7AE4E3D8A9C23D66DE33DF1" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="5B28DBDBA81248109F0750DC08A10103" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="New Affected Item" type="Permission">1712BEEB88234763B5E431015F9CFD2D</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

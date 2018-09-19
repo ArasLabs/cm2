@@ -1,0 +1,75 @@
+﻿<AML>
+ <Item type="Method" id="3C94A5C69BF34409871D4477307DBFA4" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// CM2 CN WF Assign
+// Purpose: Sets assignments at specific activities on the CM2 IR workflow
+
+Aras.Server.Security.Identity plmIdentity = Aras.Server.Security.Identity.GetByName("Aras PLM");
+bool PermissionWasSet  = Aras.Server.Security.Permissions.GrantIdentity(plmIdentity);
+
+Innovator inn = this.getInnovator();
+
+// Get the controlled item
+Item controlledItem = this.newItem(this.getAttribute("type"), "Get_Controlled_Item");
+controlledItem.setID(this.getID());
+controlledItem = controlledItem.apply();
+
+if (controlledItem.getItemCount() != 1)
+{
+	return inn.newError("Error retrieving the controlled item. Make sure it is not locked:"  + controlledItem.getErrorString());
+}
+
+string controlledItemID = controlledItem.getID();
+string controlledItemType = controlledItem.getAttribute("type"); 
+
+string activityName = this.getProperty("name");
+string assigneeID = "";
+switch(activityName)
+{
+	case "CN Planning":
+	case "Implement Change":
+    	if (this.getProperty("fast_track","0") == "1")
+    	{
+    		assigneeID = controlledItem.getProperty("owned_by_id","");
+    	}
+    	else {
+    		assigneeID = controlledItem.getProperty("managed_by_id","");
+    	}
+    	break;
+	
+	case "CN Audit":
+    	assigneeID = controlledItem.getProperty("ara_id","");
+    	if (assigneeID == "")
+    	{
+    		assigneeID = controlledItem.getProperty("managed_by_id","");
+    	}
+    	break;
+	
+	default:
+    	break;
+}
+
+if (assigneeID == "")
+{
+	return inn.newError("Error: No assignees found for next workflow activity.");
+}
+
+Item assignment = this.newItem("Activity Assignment","add");
+assignment.setPropertyAttribute("locked_by_id", "is_null","1");
+assignment.setProperty("source_id", this.getID()); 
+assignment.setProperty("related_id", assigneeID); 
+assignment.setProperty("voting_weight", "100"); 
+assignment.setProperty("for_all_members", "0"); 
+Item result = assignment.apply(); 
+
+if (result.isError() || assigneeID == "")
+{
+	return inn.newError("Workflow Assignment: Error adding assignment: " + result.getErrorString());
+}
+
+if (PermissionWasSet) Aras.Server.Security.Permissions.RevokeIdentity(plmIdentity);
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>CM2 CN WF Assign</name>
+ </Item>
+</AML>

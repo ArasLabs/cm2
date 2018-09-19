@@ -1,0 +1,363 @@
+﻿<AML>
+ <Item type="ItemType" id="CBA93BEFFB4F499CAF122CB79E204983" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <close_icon>../images/ExpressECO.svg</close_icon>
+  <default_page_size>50</default_page_size>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>EXPRESS_ECO</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">ECO</label>
+  <label_plural xml:lang="en">ECOs</label_plural>
+  <large_icon>../images/ExpressECO.svg</large_icon>
+  <open_icon>../images/ExpressECO.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>0</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Express ECO</name>
+  <Relationships>
+   <Item type="DiscussionTemplate" id="B67B5708111548449D2358C38544C1D4" action="add">
+    <file_selection_depth>2</file_selection_depth>
+    <item_selection_depth>2</item_selection_depth>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <visibility_supported>1</visibility_supported>
+    <Relationships>
+     <Item type="FeedTemplate" id="C99A604502FC4165ACF1F5F2C7B577D4" action="add">
+      <feed_type>Board</feed_type>
+      <history_events>Add</history_events>
+      <reference>this</reference>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="B67B5708111548449D2358C38544C1D4" type="DiscussionTemplate">B67B5708111548449D2358C38544C1D4</source_id>
+      <Relationships>
+       <Item type="FileSelectorTemplate" id="C759995303894921BD31102C18CE6731" action="add">
+        <filter>7869D76D50ED4BD4985BECB20B1102F7|992B142FCE6C4EF8B71417220CD7E92D|50AF497B7A114235979F882CEC8EFDF6|8A85DD9A6E0346F5AE423314E3650041</filter>
+        <reference>Express ECO File(related_id)</reference>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="C99A604502FC4165ACF1F5F2C7B577D4" type="FeedTemplate">C99A604502FC4165ACF1F5F2C7B577D4</source_id>
+        <tooltip_template xml:lang="en">File ${File:filename} from ${ItemType:label} ${Item:keyed_name}</tooltip_template>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="FeedTemplate" id="AAD894433D7A48B3B2E66D07C4C3B967" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>Part</polysource_type_name>
+      <reference>&lt;Item type="Express ECO" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="B67B5708111548449D2358C38544C1D4" type="DiscussionTemplate">B67B5708111548449D2358C38544C1D4</source_id>
+     </Item>
+     <Item type="FeedTemplate" id="C3CCB688232F4CFAB4CBCC4CEE6B9D6B" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>Document</polysource_type_name>
+      <reference>&lt;Item type="Express ECO" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="B67B5708111548449D2358C38544C1D4" type="DiscussionTemplate">B67B5708111548449D2358C38544C1D4</source_id>
+     </Item>
+     <Item type="FeedTemplate" id="55160198485542B08D20F4E20F38F766" action="add">
+      <feed_type>Discussion</feed_type>
+      <polysource_type_name>CAD</polysource_type_name>
+      <reference>&lt;Item type="Express ECO" id="${id}" action="VC_GetAffectedControlItems"/&gt;</reference>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="B67B5708111548449D2358C38544C1D4" type="DiscussionTemplate">B67B5708111548449D2358C38544C1D4</source_id>
+     </Item>
+     <Item type="FeedTemplate" id="188403850C1D4CCCB26BAC64D00CD36D" action="add">
+      <feed_type>Board</feed_type>
+      <reference>&lt;Item type="Express EDR" action="get"&gt;
+  &lt;id condition="in"&gt;SELECT related_id FROM [Express_ECO_EDR] WHERE source_id='${id}'&lt;/id&gt;
+&lt;/Item&gt;</reference>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="B67B5708111548449D2358C38544C1D4" type="DiscussionTemplate">B67B5708111548449D2358C38544C1D4</source_id>
+      <Relationships>
+       <Item type="FileSelectorTemplate" id="6EC3ACFEC71244E8A3618508B657B146" action="add">
+        <filter>7869D76D50ED4BD4985BECB20B1102F7|992B142FCE6C4EF8B71417220CD7E92D|50AF497B7A114235979F882CEC8EFDF6|8A85DD9A6E0346F5AE423314E3650041</filter>
+        <reference>Express EDR File(related_id)</reference>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="188403850C1D4CCCB26BAC64D00CD36D" type="FeedTemplate">188403850C1D4CCCB26BAC64D00CD36D</source_id>
+        <tooltip_template xml:lang="en">File ${File:filename} from ${ItemType:label} ${Item:keyed_name}</tooltip_template>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="DiscussionTemplateView" id="734C0A4D32B444C48C77792F4D5B55F9" action="add">
+      <client>js</client>
+      <related_id keyed_name="45466D6EEE9A484FB99D6414A8A5181E" type="SSVCPresentationConfiguration">
+       <Item type="SSVCPresentationConfiguration" id="45466D6EEE9A484FB99D6414A8A5181E" action="add">
+        <discussion_panel_behavior>discPanelOff</discussion_panel_behavior>
+        <form_tooltip_template xml:lang="en">Form of ${ItemType:label} ${Item:keyed_name}</form_tooltip_template>
+        <sm_template keyed_name="F1E9620C1AB3408588708B68E18D51DE" type="SecureMessageViewTemplate">F1E9620C1AB3408588708B68E18D51DE</sm_template>
+        <name>45466D6EEE9A484FB99D6414A8A5181E</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="B67B5708111548449D2358C38544C1D4" type="DiscussionTemplate">B67B5708111548449D2358C38544C1D4</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="ITPresentationConfiguration" id="C865BE3A9114450C9F1A0614B41EE649" action="add">
+    <client>js</client>
+    <related_id keyed_name="550064B347CB47DF9DAEDFD79F1CA08B" type="PresentationConfiguration">550064B347CB47DF9DAEDFD79F1CA08B</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="Property" id="99FCA9FF7F1545319CBE06FEDD2A7AB2" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Effective Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <track_history>0</track_history>
+    <name>change_effective_date</name>
+   </Item>
+   <Item type="Property" id="D4F353233AE94203823277CC4FC3E60F" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Change Reason</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>change_reason</name>
+   </Item>
+   <Item type="Property" id="5C117EEB58D24CA28630BE843EB783AB" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Change Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="B99D6ED3AC5B44D78E5DD44DF7C2967A" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_source keyed_name="Express ECO">CA27D5C761E74642A5ED05E0E94802CE</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Number</label>
+    <order_by>1</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="F25866042E314D51B7EA41CA091DDBF9" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>60</column_width>
+    <data_source keyed_name="Express Change Priorities">15B69C0E360D47FD8B482C1144EF7173</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Priority</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>priority</name>
+   </Item>
+   <Item type="Property" id="67DA7FCF2435464898BC14B5004AB077" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="3331031F4E684E6BA3126ECA50D88384" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Title</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <stored_length>80</stored_length>
+    <track_history>0</track_history>
+    <name>title</name>
+   </Item>
+   <Item type="View" id="D816423D27934106AF093073D7B96911" action="add">
+    <client>js</client>
+    <related_id keyed_name="Express ECO" type="Form">56C7489AA6924BD19A3E0D68BBE94421</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="3A9770195E144A2787B11DE459B8455C" action="add">
+    <related_id keyed_name="PE_CompletenessCheck" type="Action">06621636DB7A41B29AD2D6BBF1AB7A61</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="Item Action" id="715B196D09224D46AC49DE0FD4D5DB94" action="add">
+    <related_id keyed_name="VC_AddItemsToBookmarks" type="Action">FD4D2BE9E2B14919BF1973842A556AFD</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="54D48DABBA234758B36BC0FFF83ACB09" action="add">
+    <related_id keyed_name="Express ECO" type="Life Cycle Map">A84D251567A0468F98159E04EE8CDFA5</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="46C934A8D41843DE9EFF9A77FEB19548" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Express ECO" type="Workflow Map">B0AB68FF8F014E379D17F0C1A426AD25</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="TOC Access" id="762F6A213BAA44408431C46BB00B8700" action="add">
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Client Event" id="21BB102AAE2B43D3A7A236A02CD17318" action="add">
+    <client_event>OnAfterNew</client_event>
+    <related_id keyed_name="PE_SetOriginator" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_SetOriginator</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="Client Event" id="EB2F6C8EE7A84B8B836B087A16352758" action="add">
+    <client_event>OnAfterNew</client_event>
+    <related_id keyed_name="PE_SetTeam" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_SetTeam</name>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="Can Add" id="A9140CDF4E934940844725F6551A0DF7" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="7CCFA78576604F1C84EDA59155E81B5F" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Express Change - New" type="Permission">536B5CB5F11C400F9046ABC2E9F5F64B</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="CBA93BEFFB4F499CAF122CB79E204983" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='CBA93BEFFB4F499CAF122CB79E204983' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Change Coordinator</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CBA93BEFFB4F499CAF122CB79E204983' and name='state'">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Status</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Express ECO" type="ItemType" name="Express ECO">CBA93BEFFB4F499CAF122CB79E204983</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,348 @@
+﻿<AML>
+ <Item type="Form" id="0E6A0FF10A7D4AC9A38A5D8518E7C2AF" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>CM2 Incident</name>
+  <Relationships>
+   <Item type="Body" id="C5DCFC82997049ADAD5249194B5416E9" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Incident" type="Form">0E6A0FF10A7D4AC9A38A5D8518E7C2AF</source_id>
+    <Relationships>
+     <Item type="Field" id="CC79ADB16DA74F8594313FB3DC6FE52C" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>class structure</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Type</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>128</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>340</x>
+      <y>10</y>
+      <name>classification</name>
+     </Item>
+     <Item type="Field" id="EF491BB9B8BE419580F9A3DDF7D9478D" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Reported By</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>640</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>660</x>
+      <y>10</y>
+      <name>created_by_id</name>
+     </Item>
+     <Item type="Field" id="D21D7E2B073D45E88F8F928B0B486C36" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>date</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Created On</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>512</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>480</x>
+      <y>10</y>
+      <name>created_on</name>
+     </Item>
+     <Item type="Field" id="DBE9F73899AA4B55A1F43FBB28B918A0" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Description</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="description" type="Property">60C48E12D0DF4F6ABC238C4AE58DCFE5</propertytype_id>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>3328</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>350</textarea_cols>
+      <textarea_rows>50</textarea_rows>
+      <x>200</x>
+      <y>130</y>
+      <name>description</name>
+     </Item>
+     <Item type="Field" id="9829F0C565BB468CADBBE9E856D25B6E" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Investigation</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="investigation" type="Property">D0755ADA43194379BC14D382FFC907DD</propertytype_id>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>3840</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>350</textarea_cols>
+      <textarea_rows>50</textarea_rows>
+      <x>200</x>
+      <y>210</y>
+      <name>investigation</name>
+     </Item>
+     <Item type="Field" id="C20185D129084272ADACBAEA67D5B123" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="3DC724173A754CE287EC95E7D23822E0" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Incident Number</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="item_number" type="Property">86646C352B40433C8C700596AE0FAA8A</propertytype_id>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>200</x>
+      <y>10</y>
+      <name>item_number</name>
+     </Item>
+     <Item type="Field" id="D014AE0A52AE4FD6907511F4E7AFDFF2" action="add">
+      <border_width>0</border_width>
+      <display_length>200</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Incident Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="name" type="Property">73D8BA044A2B4A75B20B5A0BB44963C4</propertytype_id>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>3200</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>200</x>
+      <y>90</y>
+      <name>name</name>
+     </Item>
+     <Item type="Field" id="56DF80F19C6A450AB974EBDADA571BF4" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Incident Owner</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>768</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>200</x>
+      <y>50</y>
+      <name>owned_by_id</name>
+     </Item>
+     <Item type="Field" id="923F610260124A56A94884520A7CF117" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Priority</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="priority" type="Property">F4361026365B48548B497E6909B7B8DF</propertytype_id>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>3712</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>580</x>
+      <y>50</y>
+      <name>priority</name>
+     </Item>
+     <Item type="Field" id="B4D80A69C79B476C98968329C8E2DA1C" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Severity</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="severity" type="Property">D4B7B033C2DB440884E3D01ABAFBE14C</propertytype_id>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>3584</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>480</x>
+      <y>50</y>
+      <name>severity</name>
+     </Item>
+     <Item type="Field" id="0E1B370587D6424186BF3A1B718DEFDA" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Source</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="source" type="Property">97A26F79DDCE44E98E7CA5763823F32A</propertytype_id>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>3456</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>360</x>
+      <y>50</y>
+      <name>source</name>
+     </Item>
+     <Item type="Field" id="B4DE462E179B4EA786F71EFE8B18D10E" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">state</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="C5DCFC82997049ADAD5249194B5416E9" type="Body">C5DCFC82997049ADAD5249194B5416E9</source_id>
+      <tab_index>1408</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>830</x>
+      <y>10</y>
+      <name>state</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="Field" id="CC79ADB16DA74F8594313FB3DC6FE52C" action="edit">
+  <!-- Please note: this AML depends on the "CM2 Incident" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>classification</name>
+    <source_id type="ItemType" keyed_name="CM2 Incident">C522A937F22247F997543CA11DCAE859</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="EF491BB9B8BE419580F9A3DDF7D9478D" action="edit">
+  <!-- Please note: this AML depends on the "CM2 Incident" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>created_by_id</name>
+    <source_id type="ItemType" keyed_name="CM2 Incident">C522A937F22247F997543CA11DCAE859</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="D21D7E2B073D45E88F8F928B0B486C36" action="edit">
+  <!-- Please note: this AML depends on the "CM2 Incident" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>created_on</name>
+    <source_id type="ItemType" keyed_name="CM2 Incident">C522A937F22247F997543CA11DCAE859</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="56DF80F19C6A450AB974EBDADA571BF4" action="edit">
+  <!-- Please note: this AML depends on the "CM2 Incident" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>owned_by_id</name>
+    <source_id type="ItemType" keyed_name="CM2 Incident">C522A937F22247F997543CA11DCAE859</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="B4DE462E179B4EA786F71EFE8B18D10E" action="edit">
+  <!-- Please note: this AML depends on the "CM2 Incident" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>state</name>
+    <source_id type="ItemType" keyed_name="CM2 Incident">C522A937F22247F997543CA11DCAE859</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+</AML>

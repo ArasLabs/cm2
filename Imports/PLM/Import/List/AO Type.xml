@@ -1,0 +1,31 @@
+﻿<AML>
+ <Item type="List" id="FBEDA6BE6AE549BAB28ADD09DC937E13" action="add">
+  <name>AO Type</name>
+  <Relationships>
+   <Item type="Value" id="3CE2241D0CDB40828BF089CE371D3C26" action="add">
+    <label xml:lang="en">Purchase Order</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="AO Type" type="List">FBEDA6BE6AE549BAB28ADD09DC937E13</source_id>
+    <value>Purchase Order</value>
+   </Item>
+   <Item type="Value" id="D16EE91ABA6D45B5BF04C8E935979262" action="add">
+    <label xml:lang="en">Shop Order</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="AO Type" type="List">FBEDA6BE6AE549BAB28ADD09DC937E13</source_id>
+    <value>Shop Order</value>
+   </Item>
+   <Item type="Value" id="833888E7DDD6497985E99718C9EC00AA" action="add">
+    <label xml:lang="en">Test Order</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="AO Type" type="List">FBEDA6BE6AE549BAB28ADD09DC937E13</source_id>
+    <value>Test Order</value>
+   </Item>
+   <Item type="Value" id="BE5614B0A82A417B8AFCEC1699395CC1" action="add">
+    <label xml:lang="en">Modification Order</label>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="AO Type" type="List">FBEDA6BE6AE549BAB28ADD09DC937E13</source_id>
+    <value>Modification Order</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

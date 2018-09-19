@@ -1,0 +1,41 @@
+<AML>
+ <Item type="ItemType" id="CD84AA40803F444CBF06843D26F6EC6A" action="add">
+  <name>PE_Waiver</name>
+  <Relationships>
+   <Item type="Property" id="5DEDC9F7D29B4FAAB872A37C813D3A89" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="C8C793E2B8314DDF9D71F60E54016DB9" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Planned Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>release_date_plan</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

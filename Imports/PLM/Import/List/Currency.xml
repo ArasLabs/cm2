@@ -1,0 +1,25 @@
+﻿<AML>
+ <Item type="List" id="D6E6EB783356462D84B992716C9AEC8D" action="add">
+  <name>Currency</name>
+  <Relationships>
+   <Item type="Value" id="A125496B254A4C7AA267BF809564BC10" action="add">
+    <label xml:lang="en">USD</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Currency" type="List">D6E6EB783356462D84B992716C9AEC8D</source_id>
+    <value>USD</value>
+   </Item>
+   <Item type="Value" id="ECE046C80E6945D08C7A528FC0E7599A" action="add">
+    <label xml:lang="en">Euro</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Currency" type="List">D6E6EB783356462D84B992716C9AEC8D</source_id>
+    <value>Euro</value>
+   </Item>
+   <Item type="Value" id="4FE912A596914539965B63F13152E961" action="add">
+    <label xml:lang="en">CAD</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Currency" type="List">D6E6EB783356462D84B992716C9AEC8D</source_id>
+    <value>CAD</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

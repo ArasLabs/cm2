@@ -1,0 +1,259 @@
+﻿<AML>
+ <Item type="Method" id="03DBA4095E9A4E57A69471F44C287EC9" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// PE_AddChangeItem
+// Adds a change item (PR, ECR, ECN, ECO or MCO) client-side and attaches the specified items
+//  as affected.  The incoming dom should be an item or item collection to attach to the new change
+//  item. The change item type should be specified as an attribute on the first item.
+
+// Load the incoming dom into a new item
+var thisItem = this.newItem("", "");
+thisItem.loadAML(this.dom.xml);
+
+// Get the desired change item from the ChangeItem attribute
+var changeType = thisItem.getItemByIndex(0).getAttribute("ChangeItem", "");
+var changeItemName = thisItem.getItemByIndex(0).getAttribute("ChangeItemName", "");
+
+var changeItem = CreateChangeItem(changeType, changeItemName);
+
+if(changeItem.SetData(thisItem))
+{
+  changeItem.Show();
+}
+
+function CreateChangeItem(typeName, instanceName)
+{
+	var item;
+	if (instanceName)
+	{
+		item = top.aras.getItemByKeyedName(typeName, instanceName);
+	}
+	else
+	{
+		// Do a client-side add of the change item. The new item will not be in the database until the user saves it
+		item = top.aras.newItem(typeName);
+		top.aras.itemsCache.addItem(item);
+	}
+
+	function ChangeItem(item)
+	{
+		this.Item = item;
+	}
+
+	ChangeItem.prototype.SetData = function ChangeItem_SetData(dataItem)
+	{
+	  var isTemp = top.aras.isTempEx(this.Item);
+	  
+	  if(isTemp)
+	  {
+	    return true;
+	  }
+	
+	  var isLocked = top.aras.isLocked(this.Item);
+	  
+	  if(isLocked)
+	  {
+	    var isLockedByUser = top.aras.isLockedByUser(this.Item);
+	    if(!isLockedByUser)
+	    {
+	      top.aras.AlertError(top.aras.getResource("PLM", "pe_change_management.locked_by_another", top.aras.getKeyedNameEx(this.Item)));
+	      return false;
+	    }
+	    else
+	    {
+	      return true;
+	    }
+	  }
+	  else
+	  {
+	    var lockItemEx = top.aras.lockItemEx(this.Item);
+	    if(!lockItemEx)
+		{
+		  return false;
+		}
+		this.Item = lockItemEx;
+	  }
+	  
+	  return true;
+	}
+
+	ChangeItem.prototype.Show = function ChangeItem_Show()
+	{
+	    top.aras.uiReShowItemEx(this.Item.getAttribute("id"), this.Item, "tab view");
+	    top.aras.uiShowItemEx(this.Item, "tab view");
+	}
+
+	//+PR ***********************************************************
+	function PRChangeItem(item)
+	{
+		this.Item = item;
+	}
+
+	PRChangeItem.prototype = new ChangeItem();
+
+	PRChangeItem.prototype.SetData = function PRChangeItem_SetData(dataItem)
+	{
+		if(!ChangeItem.prototype.SetData.call(this, dataItem))
+		{
+		  return false;
+		}
+		
+		// PRs may have only one affected item, so return an error if more than one is passed
+		if (dataItem.getItemCount() > 1)
+		{
+			top.aras.AlertError(top.aras.getResource("PLM", "pe_change_management.onlyone_affected_item"));
+			return false;
+		}
+
+		var affected_item = top.aras.getItemProperty(this.Item, "affected_item");
+
+		if (affected_item)
+		{
+			top.aras.AlertError(top.aras.getResource("PLM", "pe_change_management.affected_item_already_exist"));
+			return false;
+		}
+
+		// Set the affected_item property
+		top.aras.setItemProperty(this.Item, "affected_item", dataItem.getItemByIndex(0).node);
+		
+		return true;
+	}
+
+	PRChangeItem.prototype.Show = function PRChangeItem_Show()
+	{
+		ChangeItem.prototype.Show.call(this);
+	}
+	//-PR ***********************************************************
+
+	//+MCO **********************************************************
+	function MCOChangeItem(item)
+	{
+		this.Item = item;
+	}
+
+	MCOChangeItem.prototype = new ChangeItem();
+
+	MCOChangeItem.prototype.SetData = function MCOChangeItem_SetData(dataItem)
+	{
+		if(!ChangeItem.prototype.SetData.call(this, dataItem))
+		{
+		  return false;
+		}
+		
+		// Create a new Simple MCO Part relationship for each passed item
+		var mcoPartRelId = top.aras.getItemFromServerByName("RelationshipType", "Simple MCO Part", "id").node.getAttribute('id');
+		for (var j = 0; j < dataItem.getItemCount(); j++)
+		{
+			var mcoPartRel = top.aras.newRelationship(mcoPartRelId, this.Item);
+			top.aras.setItemProperty(mcoPartRel, "related_id", dataItem.getItemByIndex(j).node);
+		}
+		
+		return true;
+	}
+
+	MCOChangeItem.prototype.Show = function MCOChangeItem_Show()
+	{
+		ChangeItem.prototype.Show.call(this);
+	}
+	//-MCO **********************************************************
+
+	//+Generic ******************************************************
+	function GenericChangeItem(item)
+	{
+		this.Item = item;
+	}
+
+	GenericChangeItem.prototype = new ChangeItem();
+
+	GenericChangeItem.prototype.SetData = function GenericChangeItem_SetData(dataItem)
+	{
+		if(!ChangeItem.prototype.SetData.call(this, dataItem))
+		{
+		  return false;
+		}
+		
+		var changeType = this.Item.getAttribute("type");
+		// Create a new Affected Item relationship for each passed item
+		var typeID = top.aras.getItemFromServerByName("RelationshipType", changeType + " Affected Item", "id").node.getAttribute('id');
+
+		for (var i = 0; i < dataItem.getItemCount(); i++)
+		{
+			var addItem = dataItem.getItemByIndex(i).node;
+			var state = top.aras.getItemProperty(addItem, "state", "");
+
+			// Set the default Affected Item action based on the state of the item
+			var action;
+			var prop;
+
+			if (changeType != "Express ECO")
+			{
+				if (state == "Released")
+				{
+					action = "Change";
+					prop = "affected_id";
+				}
+				else
+				{
+					action = "Add";
+					prop = "new_item_id";
+				}
+				prop_action = "action";
+			}
+			else
+			{
+				prop_action = "item_action";
+				action = "Review";
+				if (state == "Preliminary")
+				{
+					prop = "new_item_id";
+				}
+				else
+				{
+					prop = "affected_id"
+				}
+			}
+debugger;
+			var affItemRel = top.aras.newRelationship(typeID, this.Item);
+			var affItem = top.aras.newItem("Affected Item");
+
+			top.aras.setItemProperty(affItem, prop_action, action);
+			top.aras.setItemProperty(affItem, prop, addItem);
+			top.aras.setItemPropertyAttribute(affItem, prop, "keyed_name", top.aras.getKeyedNameEx(addItem))
+
+			top.aras.setItemProperty(affItemRel, "related_id", affItem);
+		}
+		
+		return true;
+	}
+
+	GenericChangeItem.prototype.Show = function GenericChangeItem_Show()
+	{
+		ChangeItem.prototype.Show.call(this);
+	}
+	//-Generic ******************************************************
+
+	var changeItem;
+	switch (typeName)
+	{
+		case "PR":
+			changeItem = new PRChangeItem(item);
+			break;
+		case "ECR":
+		case "ECN":
+		case "Express ECO":
+		case "Express DCO":
+		case "Simple ECO":
+			changeItem = new GenericChangeItem(item);
+			break;
+		case "Simple MCO":
+			changeItem = new MCOChangeItem(item);
+			break;
+	}
+
+	return changeItem;
+}
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>PE_AddChangeItem</name>
+ </Item>
+</AML>

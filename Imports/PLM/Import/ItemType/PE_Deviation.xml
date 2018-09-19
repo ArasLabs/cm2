@@ -1,0 +1,41 @@
+<AML>
+ <Item type="ItemType" id="C3317E65105D44C88C1603FB919146BC" action="add">
+  <name>PE_Deviation</name>
+  <Relationships>
+   <Item type="Property" id="B91A19D361B1436C91475CD857AE0180" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>11920</sort_order>
+    <source_id keyed_name="PE_Deviation" type="ItemType" name="PE_Deviation">C3317E65105D44C88C1603FB919146BC</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="FE840D3A77474522919080362BEC4F14" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Planned Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>12048</sort_order>
+    <source_id keyed_name="PE_Deviation" type="ItemType" name="PE_Deviation">C3317E65105D44C88C1603FB919146BC</source_id>
+    <track_history>0</track_history>
+    <name>release_date_plan</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

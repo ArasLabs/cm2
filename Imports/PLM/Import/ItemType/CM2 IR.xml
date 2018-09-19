@@ -1,0 +1,522 @@
+﻿<AML>
+ <Item type="ItemType" id="622CD8AFA3174EDE8E074BC06B829AC2" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>CM2_IR</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">IR</label>
+  <label_plural xml:lang="en">IRs</label_plural>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>CM2 IR</name>
+  <Relationships>
+   <Item type="Property" id="FA64457CBC944D798B19079B53999B3A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Additional Details</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6528</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>1</track_history>
+    <name>adnl_details</name>
+   </Item>
+   <Item type="Property" id="E7AE645E8F3B45D8957E796495DFCAFA" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">ARA</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>5760</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>1</track_history>
+    <name>ara_id</name>
+   </Item>
+   <Item type="Property" id="2ABAB03B27C54A86BD6A3E6B7C909050" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_source keyed_name="Change Types">D7D72BF68937462B947DAC6BE7E28322</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Reason</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>change_type</name>
+   </Item>
+   <Item type="Property" id="A08B9640F26C4549918FDF8B97122438" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">CIL</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>5888</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>0</track_history>
+    <name>cil_id</name>
+   </Item>
+   <Item type="Property" id="64BA557037984D9AA0BCC090D75E4847" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="ECN" type="ItemType" name="ECN">85F86794FACF42599F07019F7BEA1D46</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">CN</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>7040</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>0</track_history>
+    <name>cn</name>
+   </Item>
+   <Item type="Property" id="4E7ED4F72E3C424DBEB751902AD9DEEB" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">CR</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6912</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>0</track_history>
+    <name>cr</name>
+   </Item>
+   <Item type="Property" id="F295BFFEF95F499F94712CD92D1F51CC" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>1</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="C02F9AB8D6FA4D6193F5D48645E14680" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="CM2 IR">FC0BFF7268A34B76B79952A569EDB023</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">IR Number</label>
+    <order_by>1</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="7D8DEBD87DD844069B0E791557E5589E" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Key Dates</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6656</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>0</track_history>
+    <name>key_dates</name>
+   </Item>
+   <Item type="Property" id="038BF18ABA2F467F8FAECE0BFF8EB36B" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_source keyed_name="Change Priorities">2AC3F078B8FD4509856D31A0FBD92DF8</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Priority</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>priority</name>
+   </Item>
+   <Item type="Property" id="022199C45725423FA6617C00090113E7" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Project" type="ItemType" name="CM2 Project">553342EB14CD4FC4BC84CCC2FA619D52</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Project</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6784</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>1</track_history>
+    <name>project</name>
+   </Item>
+   <Item type="Property" id="863DAC9DB2254806855757DCA1569EA1" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Proposed Solution</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>1</track_history>
+    <name>proposed_solution</name>
+   </Item>
+   <Item type="Property" id="E5263DE8DA2A4C2299B98EF0062C8874" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Ramifications</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6400</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>1</track_history>
+    <name>ramifications</name>
+   </Item>
+   <Item type="Property" id="6E0CC510F3304FBBA647BDD2FD65D13B" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Requested By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>1</track_history>
+    <name>requested_by</name>
+   </Item>
+   <Item type="Property" id="BB0EF9DA50174FB48FB664438F3F373A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Security">C4D805D51E71449888DC93946862F2D5</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Security</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6016</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>security</name>
+   </Item>
+   <Item type="Property" id="F21A54A6EEBD4230AECE71CEE1C67572" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Severity">5B7E831D13D44F27A18AC05E878AF9BD</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Severity</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6272</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>severity</name>
+   </Item>
+   <Item type="Property" id="806525F46FEE489D89B25D90BC542C35" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_source keyed_name="Change Sources">E602F0779B924AE7B63C5096812B6804</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Source</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>64</stored_length>
+    <track_history>1</track_history>
+    <name>source</name>
+   </Item>
+   <Item type="Property" id="CED8F2075DF049BD987D1DD2D0DCDAB0" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Status">29A36AFC386546E9B790E99FA2FF61E6</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Status</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>6144</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>status</name>
+   </Item>
+   <Item type="Property" id="A5A69F753C784863BBE9C5CD3D8035DF" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>200</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Title</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>128</stored_length>
+    <track_history>1</track_history>
+    <name>title</name>
+   </Item>
+   <Item type="View" id="E7BA5E05460B41E29570905C00BB84A9" action="add">
+    <client>js</client>
+    <display_priority>0</display_priority>
+    <related_id keyed_name="CM2 IR" type="Form">75BA493B8E624B038E8DED272814CC9C</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="600915CE80A542188875777C5F810C7B" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2 IR OnAfterGet" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2 IR OnAfterGet</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterGet</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+   <Item type="Server Event" id="12B17BEA67C04BE09BB42E558C5F069D" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2 CleanCRCN" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2 CleanCRCN</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+   <Item type="Server Event" id="582F42A84ECE4339B4940A5646211A60" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2 CleanCRCN" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2 CleanCRCN</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+   <Item type="Item Action" id="DB0345999D644E0E81A0AC8694EFA691" action="add">
+    <related_id keyed_name="CM2 IR to CR" type="Action">3A50DE0BFF6A43688AF0DFE7E5F42924</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="7F55E91FA5C945CB80A9F036F32F95BB" action="add">
+    <related_id keyed_name="PR" type="Life Cycle Map">ED4E9C9F868A46F290F25FE8C5084F5F</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="ABB1D739562A44A2A58AFD6337E0197E" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="CM2 IR" type="Workflow Map">5227CE02A5AD4ED7B647692BB06F8556</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+   <Item type="TOC Access" id="C49555ABCA254552931AD680083A97D1" action="add">
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Can Add" id="4A78552EF17F4F3DBC46243C9C279F53" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="2FDD670457314DF080960DABB7CD01DE" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="New PR" type="Permission">7D27AFAB18684A309CD19EAA31597C38</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="622CD8AFA3174EDE8E074BC06B829AC2" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='622CD8AFA3174EDE8E074BC06B829AC2' and name='managed_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Change Leader</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>0</track_history>
+    <name>managed_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='622CD8AFA3174EDE8E074BC06B829AC2' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Owner</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='622CD8AFA3174EDE8E074BC06B829AC2' and name='state'">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

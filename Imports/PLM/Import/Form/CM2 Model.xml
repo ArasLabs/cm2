@@ -1,0 +1,106 @@
+﻿<AML>
+ <Item type="Form" id="7550070342E04ACC8FB8669E90BA258B" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>CM2 Model</name>
+  <Relationships>
+   <Item type="Body" id="5B74D76E53A64233AC298E984AD903C8" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Model" type="Form">7550070342E04ACC8FB8669E90BA258B</source_id>
+    <Relationships>
+     <Item type="Field" id="6DB344DD162B400C8206070F5A731FE5" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>checkbox</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Active</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="active" type="Property">4B9D1CB379494FB0A97A00B36378DD5B</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
+      <tab_index>3200</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>110</y>
+      <name>active</name>
+     </Item>
+     <Item type="Field" id="128E0571E3BE49D49DA99E3C3E9F0CEF" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="7743B04A67CF452B8050E17D95782796" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="name" type="Property">C2F04CECCC2C4EF891D87BC6A02BF760</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+      <name>name</name>
+     </Item>
+     <Item type="Field" id="BB882CAED9834F59878D70C7AA5C7669" action="add">
+      <bg_color>beige  </bg_color>
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Sequence</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="sequence_id" type="Property">A4BAE318CF9B4B6883E11340BC15F24A</propertytype_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
+      <tab_index>3328</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>60</y>
+      <name>sequence_id</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
