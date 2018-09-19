@@ -41,8 +41,9 @@ v1.0.0 | 11.0 SP12+
 ### Pre-requisites
 
 1. Aras Innovator installed
-2. Aras Package Import Utility
-3. CM2 Community Project package
+2. PE 11.0 R4 installed
+3. Aras Package Import Utility
+4. CM2 Community Project package
 
 ### Install Steps
 
