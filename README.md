@@ -2,7 +2,7 @@
 
 The Aras CM2 Community Project package adds to and modifies the base PLM application to provide 4 Star Certified CM2 capabilities:
 
-* ECR and ECN relabeled to CR and CN, with updated forms and several new relationships per the CM2 standard.
+* ECR and ECN relabeled to CR and CN, with updated forms and several new relationships per the CM2 standard
 * New Identities for Change Leader, Change Implementation Leader, and Audit Release Analyst used revised permissions for the change items and change controlled items
 * The CR can be used as a combined CR/CN for fast-track changes if desired
 * New CM2 CR and CM2 CN workflow maps per the CM2 standard
@@ -47,10 +47,10 @@ v1.0.0 | 11.0 SP12+
 
 ### Install Steps
 
-1. Backup your database and store the BAK file in a safe place.
+1. Back up your database and store the BAK file in a safe place.
 2. Open up the Aras Package Import tool.
 3. Enter your login credentials and click **Login**
-    * _Note: You must login as root for the package import to succeed!_
+    * _Note: You must log in as root for the package import to succeed!_
 4. Enter the package name in the TargetRelease field.
     * Optional: Enter a description in the Description field.
 5. Enter the path to your local `..\cm2\Import\imports.mf` file in the Manifest File field.
@@ -70,7 +70,7 @@ You are now ready to login to Aras and use the new CM2 capabilities.
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request
+5. Submit a pull request.
 
 For more information on contributing to this project, another Aras Labs project, or any Aras Community project, shoot us an email at araslabs@aras.com.
 
@@ -80,4 +80,4 @@ Created by Mike Gavlak and Eli Donahue for Aras Corporation.
 
 ## License
 
-Aras Community projects are published to Github under the MIT license. See the [LICENSE file](./LICENSE.md) for license rights and limitations.
+Aras Community projects are published to GitHub under the MIT license. See the [LICENSE file](./LICENSE.md) for license rights and limitations.

@@ -122,7 +122,7 @@ interface IExtendedAffectedItemValidationRules : IAffectedItemValidationRules
 }
 
 /// <summary>
-/// Iterface for validate Affected Relationship
+/// Interface for validate Affected Relationship
 /// </summary>
 interface IAffectedRelationshipValidationRules
 {
@@ -299,7 +299,7 @@ abstract class ItemContext
 	}
 
 	/// <summary>
-	/// Rised after item delete
+	/// Raised after item delete
 	/// </summary>
 	public event EventHandler Deleted;
 	protected void FireDeleted()
@@ -3702,7 +3702,7 @@ class ValidationException : Exception
 }
 
 /// <summary>
-/// Type provide ability to agregate multiple errors
+/// Type provide ability to aggregate multiple errors
 /// </summary>
 class ResultStatus
 {

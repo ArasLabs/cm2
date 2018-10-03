@@ -227,7 +227,7 @@
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
-      <label xml:lang="en">Superceding Item</label>
+      <label xml:lang="en">Superseding Item</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
       <propertytype_id keyed_name="new_item_id" type="Property">B0C0850295AF4552BE828B932A0A4D8E</propertytype_id>
