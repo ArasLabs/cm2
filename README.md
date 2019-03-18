@@ -21,17 +21,17 @@ The Aras CM2 Community Project package adds to and modifies the base PLM applica
 
 Release | Notes
 --------|--------
-v1.0.0 | First release.
-
-<!-- [v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | First release. -->
+[v1.1.0](https://github.com/ArasLabs/CM2/releases/tag/v1.1.0) | 
+[v1.0.1](https://github.com/ArasLabs/CM2/releases/tag/v1.0.1) | Typo fix in readme.
+[v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | First release.
 
 #### Supported Aras Versions
 
 Project | Aras
 --------|------
-v1.0.0 | 11.0 SP12+
-
-<!-- [v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | 11.0 SP12+ -->
+[v1.1.0](https://github.com/ArasLabs/CM2/releases/tag/v1.1.0) | 11.0 SP12+
+[v1.0.1](https://github.com/ArasLabs/CM2/releases/tag/v1.0.1) | 11.0 SP12+
+[v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | 11.0 SP12+
 
 ## Installation
 
