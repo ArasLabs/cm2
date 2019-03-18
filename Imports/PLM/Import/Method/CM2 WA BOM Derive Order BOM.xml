@@ -1,0 +1,46 @@
+﻿<AML>
+ <Item type="Method" id="BB51A4F3711943A1A109F0F322F6A72E" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// CM2 WA BOM Derive Order BOM
+// For a given part and release date, finds the effective part revision BOM and generates an "order BOM" using it
+var partId = parent.thisItem.getProperty("physical_item_number","");
+if (partId !== "") {
+// get latest effective part and its BOM
+    var getPart = this.newItem("Part","get");
+    getPart.setAttribute("select","config_id");
+    getPart.setID(partId);
+    getPart = getPart.apply();
+    var getEffPart = this.newItem("Part","get");
+    getEffPart.setAttribute("select","id");
+    getEffPart.setProperty("effective_date",parent.thisItem.getProperty("release_date"));
+    getEffPart.setPropertyCondition("effective_date","le");
+    getEffPart.setProperty("generation","0");
+    getEffPart.setPropertyCondition("generation","gt");
+    getEffPart.setProperty("config_id", getPart.getProperty("config_id"));
+    getEffPart.setAttribute("maxRecords","1");
+    getEffPart.setAttribute("orderBy","generation desc")
+    getEffPart = getEffPart.apply();
+    var getBOM = this.newItem("Part BOM","get");
+    getBOM.setProperty("source_id",getEffPart.getID());
+    getBOM.setAttribute("select","sort_order, related_id(item_number,name,unit),quantity");
+    getBOM = getBOM.apply();
+// Create WA BOM rows for each effective BOM row
+    for (i=0;i<getBOM.getItemCount(); i++) {
+        var sortOrder = getBOM.getItemByIndex(i).getProperty("sort_order","");
+        var quantity = getBOM.getItemByIndex(i).getProperty("quantity","");
+		var cm2WABOMRelId = aras.getItemFromServerByName("RelationshipType", "CM2 WA BOM", "id").node.getAttribute('id');
+		var cm2WABOMPartRel = aras.newRelationship(cm2WABOMRelId, parent.thisItem.node);
+        var componentId = getBOM.getItemByIndex(i).getRelatedItem().getID();
+        aras.setItemProperty(cm2WABOMPartRel,"related_id",getBOM.getItemByIndex(i).getRelatedItem().node);
+		aras.setItemProperty(cm2WABOMPartRel,"sort_order",sortOrder);
+		aras.setItemProperty(cm2WABOMPartRel,"quantity",quantity);
+	}
+}		
+return true;
+
+
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>CM2 WA BOM Derive Order BOM</name>
+ </Item>
+</AML>

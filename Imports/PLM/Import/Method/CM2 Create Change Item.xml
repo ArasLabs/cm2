@@ -15,51 +15,51 @@ switch (chgType) {
 		exit;
 }	
 
-var newChgItem = top.aras.newItem(newChgType,"add");
+var newChgItem = aras.newItem(newChgType,"add");
 var chgId = this.getID();
 
 // Set the shared properties
-top.aras.setItemProperty(newChgItem,"title",this.getProperty("title",""));
-top.aras.setItemProperty(newChgItem,"priority",this.getProperty("implementation_priority",""));
-top.aras.setItemProperty(newChgItem,"adnl_details",this.getProperty("adnl_details",""));
-top.aras.setItemProperty(newChgItem,"ara_id",this.getProperty("ara_id",""));
-top.aras.setItemProperty(newChgItem,"change_type",this.getProperty("change_type",""));
-top.aras.setItemProperty(newChgItem,"cil_id",this.getProperty("cil_id",""));
-top.aras.setItemProperty(newChgItem,"description",this.getProperty("description",""));
-top.aras.setItemProperty(newChgItem,"fast_track",this.getProperty("fast_track",""));
-top.aras.setItemProperty(newChgItem,"key_dates",this.getProperty("key_dates",""));
-top.aras.setItemProperty(newChgItem,"priority",this.getProperty("priority",""));
-top.aras.setItemProperty(newChgItem,"project",this.getProperty("project",""));
-top.aras.setItemProperty(newChgItem,"proposed_solution",this.getProperty("proposed_solution",""));
-top.aras.setItemProperty(newChgItem,"ramifications",this.getProperty("ramifications",""));
-top.aras.setItemProperty(newChgItem,"requested_by",this.getProperty("requested_by",""));
-top.aras.setItemProperty(newChgItem,"owned_by_id",this.getProperty("owned_by_id",""));
-top.aras.setItemProperty(newChgItem,"security",this.getProperty("security",""));
-top.aras.setItemProperty(newChgItem,"severity",this.getProperty("severity",""));
-top.aras.setItemProperty(newChgItem,"source",this.getProperty("source",""));
-top.aras.setItemProperty(newChgItem,"status",this.getProperty("status",""));
+aras.setItemProperty(newChgItem,"title",this.getProperty("title",""));
+aras.setItemProperty(newChgItem,"priority",this.getProperty("implementation_priority",""));
+aras.setItemProperty(newChgItem,"adnl_details",this.getProperty("adnl_details",""));
+aras.setItemProperty(newChgItem,"ara_id",this.getProperty("ara_id",""));
+aras.setItemProperty(newChgItem,"change_type",this.getProperty("change_type",""));
+aras.setItemProperty(newChgItem,"cil_id",this.getProperty("cil_id",""));
+aras.setItemProperty(newChgItem,"description",this.getProperty("description",""));
+aras.setItemProperty(newChgItem,"fast_track",this.getProperty("fast_track",""));
+aras.setItemProperty(newChgItem,"key_dates",this.getProperty("key_dates",""));
+aras.setItemProperty(newChgItem,"priority",this.getProperty("priority",""));
+aras.setItemProperty(newChgItem,"project",this.getProperty("project",""));
+aras.setItemProperty(newChgItem,"proposed_solution",this.getProperty("proposed_solution",""));
+aras.setItemProperty(newChgItem,"ramifications",this.getProperty("ramifications",""));
+aras.setItemProperty(newChgItem,"requested_by",this.getProperty("requested_by",""));
+aras.setItemProperty(newChgItem,"owned_by_id",this.getProperty("owned_by_id",""));
+aras.setItemProperty(newChgItem,"security",this.getProperty("security",""));
+aras.setItemProperty(newChgItem,"severity",this.getProperty("severity",""));
+aras.setItemProperty(newChgItem,"source",this.getProperty("source",""));
+aras.setItemProperty(newChgItem,"status",this.getProperty("status",""));
 
 switch (chgType) {
  case "CM2 IR":
-  top.aras.setItemProperty(newChgItem,"managed_by_id",this.getProperty("managed_by_id",""));
-  top.aras.setItemProperty(newChgItem,"cil_id",this.getProperty("cil_id",""));
+  aras.setItemProperty(newChgItem,"managed_by_id",this.getProperty("managed_by_id",""));
+  aras.setItemProperty(newChgItem,"cil_id",this.getProperty("cil_id",""));
   break;
  case "ECR":
-  top.aras.setItemProperty(newChgItem,"managed_by_id",this.getProperty("cil_id",""));
-  top.aras.setItemProperty(newChgItem,"cl_id",this.getProperty("managed_by_id",""));
+  aras.setItemProperty(newChgItem,"managed_by_id",this.getProperty("cil_id",""));
+  aras.setItemProperty(newChgItem,"cl_id",this.getProperty("managed_by_id",""));
   break;
  default:
   exit;
 }	
 
 // Add a relationship back to the existing change item
-var typeID = top.aras.getItemFromServerByName("RelationshipType",newChgType + " " + chgType,"id").node.getAttribute("id");
-var chgRel = top.aras.newRelationship(typeID,newChgItem);
-top.aras.setItemProperty(chgRel,"related_id",this.node);
+var typeID = aras.getItemFromServerByName("RelationshipType",newChgType + " " + chgType,"id").node.getAttribute("id");
+var chgRel = aras.newRelationship(typeID,newChgItem);
+aras.setItemProperty(chgRel,"related_id",this.node);
 
 // Add Affected Items
 if (chgType == "CM2 IR") {
- typeID = top.aras.getItemFromServerByName("RelationshipType","ECR Affected Item","id").node.getAttribute("id");
+ typeID = aras.getItemFromServerByName("RelationshipType","ECR Affected Item","id").node.getAttribute("id");
  var clientList = "";
  var affItems = this.getItemsByXPath("Relationships/Item[@type='CM2 IR Chg Cntld Items']");
  for (var i=0; i<affItems.getItemCount(); i++) {
@@ -76,7 +76,7 @@ if (chgType == "CM2 IR") {
  irItem = irItem.apply();
  irAffItems = irItem.getItemsByXPath("Relationships/Item[@type='CM2 IR Chg Cntld Items']");
  for (i=0; i<irAffItems.getItemCount(); i++) {
-  top.aras.getItemRelationship(this.node, "CM2 IR Chg Cntld Items", irAffItems.getItemByIndex(i).getID(), true);
+  aras.getItemRelationship(this.node, "CM2 IR Chg Cntld Items", irAffItems.getItemByIndex(i).getID(), true);
  }
 
  affItems = this.getItemsByXPath("Relationships/Item[@type='CM2 IR Chg Cntld Items']");
@@ -84,10 +84,10 @@ if (chgType == "CM2 IR") {
   affItemId = affItems.getItemByIndex(i).getRelatedItem().getID();
   affItemState = affItems.getItemByIndex(i).getRelatedItem().getProperty("state","");
   var affItemName = affItems.getItemByIndex(i).getRelatedItem().getProperty("keyed_name","");
-  var affItemRel = top.aras.newRelationship(typeID,newChgItem);
-  var affItem = top.aras.newItem("Affected Item","add");
+  var affItemRel = aras.newRelationship(typeID,newChgItem);
+  var affItem = aras.newItem("Affected Item","add");
   if (affItemState == "Released") {
-   top.aras.setItemProperty(affItem,'affected_id','');
+   aras.setItemProperty(affItem,'affected_id','');
    affItem.selectSingleNode("affected_id").setAttribute("keyed_name",affItemName);
    var ccItem = affItem.ownerDocument.createElement("Item");
    ccItem.setAttribute("type","Change Controlled Item");
@@ -95,11 +95,11 @@ if (chgType == "CM2 IR") {
    ccItem.setAttribute("typeID",inn.getItemById("Change Controlled Item",affItemId).getProperty("itemtype",""));
    ccItem.setAttribute("id",affItemId);
    ccItem.setAttribute("keyed_name",affItemName);
-   top.aras.setItemProperty(affItem,'affected_id',ccItem);
-   top.aras.setItemProperty(affItem,'action',"Change");
+   aras.setItemProperty(affItem,'affected_id',ccItem);
+   aras.setItemProperty(affItem,'action',"Change");
   }
   else {
-   top.aras.setItemProperty(affItem,'new_item_id','');
+   aras.setItemProperty(affItem,'new_item_id','');
    affItem.selectSingleNode("new_item_id").setAttribute("keyed_name",affItemName);
    ccItem = affItem.ownerDocument.createElement("Item");
    ccItem.setAttribute("type","Change Controlled Item");
@@ -107,19 +107,19 @@ if (chgType == "CM2 IR") {
    ccItem.setAttribute("typeID",inn.getItemById("Change Controlled Item",affItemId).getProperty("itemtype"));
    ccItem.setAttribute("id",affItemId);
    ccItem.setAttribute("keyed_name",affItemName);
-   top.aras.setItemProperty(affItem,'new_item_id',ccItem);
-   top.aras.setItemProperty(affItem,'action',"Add");
+   aras.setItemProperty(affItem,'new_item_id',ccItem);
+   aras.setItemProperty(affItem,'action',"Add");
   }
-//  top.aras.setItemProperty(affItem,'action',affItems.getItemByIndex(i).getRelatedItem().getProperty("action",""));
-  top.aras.setItemProperty(affItem,'interchangeable',affItems.getItemByIndex(i).getRelatedItem().getProperty("interchangeable",""));
-  top.aras.setItemProperty(affItem,'in_service_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty ("in_service_disposition",""));
-  top.aras.setItemProperty(affItem,'in_build_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty("in_build_disposition",""));
-  top.aras.setItemProperty(affItemRel,'related_id',affItem);
+//  aras.setItemProperty(affItem,'action',affItems.getItemByIndex(i).getRelatedItem().getProperty("action",""));
+  aras.setItemProperty(affItem,'interchangeable',affItems.getItemByIndex(i).getRelatedItem().getProperty("interchangeable",""));
+  aras.setItemProperty(affItem,'in_service_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty ("in_service_disposition",""));
+  aras.setItemProperty(affItem,'in_build_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty("in_build_disposition",""));
+  aras.setItemProperty(affItemRel,'related_id',affItem);
  }
 }
 else {
 // Copy ECR Affected Items to ECN
- typeID = top.aras.getItemFromServerByName("RelationshipType","ECN Affected Item","id").node.getAttribute("id");
+ typeID = aras.getItemFromServerByName("RelationshipType","ECN Affected Item","id").node.getAttribute("id");
  var clientList = "";
  var affItems = this.getItemsByXPath("Relationships/Item[@type='ECR Affected Item']");
  for (var i=0; i<affItems.getItemCount(); i++) {
@@ -136,7 +136,7 @@ else {
  ecrItem = ecrItem.apply();
  ecrAffItems = ecrItem.getItemsByXPath("Relationships/Item[@type='ECR Affected Item']");
  for (i=0; i<ecrAffItems.getItemCount(); i++) {
-  top.aras.getItemRelationship(this.node, "ECR Affected Item", ecrAffItems.getItemByIndex(i).getID(), true);
+  aras.getItemRelationship(this.node, "ECR Affected Item", ecrAffItems.getItemByIndex(i).getID(), true);
  }
 
  affItems = this.getItemsByXPath("Relationships/Item[@type='ECR Affected Item']");
@@ -145,10 +145,10 @@ else {
   var affItemName = affItems.getItemByIndex(i).getRelatedItem().getPropertyAttribute("affected_id","keyed_name","");
   var newItemId = affItems.getItemByIndex(i).getRelatedItem().getProperty("new_item_id","");
   var newItemName = affItems.getItemByIndex(i).getRelatedItem().getPropertyAttribute("new_item_id","keyed_name","");
-  var affItemRel = top.aras.newRelationship(typeID,newChgItem);
-  var affItem = top.aras.newItem("Affected Item","add");
+  var affItemRel = aras.newRelationship(typeID,newChgItem);
+  var affItem = aras.newItem("Affected Item","add");
   if (affItemId !== "") {
-   top.aras.setItemProperty(affItem,'affected_id','');
+   aras.setItemProperty(affItem,'affected_id','');
    affItem.selectSingleNode("affected_id").setAttribute("keyed_name",affItemName);
    var ccItem = affItem.ownerDocument.createElement("Item");
    ccItem.setAttribute("type","Change Controlled Item");
@@ -156,10 +156,10 @@ else {
    ccItem.setAttribute("typeID",inn.getItemById("Change Controlled Item",affItemId).getProperty("itemtype",""));
    ccItem.setAttribute("id",affItemId);
    ccItem.setAttribute("keyed_name",affItemName);
-   top.aras.setItemProperty(affItem,'affected_id',ccItem);
+   aras.setItemProperty(affItem,'affected_id',ccItem);
   }
   if (newItemId !== "") {
-   top.aras.setItemProperty(affItem,'new_item_id','');
+   aras.setItemProperty(affItem,'new_item_id','');
    affItem.selectSingleNode("new_item_id").setAttribute("keyed_name",newItemName);
    ccItem = affItem.ownerDocument.createElement("Item");
    ccItem.setAttribute("type","Change Controlled Item");
@@ -167,18 +167,18 @@ else {
    ccItem.setAttribute("typeID",inn.getItemById("Change Controlled Item",newItemId).getProperty("itemtype"));
    ccItem.setAttribute("id",newItemId);
    ccItem.setAttribute("keyed_name",newItemName);
-   top.aras.setItemProperty(affItem,'new_item_id',ccItem);
+   aras.setItemProperty(affItem,'new_item_id',ccItem);
   }
-  top.aras.setItemProperty(affItem,'action',affItems.getItemByIndex(i).getRelatedItem().getProperty("action",""));
-  top.aras.setItemProperty(affItem,'interchangeable',affItems.getItemByIndex(i).getRelatedItem().getProperty("interchangeable",""));
-  top.aras.setItemProperty(affItem,'in_service_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty ("in_service_disposition",""));
-  top.aras.setItemProperty(affItem,'in_build_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty("in_build_disposition",""));
-  top.aras.setItemProperty(affItemRel,'related_id',affItem);
+  aras.setItemProperty(affItem,'action',affItems.getItemByIndex(i).getRelatedItem().getProperty("action",""));
+  aras.setItemProperty(affItem,'interchangeable',affItems.getItemByIndex(i).getRelatedItem().getProperty("interchangeable",""));
+  aras.setItemProperty(affItem,'in_service_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty ("in_service_disposition",""));
+  aras.setItemProperty(affItem,'in_build_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty("in_build_disposition",""));
+  aras.setItemProperty(affItemRel,'related_id',affItem);
  }
 }
 
 // Show the new ECN
-top.aras.uiShowItemEx(newChgItem,"tab view",true);]]></method_code>
+aras.uiShowItemEx(newChgItem,"tab view");]]></method_code>
   <method_type>JavaScript</method_type>
   <name>CM2 Create Change Item</name>
  </Item>

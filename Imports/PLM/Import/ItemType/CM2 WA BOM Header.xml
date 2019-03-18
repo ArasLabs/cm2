@@ -1,0 +1,190 @@
+﻿<AML>
+ <Item type="ItemType" id="439169ED45A14413B0B945404160D0D7" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>CM2_WA_BOM_HEADER</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>1</is_versionable>
+  <label xml:lang="en">Order Bill with Work Authorization Number</label>
+  <label_plural xml:lang="en">Order Bills</label_plural>
+  <manual_versioning>1</manual_versioning>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>CM2 WA BOM Header</name>
+  <Relationships>
+   <Item type="Property" id="5058BF6750D44170A174289DFE0153CA" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source>
+     <Item type="Property" action="get" select="id">
+      <name>physical_item_number</name>
+      <source_id>439169ED45A14413B0B945404160D0D7</source_id>
+     </Item>
+    </data_source>
+    <data_type>foreign</data_type>
+    <foreign_property>
+     <Item type="Property" action="get" select="id">
+      <keyed_name>name</keyed_name>
+      <source_id>
+       <Item type="ItemType" action="get" select="id">
+        <name>Part</name>
+       </Item>
+      </source_id>
+     </Item>
+    </foreign_property>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <track_history>0</track_history>
+    <name>physical_item_name</name>
+   </Item>
+   <Item type="Property" id="4D3D5194E79F459F846FF9B6AC8C5BD0" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Item Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <track_history>0</track_history>
+    <name>physical_item_number</name>
+   </Item>
+   <Item type="View" id="837EDA7B9A544CAE8EF9175B41AFBB74" action="add">
+    <client>js</client>
+    <related_id keyed_name="CM2 WA BOM Header" type="Form">351D1764D8CA412B8280789309B6EC03</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="FC25A5A5CB364D40A1E4548CBA6C4015" action="add">
+    <related_id keyed_name="CM2 WA BOM Derive" type="Action">7D85A0D648CB4CBC89FB8EB3C48AD2B4</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+   </Item>
+   <Item type="TOC Access" id="9095950236C648CE8A5B626394F07597" action="add">
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Can Add" id="9F80D8F3EA714A6DB05FA648FC081A5D" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="9270B1F3617044D585F26A02537E691E" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Default Access" type="Permission">9122CD065CF04141B8EFE263FC80BEA4</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="439169ED45A14413B0B945404160D0D7" action="edit">
+  <Relationships>
+   <Item type="Property" id="A879681F40EF46799EFF9407B18C1E35" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Work Auth No</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <stored_length>18</stored_length>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='439169ED45A14413B0B945404160D0D7' and name='major_rev'">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Revision Level</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <stored_length>8</stored_length>
+    <track_history>0</track_history>
+    <name>major_rev</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='439169ED45A14413B0B945404160D0D7' and name='release_date'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='439169ED45A14413B0B945404160D0D7' and name='superseded_date'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Superseded Date</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3712</sort_order>
+    <source_id keyed_name="CM2 WA BOM Header" type="ItemType" name="CM2 WA BOM Header">439169ED45A14413B0B945404160D0D7</source_id>
+    <track_history>0</track_history>
+    <name>superseded_date</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

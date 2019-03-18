@@ -101,6 +101,28 @@
       <y>370</y>
       <name>cil_id</name>
      </Item>
+     <Item type="Field" id="55D8BDC660094212BF479E91C81D589E" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Implementation Plan</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="cm2_implementation_plan" type="Property">CC221653F43E4F5BAAF070A9EB20B2D2</propertytype_id>
+      <sort_order>3328</sort_order>
+      <source_id keyed_name="A0CF1AFC22654FD1BA67A607AA59E024" type="Body">A0CF1AFC22654FD1BA67A607AA59E024</source_id>
+      <tab_index>7040</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>810</x>
+      <y>50</y>
+      <name>cm2_implementation_plan</name>
+     </Item>
      <Item type="Field" id="0D5B162AE86B493BB6242AFB40BEEEF0" action="add">
       <border_width>0</border_width>
       <display_length_unit>px</display_length_unit>
@@ -124,6 +146,28 @@
       <x>190</x>
       <y>130</y>
       <name>description</name>
+     </Item>
+     <Item type="Field" id="6F9DA4B3F61E4E7AB3F9DE0F597B5890" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>date</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Effectivity Date</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="effectivity_date" type="Property">67381D85943842B8B9FBC953ED5ABF26</propertytype_id>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="A0CF1AFC22654FD1BA67A607AA59E024" type="Body">A0CF1AFC22654FD1BA67A607AA59E024</source_id>
+      <tab_index>1536</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>810</x>
+      <y>10</y>
+      <name>effectivity_date</name>
      </Item>
      <Item type="Field" id="D3F5137A07B84CC6BF0714ED2CC95D8A" action="add">
       <border_width>0</border_width>
@@ -170,6 +214,7 @@
      </Item>
      <Item type="Field" id="08E8C25EAF0B429EAF230971D9AE1E55" action="add">
       <border_width>0</border_width>
+      <display_length>80</display_length>
       <display_length_unit>px</display_length_unit>
       <field_type>text</field_type>
       <font_color>#000000</font_color>
@@ -232,7 +277,7 @@
       <source_id keyed_name="A0CF1AFC22654FD1BA67A607AA59E024" type="Body">A0CF1AFC22654FD1BA67A607AA59E024</source_id>
       <tab_index>4480</tab_index>
       <tab_stop>1</tab_stop>
-      <x>320</x>
+      <x>290</x>
       <y>10</y>
       <name>major_rev</name>
      </Item>
@@ -318,7 +363,7 @@
       <source_id keyed_name="A0CF1AFC22654FD1BA67A607AA59E024" type="Body">A0CF1AFC22654FD1BA67A607AA59E024</source_id>
       <tab_index>6784</tab_index>
       <tab_stop>1</tab_stop>
-      <x>500</x>
+      <x>440</x>
       <y>10</y>
       <name>project</name>
      </Item>
@@ -410,7 +455,7 @@
       <source_id keyed_name="A0CF1AFC22654FD1BA67A607AA59E024" type="Body">A0CF1AFC22654FD1BA67A607AA59E024</source_id>
       <tab_index>6016</tab_index>
       <tab_stop>1</tab_stop>
-      <x>390</x>
+      <x>340</x>
       <y>10</y>
       <name>security</name>
      </Item>
@@ -475,7 +520,7 @@
       <source_id keyed_name="A0CF1AFC22654FD1BA67A607AA59E024" type="Body">A0CF1AFC22654FD1BA67A607AA59E024</source_id>
       <tab_index>384</tab_index>
       <tab_stop>1</tab_stop>
-      <x>830</x>
+      <x>670</x>
       <y>10</y>
       <name>state</name>
      </Item>
@@ -497,7 +542,7 @@
       <source_id keyed_name="A0CF1AFC22654FD1BA67A607AA59E024" type="Body">A0CF1AFC22654FD1BA67A607AA59E024</source_id>
       <tab_index>6144</tab_index>
       <tab_stop>1</tab_stop>
-      <x>700</x>
+      <x>590</x>
       <y>10</y>
       <name>status</name>
      </Item>

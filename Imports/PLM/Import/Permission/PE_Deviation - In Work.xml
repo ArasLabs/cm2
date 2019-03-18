@@ -1,0 +1,56 @@
+﻿<AML>
+ <Item type="Permission" id="8942E8B70D114C80976FB044828BFFD8" action="add">
+  <is_private>0</is_private>
+  <name>PE_Deviation - In Work</name>
+  <Relationships>
+   <Item type="Access" id="133C9B2A63604C3AA3DA54E4D39A2160" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Deviation - In Work" type="Permission">8942E8B70D114C80976FB044828BFFD8</source_id>
+   </Item>
+   <Item type="Access" id="154FDAB7138246C6971C89C0AFD9E645" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Deviation - In Work" type="Permission">8942E8B70D114C80976FB044828BFFD8</source_id>
+   </Item>
+   <Item type="Access" id="79B26D2FA5774495BE99F1EFCA43FD00" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Creator" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Creator</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="PE_Deviation - In Work" type="Permission">8942E8B70D114C80976FB044828BFFD8</source_id>
+   </Item>
+   <Item type="Access" id="BFB5A0A644FF4B1D8DEDC7AA39791C29" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Deviation - In Work" type="Permission">8942E8B70D114C80976FB044828BFFD8</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

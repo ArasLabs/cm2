@@ -1,8 +1,7 @@
 ﻿<AML>
  <Item type="Method" id="B10392E5814945F5858884810C800EDA" action="add">
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
-  <method_code><![CDATA[//System.Diagnostics.Debugger.Break();
-Item newItem = this.getPropertyItem("new_item_id");
+  <method_code><![CDATA[Item newItem = this.getPropertyItem("new_item_id");
 if (newItem != null) {
     Item svrNewItem = this.newItem("Change Controlled Item","get");
     svrNewItem.setID(newItem.getID());

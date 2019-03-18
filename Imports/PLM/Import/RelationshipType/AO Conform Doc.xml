@@ -13,14 +13,14 @@
   <related_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</related_id>
   <related_notnull>0</related_notnull>
   <related_option>2</related_option>
-  <relationship_id keyed_name="AO Conform Doc" type="ItemType" name="AO Conform Doc">
+  <relationship_id keyed_name="CM2 AO Conform Doc" type="ItemType" name="CM2 AO Conform Doc">
    <Item type="ItemType" id="E7AEDB7467004FDB8D446F4AF59ED70D" action="add">
     <allow_private_permission>1</allow_private_permission>
     <auto_search>0</auto_search>
     <enforce_discovery>0</enforce_discovery>
     <hide_where_used>0</hide_where_used>
     <implementation_type>table</implementation_type>
-    <instance_data>AO_CONFORM_DOC</instance_data>
+    <instance_data>CM2_AO_CONFORM_DOC</instance_data>
     <is_dependent>0</is_dependent>
     <is_relationship>1</is_relationship>
     <is_versionable>0</is_versionable>
@@ -29,14 +29,14 @@
     <structure_view>tabs off</structure_view>
     <unlock_on_logout>0</unlock_on_logout>
     <use_src_access>1</use_src_access>
-    <name>AO Conform Doc</name>
+    <name>CM2 AO Conform Doc</name>
     <Relationships />
    </Item>
   </relationship_id>
   <sort_order>384</sort_order>
-  <source_id keyed_name="Application Order" type="ItemType" name="Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
-  <name>AO Conform Doc</name>
+  <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+  <name>CM2 AO Conform Doc</name>
  </Item>
  <Item type="View" action="delete" where="source_id='E7AEDB7467004FDB8D446F4AF59ED70D'" />
- <Item type="Form" action="delete" where="name='AO Conform Doc'" />
+ <Item type="Form" action="delete" where="name='CM2 AO Conform Doc'" />
 </AML>

@@ -1,0 +1,41 @@
+﻿<AML>
+ <Item type="Permission" id="F9EB8B4FC2CB4242B9C8312A818C6E3E" action="add">
+  <is_private>0</is_private>
+  <name>PE_Deviation - Rejected</name>
+  <Relationships>
+   <Item type="Access" id="0D12120FC62C412B853ABF7744434C5A" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Deviation - Rejected" type="Permission">F9EB8B4FC2CB4242B9C8312A818C6E3E</source_id>
+   </Item>
+   <Item type="Access" id="3025B9DEC3794B83B4FBD3FC52B241FA" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Deviation - Rejected" type="Permission">F9EB8B4FC2CB4242B9C8312A818C6E3E</source_id>
+   </Item>
+   <Item type="Access" id="76DB0FFC8EE44733A075456726E6FFB9" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Deviation - Rejected" type="Permission">F9EB8B4FC2CB4242B9C8312A818C6E3E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

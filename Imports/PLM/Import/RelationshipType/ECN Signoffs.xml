@@ -46,7 +46,7 @@
     </Relationships>
    </Item>
   </relationship_id>
-  <sort_order>640</sort_order>
+  <sort_order>1000</sort_order>
   <source_id keyed_name="ECN" type="ItemType" name="ECN">85F86794FACF42599F07019F7BEA1D46</source_id>
   <name>ECN Signoffs</name>
   <Relationships>

@@ -212,7 +212,7 @@ function CreateChangeItem(typeName, instanceName)
 					prop = "affected_id"
 				}
 			}
-debugger;
+
 			var affItemRel = top.aras.newRelationship(typeID, this.Item);
 			var affItem = top.aras.newItem("Affected Item");
 

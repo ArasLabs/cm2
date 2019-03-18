@@ -1,0 +1,49 @@
+﻿<AML>
+ <Item type="Permission" id="FBF0CBFD01844B26B632EDF6CD73539D" action="add">
+  <is_private>0</is_private>
+  <name>Location</name>
+  <Relationships>
+   <Item type="Access" id="1E64E01B88D143A38E8FCD31F9C8E042" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Location" type="Permission">FBF0CBFD01844B26B632EDF6CD73539D</source_id>
+   </Item>
+   <Item type="Access" id="544637E412D74562B4CE65DD4600B297" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Creator" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Creator</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Location" type="Permission">FBF0CBFD01844B26B632EDF6CD73539D</source_id>
+   </Item>
+   <Item type="Access" id="7C637DA55B894BBDA5121C803D503F94" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Location" type="Permission">FBF0CBFD01844B26B632EDF6CD73539D</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

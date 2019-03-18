@@ -2,7 +2,7 @@
  <Item type="ItemType" id="B88C14B99EF449828C5D926E39EE8B89" action="add">
   <allow_private_permission>1</allow_private_permission>
   <auto_search>0</auto_search>
-  <class_structure><![CDATA[<class id="B88C14B99EF449828C5D926E39EE8B89"><class name="Drawing" id="8B176CD37558A7F76BB5E0DB670B1B61" /><class name="CAD Model" id="D724E3D6F56931629D758000ED6C47D4" /><class name="Specification" id="B9FA37397257546FF49159A01E8E90F8" /><class name="Software" id="682BC79FB50DCD9B5BDD47E94928DFEA" /><class name="Miscellaneous" id="5C54253BFF858649508647FFE274E5B4" /><class id="BC1087B0D09746DFA7D3F49C7522914E" name="Product" /><class id="DDFA6ECFA05944D5A25D2DBAAB01FA3E" name="Project" /><class id="A0C27A016E814CAB86E28AEF1462B841" name="General" /><class id="BDDFFB63F2D1448498F650F1F248AF8C" name="Email" /><class id="BD5995FECE7849F39836160424E4D905" name="Process" /><class id="A0CA02E683A3477EA79BEA2ED733016B" name="Ad-hoc" /><class id="3F40C59A1E394F71B71C39ACFD870C6D" name="Process Plan" /><class id="58AA1C0D41694BB7826054280E224159" name="Standard Process" /><class id="A15ABFF4E8514606BDB17C66D38109EA" name="Section" /><class id="C9EBA9D167C24137A707627E69C2C630" name="Service Bulletin" /></class>]]></class_structure>
+  <class_structure><![CDATA[<class id="B88C14B99EF449828C5D926E39EE8B89"><class name="Drawing" id="8B176CD37558A7F76BB5E0DB670B1B61" /><class name="CAD Model" id="D724E3D6F56931629D758000ED6C47D4" /><class name="Specification" id="B9FA37397257546FF49159A01E8E90F8" /><class name="Software" id="682BC79FB50DCD9B5BDD47E94928DFEA" /><class name="Miscellaneous" id="5C54253BFF858649508647FFE274E5B4" /><class id="BC1087B0D09746DFA7D3F49C7522914E" name="Product" /><class id="DDFA6ECFA05944D5A25D2DBAAB01FA3E" name="Project" /><class id="A0C27A016E814CAB86E28AEF1462B841" name="General" /><class id="BDDFFB63F2D1448498F650F1F248AF8C" name="Email" /><class id="BD5995FECE7849F39836160424E4D905" name="Process" /><class id="A0CA02E683A3477EA79BEA2ED733016B" name="Ad-hoc" /><class id="3F40C59A1E394F71B71C39ACFD870C6D" name="Process Plan" /><class id="58AA1C0D41694BB7826054280E224159" name="Standard Process" /><class id="A15ABFF4E8514606BDB17C66D38109EA" name="Section" /><class id="C9EBA9D167C24137A707627E69C2C630" name="Service Bulletin" /><class id="DA495677F27246629336A4444A47C3CA" name="Safety" /><class id="E0BFF06933E14269879001FB99763415" name="Security" /><class id="BF37E7E3CBF14CCFA62253CAC34544D1" name="Environmental" /><class id="DCECF55E54AB46B9BE0EE397C805CC9A" name="Policy" /><class id="C4FCA9B12A90462BBD069DF076C8C302" name="Procedure" /><class id="7FDA6860F0D8400FA7F58273021039A5" name="Standard" /></class>]]></class_structure>
   <close_icon>../images/Document.svg</close_icon>
   <default_page_size>25</default_page_size>
   <enforce_discovery>1</enforce_discovery>
@@ -314,6 +314,25 @@
     <track_history>0</track_history>
     <name>is_template</name>
    </Item>
+   <Item type="Property" id="607B96E988E0419FA7DBF7109A857BD6" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">MCR</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>204768</sort_order>
+    <source_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</source_id>
+    <track_history>0</track_history>
+    <name>mcr_id</name>
+   </Item>
    <Item type="Property" id="364519C1348C4A57B88D142C3B1F538E" action="add">
     <column_alignment>left</column_alignment>
     <column_width>200</column_width>
@@ -388,6 +407,25 @@
     <stored_length>16</stored_length>
     <track_history>0</track_history>
     <name>section</name>
+   </Item>
+   <Item type="Property" id="73485E8139574E8F8FA35F4FCE33777C" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Service Bulletin</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>204896</sort_order>
+    <source_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</source_id>
+    <track_history>0</track_history>
+    <name>service_bulletin_id</name>
    </Item>
    <Item type="Property" id="274B66EABFCC45C5B049ADF32352B049" action="add">
     <column_alignment>left</column_alignment>
@@ -727,7 +765,7 @@
     <column_alignment>left</column_alignment>
     <data_type>date</data_type>
     <is_hidden>0</is_hidden>
-    <is_hidden2>1</is_hidden2>
+    <is_hidden2>0</is_hidden2>
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
@@ -782,7 +820,7 @@
     <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
     <data_type>item</data_type>
     <is_hidden>0</is_hidden>
-    <is_hidden2>1</is_hidden2>
+    <is_hidden2>0</is_hidden2>
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
@@ -801,7 +839,7 @@
     <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
     <data_type>item</data_type>
     <is_hidden>0</is_hidden>
-    <is_hidden2>1</is_hidden2>
+    <is_hidden2>0</is_hidden2>
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>

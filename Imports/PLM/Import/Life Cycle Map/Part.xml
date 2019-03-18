@@ -28,6 +28,7 @@
    </Item>
    <Item type="Life Cycle State" id="AA93A121BC7346C4907F69820303D2A4" action="add">
     <image>../images/LifeCycleState.svg</image>
+    <item_behavior>float</item_behavior>
     <set_is_released>0</set_is_released>
     <set_not_lockable>0</set_not_lockable>
     <sort_order>256</sort_order>
@@ -61,6 +62,7 @@
    </Item>
    <Item type="Life Cycle State" id="72A2322564FE4193933CFB5339487A06" action="add">
     <image>../images/LifeCycleState.svg</image>
+    <item_behavior>float</item_behavior>
     <set_is_released>0</set_is_released>
     <set_not_lockable>0</set_not_lockable>
     <sort_order>128</sort_order>

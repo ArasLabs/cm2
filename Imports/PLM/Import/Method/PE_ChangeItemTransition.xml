@@ -6,12 +6,19 @@
 // Also is performed processing of Affected Items which existing in current Change Item.
 //
 // Following classes encapsulate validation and processing behavior:
-// ECR,ECN, SimpleECO, ExpressECO, ExpressDCO
+// ECR, ECN, SimpleECO, ExpressECO, ExpressDCO
 // Validation logic is situated in ValidateState and ValidateTransition methods which implemented for each of ChangeItem inheritors.
 // Process promotion is situated in ProcessTransition method.
 //
 // If you want to change existing behavior, you have to change ValidateState,ValidateTransition and ProcessTransition for particular class of change item(ECN, SimpleECO, ExpressECO, ExpressDCO)
-System.Diagnostics.Debugger.Break();
+
+    Item itemsWithNotAllowedActions = this.getItemsByXPath("//Item[@action and @action!='PE_ChangeItemTransition']");
+    if (itemsWithNotAllowedActions.getItemCount() > 0)
+    {
+        //"this" shouldn't contain Items with not allowed "actions" because such Items is applied in this server-side method.
+        //So, e.g., not admin user can call actions where "execution_allowed_to" is for administrators.
+        throw new InvalidOperationException();
+    }
     Aras.Server.Security.Identity plmIdentity = Aras.Server.Security.Identity.GetByName("Aras PLM");
     bool PermissionWasSet = Aras.Server.Security.Permissions.GrantIdentity(plmIdentity);
   
@@ -246,15 +253,22 @@ abstract class ItemContext
 		Utils.AssertItem(tempItem);
 	}
 
+	private static Item CloneItem(Item itemToClone)
+	{
+		Item newItem = Utils.Innovator.newItem();
+		var newItemNode = (XmlElement) newItem.dom.ImportNode(itemToClone.node, true);
+		newItem.dom.ReplaceChild(newItemNode, newItem.node);
+		newItem.node = newItemNode;
+		return newItem;
+	}
+
 	/// <summary>
 	/// Apply item with action edit
 	/// </summary>
 	/// <exception cref="ItemErrorException">throws if error</exception>
 	public void ApplyEdit()
 	{
-		Item tmpItem = Utils.Innovator.newItem();
-		tmpItem.loadAML(this.Item.node.OuterXml);
-
+		Item tmpItem = CloneItem(this.Item);
 		tmpItem.setAction("edit");
 		tmpItem.setAttribute("version", "0");
 		Item res = tmpItem.apply();
@@ -286,9 +300,7 @@ abstract class ItemContext
 	/// <exception cref="ItemErrorException">throws if error</exception>
 	public void ApplyAdd()
 	{
-		Item tmpItem = Utils.Innovator.newItem();
-		tmpItem.loadAML(this.Item.node.OuterXml);
-
+		Item tmpItem = CloneItem(this.Item);
 		tmpItem.setAction("add");
 		tmpItem.setAttribute("version", "0");
 		Item res = tmpItem.apply();
@@ -316,9 +328,7 @@ abstract class ItemContext
 	/// <exception cref="ItemErrorException">throws if error</exception>
 	public virtual void Delete()
 	{
-		Item tmpItem = Utils.Innovator.newItem();
-		tmpItem.loadAML(this.Item.node.OuterXml);
-
+		Item tmpItem = CloneItem(this.Item);
 		tmpItem.setAction("delete");
 		tmpItem.setAttribute("version", "0");
 		Item res = tmpItem.apply();
@@ -2127,7 +2137,8 @@ class Workflow : ItemWrapper
 		voteXml.Append("</Item>");
 
 		var evaluateActivityQuery = Utils.Innovator.newItem();
-		evaluateActivityQuery.loadAML(String.Format(voteXml.ToString(), activityId, activityAssignment, pathId));
+		evaluateActivityQuery.loadAML(String.Format(voteXml.ToString(), System.Security.SecurityElement.Escape(activityId), 
+			System.Security.SecurityElement.Escape(activityAssignment), System.Security.SecurityElement.Escape(pathId)));
 		return evaluateActivityQuery.apply();
 	}
 }
@@ -3578,7 +3589,7 @@ static class Utils
 
 		if (status.Errors.Count > numberOfDisplayedErrors)
 		{
-			lookedupMessages = lookedupMessages.Concat(new List<string> { Utils.CCO.ErrorLookup.Lookup("ValidateChangeItem_AdditionalErrors") });
+			lookedupMessages = lookedupMessages.Concat(new List<string> { Environment.NewLine + Utils.CCO.ErrorLookup.Lookup("ValidateChangeItem_AdditionalErrors") });
 		}
 
 		return Utils.Innovator.newError(String.Join(Environment.NewLine, lookedupMessages));
@@ -4218,7 +4229,7 @@ internal static class ItemContextGroupOperations
 		Utils.AssertItem(res);
 
 		StringBuilder updateSql = new StringBuilder();
-		updateSql.AppendFormat("UPDATE {0} SET EFFECTIVE_DATE = NULL WHERE ID IN (", Utils.CCO.DB.InnDatabase.GetTableName(type));
+		updateSql.AppendFormat(CultureInfo.InvariantCulture, "UPDATE {0} SET EFFECTIVE_DATE = NULL WHERE ID IN (", Utils.CCO.DB.InnDatabase.GetTableName(type));
 
 		List<TSource> result = new List<TSource>();
 		int versionedItemCount = res.getItemCount();
@@ -4228,7 +4239,7 @@ internal static class ItemContextGroupOperations
 			TSource item = (TSource)Activator.CreateInstance(typeof(TSource), res.getItemByIndex(i));
 			result.Add(item);
 
-			updateSql.AppendFormat("'{0}'", item.ID);
+			updateSql.AppendFormat(CultureInfo.InvariantCulture, "'{0}'", Utils.CCO.DB.InnDatabase.QuoteValue(item.ID));
 
 			if (i != versionedItemCount - 1)
 			{
@@ -4342,14 +4353,15 @@ internal static class ItemContextGroupOperations
 				}
 
 				string type = items.First().Type;
-				string typeTableName = Utils.CCO.DB.GenerateTableName(type);
-				string updateQueryFormat = "UPDATE " + typeTableName + " SET {0} FROM " + tmpTableName + " WHERE " + tmpTableName + ".ID = " + typeTableName + ".ID";
-				string setColumnFormat = "{0} = " + tmpTableName + ".{0}";
+				string typeTableName = Utils.CCO.DB.InnDatabase.QuoteName(Utils.CCO.DB.GenerateTableName(type));
+				string escapedName = Utils.CCO.DB.InnDatabase.QuoteName(tmpTableName);
+				string updateQueryFormat = "UPDATE " + typeTableName + " SET {0} FROM " + escapedName + " WHERE " + escapedName + ".ID = " + typeTableName + ".ID";
+				string setColumnFormat = "{0} = " + escapedName + ".{0}";
 
 				StringBuilder setColumns = new StringBuilder();
 				foreach (string parameter in updateParameterNames)
 				{
-					setColumns.AppendFormat(setColumnFormat, parameter);
+					setColumns.AppendFormat(CultureInfo.InvariantCulture, setColumnFormat, Utils.CCO.DB.InnDatabase.QuoteName(parameter));
 					setColumns.Append(",");
 				}
 				setColumns.Remove(setColumns.Length - 1, 1);
@@ -4370,7 +4382,8 @@ internal static class ItemContextGroupOperations
 
 		const string amlFormat = "<AML><Item type='{1}' action='update' idlist='{0}' doGetItem='0' version='0'></Item></AML>";
 		string idlist = string.Join(",", items.Select(item => item.Item.getID()));
-		string aml = string.Format(amlFormat, idlist, items.First().Type);
+		string aml = string.Format(amlFormat, System.Security.SecurityElement.Escape(idlist),
+			System.Security.SecurityElement.Escape(items.First().Type));
 		Item result = Utils.Innovator.applyAML(aml);
 		Utils.AssertItem(result);
 	}
