@@ -1,0 +1,329 @@
+﻿<AML>
+ <Item type="Method" id="A61759C5B9E24339BBEC4651F91CC9E3" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// Client side Method: Base version TreeGrid with base Action
+BaseTreeGrid = function () {
+}
+
+BaseTreeGrid.prototype = {
+	grid: null,
+	toolbar: null,
+	ready: false,
+
+	controlToolbarOnClick: function(item) {
+		this.grid.turnEditOff();
+		var id = item.getId();
+		this.onToolbarClick({id: id});
+	},
+
+	controlGridClick: function(rowId, column) {
+		this.onGridClick({rowId: rowId, column: column});
+	},
+	
+	controlGridDoubleClick: function(rowId) {
+		this.onGridDoubleClick({rowId: rowId});
+	},
+	
+	controlGridLinkClick: function(strLink) {
+		this.onGridLinkClick({linkData: strLink});
+	},
+	
+	controlGridMenuInit: function(rowId, col, p) {
+		var menu = this.grid.getMenu();
+		if (menu.getItemCount() > 0) {
+			menu.removeAll();
+		}
+		var menuItems = [];
+		this.controlGridMenuClickHandler = function (menuChoice) {}; // reset previous handler;
+		var menuInit = this.onGridMenuInit({rowId: rowId, column: col, menuItems: menuItems});
+		if (menuInit) {
+			for (var i = 0; i < menuItems.length; i++) {
+				if (menuItems[i].separator) {
+					menu.addSeparator();
+				} else {
+					menu.add(i.toString(), (menuItems[i].label || ""), { disable: !menuItems[i].enabled });
+				}
+			}
+			
+			//set new handler which lock in clouser menuItems
+			this.controlGridMenuClickHandler = function (menuChoice) {
+				var selectedId = this.grid.getSelectedId();
+				if (selectedId) {
+					var menuItem = menuItems[parseInt(menuChoice, 10)];
+					this.onGridMenuClick({menu: menuItem});
+				}
+				return;
+			};
+			
+			return true;
+		}
+		
+		return false;
+	},
+	controlGridMenuClick: function (menuChoice) {
+		if(this.controlGridMenuClickHandler){
+				this.controlGridMenuClickHandler(menuChoice);
+		}
+		//will be overrided in controlGridMenuInit;
+	},
+	onValidateCell: function (eArg) {
+	    return true;
+	},
+	controlGridKeyPress: function(key) {
+		this.onGridKeyPress({key: key});
+	},
+
+	onToolbarClick: function (eArg) {
+		return;
+	},
+
+	onGridClick: function (eArg) {
+		return;
+	},
+
+	onGridDoubleClick: function (eArg) {
+		return;
+	},
+
+	onGridLinkClick: function (eArg) {
+		return;
+	},
+
+	onGridMenuInit: function (eArg) {
+		return true;
+	},
+
+	onGridMenuClick: function (eArg) {
+		eArg.menu.handler.execute ? eArg.menu.handler.execute() : eArg.menu.handler();
+		return;
+	},
+
+	onBeginEditCell: function (eArg) {
+		return false;
+	},
+
+	onEndEditCell: function  (eArg) {
+		return false;
+	},
+	
+	onGridKeyPress: function (eArg) {
+		return true;
+	},
+
+	initialize: function () {
+		//load grid and toolbar was success
+	},
+
+	loadHTML: function (instanceName) {
+		var htmlText =	'<table id="mainTable" style="overflow:hidden; width: 100%; height: 100%; position: absolute; top: 0px; left: 0px;" cellspacing="0" cellpadding="0">' +
+							'<tr style="vertical-align: top;">' +
+								'<td id="toolbar_td" style="height: 28px;"></td>' +
+							'</tr>' +
+							'<tr style="vertical-align: top;">' +
+								'<td id="gridTD" style="height: 100%;"></td>' +
+								'<div id="loadingInProgress" style="top: 31px; width: 100%; height: 100%; position: absolute; padding-top: 20px; z-index: 100; background-color: #ffffff;">' +
+									'<center><b>Loading...</b></center>' +
+								'</div>' +
+							'</tr>' +
+						'</table>',
+			docElement = document.documentElement,
+			mainDiv = document.createElement('div'),
+			mainTable,
+			toolbar,
+			grid;
+		mainDiv.innerHTML = htmlText;
+		document.body.appendChild(mainDiv);
+		mainTable = document.getElementById('mainTable');
+
+		if (aras.Browser.isIe() && aras.Browser.getMajorVersionNumber() < 11)  {
+			aras.browserHelper.adjustGridSize(window, function () {
+				mainTable.style.height = (docElement.clientHeight - 30) + 'px';
+			}, false);
+		}
+
+		var self = this;
+		clientControlsFactory.createControl("Aras.Client.Controls.Public.Toolbar", { connectId: "toolbar_td" }, function (control) {
+			toolbar = control;
+			clientControlsFactory.on(toolbar, { "onClick": self.controlToolbarOnClick.bind(self) });
+		});
+		this.toolbar = toolbar;
+	
+		clientControlsFactory.createControl("Aras.Client.Controls.Public.TreeGridContainer", {
+			canEdit_Experimental: dojo.hitch(this, function (rowId, field) {
+				var columnIndex = self.grid.columns_Experimental.get(field, 'index');
+				return self.onBeginEditCell({ rowId: rowId, column: columnIndex });
+			}),
+			validateCell_Experimental: (function (rowId, field, value) {
+				var columnIndex = this.grid.columns_Experimental.get(field, 'index');
+				return this.onValidateCell({ rowId: rowId, column: columnIndex, value: value });
+			}).bind(this)
+		}, function (control) {
+			grid = control;
+			clientControlsFactory.on(grid, {
+				"gridClick": self.controlGridClick.bind(self),
+				"gridDoubleClick": self.controlGridDoubleClick.bind(self),
+				"gridLinkClick": self.controlGridLinkClick.bind(self),
+				"gridMenuInit": self.controlGridMenuInit.bind(self),
+				"gridMenuClick": self.controlGridMenuClick.bind(self),
+				"onApplyEdit_Experimental": function (rowId, field, value) {
+					var columnIndex = self.grid.columns_Experimental.get(field, 'index');
+					return self.onEndEditCell({ rowId: rowId, column: columnIndex });
+				},
+				"gridKeyPress": self.controlGridKeyPress.bind(self)
+			});
+		});
+		this.grid = grid;
+		this.initialize();
+		this.ready = true;
+	},
+
+	getColumnLabelByName: function (typeName, propName) {
+		var itemType = aras.getItemTypeForClient(typeName, "name");
+		var propItem = itemType.getItemsByXPath("Relationships/Item[@type='Property' and name='" + propName + "']").node;
+		return aras.getItemProperty(propItem, 'label');
+	},
+
+	getDataSourceByName: function (typeName, propName) {
+		var itemType = aras.getItemTypeForClient(typeName, "name");
+		var propItem = itemType.getItemsByXPath("Relationships/Item[@type=\"Property\" and name=\"" + propName + "\"]").node;
+		return aras.getItemProperty(propItem, "data_source");
+	},
+
+	setToolbarItemEnable: function (ctrlName, bool) {
+		var toolbar = this.toolbar.getActiveToolbar();
+		bool = (bool === undefined) ? true : !!bool;
+		try {
+			var tbi = toolbar.getElement(ctrlName);
+			if (tbi) {
+				tbi.setEnabled(bool);
+			}
+		} catch (excep) {
+			alert('exception during setToolbarItemEnable()');
+		}
+	},
+
+	getProperty: function (node, element) {
+		//this function is used instead of aras.getItemProperty because of performance reasons
+		var value = "";
+		if (node) {
+			var tempNode = node.selectSingleNode(element);
+			if (tempNode) {
+				value = tempNode.text;
+			}
+		}
+		return value;
+	},
+
+	expandAll: function (bool) {
+		this.grid.setPaintEnabled(false);
+		if (bool) {
+			this.grid.expandAll();
+		} else {
+			this.grid.collapseAll();
+		}
+		this.grid.setPaintEnabled(true);
+	},
+
+	setLink: function (row_id, row_type, item_id, col) {
+		this.grid.SetCellTextColor(row_id, col, "#3668B1");
+		this.grid.SetCellLink(row_id, col, "'" + row_type + "','" + item_id + "'");
+	},
+
+	GetGridState: function () {
+		return {
+			expanded: this.grid.getOpenedItems(";").split(";"),
+			selected: this.grid.getSelectedItemIDs(";").split(";")
+		};
+	},
+
+	SetGridState: function (gridState) {
+		var l = gridState.expanded.length;
+		for (var i = 0; i < l; i++) {
+			if (gridState.expanded[i]) {
+				this.grid.openItem(gridState.expanded[i]);
+			}
+		}
+
+		l = gridState.selected.length;
+		for (var i = 0; i < l; i++) {
+			if (gridState.selected[i]) {
+				this.grid.setSelectedRow(gridState.selected[i], true, true);
+			}
+		}
+	}
+}
+
+ActionBase = function () {
+	/// <summary>Base class to implement action handler</summary>
+}
+
+ActionBase.prototype = {
+	execute: function () {
+		var selectedIds = impactGrid.grid.getSelectedItemIds("|").split("|");
+		var id_array = selectedIds[0] ? selectedIds : [];
+
+		for (i = 0; i < id_array.length; i++) {
+			var selRowId = id_array[i],
+				rowItem = impactGrid.GridRowUserData[selRowId],
+				affectedItem = impactGrid.AffectedItemDictionary[rowItem.itemId];
+			this.executeItem(rowItem, affectedItem, selRowId);
+		}
+	},
+
+	executeItem: function (rowItem, affectedItem, selRowId) {
+		//Execute action for Item
+	},
+
+	Validate: function (selRowId, selItem) {
+		//validate item
+		return true;
+	},
+
+	searchItem: function (itemTypeName, searchCallback, sourceItemTypeName, sourcePropertyName) {
+		var param = { aras: aras, itemtypeName: itemTypeName, multiselect: true, sourceItemTypeName: sourceItemTypeName, sourcePropertyName: sourcePropertyName };
+		param.callback = function (dlgRes) {
+			if (!dlgRes || dlgRes.length == 0) {
+				return;
+			}
+
+			// This logic is copy from function preloadItems in relationshipsGrid.html
+			var itms = new Array();
+			var idsArrayForLoad = new Array();
+			for (var i = 0; i < dlgRes.length; i++) {
+				var resID = dlgRes[i];
+				var item = aras.itemsCache.getItem(resID);
+				if (item) {
+					// if item is dirty then retreive item from cache after test for completeness
+					if (aras.isDirtyEx(item) || aras.isTempEx(item)) {
+						itms.push(item);
+					} else { // if item not dirty then drop it from cache and load from server original version
+						idsArrayForLoad.push("'" + resID + "'");
+					}
+				} else { // if item not exists in cache then load item from server
+					idsArrayForLoad.push("'" + resID + "'");
+				}
+			}
+
+			if (idsArrayForLoad.length > 0) {
+				var loadedItms = aras.loadItems(itemTypeName, "<id condition='in'>" + idsArrayForLoad.join(',') + "</id>");
+				for (var i = 0; i < loadedItms.length; i++) {
+					itms.push(loadedItms[i]);
+				}
+			}
+
+			if (itms) {
+				for (var i = 0; i < itms.length; i++) {
+					var itemId = aras.getItemProperty(itms[i], "id", "");
+					var itemType = itms[i].getAttribute('type');
+					var requiredItem = aras.getItemById(itemType, itemId, 0);
+					searchCallback(requiredItem);
+				}
+			}
+		};
+		aras.modalDialogHelper.show('SearchDialog', aras.getMostTopWindowWithAras(), param);
+	}
+}]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>BaseTreeGrid</name>
+ </Item>
+</AML>

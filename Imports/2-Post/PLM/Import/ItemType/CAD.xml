@@ -1,0 +1,999 @@
+﻿<AML>
+ <Item type="ItemType" id="CCF205347C814DD1AF056875E0A880AC" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <class_structure><![CDATA[<class id="CCF205347C814DD1AF056875E0A880AC"><class id="915D1CDCE18A469E9CCDD03419A70E7B" name="Mechanical"><class id="78A83C3AFFDD47F797FF6D6995916EFC" name="Part" /><class id="D2A05E3258644212BA12692D72ACE3B6" name="Assembly" /><class id="C05E861A69DC4DE0A45DC21CAB5F5ED5" name="Drawing" /><class id="EBB4DD85C1AD463E9FA37658E37F71F3" name="Simulation" /></class><class id="8582C077BD64441AA7F1189977F36094" name="Electronic"><class id="FD1EED5E5B0E491994A1FD849F8556F8" name="Design" /><class id="2F1B0C3EB7894CAE87E07080A82A52E1" name="Assembly" /><class id="E3B845F3F2324927810C29A9482D605A" name="Fabrication" /><class id="FE68214DED2A4AA9BC45EF567ECF3FFC" name="Logical" /><class id="CCC71764D6E147B69733C72D405A15CC" name="Manufacturing" /><class id="A50531AE60F6425AB812F8307D178642" name="Panelization" /><class id="6CB35DB7F7654355BE721345340073B3" name="Physical" /></class></class>]]></class_structure>
+  <close_icon>../images/CAD.svg</close_icon>
+  <default_page_size>50</default_page_size>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>CAD</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>1</is_versionable>
+  <label xml:lang="en">CAD Dataset</label>
+  <label_plural xml:lang="en">CAD Dataset</label_plural>
+  <large_icon>../images/CAD.svg</large_icon>
+  <manual_versioning>1</manual_versioning>
+  <open_icon>../images/CAD.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>CAD</name>
+  <Relationships>
+   <Item type="DiscussionTemplate" id="B8F389A5DCC441C7AACB56D22B2DA31E" action="add">
+    <file_selection_depth>-1</file_selection_depth>
+    <item_selection_depth>-1</item_selection_depth>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <visibility_supported>1</visibility_supported>
+    <Relationships>
+     <Item type="FeedTemplate" id="7EE1684FF3BD4B77AB8FF4C073C8801B" action="add">
+      <feed_type>Board</feed_type>
+      <history_events>Add</history_events>
+      <reference>this</reference>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="B8F389A5DCC441C7AACB56D22B2DA31E" type="DiscussionTemplate">B8F389A5DCC441C7AACB56D22B2DA31E</source_id>
+      <Relationships>
+       <Item type="FileSelectorTemplate" id="39515C2E42E14ED592AEB76766F185D9" action="add">
+        <filter>7869D76D50ED4BD4985BECB20B1102F7|992B142FCE6C4EF8B71417220CD7E92D|50AF497B7A114235979F882CEC8EFDF6|8A85DD9A6E0346F5AE423314E3650041</filter>
+        <reference>viewable_file</reference>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="7EE1684FF3BD4B77AB8FF4C073C8801B" type="FeedTemplate">7EE1684FF3BD4B77AB8FF4C073C8801B</source_id>
+        <tooltip_template xml:lang="en">File ${File:filename} from ${ItemType:label} ${Item:keyed_name}</tooltip_template>
+       </Item>
+       <Item type="FileSelectorTemplate" id="6328F7F2B4E4410AA509FECE8DEE300A" action="add">
+        <filter>94BB5EBE9CE54D5A88F969ADE64EE440</filter>
+        <reference>view_file</reference>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="7EE1684FF3BD4B77AB8FF4C073C8801B" type="FeedTemplate">7EE1684FF3BD4B77AB8FF4C073C8801B</source_id>
+        <tooltip_template xml:lang="en">File ${File:filename} from ${ItemType:label} ${Item:keyed_name}</tooltip_template>
+       </Item>
+       <Item type="FileSelectorTemplate" id="B600ABD9657745D087C19A848CBAE60D" action="add">
+        <filter>7869D76D50ED4BD4985BECB20B1102F7|992B142FCE6C4EF8B71417220CD7E92D|50AF497B7A114235979F882CEC8EFDF6|8A85DD9A6E0346F5AE423314E3650041</filter>
+        <reference>CADFiles(attached_file)</reference>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="7EE1684FF3BD4B77AB8FF4C073C8801B" type="FeedTemplate">7EE1684FF3BD4B77AB8FF4C073C8801B</source_id>
+        <tooltip_template xml:lang="en">File ${File:filename} from ${ItemType:label} ${Item:keyed_name}</tooltip_template>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="DiscussionTemplateView" id="024757767C6B4FD29D0F585EFB71DC71" action="add">
+      <client>js</client>
+      <related_id keyed_name="AD3D158EC3B341179D49B20ACE5E04DD" type="SSVCPresentationConfiguration">
+       <Item type="SSVCPresentationConfiguration" id="AD3D158EC3B341179D49B20ACE5E04DD" action="add">
+        <discussion_panel_behavior>discPanelOff</discussion_panel_behavior>
+        <form_tooltip_template xml:lang="en">Form of ${ItemType:label} ${Item:keyed_name}</form_tooltip_template>
+        <sm_template keyed_name="F1E9620C1AB3408588708B68E18D51DE" type="SecureMessageViewTemplate">F1E9620C1AB3408588708B68E18D51DE</sm_template>
+        <name>AD3D158EC3B341179D49B20ACE5E04DD</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="B8F389A5DCC441C7AACB56D22B2DA31E" type="DiscussionTemplate">B8F389A5DCC441C7AACB56D22B2DA31E</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="ITPresentationConfiguration" id="21E99B9C0C7E4779825DB91984BC811D" action="add">
+    <client>js</client>
+    <related_id keyed_name="27742230F8244449ABF80F6E4AADA3E5" type="PresentationConfiguration">27742230F8244449ABF80F6E4AADA3E5</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Property" id="5C9197607AF44358A6E741AB09582BF8" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_source keyed_name="Authoring Tools">11A953CA5A5E4BCD8EC9758C7E4B6E92</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Authoring Tool</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>authoring_tool</name>
+   </Item>
+   <Item type="Property" id="3E4D0AB8E3E24F93B04312FD13C98FC4" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Authoring Tool Version</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>authoring_tool_version</name>
+   </Item>
+   <Item type="Property" id="03CBC749B5DA44FA8346E667FCE3CE74" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">CAGE Code</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>204384</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>5</stored_length>
+    <track_history>0</track_history>
+    <name>cage_code</name>
+   </Item>
+   <Item type="Property" id="E0F6A2AB23DB40BBA95F50B250CDC2FA" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="ECN" type="ItemType" name="ECN">85F86794FACF42599F07019F7BEA1D46</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">CN</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>103704</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>cn</name>
+   </Item>
+   <Item type="Property" id="ECA4196E5AE14505B07322498B9AAC60" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="D2CB2FE777E8414399EB601C6BB402FD" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>1</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">External ID</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1920</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>external_id</name>
+   </Item>
+   <Item type="Property" id="AF8616BB5CA94DE7B3F9162853CE3523" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">External Owner</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2176</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>128</stored_length>
+    <track_history>0</track_history>
+    <name>external_owner</name>
+   </Item>
+   <Item type="Property" id="45B65B2F019C46B6AC594B0AF226A164" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">External Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2048</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>128</stored_length>
+    <track_history>0</track_history>
+    <name>external_type</name>
+   </Item>
+   <Item type="Property" id="3624652F01A64C5EA060F35DF49E1431" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">From Template</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>98712</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>from_template</name>
+   </Item>
+   <Item type="Property" id="9E0ADA9EAAE5481693C2AC1176482331" action="add">
+    <column_alignment>center</column_alignment>
+    <column_width>60</column_width>
+    <data_type>boolean</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Changes</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>95000</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>has_change_pending</name>
+   </Item>
+   <Item type="Property" id="A118305C63D845E0BEC525A847B26ADC" action="add">
+    <column_alignment>center</column_alignment>
+    <column_width>60</column_width>
+    <data_type>boolean</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Standard</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>98456</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>is_standard</name>
+   </Item>
+   <Item type="Property" id="441111CD398A4EE68E504F7B869B3C09" action="add">
+    <column_alignment>center</column_alignment>
+    <column_width>60</column_width>
+    <data_type>boolean</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Template</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>98584</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>is_template</name>
+   </Item>
+   <Item type="Property" id="6A8B59F53ABC49B79B263455F5FB8776" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Monolithic Model file</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1296</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>monolithic_model_file</name>
+   </Item>
+   <Item type="Property" id="3AC10B5A42004CC3A1C76B3CC3955FA5" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>200</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Name</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>name</name>
+   </Item>
+   <Item type="Property" id="AE4EBCCCB7BC428AA0F8F18EE219BC17" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Native File</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>native_file</name>
+   </Item>
+   <Item type="Property" id="71A92F131BB5443CBBE25B1295A7D87F" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Plan Release Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>204256</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>release_date_plan</name>
+   </Item>
+   <Item type="Property" id="C6995A44995948BDBE059AC4AA2D9EBC" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Shattered Model File</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1312</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>shattered_model_file</name>
+   </Item>
+   <Item type="Property" id="8BDF3473237447DE993D3D1D8BEEC9CD" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>60</column_width>
+    <data_type>image</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Thumbnail</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>thumbnail</name>
+   </Item>
+   <Item type="Property" id="78A504AF43F14A348020D419FEDBF240" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">View File</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>103576</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>view_file</name>
+   </Item>
+   <Item type="Property" id="BE0CA82B96C4425C98E9450365C6CE76" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Viewable File</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>viewable_file</name>
+   </Item>
+   <Item type="Property" id="E19723B8592E4D08A83B10F8F88C4E84" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">X max</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2688</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>x_max</name>
+   </Item>
+   <Item type="Property" id="0E497DB1B5274B22AB17CC089CE24EAA" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">X min</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2304</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>x_min</name>
+   </Item>
+   <Item type="Property" id="C492D03307044C659EAFC19F147BC88F" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Y max</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2816</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>y_max</name>
+   </Item>
+   <Item type="Property" id="1EE9597F7D194BCA983C539D97BB36A6" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Y min</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2432</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>y_min</name>
+   </Item>
+   <Item type="Property" id="0970CA9ADEA144249E3665DB07D6B2C2" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Z max</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2944</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>z_max</name>
+   </Item>
+   <Item type="Property" id="244C39BADC734FA5AADA122479A7C9AC" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Z min</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>2560</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>z_min</name>
+   </Item>
+   <Item type="View" id="D7A51E7F987F4953BE46607185A826E2" action="add">
+    <client>js</client>
+    <related_id keyed_name="CAD" type="Form">5F4F4A0D83BF49AEB96FEAA6412C8838</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="C17B14040CC54E1B8647A220C5188E3A" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_update_has_change_pending" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_update_has_change_pending</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterCopy</server_event>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Server Event" id="EFF64805112E4C358E7974BA79949D5D" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2 GetCN" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2 GetCN</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterGet</server_event>
+    <sort_order>100257</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Server Event" id="7183255EE5E444A7B470610252104AB0" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_update_has_change_pending" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_update_has_change_pending</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterVersion</server_event>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Server Event" id="002964BC5ED54A6583E265C14C647C3D" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_AffectedItemFloat" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_AffectedItemFloat</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterVersion</server_event>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Server Event" id="AD4206A05EB741D795199198F6EFC81E" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_clean_has_change_pending_prop" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_clean_has_change_pending_prop</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Server Event" id="A92E3AFE56D14ACA9045CBC6AFDEF3DB" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2 CleanCRCN" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2 CleanCRCN</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>100129</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Server Event" id="EDF54A31731F417EB0F16CB8D853D638" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="PE_clean_has_change_pending_prop" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>PE_clean_has_change_pending_prop</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Server Event" id="A4EA96FD76FA4D2189F2752CCE7E600F" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="CM2 CleanCRCN" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>CM2 CleanCRCN</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>100129</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Item Action" id="81BAAD8CEBF44188B48233364D886734" action="add">
+    <related_id keyed_name="PE_AddToChange" type="Action">83FB72FC3E4D42B8B51BCD7F4194E527</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Item Action" id="06B88D18E2F74CF4B0FF7033B7C92896" action="add">
+    <related_id keyed_name="PE_ManualRelease" type="Action">2CAC9B41B8394D29B89C45C522703BC4</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Item Action" id="7E68855B51C04F959F405AEFFC686059" action="add">
+    <related_id keyed_name="PE_CreateNewRevision" type="Action">39BE6AC491184B979EC03D1400F35F2F</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Item Action" id="5DAAB982BE2D4BA3800CC9CE5B8AD4D2" action="add">
+    <related_id keyed_name="Convert CAD To PDF" type="Action">9F34709DE5284912A65D826624FBB9F7</related_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Item Action" id="5618D53E9FC248A584E912B28AE2D96B" action="add">
+    <related_id keyed_name="VC_AddItemsToBookmarks" type="Action">FD4D2BE9E2B14919BF1973842A556AFD</related_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="3D4925A83C14472B87D3B2BF48CD2607" action="add">
+    <related_id keyed_name="CAD" type="Life Cycle Map">6532C86E40BB484F9914118692B3C50C</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="TOC Access" id="3F4D845E525C4DD1A40FDBD6F17B51A5" action="add">
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <category>Documents</category>
+   </Item>
+   <Item type="Can Add" id="9CB2EE6A7D3E4F2592B7B705C313B93D" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="86858B7653014790BBAA145A22D4AFE3" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="New CAD" type="Permission">EA3ED7E7391542D7A17AF2F42B5274ED</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="CCF205347C814DD1AF056875E0A880AC" action="edit">
+  <Relationships>
+   <Item type="Property" id="1BF8C96521A94CB0B658C2EE08C1C871" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Dataset Number</label>
+    <order_by>1</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='classification'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>classification</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='created_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="User" type="ItemType" name="User">45E899CD2859442982EB22BB2DF683E5</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Created By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>102552</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>created_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='created_on'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Created</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>102424</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>created_on</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='current_state'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Life Cycle State" type="ItemType" name="Life Cycle State">5EFB53D35BAE468B851CD388BEA46B30</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>103192</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>current_state</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='generation'">
+    <column_alignment>left</column_alignment>
+    <data_type>integer</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Gen</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>97432</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>generation</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='locked_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="User" type="ItemType" name="User">45E899CD2859442982EB22BB2DF683E5</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Locked By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>103448</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>locked_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='major_rev'">
+    <column_alignment>center</column_alignment>
+    <column_width>50</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Revision</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>8</stored_length>
+    <track_history>0</track_history>
+    <name>major_rev</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='managed_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Designated User</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>managed_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='modified_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="User" type="ItemType" name="User">45E899CD2859442982EB22BB2DF683E5</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Last Modified By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>103064</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>modified_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='modified_on'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Last Modified</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>102936</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>modified_on</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Assigned Creator</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1664</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='state'">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CCF205347C814DD1AF056875E0A880AC' and name='superseded_date'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Superseded Date</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>13200</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>superseded_date</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

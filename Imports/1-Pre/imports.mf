@@ -1,0 +1,3 @@
+<imports>
+  <package name="com.aras.innovator.solution.PLM" path="PLM\Import" />
+</imports>

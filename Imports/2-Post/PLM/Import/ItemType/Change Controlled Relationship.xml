@@ -1,0 +1,285 @@
+﻿<AML>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>polymorphic</implementation_type>
+  <instance_data>CHANGE_CONTROLLED_RELATIONSHIP</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs off</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Change Controlled Relationship</name>
+  <Relationships>
+   <Item type="Property" id="84B451E9B319437D9219617E47E70FDD" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>float</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Quantity</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+    <track_history>0</track_history>
+    <name>quantity</name>
+   </Item>
+   <Item type="View" id="F9E232ACE9DE456F8251B178C737A6A4" action="add">
+    <client>js</client>
+    <related_id keyed_name="Change Controlled Relationship" type="Form">5726C801C2A647ACB75C459C9210A94B</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="8B75C91A65764AC8A08A6CA9BE76BFF8" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeAdd" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeAdd</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+   <Item type="Server Event" id="BB1BF856A7B647E59E68C33E7E2E3AAC" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeCopy" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeCopy</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeCopy</server_event>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+   <Item type="Server Event" id="812B43772FD343F89A085D9AA786E7E2" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeDelete" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeDelete</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeDelete</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+   <Item type="Server Event" id="086161DD7099492E9B019445F336E8AF" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeLock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeLock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeLock</server_event>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+   <Item type="Server Event" id="0E47CD7C76494082B58E4A482BDB2CE2" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUnlock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUnlock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUnlock</server_event>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+   <Item type="Server Event" id="28A428B33E9F42489338A24F0C08E953" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUpdate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUpdate</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+   <Item type="Server Event" id="8956D87BB7EA49678D5246434517E713" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeVersion" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeVersion</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeVersion</server_event>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='2A5BB1A93BDC436B824B9FFE6DB89553' and name='itemtype'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Controlled Relationship">
+     <Item type="List" action="get" select="id" page="1" pagesize="1">
+      <name>Change Controlled Relationship</name>
+     </Item>
+    </data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">ItemType</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>itemtype</name>
+   </Item>
+   <!-- START IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+   <Item type="Property" action="delete" where="([Property].id='2225B1A93BDC436B884B9FFE6DB86B5A' or [Property].id='1B6BB1A93BDC436B884B9FFE6DB86B5A' or [Property].id='2B6BB1A93BDC436B224B9F2E6DB89523') and [Property].source_id='2A5BB1A93BDC436B824B9FFE6DB89553'">
+   </Item>
+   <!-- END IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+	<!-- START IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+   <Item type="Property" id="2225B1A93BDC436B884B9FFE6DB86B5A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">related_id</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+    <track_history>0</track_history>
+    <name>related_id</name>
+   </Item>
+	<!-- END IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+	<!-- START IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+   <Item type="Property" id="1B6BB1A93BDC436B884B9FFE6DB86B5A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>integer</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Sequence</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3712</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+    <track_history>0</track_history>
+    <name>sort_order</name>
+   </Item>
+   <!-- END IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+   <!-- START IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+   <Item type="Property" id="2B6BB1A93BDC436B224B9F2E6DB89523" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">source_id</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3968</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+    <track_history>0</track_history>
+    <name>source_id</name>
+   </Item>
+   <!-- END IR-022040 related_id,source_id and sort_order is not a system property. It can't be edited as standard system properties via action 'edit' -->
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="753242503E6048BC994DF29C6665A7EF" action="add">
+    <related_id keyed_name="Part BOM" type="ItemType" name="Part BOM">5E9C5A12CC58413A8670CF4003C57848</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="9035095DB92B46DDB66E6B6D37F80FC2" action="add">
+    <related_id keyed_name="Part Document" type="ItemType" name="Part Document">BFE7AD9711A547FBB05827B5169493CE</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="2FD71054C76A4ACABC3074E43A954822" action="add">
+    <related_id keyed_name="Part CAD" type="ItemType" name="Part CAD">935DF68BCFD849EBB5C3A528F04C5B5B</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="1827D99255BC4772A912373E0950C639" action="add">
+    <related_id keyed_name="Document Document" type="ItemType" name="Document Document">20E87EABA32240FB8935B1532A8AE63A</related_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="09DAF9518B84449A981F9270EA28B721" action="add">
+    <related_id keyed_name="Document Child Document" type="ItemType" name="Document Child Document">878F10B86E394C1E8E9E2BF0A5759832</related_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2A5BB1A93BDC436B824B9FFE6DB89553" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="A65956F5DB5D4ED2A665A4D7F8B2C121" action="add">
+    <related_id keyed_name="Document Part" type="ItemType" name="Document Part">488A2D333F0D49F5BC4C3EFE71BE8D87</related_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Change Controlled Relationship" type="ItemType" name="Change Controlled Relationship">2A5BB1A93BDC436B824B9FFE6DB89553</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

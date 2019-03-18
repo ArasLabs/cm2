@@ -1,0 +1,92 @@
+﻿<AML>
+ <Item type="Form" id="CC0EAB2BD739465EBCEB58BC75C5AEAF" action="add">
+  <category_form>0</category_form>
+  <height>250</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>800</width>
+  <name>ECR Impact Matrix Form</name>
+  <Relationships>
+   <Item type="Body" id="42982090C3D94E9A91DD6E09B527A511" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ECR Impact Matrix Form" type="Form">CC0EAB2BD739465EBCEB58BC75C5AEAF</source_id>
+    <Relationships>
+     <Item type="Field" id="359FA283F4B04E9FB2FAF486EAF2FB9A" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <html_code><![CDATA[<script type="text/javascript">
+	// Generic TreeView - HTML-code
+	// this is a skeleton
+	// and all Click Handlers impactGrid.XXXX listed in this HTML
+	//
+	// FormEvent = onLoad
+	// ====================================================================================================================
+
+	var impactGrid = null;
+
+	function onTabSelected() {
+		return; // not used
+	}
+
+	function setEditMode(item) {
+		// responds to the windows top toolbar actions
+		impactGrid.grid.turnEditOff();
+		var toolbarNode = document.getElementById("toolbarContainer");
+		toolbarNode.appendChild(tbControl.domNode);
+		tbControl.startup();
+	}
+
+	function setViewMode(item) {
+		// responds to the windows top toolbar actions
+		impactGrid.grid.turnEditOff();
+	}
+
+	var onload_handler = function() {
+		if (window.ImpactMatrixGrid) {
+			impactGrid = new ImpactMatrixGrid();
+			impactGrid.loadHTML();
+		}
+	}
+	window.addEventListener("load", onload_handler);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <positioning>absolute</positioning>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="42982090C3D94E9A91DD6E09B527A511" type="Body">42982090C3D94E9A91DD6E09B527A511</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>html_grid1_ecr_change_plan</name>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Form Event" id="FFAF96003CB1492BAB018A610D033D67" action="add">
+    <form_event>onload</form_event>
+    <related_id keyed_name="BaseTreeGrid" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>BaseTreeGrid</name>
+     </Item>
+    </related_id>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="ECR Impact Matrix Form" type="Form">CC0EAB2BD739465EBCEB58BC75C5AEAF</source_id>
+   </Item>
+   <Item type="Form Event" id="14E858616823458A962B68D73344158B" action="add">
+    <form_event>onload</form_event>
+    <related_id keyed_name="ECR ImpactMatrixGrid" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>ECR ImpactMatrixGrid</name>
+     </Item>
+    </related_id>
+    <sort_order>2</sort_order>
+    <source_id keyed_name="ECR Impact Matrix Form" type="Form">CC0EAB2BD739465EBCEB58BC75C5AEAF</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,326 @@
+<AML>
+ <Item type="ItemType" id="CD84AA40803F444CBF06843D26F6EC6A" action="add">
+  <allow_private_permission>0</allow_private_permission>
+  <auto_search>1</auto_search>
+  <default_page_size>50</default_page_size>
+  <enforce_discovery>0</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>PE_WAIVER</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Waiver</label>
+  <label_plural xml:lang="en">Waivers</label_plural>
+  <large_icon>../Images/Waiver.svg</large_icon>
+  <open_icon>../Images/Waiver.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>0</show_parameters_tab>
+  <structure_view>tabs off</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>PE_Waiver</name>
+  <Relationships>
+   <Item type="DiscussionTemplate" id="B5872E188F0E41618DD4A7EE6672ADEC" action="add">
+    <file_selection_depth>2</file_selection_depth>
+    <item_selection_depth>2</item_selection_depth>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <visibility_supported>1</visibility_supported>
+    <Relationships>
+     <Item type="FeedTemplate" id="278B97CE15A643DD917B4E944A1C5CE3" action="add">
+      <feed_type>Board</feed_type>
+      <reference>this</reference>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="B5872E188F0E41618DD4A7EE6672ADEC" type="DiscussionTemplate">B5872E188F0E41618DD4A7EE6672ADEC</source_id>
+     </Item>
+     <Item type="FeedTemplate" id="7DE3EC27D94F4E158204B3FB0EE21F09" action="add">
+      <feed_type>Discussion</feed_type>
+      <reference>affected_part</reference>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="B5872E188F0E41618DD4A7EE6672ADEC" type="DiscussionTemplate">B5872E188F0E41618DD4A7EE6672ADEC</source_id>
+     </Item>
+     <Item type="DiscussionTemplateView" id="7E2299C0119F44EA90A285B72892884B" action="add">
+      <client>js</client>
+      <related_id keyed_name="2864E54BB9C0459F8AC4C95B2A29B2C9" type="SSVCPresentationConfiguration">
+       <Item type="SSVCPresentationConfiguration" id="2864E54BB9C0459F8AC4C95B2A29B2C9" action="add">
+        <discussion_panel_behavior>discPanelOff</discussion_panel_behavior>
+        <form_tooltip_template xml:lang="en">Form of ${ItemType:keyed_name}</form_tooltip_template>
+        <sm_template keyed_name="F1E9620C1AB3408588708B68E18D51DE" type="SecureMessageViewTemplate">F1E9620C1AB3408588708B68E18D51DE</sm_template>
+        <name>2864E54BB9C0459F8AC4C95B2A29B2C9</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="B5872E188F0E41618DD4A7EE6672ADEC" type="DiscussionTemplate">B5872E188F0E41618DD4A7EE6672ADEC</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="ITPresentationConfiguration" id="C0AEA819E1174D7AB24CE1B24E070213" action="add">
+    <client>js</client>
+    <related_id keyed_name="58E1B4FEBD594F878EA2463516B9EFF0" type="PresentationConfiguration">58E1B4FEBD594F878EA2463516B9EFF0</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+   </Item>
+   <Item type="Property" id="5DA2079DB7CE472794649254A504A191" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Affected Part</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>affected_part</name>
+   </Item>
+   <Item type="Property" id="9B25D47BF8CF4766943F2C7911F9242A" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Change Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="B88B37DFDDD1446C9DFF2856BCCC1392" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>110</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Effective From</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>effective_from</name>
+   </Item>
+   <Item type="Property" id="434866843E3646148C5782F340B6A52E" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>110</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Effective To</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>effective_to</name>
+   </Item>
+   <Item type="Property" id="CF59C00D64E84ABA82F62BC19839D1B2" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>110</column_width>
+    <data_source keyed_name="PE_Waiver">1630B6671D0D4BFB96DC231B50DE21FA</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Waiver Number</label>
+    <order_by>1</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="69848F094AC8456CA4ABEED1E3C199EF" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="mpp_Location" type="ItemType" name="mpp_Location">CC2E5B8519EC48C5A3A0BDAC2A0842C3</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Location</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>location</name>
+   </Item>
+   <Item type="Property" id="58BFC21FCB8C4EC98DDAC4C10EF737AC" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Change Reason</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>reason</name>
+   </Item>
+   <Item type="Property" id="5DEDC9F7D29B4FAAB872A37C813D3A89" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="C8C793E2B8314DDF9D71F60E54016DB9" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Planned Release Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>release_date_plan</name>
+   </Item>
+   <Item type="View" id="D0CBA7187FA44416A6CE8CCB958156F8" action="add">
+    <client>js</client>
+    <related_id keyed_name="PE_Waiver" type="Form">FA69F063A64141EA9BF7F147B36F6B52</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="EFF655D1AA184C059787AF3E437B4909" action="add">
+    <related_id keyed_name="VC_AddItemsToBookmarks" type="Action">FD4D2BE9E2B14919BF1973842A556AFD</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="0A7177DA185E4BB3BACA0D85D570E113" action="add">
+    <related_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+   </Item>
+   <Item type="Allowed Workflow" id="1C0010BB734F4C37B07DD59B4A20B3FA" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="PE_Waiver" type="Workflow Map">5A761D5B2C014C949A2AA74F950FB282</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+   </Item>
+   <Item type="TOC Access" id="15DC660B50B6433F8CFC5ABE21C14815" action="add">
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Can Add" id="D79A7975590F4B99AAEE49DB5A277B57" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="740CBDEB0A034E43AFBE84F67C58BE9A" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="PE_Waiver - In Work" type="Permission">486491A5130B4710A0E1BE63E3F9C80C</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="CD84AA40803F444CBF06843D26F6EC6A" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='CD84AA40803F444CBF06843D26F6EC6A' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Authorized By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='CD84AA40803F444CBF06843D26F6EC6A' and name='state'">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Status</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Waiver" type="ItemType" name="PE_Waiver">CD84AA40803F444CBF06843D26F6EC6A</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

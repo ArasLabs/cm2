@@ -1,0 +1,37 @@
+﻿<AML>
+ <Item type="List" id="D09163D96DF94F498604F8611A436A3D" action="add">
+  <name>Duration Unit</name>
+  <Relationships>
+   <Item type="Value" id="4F20D53E4FED4221981DD686E23F3BE9" action="add">
+    <label xml:lang="en">Days</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Duration Unit" type="List">D09163D96DF94F498604F8611A436A3D</source_id>
+    <value>Days</value>
+   </Item>
+   <Item type="Value" id="6ABED2DCB03F4062A1B2F90E1277EB78" action="add">
+    <label xml:lang="en">Hours</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Duration Unit" type="List">D09163D96DF94F498604F8611A436A3D</source_id>
+    <value>Hours</value>
+   </Item>
+   <Item type="Value" id="3EB28FAED2E1436BACDC7ED6675BB430" action="add">
+    <label xml:lang="en">Weeks</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Duration Unit" type="List">D09163D96DF94F498604F8611A436A3D</source_id>
+    <value>Weeks</value>
+   </Item>
+   <Item type="Value" id="0A5C72D371434378898138DFB2AC6398" action="add">
+    <label xml:lang="en">Months</label>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Duration Unit" type="List">D09163D96DF94F498604F8611A436A3D</source_id>
+    <value>Months</value>
+   </Item>
+   <Item type="Value" id="A53F4F3661BE4C57B64CA4BC9AFFE9A6" action="add">
+    <label xml:lang="en">Minutes</label>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Duration Unit" type="List">D09163D96DF94F498604F8611A436A3D</source_id>
+    <value>Minutes</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

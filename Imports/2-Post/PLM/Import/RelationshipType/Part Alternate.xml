@@ -1,0 +1,204 @@
+﻿<AML>
+ <Item type="RelationshipType" id="A06CE2E9D07542DB9883CAF20BB22B11" action="add" dependencyLevel="0">
+  <auto_search>1</auto_search>
+  <behavior>float</behavior>
+  <copy_permissions>0</copy_permissions>
+  <create_related>0</create_related>
+  <description>Alternate Parts</description>
+  <grid_view>intermix</grid_view>
+  <hide_in_all>0</hide_in_all>
+  <inc_rel_key_name>1</inc_rel_key_name>
+  <inc_related_key_name>1</inc_related_key_name>
+  <is_list_type>0</is_list_type>
+  <label xml:lang="en">Alternates</label>
+  <new_show_related>0</new_show_related>
+  <related_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</related_id>
+  <related_notnull>0</related_notnull>
+  <related_option>2</related_option>
+  <relationship_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">
+   <Item type="ItemType" id="7350C0705BB14CCBAC79D8D9FBC2F5E6" action="add">
+    <allow_private_permission>1</allow_private_permission>
+    <auto_search>0</auto_search>
+    <enforce_discovery>0</enforce_discovery>
+    <hide_where_used>0</hide_where_used>
+    <implementation_type>table</implementation_type>
+    <instance_data>PART_ALTERNATE</instance_data>
+    <is_dependent>0</is_dependent>
+    <is_relationship>1</is_relationship>
+    <is_versionable>0</is_versionable>
+    <label xml:lang="en">Part Alternate</label>
+    <label_plural xml:lang="en">Alternates</label_plural>
+    <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+    <show_parameters_tab>1</show_parameters_tab>
+    <structure_view>tabs off</structure_view>
+    <unlock_on_logout>0</unlock_on_logout>
+    <use_src_access>1</use_src_access>
+    <name>Part Alternate</name>
+    <Relationships>
+     <Item type="Property" id="D265DA400EC741658095B722F07129FA" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>string</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Applications</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+      <stored_length>32</stored_length>
+      <track_history>0</track_history>
+      <name>applications</name>
+     </Item>
+     <Item type="Property" id="0CAA1A7CF301436AB61D4D8922D2E2FE" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>date</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Date Approved</label>
+      <pattern>short_date</pattern>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3968</sort_order>
+      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+      <track_history>0</track_history>
+      <name>approved_date</name>
+     </Item>
+     <Item type="Property" id="352453CCABFF43478AFDBEEAD10DA56E" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source>
+       <Item type="Property" action="get" select="id">
+        <name>related_id</name>
+        <source_id>7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+       </Item>
+      </data_source>
+      <data_type>foreign</data_type>
+      <foreign_property>
+       <Item type="Property" action="get" select="id">
+        <keyed_name>cage_code</keyed_name>
+        <source_id>
+         <Item type="ItemType" action="get" select="id">
+          <name>Part</name>
+         </Item>
+        </source_id>
+       </Item>
+      </foreign_property>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Cage Code</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+      <track_history>0</track_history>
+      <name>cage_code</name>
+     </Item>
+     <Item type="Property" id="5BC615EC627A4416A223EBD68ABD91DA" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source keyed_name="ECN" type="ItemType" name="ECN">85F86794FACF42599F07019F7BEA1D46</data_source>
+      <data_type>item</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <item_behavior>float</item_behavior>
+      <label xml:lang="en">CN</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>4096</sort_order>
+      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+      <track_history>0</track_history>
+      <name>cn_id</name>
+     </Item>
+     <Item type="Property" id="C346C50F352E410683C4E52FECE281C2" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>string</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Time or Qty Limit</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3712</sort_order>
+      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+      <stored_length>32</stored_length>
+      <track_history>0</track_history>
+      <name>limit_time_or_qty</name>
+     </Item>
+     <Item type="View" id="6CF959EDAEE04E25A35404790C1C797F" action="add">
+      <client>js</client>
+      <related_id keyed_name="Part Alternate" type="Form">E91F301F13CB4A15A0408A8FB40FCB20</related_id>
+      <role keyed_name="World" type="Identity">
+       <Item type="Identity" action="get" select="id">
+        <name>World</name>
+       </Item>
+      </role>
+      <show_ssvc>0</show_ssvc>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+      <type>default</type>
+     </Item>
+     <Item type="ItemType Life Cycle" id="A7BC4FB34541493E9EDFDF11A9F62991" action="add">
+      <related_id keyed_name="Alternate Part" type="Life Cycle Map">CA091A7941184A8699B8BB7E31D85A8F</related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>256</sort_order>
+  <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+  <name>Part Alternate</name>
+  <Relationships>
+   <Item type="Relationship Grid Event" id="DE80A8A15D104E4286B873AD182A5808" action="add">
+    <grid_event>oninsertrow</grid_event>
+    <related_id keyed_name="Increment Sequence Number" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Increment Sequence Number</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Part Alternate" type="RelationshipType">A06CE2E9D07542DB9883CAF20BB22B11</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="7350C0705BB14CCBAC79D8D9FBC2F5E6" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='7350C0705BB14CCBAC79D8D9FBC2F5E6' and name='sort_order'">
+    <column_alignment>left</column_alignment>
+    <column_width>70</column_width>
+    <data_type>integer</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Sequence</label>
+    <order_by>0</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>0</sort_order>
+    <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
+    <track_history>0</track_history>
+    <name>sort_order</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

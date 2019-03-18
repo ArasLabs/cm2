@@ -1,0 +1,81 @@
+﻿<AML>
+ <Item type="Method" id="83AD73FC6D0D4B338C64E27AF99B1814" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var inn = this.newInnovator();
+var ecnItem = aras.newItem("ECN","add");
+var ecrId = this.getID();
+
+// Set the shared properties
+aras.setItemProperty(ecnItem,"title",this.getProperty("title",""));
+aras.setItemProperty(ecnItem,"priority",this.getProperty("implementation_priority",""));
+aras.setItemProperty(ecnItem,"basis",this.getProperty("basis",""));
+aras.setItemProperty(ecnItem,"owned_by_id",this.getProperty("owned_by_id",""));
+
+// Add a relationship back to the ECR
+var typeID = aras.getItemFromServerByName("RelationshipType","ECN ECR","id").node.getAttribute("id");
+var ecrRel = aras.newRelationship(typeID,ecnItem,false,this,this.node); 
+
+// Add Affected Items
+typeID = aras.getItemFromServerByName("RelationshipType","ECN Affected Item","id").node.getAttribute("id");
+var clientList = "";
+var affItems = this.getItemsByXPath("Relationships/Item[@type='ECR Affected Item']");
+for (var i=0; i<affItems.getItemCount(); i++) {
+ clientList += "'" + affItems.getItemByIndex(i).getID() + "',";
+}
+clientList+="''";
+var ecrItem = this.newItem("ECR","get");
+ecrItem.setID(this.getID());
+ecrItem.setAttribute("select","id");
+var ecrAffItems = this.newItem("ECR Affected Item","get");
+ecrAffItems.setAttribute("select","id");
+ecrAffItems.setProperty("id",clientList,"not in");
+ecrItem.addRelationship(ecrAffItems);
+ecrItem = ecrItem.apply();
+ecrAffItems = ecrItem.getItemsByXPath("Relationships/Item[@type='ECR Affected Item']");
+for (i=0; i<ecrAffItems.getItemCount(); i++) {
+    aras.getItemRelationship(this.node, "ECR Affected Item", ecrAffItems.getItemByIndex(i).getID(), true);
+}
+
+affItems = this.getItemsByXPath("Relationships/Item[@type='ECR Affected Item']");
+for (i=0;i<affItems.getItemCount(); i++) {
+ affItemId = affItems.getItemByIndex(i).getRelatedItem().getProperty("affected_id","");
+ var affItemName = affItems.getItemByIndex(i).getRelatedItem().getPropertyAttribute("affected_id","keyed_name","");
+ var newItemId = affItems.getItemByIndex(i).getRelatedItem().getProperty("new_item_id","");
+ var newItemName = affItems.getItemByIndex(i).getRelatedItem().getPropertyAttribute("new_item_id","keyed_name","");
+ var affItemRel = aras.newRelationship(typeID,ecnItem);
+ var affItem = aras.newItem("Affected Item","add");
+ if (affItemId !== "") {
+  aras.setItemProperty(affItem,'affected_id','');
+  affItem.selectSingleNode("affected_id").setAttribute("keyed_name",affItemName);
+  var ccItem = affItem.ownerDocument.createElement("Item");
+  ccItem.setAttribute("type","Change Controlled Item");
+  ccItem.setAttribute("action","skip");
+  ccItem.setAttribute("typeID",inn.getItemById("Change Controlled Item",affItemId).getProperty("itemtype",""));
+  ccItem.setAttribute("id",affItemId);
+  ccItem.setAttribute("keyed_name",affItemName);
+  aras.setItemProperty(affItem,'affected_id',ccItem);
+ }
+ if (newItemId !== "") {
+  aras.setItemProperty(affItem,'new_item_id','');
+  affItem.selectSingleNode("new_item_id").setAttribute("keyed_name",newItemName);
+  ccItem = affItem.ownerDocument.createElement("Item");
+  ccItem.setAttribute("type","Change Controlled Item");
+  ccItem.setAttribute("action","skip");
+  ccItem.setAttribute("typeID",inn.getItemById("Change Controlled Item",newItemId).getProperty("itemtype"));
+  ccItem.setAttribute("id",newItemId);
+  ccItem.setAttribute("keyed_name",newItemName);
+  aras.setItemProperty(affItem,'new_item_id',ccItem);
+ }
+ aras.setItemProperty(affItem,'action',affItems.getItemByIndex(i).getRelatedItem().getProperty("action",""));
+ aras.setItemProperty(affItem,'interchangeable',affItems.getItemByIndex(i).getRelatedItem().getProperty("interchangeable",""));
+ aras.setItemProperty(affItem,'in_service_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty("in_service_disposition",""));
+ aras.setItemProperty(affItem,'in_build_disposition',affItems.getItemByIndex(i).getRelatedItem().getProperty("in_build_disposition",""));
+ aras.setItemProperty(affItemRel,'related_id',affItem);
+}
+
+// Show the new ECN
+aras.uiShowItemEx(ecnItem,"tab view");]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Convert ECR to ECN</name>
+ </Item>
+</AML>

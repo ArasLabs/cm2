@@ -1,0 +1,95 @@
+﻿<AML>
+ <Item type="RelationshipType" id="F4D1981E96394280878D2C7C61F62298" action="add" dependencyLevel="0">
+  <auto_search>1</auto_search>
+  <behavior>float</behavior>
+  <copy_permissions>0</copy_permissions>
+  <create_related>0</create_related>
+  <description />
+  <hide_in_all>0</hide_in_all>
+  <inc_rel_key_name>1</inc_rel_key_name>
+  <inc_related_key_name>1</inc_related_key_name>
+  <is_list_type>0</is_list_type>
+  <label xml:lang="en">Impact Matrix</label>
+  <new_show_related>0</new_show_related>
+  <related_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</related_id>
+  <related_notnull>0</related_notnull>
+  <related_option>2</related_option>
+  <relationship_id keyed_name="ECN Affected Item" type="ItemType" name="ECN Affected Item">
+   <Item type="ItemType" id="7EA6D421B61A4BEB9F54DF7D1A51B78C" action="add">
+    <allow_private_permission>1</allow_private_permission>
+    <auto_search>1</auto_search>
+    <default_page_size>25</default_page_size>
+    <enforce_discovery>0</enforce_discovery>
+    <hide_where_used>0</hide_where_used>
+    <implementation_type>table</implementation_type>
+    <instance_data>ECN_AFFECTED_ITEM</instance_data>
+    <is_dependent>0</is_dependent>
+    <is_relationship>1</is_relationship>
+    <is_versionable>0</is_versionable>
+    <label xml:lang="en">ECN Affected Item</label>
+    <label_plural xml:lang="en">ECN Affected Items</label_plural>
+    <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+    <show_parameters_tab>1</show_parameters_tab>
+    <structure_view>tabs off</structure_view>
+    <unlock_on_logout>0</unlock_on_logout>
+    <use_src_access>1</use_src_access>
+    <name>ECN Affected Item</name>
+    <Relationships>
+     <Item type="Server Event" id="DAD1513332814AACA0F923A173B0CD67" action="add">
+      <event_version>version_1</event_version>
+      <is_required>0</is_required>
+      <related_id keyed_name="PE_update_has_change_pending" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_update_has_change_pending</name>
+       </Item>
+      </related_id>
+      <server_event>onAfterAdd</server_event>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="ECN Affected Item" type="ItemType" name="ECN Affected Item">7EA6D421B61A4BEB9F54DF7D1A51B78C</source_id>
+     </Item>
+     <Item type="Server Event" id="CB7A57C14EB0472887472B96508AFE78" action="add">
+      <event_version>version_1</event_version>
+      <is_required>0</is_required>
+      <related_id keyed_name="PE_update_has_change_pending" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_update_has_change_pending</name>
+       </Item>
+      </related_id>
+      <server_event>onAfterDelete</server_event>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="ECN Affected Item" type="ItemType" name="ECN Affected Item">7EA6D421B61A4BEB9F54DF7D1A51B78C</source_id>
+     </Item>
+     <Item type="Server Event" id="AD69B208E0D5422D9DF38F780956523E" action="add">
+      <event_version>version_1</event_version>
+      <is_required>0</is_required>
+      <related_id keyed_name="PE_PopulateAffectedType" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_PopulateAffectedType</name>
+       </Item>
+      </related_id>
+      <server_event>onAfterGet</server_event>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="ECN Affected Item" type="ItemType" name="ECN Affected Item">7EA6D421B61A4BEB9F54DF7D1A51B78C</source_id>
+     </Item>
+     <Item type="Server Event" id="438D1003CE504C02AAA2D7EE8DAB241E" action="add">
+      <event_version>version_1</event_version>
+      <is_required>0</is_required>
+      <related_id keyed_name="PE_populate_related_id_item" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>PE_populate_related_id_item</name>
+       </Item>
+      </related_id>
+      <server_event>onBeforeDelete</server_event>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="ECN Affected Item" type="ItemType" name="ECN Affected Item">7EA6D421B61A4BEB9F54DF7D1A51B78C</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="ECN" type="ItemType" name="ECN">85F86794FACF42599F07019F7BEA1D46</source_id>
+  <name>ECN Affected Item</name>
+ </Item>
+ <Item type="View" action="delete" where="source_id='7EA6D421B61A4BEB9F54DF7D1A51B78C'" />
+ <Item type="Form" action="delete" where="name='ECN Affected Item'" />
+</AML>

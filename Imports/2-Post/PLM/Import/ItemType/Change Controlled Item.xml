@@ -1,0 +1,274 @@
+﻿<AML>
+ <Item type="ItemType" id="198BF0BCCC364EE29F56434D803D5F1E" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>polymorphic</implementation_type>
+  <instance_data>CHANGE_CONTROLLED_ITEM</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>1</is_versionable>
+  <label xml:lang="en">Change Controlled Item</label>
+  <label_plural xml:lang="en">Change Controlled Item</label_plural>
+  <manual_versioning>0</manual_versioning>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs off</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Change Controlled Item</name>
+  <Relationships>
+   <Item type="Property" id="6C9BDFAF59CC4A3685C2DB71F06A59EC" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Item Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>20</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="D2B3C348498544FCB1AF92959E27CFA8" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>200</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Name</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>40</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>name</name>
+   </Item>
+   <Item type="View" id="809CD72C4C6F42EEB88B6EA6248218BD" action="add">
+    <client>js</client>
+    <related_id keyed_name="Change Controlled Item" type="Form">62A6B35B0BF44D0AA60A3AF2A2943D28</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="0017652E3BCE4049B7C9FAE2F2B2DA20" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeAdd" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeAdd</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+   <Item type="Server Event" id="E649F84D810C4EFEA93BAADB1C0AFF09" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeCopy" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeCopy</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeCopy</server_event>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+   <Item type="Server Event" id="BAC88BC0E2E144C79D56BC51C3076E44" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeDelete" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeDelete</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeDelete</server_event>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+   <Item type="Server Event" id="2A92691719284A36BCC80E6E4F023A48" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeLock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeLock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeLock</server_event>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+   <Item type="Server Event" id="8EA0EB87885248B3B5359BCD0BF66443" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUnlock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUnlock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUnlock</server_event>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+   <Item type="Server Event" id="C3F7572DC5E64AE78F67DC4735D56186" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUpdate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUpdate</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>1664</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+   <Item type="Server Event" id="AF809D688772401A99C30B235AB90250" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeVersion" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeVersion</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeVersion</server_event>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="B24A45F7D01A41FD8CD1DD58461C37B6" action="add">
+    <related_id keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="198BF0BCCC364EE29F56434D803D5F1E" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='198BF0BCCC364EE29F56434D803D5F1E' and name='itemtype'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Controlled Item">
+     <Item type="List" action="get" select="id" page="1" pagesize="1">
+      <name>Change Controlled Item</name>
+     </Item>
+    </data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>0</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>itemtype</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='198BF0BCCC364EE29F56434D803D5F1E' and name='major_rev'">
+    <column_alignment>left</column_alignment>
+    <column_width>50</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Revision</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>30</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+    <stored_length>8</stored_length>
+    <track_history>0</track_history>
+    <name>major_rev</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='198BF0BCCC364EE29F56434D803D5F1E' and name='state'">
+    <column_alignment>left</column_alignment>
+    <column_width>80</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>50</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='198BF0BCCC364EE29F56434D803D5F1E' and name='superseded_date'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Superseded Date</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3496</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+    <track_history>0</track_history>
+    <name>superseded_date</name>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="198BF0BCCC364EE29F56434D803D5F1E" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="8261EDA5FC5B4051B1BBF6F886E2A979" action="add">
+    <related_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="198BF0BCCC364EE29F56434D803D5F1E" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="AEAE2A366C874796A28E7FE02A73B003" action="add">
+    <related_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="198BF0BCCC364EE29F56434D803D5F1E" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="94A245679004413B8712EEED4C42F3A3" action="add">
+    <related_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Change Controlled Item" type="ItemType" name="Change Controlled Item">198BF0BCCC364EE29F56434D803D5F1E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
