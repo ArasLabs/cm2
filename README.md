@@ -16,22 +16,24 @@ The Aras CM2 Community Project package adds to and modifies the base PLM applica
 * Support for Physical Item Model classifications, supporting serial number assignment
 * Planning Bill report for a specified effective date, showing the BOM for that date plus changes for a given Physical Item
 * CM2 Order Bill itemtype to define the BOM for a specified part and effective date on an order, generated through a “Derive Order Bill” action to derive the order bill from the effective planning bill for that part
+* Work Authorization with action to derive Work Authorization BOM
+* Combined CR/CN capability on CR form and workflow map
 
 ## History
 
 Release | Notes
 --------|--------
-v1.0.0 | First release.
-
-<!-- [v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | First release. -->
+[v1.1.0](https://github.com/ArasLabs/CM2/releases/tag/v1.1.0) | This release adds a Work Authorization, with an action to derive Work Authorization BOM. It also combines CR/CN capability on the CR form and workflow map.
+[v1.0.1](https://github.com/ArasLabs/CM2/releases/tag/v1.0.1) | Typo fix in readme.
+[v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | First release.
 
 #### Supported Aras Versions
 
 Project | Aras
 --------|------
-v1.0.0 | 11.0 SP12+
-
-<!-- [v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | 11.0 SP12+ -->
+[v1.1.0](https://github.com/ArasLabs/CM2/releases/tag/v1.1.0) | 11.0 SP12+
+[v1.0.1](https://github.com/ArasLabs/CM2/releases/tag/v1.0.1) | 11.0 SP12+
+[v1.0.0](https://github.com/ArasLabs/CM2/releases/tag/v1.0.0) | 11.0 SP12+
 
 ## Installation
 

@@ -1,0 +1,8 @@
+﻿<AML>
+ <Item type="Sequence" id="1630B6671D0D4BFB96DC231B50DE21FA" action="add">
+  <initial_value>100000</initial_value>
+  <prefix>WAV-</prefix>
+  <step>1</step>
+  <name>PE_Waiver</name>
+ </Item>
+</AML>

@@ -1,0 +1,88 @@
+﻿<AML>
+ <Item type="Form" id="B8B5A219640D4F2999B73DCFFE75224D" action="add">
+  <category_form>0</category_form>
+  <height>350</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>700</width>
+  <name>mpp_Location</name>
+  <Relationships>
+   <Item type="Body" id="427FA15FD24A4C8F89997A88D24444BE" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="mpp_Location" type="Form">B8B5A219640D4F2999B73DCFFE75224D</source_id>
+    <Relationships>
+     <Item type="Field" id="FA46B4AAFB574C11B11047B3B6921229" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id="ITEM_INFO_INTERNAL_SPAN"/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById("ITEM_INFO_INTERNAL_SPAN").innerHTML = top.aras.uiDrawItemInfoTable(document.itemType);
+    top.aras.uiPopulateInfoTableWithItem(document.item, document);
+  }
+
+window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
+
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="427FA15FD24A4C8F89997A88D24444BE" type="Body">427FA15FD24A4C8F89997A88D24444BE</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="69B9EE30C4074DBAACCE5F27E1A178F5" action="add">
+      <border_width>0</border_width>
+      <display_length>120</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Location ID</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="item_number" type="Property">EA9C3B1DB43C403BA944FBFB3E00AEE3</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="427FA15FD24A4C8F89997A88D24444BE" type="Body">427FA15FD24A4C8F89997A88D24444BE</source_id>
+      <tab_index>128</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+      <name>item_number</name>
+     </Item>
+     <Item type="Field" id="D9075D1B59F74898AE7FC1751B2F7F1A" action="add">
+      <border_width>0</border_width>
+      <display_length>300</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="name" type="Property">D22282A33A154BF3BF1DA0022664BD5B</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="427FA15FD24A4C8F89997A88D24444BE" type="Body">427FA15FD24A4C8F89997A88D24444BE</source_id>
+      <tab_index>256</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>50</y>
+      <name>name</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,79 @@
+﻿<AML>
+ <Item type="Permission" id="1E63D742A5794F8DB995A5298A202C4C" action="add">
+  <is_private>0</is_private>
+  <name>Project</name>
+  <Relationships>
+   <Item type="Access" id="37255EB47DC34C8E98A463CF68B585FC" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Project Management" type="Identity">5E12CD824411477AA56D9F539FA295EB</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Project" type="Permission">1E63D742A5794F8DB995A5298A202C4C</source_id>
+   </Item>
+   <Item type="Access" id="4EA05D8CE172407EB28A7B1EDEB4B79E" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Project" type="Permission">1E63D742A5794F8DB995A5298A202C4C</source_id>
+   </Item>
+   <Item type="Access" id="64463671BA324CE68050E07197E73D0B" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Project" type="Permission">1E63D742A5794F8DB995A5298A202C4C</source_id>
+   </Item>
+   <Item type="Access" id="99A64FA1A5AC4462A330DF8997AB2535" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Innovator Admin" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Innovator Admin</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Project" type="Permission">1E63D742A5794F8DB995A5298A202C4C</source_id>
+   </Item>
+   <Item type="Access" id="C5DE17DCDA1D4597B3F035A44F8B69CD" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Manager" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Manager</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Project" type="Permission">1E63D742A5794F8DB995A5298A202C4C</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

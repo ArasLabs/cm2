@@ -1,0 +1,17 @@
+﻿<AML>
+ <Item type="Form" id="966A7B1F74C446E8A9E2C4B6C999A609" action="add">
+  <category_form>0</category_form>
+  <height>259</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>834</width>
+  <name>Project</name>
+  <Relationships>
+   <Item type="Body" id="65DB9A274E814B92AFCB2CEC08123B06" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Project" type="Form">966A7B1F74C446E8A9E2C4B6C999A609</source_id>
+    <Relationships/>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

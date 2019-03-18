@@ -2,6 +2,7 @@
  <Item type="ItemType" id="622CD8AFA3174EDE8E074BC06B829AC2" action="add">
   <allow_private_permission>1</allow_private_permission>
   <auto_search>0</auto_search>
+  <class_structure><![CDATA[<class id="622CD8AFA3174EDE8E074BC06B829AC2"><class id="5FF0A40C5E514849B4FB70E3A374A7BE" name="Product" /><class id="60C753550298458AAD9D006D582B9AF4" name="Process" /><class id="C1AEC421EB9C492FB27F5306BED65C71" name="Enterprise" /><class id="EE75700A2D7D402EB8FCB0732A6F8CE0" name="Safety" /><class id="795B3BD233344FBDB1C25B5D4678C7FF" name="Security" /><class id="FB178571B45F4715B1412F807B691F1D" name="Environment" /></class>]]></class_structure>
   <enforce_discovery>1</enforce_discovery>
   <hide_where_used>0</hide_where_used>
   <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
@@ -104,6 +105,7 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
     <label xml:lang="en">CN</label>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
@@ -122,6 +124,7 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
     <label xml:lang="en">CR</label>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>

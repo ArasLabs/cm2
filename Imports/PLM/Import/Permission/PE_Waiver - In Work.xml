@@ -1,0 +1,56 @@
+﻿<AML>
+ <Item type="Permission" id="486491A5130B4710A0E1BE63E3F9C80C" action="add">
+  <is_private>0</is_private>
+  <name>PE_Waiver - In Work</name>
+  <Relationships>
+   <Item type="Access" id="405978E7430C4D43A9F14FBED23A8133" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Waiver - In Work" type="Permission">486491A5130B4710A0E1BE63E3F9C80C</source_id>
+   </Item>
+   <Item type="Access" id="4E830CF0BDDE4BD785C52F623A9BBC90" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Waiver - In Work" type="Permission">486491A5130B4710A0E1BE63E3F9C80C</source_id>
+   </Item>
+   <Item type="Access" id="76C69885C8B04E56AEA335A8833830F2" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Waiver - In Work" type="Permission">486491A5130B4710A0E1BE63E3F9C80C</source_id>
+   </Item>
+   <Item type="Access" id="89C02545F7C84061813582D069518356" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Creator" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Creator</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="PE_Waiver - In Work" type="Permission">486491A5130B4710A0E1BE63E3F9C80C</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

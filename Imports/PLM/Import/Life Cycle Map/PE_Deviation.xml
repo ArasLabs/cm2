@@ -1,0 +1,121 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="96E916FC21134EC79B83F61D66427628" action="add">
+  <description>PE - Deviation</description>
+  <start_state keyed_name="In Work" type="Life Cycle State">9D75677FC36A48DC8DB35722427D79FF</start_state>
+  <name>PE_Deviation</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="7AA064BF8FD048739C62A04E4CE46C90" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Approved</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <state_permission_id keyed_name="PE_Deviation - Approved" type="Permission">D85EA81FE1F349369478A06CE7B028AA</state_permission_id>
+    <x>334</x>
+    <y>97</y>
+    <name>Approved</name>
+   </Item>
+   <Item type="Life Cycle State" id="1B619BA787B04FA5A82F78A313B21636" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Expired</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <state_permission_id keyed_name="PE_Deviation - Approved" type="Permission">D85EA81FE1F349369478A06CE7B028AA</state_permission_id>
+    <x>490</x>
+    <y>97</y>
+    <name>Expired</name>
+   </Item>
+   <Item type="Life Cycle State" id="54345047BDEA444EAADA7D1B447696AF" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">In Review</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <state_permission_id keyed_name="PE_Deviation - In Review" type="Permission">4962F4EA9DAF437E8804B0001C8CB6B8</state_permission_id>
+    <x>185</x>
+    <y>97</y>
+    <name>In Review</name>
+   </Item>
+   <Item type="Life Cycle State" id="9D75677FC36A48DC8DB35722427D79FF" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">In Work</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <state_permission_id keyed_name="PE_Deviation - In Work" type="Permission">8942E8B70D114C80976FB044828BFFD8</state_permission_id>
+    <x>44</x>
+    <y>96</y>
+    <name>In Work</name>
+   </Item>
+   <Item type="Life Cycle State" id="36EEF1FF3D634FCEAE39ED794DDEED4D" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Rejected</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <state_permission_id keyed_name="PE_Deviation - Rejected" type="Permission">F9EB8B4FC2CB4242B9C8312A818C6E3E</state_permission_id>
+    <x>185</x>
+    <y>220</y>
+    <name>Rejected</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="408A673E36D9494CBED2E319141417D9" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">54345047BDEA444EAADA7D1B447696AF</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments>126,43</segments>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <to_state keyed_name="In Work" type="Life Cycle State">9D75677FC36A48DC8DB35722427D79FF</to_state>
+    <x>-94</x>
+    <y>-73</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="9DDBAAFCA452415B837DE68B0917D2B8" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">54345047BDEA444EAADA7D1B447696AF</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments />
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <to_state keyed_name="Approved" type="Life Cycle State">7AA064BF8FD048739C62A04E4CE46C90</to_state>
+    <x>0</x>
+    <y>0</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="FB9696EEDA034E89AE67456DE6D062F0" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">54345047BDEA444EAADA7D1B447696AF</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments />
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <to_state keyed_name="Rejected" type="Life Cycle State">36EEF1FF3D634FCEAE39ED794DDEED4D</to_state>
+    <x>4</x>
+    <y>71</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="B6819F17D6244B37B94A9F3478B60F5D" action="add">
+    <from_state keyed_name="Approved" type="Life Cycle State">7AA064BF8FD048739C62A04E4CE46C90</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</role>
+    <segments />
+    <sort_order>256</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <to_state keyed_name="Expired" type="Life Cycle State">1B619BA787B04FA5A82F78A313B21636</to_state>
+    <x>38</x>
+    <y>14</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="3701F4D748B741CC87B523E9A04DAA75" action="add">
+    <from_state keyed_name="In Work" type="Life Cycle State">9D75677FC36A48DC8DB35722427D79FF</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Deviation" type="Life Cycle Map">96E916FC21134EC79B83F61D66427628</source_id>
+    <to_state keyed_name="In Review" type="Life Cycle State">54345047BDEA444EAADA7D1B447696AF</to_state>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

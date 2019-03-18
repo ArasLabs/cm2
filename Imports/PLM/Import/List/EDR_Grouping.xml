@@ -1,0 +1,50 @@
+﻿<AML>
+ <Item type="List" id="22B85C282B034719BFCA625D143AEDDB" action="add">
+  <description>List for spawn Express EDR in Impact Matrix</description>
+  <name>EDR_Grouping</name>
+  <Relationships>
+   <Item type="Value" id="79278ADB8C88441B831C648E9CD45DA4" action="add">
+    <label xml:lang="en">A</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="EDR_Grouping" type="List">22B85C282B034719BFCA625D143AEDDB</source_id>
+    <value>A</value>
+   </Item>
+   <Item type="Value" id="D6F53340BF734F0CB2878FEB86EEF6BF" action="add">
+    <label xml:lang="en">B</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="EDR_Grouping" type="List">22B85C282B034719BFCA625D143AEDDB</source_id>
+    <value>B</value>
+   </Item>
+   <Item type="Value" id="96D2B4253951404D977186E778C48F50" action="add">
+    <label xml:lang="en">C</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="EDR_Grouping" type="List">22B85C282B034719BFCA625D143AEDDB</source_id>
+    <value>C</value>
+   </Item>
+   <Item type="Value" id="500886FF54944C7F8324974E4E3A94FA" action="add">
+    <label xml:lang="en">D</label>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="EDR_Grouping" type="List">22B85C282B034719BFCA625D143AEDDB</source_id>
+    <value>D</value>
+   </Item>
+   <Item type="Value" id="3964A26FE0E74B068E9A55AA977F8F7A" action="add">
+    <label xml:lang="en">E</label>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="EDR_Grouping" type="List">22B85C282B034719BFCA625D143AEDDB</source_id>
+    <value>E</value>
+   </Item>
+   <Item type="Value" id="41061DE54A8C4F2A893F07713AAE7BC2" action="add">
+    <label xml:lang="en">F</label>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="EDR_Grouping" type="List">22B85C282B034719BFCA625D143AEDDB</source_id>
+    <value>F</value>
+   </Item>
+   <Item type="Value" id="E0BE55AD7AF047D5B4EE1CBCCD77B872" action="add">
+    <label xml:lang="en">G</label>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="EDR_Grouping" type="List">22B85C282B034719BFCA625D143AEDDB</source_id>
+    <value>G</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

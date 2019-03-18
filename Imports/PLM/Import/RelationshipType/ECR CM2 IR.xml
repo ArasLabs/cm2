@@ -13,7 +13,7 @@
   <related_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</related_id>
   <related_notnull>0</related_notnull>
   <related_option>2</related_option>
-  <relationship_id keyed_name="CR IR" type="ItemType" name="ECR CM2 IR">
+  <relationship_id keyed_name="ECR CM2 IR" type="ItemType" name="ECR CM2 IR">
    <Item type="ItemType" id="CA5A5179E1F74534B4C79B1D2A0149DE" action="add">
     <allow_private_permission>1</allow_private_permission>
     <auto_search>0</auto_search>

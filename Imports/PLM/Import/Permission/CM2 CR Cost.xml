@@ -15,6 +15,7 @@
      </Item>
     </related_id>
     <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>128</sort_order>
     <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
    </Item>
    <Item type="Access" id="35B5A3DB09264CD48E3C06D29B4DED3E" action="add">
@@ -25,6 +26,7 @@
     <can_update>1</can_update>
     <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
     <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>256</sort_order>
     <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
    </Item>
    <Item type="Access" id="64E8E607A4B0442E8708D6D967BFDCB6" action="add">
@@ -72,6 +74,7 @@
      </Item>
     </related_id>
     <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>512</sort_order>
     <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
    </Item>
   </Relationships>

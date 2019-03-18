@@ -3,7 +3,7 @@
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
   <method_code><![CDATA[Aras.Server.Security.Identity plmIdentity = Aras.Server.Security.Identity.GetByName("Aras PLM");
 bool PermissionWasSet  = Aras.Server.Security.Permissions.GrantIdentity(plmIdentity);
-System.Diagnostics.Debugger.Break();
+
 try
 {
 	Action<string,IEnumerable<string>,string> execUpdateFlag = (itemType,idList,ignoredAffItemID) => 
@@ -36,13 +36,18 @@ try
     case "Part":
     case "Document":
     case "CAD":
-	    string tableName = CCO.DB.GenerateTableName(thisType);
+		var nonUserInputTableName = new Dictionary<string, string>()
+		{
+			{"PART", "Part"}, {"DOCUMENT", "Document"},{"CAD", "CAD"}
+		};
+		string thisTypeTable = nonUserInputTableName[thisType.ToUpperInvariant()];
+	    string tableName = CCO.DB.GenerateTableName(thisTypeTable);
 	    Aras.Server.Core.InnovatorDatabase conn = CCO.Variables.InnDatabase;
 	    string configId = this.getProperty("config_id");
 
 	    Aras.Server.Core.Utilities.IsIdValid(configId, true);
 
-	    string sqlQuery = "SELECT TOP(1) id FROM " + tableName + " WHERE IS_CURRENT = '1' AND config_id = '" + configId + "'";
+	    string sqlQuery = "SELECT TOP(1) id FROM " + tableName + " WHERE IS_CURRENT = '1' AND config_id = '" + conn.QuoteValue(configId) + "'";
 	    Aras.Server.Core.InnovatorDataSet result = conn.ExecuteSelect(sqlQuery);
 	    if (result.RowsNumber == 0)
 	    {
@@ -78,7 +83,7 @@ try
 
 		  	Aras.Server.Core.Utilities.IsIdValid(affectedItemId, true);
 
-			string sqlQuerySelect = "SELECT TOP(1) affected_id,new_item_id FROM " + itemTypeDbName + " WHERE id = '" + affectedItemId + "'";
+			string sqlQuerySelect = "SELECT TOP(1) affected_id,new_item_id FROM " + itemTypeDbName + " WHERE id = '" + dbconn.QuoteValue(affectedItemId) + "'";
 
 			Aras.Server.Core.InnovatorDataSet rs = dbconn.ExecuteSelect(sqlQuerySelect);
 			if (rs.RowsNumber == 0)
@@ -173,7 +178,7 @@ try
 
 			Aras.Server.Core.Utilities.IsIdValid(id, true);
 
-			string sqlQuery = "SELECT TOP(1) affected_id,new_item_id FROM " + itemTypeDbName + " WHERE id = '" + id + "'";
+			string sqlQuery = "SELECT TOP(1) affected_id,new_item_id FROM " + itemTypeDbName + " WHERE id = '" + conn.QuoteValue(id) + "'";
 
 			Aras.Server.Core.InnovatorDataSet result = conn.ExecuteSelect(sqlQuery);
 			if (result.RowsNumber == 0)

@@ -1,0 +1,395 @@
+﻿<AML>
+ <Item type="ItemType" id="E34E757891444E5AA24B37C8D04025C1" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <history_template keyed_name="Default" type="History Template">3BC16EF9E52B4F9792AB76BCE0492F29</history_template>
+  <implementation_type>table</implementation_type>
+  <instance_data>CM2_APPLICATION_ORDER</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Application Order</label>
+  <label_plural xml:lang="en">Application Orders</label_plural>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>CM2 Application Order</name>
+  <Relationships>
+   <Item type="Property" id="49B15004BBB3402CBBA0FDF241887711" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="AO Type">FBEDA6BE6AE549BAB28ADD09DC937E13</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">AO Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3712</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>ao_type</name>
+   </Item>
+   <Item type="Property" id="32DF8DDFEFF441378B0AEF8CF32818FD" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Authorized By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4096</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>authorized_by</name>
+   </Item>
+   <Item type="Property" id="5AE4DDF4338A4A2796E9C5E1ADDFC16B" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Closed By</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4224</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>closed_by</name>
+   </Item>
+   <Item type="Property" id="5DCB8864127249B292AD0FA6E0037E6A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Closed On</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4352</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>closed_on</name>
+   </Item>
+   <Item type="Property" id="B01B6E2778BC464DB0AEA06A6BE54B89" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3840</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="FFDAE6D3C7FE4949BDA6A41CA521B945" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Special Instructions</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3968</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>instructions</name>
+   </Item>
+   <Item type="Property" id="8A15E63D59AE470F95B00F3BF1222027" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 AO">05ADB8053CE74072A7DD6B303796AA3C</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Number</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4480</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>item_number</name>
+   </Item>
+   <Item type="Property" id="C73EA1B9329E433FA27588A2940C72D5" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Priorities">2AC3F078B8FD4509856D31A0FBD92DF8</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Priority</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>priority</name>
+   </Item>
+   <Item type="Property" id="17B48768ED8C412BA9F65031E83D293A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Project" type="ItemType" name="CM2 Project">553342EB14CD4FC4BC84CCC2FA619D52</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Project</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4736</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>project</name>
+   </Item>
+   <Item type="Property" id="7DE9BF09F41E4C68A5C27B4E5BE53389" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Release Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4992</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>release_date</name>
+   </Item>
+   <Item type="Property" id="E9942BA7270C41F9B1BB3E177EF705F1" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Requester</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>requested_by</name>
+   </Item>
+   <Item type="Property" id="7F4DBA0F5B76408B9E8A8A597A1BCAE3" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Security">C4D805D51E71449888DC93946862F2D5</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Security</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4608</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>security</name>
+   </Item>
+   <Item type="Property" id="6812DFBCA7E04F81A91A060E0CD98506" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Severity">5B7E831D13D44F27A18AC05E878AF9BD</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Severity Rating</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>severity</name>
+   </Item>
+   <Item type="Property" id="BD01B2AE4C094A0ABEB20F4453F2957F" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Change Sources">E602F0779B924AE7B63C5096812B6804</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Origin of Request</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>source</name>
+   </Item>
+   <Item type="Property" id="1D9C622BDEB64DAD8F7B2EA31DD41BA6" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Status">29A36AFC386546E9B790E99FA2FF61E6</data_source>
+    <data_type>list</data_type>
+    <default_value xml:lang="en">Open</default_value>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Status</label>
+    <pattern />
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>4864</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <stored_length>256</stored_length>
+    <track_history>1</track_history>
+    <name>status</name>
+   </Item>
+   <Item type="Property" id="00EECF66DF4E4C90B83FEF2C790F9C68" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Title</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <stored_length>32</stored_length>
+    <track_history>1</track_history>
+    <name>title</name>
+   </Item>
+   <Item type="View" id="F9D8F7490A91467CB0221585D289556B" action="add">
+    <client>js</client>
+    <related_id keyed_name="Application Order" type="Form">94DBEEA96C274B0BAAA205FDA91FAD3D</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="TOC Access" id="A6ED1D695C064F9BBC0EC7E113EDE9D2" action="add">
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <category>Change Management</category>
+   </Item>
+   <Item type="Can Add" id="BD5AD3ABA193475AA49056ED0849410C" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="FB9498565FBE4116871AF40B99E5906F" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Default Access" type="Permission">9122CD065CF04141B8EFE263FC80BEA4</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="E34E757891444E5AA24B37C8D04025C1" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='E34E757891444E5AA24B37C8D04025C1' and name='managed_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Audit Authority</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>managed_by_id</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='E34E757891444E5AA24B37C8D04025C1' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Work Org</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CM2 Application Order" type="ItemType" name="CM2 Application Order">E34E757891444E5AA24B37C8D04025C1</source_id>
+    <track_history>1</track_history>
+    <name>owned_by_id</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

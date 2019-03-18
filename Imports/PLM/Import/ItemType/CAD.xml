@@ -885,7 +885,7 @@
     <column_width>120</column_width>
     <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
     <data_type>item</data_type>
-    <is_hidden>1</is_hidden>
+    <is_hidden>0</is_hidden>
     <is_hidden2>1</is_hidden2>
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>
@@ -942,7 +942,7 @@
     <column_width>120</column_width>
     <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
     <data_type>item</data_type>
-    <is_hidden>1</is_hidden>
+    <is_hidden>0</is_hidden>
     <is_hidden2>1</is_hidden2>
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>

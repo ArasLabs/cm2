@@ -172,16 +172,6 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="CM2 Incident" type="ItemType" name="CM2 Incident">C522A937F22247F997543CA11DCAE859</source_id>
    </Item>
-   <Item type="TOC Access" id="5B989955F5234919B131AACEAF7E7A6A" action="add">
-    <related_id keyed_name="World" type="Identity">
-     <Item type="Identity" action="get" select="id">
-      <name>World</name>
-     </Item>
-    </related_id>
-    <sort_order>128</sort_order>
-    <source_id keyed_name="CM2 Incident" type="ItemType" name="CM2 Incident">C522A937F22247F997543CA11DCAE859</source_id>
-    <category>Change Management</category>
-   </Item>
    <Item type="Can Add" id="6B3B74503BE64AA58CDDF890163E5825" action="add">
     <can_add>1</can_add>
     <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>

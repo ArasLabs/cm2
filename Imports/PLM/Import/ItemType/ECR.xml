@@ -202,6 +202,25 @@
     <track_history>0</track_history>
     <name>cil_id</name>
    </Item>
+   <Item type="Property" id="CC221653F43E4F5BAAF070A9EB20B2D2" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Project" type="ItemType" name="Project">02184EDAA80D499CB6EC94B159966DBE</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Implementation Plan</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>7040</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>1</track_history>
+    <name>cm2_implementation_plan</name>
+   </Item>
    <Item type="Property" id="3B8C27F6214A41A2B1B7386BFB7E9EC1" action="add">
     <column_alignment>left</column_alignment>
     <data_type>text</data_type>
@@ -235,6 +254,23 @@
     <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
     <track_history>1</track_history>
     <name>ecr_comments</name>
+   </Item>
+   <Item type="Property" id="67381D85943842B8B9FBC953ED5ABF26" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Effectivity Date</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</source_id>
+    <track_history>0</track_history>
+    <name>effectivity_date</name>
    </Item>
    <Item type="Property" id="1A1AA52797A748AB8E97304F886C58FA" action="add">
     <column_alignment>left</column_alignment>

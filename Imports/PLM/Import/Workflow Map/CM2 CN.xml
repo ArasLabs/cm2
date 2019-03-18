@@ -344,7 +344,7 @@
     <source_id keyed_name="CM2 CN" type="Workflow Map">5AC5D7551B4F4F3E823A869C631961FB</source_id>
    </Item>
    <Item type="Workflow Map Activity" action="add">
-    <related_id keyed_name="ECN Planning" type="Activity Template">
+    <related_id keyed_name="CN Planning" type="Activity Template">
      <Item type="Activity Template" id="579325721A84487FA60A60C568290A38" action="add">
       <can_delegate>1</can_delegate>
       <can_refuse>0</can_refuse>
@@ -359,7 +359,7 @@
       <wait_for_all_votes>0</wait_for_all_votes>
       <x>254</x>
       <y>76</y>
-      <name>ECN Planning</name>
+      <name>CN Planning</name>
       <Relationships>
        <Item type="Activity Template Assignment" id="622CCC4050DE4870ADB75A7D50CE058B" action="add">
         <related_id keyed_name="Manager" type="Identity">
@@ -368,7 +368,7 @@
          </Item>
         </related_id>
         <sort_order>128</sort_order>
-        <source_id keyed_name="ECN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
+        <source_id keyed_name="CN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
         <is_required>0</is_required>
         <for_all_members>0</for_all_members>
         <voting_weight>100</voting_weight>
@@ -377,28 +377,28 @@
         <event>on_activate</event>
         <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
         <sort_order>128</sort_order>
-        <source_id keyed_name="ECN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
+        <source_id keyed_name="CN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
         <target>all_assignments</target>
        </Item>
        <Item type="Activity Template Task" id="A8897EB8DC434F9BA3782D5248799709" action="add">
-        <description xml:lang="en">Plan the implementation of this ECN in relation to others</description>
+        <description xml:lang="en">Plan the implementation of this CN in relation to others</description>
         <is_required>0</is_required>
         <sort_order>128</sort_order>
-        <source_id keyed_name="ECN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
+        <source_id keyed_name="CN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
         <sequence>1</sequence>
        </Item>
        <Item type="Activity Template Task" id="F49EDD0079C84C63970035B2BC1CCFCD" action="add">
         <description xml:lang="en">Set the effectivity date</description>
         <is_required>0</is_required>
         <sort_order>256</sort_order>
-        <source_id keyed_name="ECN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
+        <source_id keyed_name="CN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
         <sequence>2</sequence>
        </Item>
        <Item type="Activity Template Task" id="4EDBD01A64204C058C23C9C48E1B40FB" action="add">
         <description xml:lang="en">Vote "Complete" to complete the planning</description>
         <is_required>0</is_required>
         <sort_order>384</sort_order>
-        <source_id keyed_name="ECN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
+        <source_id keyed_name="CN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
         <sequence>3</sequence>
        </Item>
        <Item type="Activity Template Transition" id="AB7392EDB7BB4B128A3F56A0878607F7" action="add">
@@ -406,7 +406,7 @@
         <event>on_activate</event>
         <related_id keyed_name="AD7CE702E416493381A2263B0B165BA4" type="Life Cycle Transition">AD7CE702E416493381A2263B0B165BA4</related_id>
         <sort_order>128</sort_order>
-        <source_id keyed_name="ECN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
+        <source_id keyed_name="CN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
        </Item>
        <Item type="Workflow Map Path" id="66F4240E33EF42F7B4394F82683C8E04" action="add">
         <authentication>none</authentication>
@@ -415,7 +415,7 @@
         <name>Complete</name>
         <related_id>D166DD4B1CDA44C3BDEC90F5D94C88AD</related_id>
         <sort_order>128</sort_order>
-        <source_id keyed_name="ECN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
+        <source_id keyed_name="CN Planning" type="Activity Template">579325721A84487FA60A60C568290A38</source_id>
        </Item>
       </Relationships>
      </Item>

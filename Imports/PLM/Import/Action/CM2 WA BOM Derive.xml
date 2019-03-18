@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="7D85A0D648CB4CBC89FB8EB3C48AD2B4" action="add">
+  <item_query>&lt;Item type="{@type}" action="get"&gt;&lt;id&gt;&lt;xsl:value-of select="@id" /&gt;&lt;/id&gt;&lt;/Item&gt;</item_query>
+  <label xml:lang="en">Derive Order BOM</label>
+  <location>client</location>
+  <method keyed_name="CM2 WA BOM Derive Order BOM" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>CM2 WA BOM Derive Order BOM</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>item</type>
+  <name>CM2 WA BOM Derive</name>
+ </Item>
+</AML>

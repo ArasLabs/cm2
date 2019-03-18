@@ -248,6 +248,7 @@ public static Item GetDocumentStructure(Innovator inn, string selected_date, str
     if (plan_children.isError())
     {
         // all released children are deletes
+        rel_children = released_structure.getRelationships("Document Child Document");
         return released_structure;
     }
     
@@ -466,6 +467,28 @@ public static Item GetPlanned(Innovator inn, string selected_date, string item_n
         return as_planned.getItemByIndex(0);
     
     return as_planned;
+}
+
+public static string NextRev(string letter)
+{
+    // only works for default revisioning sequence
+    
+    // first case - string is empty: return "A"
+    if ((letter == null) || (letter.Length == 0))
+        return "A";
+	
+	// next case - last char is less than 'z': simply increment last char
+    char lastChar = letter[letter.Length - 1];
+    string fragment = letter.Substring(0, letter.Length - 1);
+
+    if (lastChar < 'Z')
+    {
+        ++lastChar;
+        return fragment + lastChar;
+    }
+
+    // next case - last char is 'Z': roll over and increment preceding string
+    return NextRev(fragment) + 'A';
 }
 
 public static Item GetRelationships(Innovator inn, string item_id)

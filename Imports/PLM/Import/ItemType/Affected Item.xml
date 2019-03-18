@@ -178,6 +178,26 @@
     <track_history>0</track_history>
     <name>effective_date</name>
    </Item>
+   <Item type="Property" id="28A12850FF2641B5999B1F9AFB8D3BE1" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>70</column_width>
+    <data_source keyed_name="EDR_Grouping">22B85C282B034719BFCA625D143AEDDB</data_source>
+    <data_type>list</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">EDR Grouping</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>grouping</name>
+   </Item>
    <Item type="Property" id="C9752E16B19E4A029BB90917C74E1BCF" action="add">
     <column_alignment>left</column_alignment>
     <column_width>90</column_width>
@@ -394,6 +414,39 @@
     <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
     <track_history>0</track_history>
     <name>new_item_rev</name>
+   </Item>
+   <Item type="Property" id="FD118A407A7544C488CAF9D8B3804E24" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source>
+     <Item type="Property" action="get" select="id">
+      <name>new_item_id</name>
+      <source_id>BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+     </Item>
+    </data_source>
+    <data_type>foreign</data_type>
+    <foreign_property>
+     <Item type="Property" action="get" select="id">
+      <keyed_name>state</keyed_name>
+      <source_id>
+       <Item type="ItemType" action="get" select="id">
+        <name>Change Controlled Item</name>
+       </Item>
+      </source_id>
+     </Item>
+    </foreign_property>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">New Item State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3712</sort_order>
+    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
+    <track_history>0</track_history>
+    <name>new_item_state</name>
    </Item>
    <Item type="Property" id="98CECEF1B2554FB5960B9F695AD6282E" action="add">
     <column_alignment>left</column_alignment>
@@ -613,16 +666,6 @@
     <related_id keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</related_id>
     <sort_order>128</sort_order>
     <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
-   </Item>
-   <Item type="TOC Access" id="C5CA9FF9949E4A74B678524310022F5C" action="add">
-    <related_id keyed_name="World" type="Identity">
-     <Item type="Identity" action="get" select="id">
-      <name>World</name>
-     </Item>
-    </related_id>
-    <sort_order>128</sort_order>
-    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
-    <category>Change Management</category>
    </Item>
    <Item type="Can Add" id="D1120FD2C7AE4E3D8A9C23D66DE33DF1" action="add">
     <can_add>1</can_add>

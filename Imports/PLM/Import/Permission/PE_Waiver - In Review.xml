@@ -1,0 +1,41 @@
+﻿<AML>
+ <Item type="Permission" id="DA97880E630F402EB9B1A5B6602BDCC6" action="add">
+  <is_private>0</is_private>
+  <name>PE_Waiver - In Review</name>
+  <Relationships>
+   <Item type="Access" id="386BF6A9AC2F4E32A57C952737E09C68" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Waiver - In Review" type="Permission">DA97880E630F402EB9B1A5B6602BDCC6</source_id>
+   </Item>
+   <Item type="Access" id="47D0CA827851415FBBD7BB95D22C105F" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Waiver - In Review" type="Permission">DA97880E630F402EB9B1A5B6602BDCC6</source_id>
+   </Item>
+   <Item type="Access" id="77BFD4F693D6407FB7E010F59FB8F531" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Waiver - In Review" type="Permission">DA97880E630F402EB9B1A5B6602BDCC6</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

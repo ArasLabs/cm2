@@ -2,7 +2,7 @@
  <Item type="ItemType" id="4F1AC04A2B484F3ABA4E20DB63808A88" action="add">
   <allow_private_permission>1</allow_private_permission>
   <auto_search>0</auto_search>
-  <class_structure><![CDATA[<class id="4F1AC04A2B484F3ABA4E20DB63808A88"><class name="Component" id="0D83A764A1EA0CB66E34980C4B50F7E7" /><class name="Assembly" id="512FF7893DBCD6D1AC1F55B87A480934" /><class name="Material" id="64801C21172EEEB61692B77CB5E0ABF1" /><class name="Software" id="74DB7ADB15E0E70BD729E8837D0FF3C9" /><class id="FE48D56AC36E41E39F75F5F12B145074" name="Phantom" /><class id="7B78B853961840079DCFF719F5A95303" name="MBOM only Part" /><class id="9864EF22DCE444068B7888E7D2D701F5" name="Demo Saleable" /><class id="EA21D36C4A214F5A81254615101B3624" name="Model" /><class id="7BEDCEC78DB24C2CAC8B75D5087B8FB8" name="Facilities"><class id="AC331A14B2AA442EBBE0B4CA4A6CE810" name="Facility" /><class id="0E2546704ECD4921B6080B4C6AB25349" name="System" /><class id="E9E63FBB53D24DFCAB5A585449816707" name="Component" /></class><class id="79903DE8B23C49DD9C69393EEB161644" name="IS" /><class id="C7A5A3B229BC487DB35EE584228179EB" name="Enterprise" /><class id="9CCE4A4ED61749FBAF01F8CA87B8F9F6" name="Tool" /></class>]]></class_structure>
+  <class_structure><![CDATA[<class id="4F1AC04A2B484F3ABA4E20DB63808A88"><class name="Component" id="0D83A764A1EA0CB66E34980C4B50F7E7" /><class name="Assembly" id="512FF7893DBCD6D1AC1F55B87A480934" /><class name="Material" id="64801C21172EEEB61692B77CB5E0ABF1" /><class name="Software" id="74DB7ADB15E0E70BD729E8837D0FF3C9" /><class id="FE48D56AC36E41E39F75F5F12B145074" name="Phantom" /><class id="7B78B853961840079DCFF719F5A95303" name="MBOM only Part" /><class id="9864EF22DCE444068B7888E7D2D701F5" name="Demo Saleable" /><class id="EA21D36C4A214F5A81254615101B3624" name="Model" /><class id="7BEDCEC78DB24C2CAC8B75D5087B8FB8" name="Facilities"><class id="AC331A14B2AA442EBBE0B4CA4A6CE810" name="Facility" /><class id="0E2546704ECD4921B6080B4C6AB25349" name="System" /><class id="E9E63FBB53D24DFCAB5A585449816707" name="Component" /></class><class id="79903DE8B23C49DD9C69393EEB161644" name="IS" /><class id="C7A5A3B229BC487DB35EE584228179EB" name="Enterprise" /><class id="9CCE4A4ED61749FBAF01F8CA87B8F9F6" name="Tool" /><class id="02B01E5D4F804AE7820A6393C6B0829E" name="Application Requirements" /></class>]]></class_structure>
   <close_icon>../images/Part.svg</close_icon>
   <default_page_size>25</default_page_size>
   <enforce_discovery>1</enforce_discovery>
@@ -500,6 +500,20 @@
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
     <type>default</type>
    </Item>
+   <Item type="View" id="AADA4F7076E645E59A1896D2728D3372" action="add">
+    <client>js</client>
+    <display_priority>1</display_priority>
+    <related_id keyed_name="Part" type="Form">CAF99D0A8E6E44E9A681C38015FACE91</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>1</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <type>default</type>
+   </Item>
    <Item type="View" id="D5A832E7CCEE4C6D853FA0CE389117CA" action="add">
     <client>js</client>
     <display_priority>0</display_priority>
@@ -779,6 +793,36 @@
     <sort_order>512</sort_order>
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
    </Item>
+   <Item type="Item Report" id="9CD77B5F74EE4CBDBEE020D53330586D" action="add">
+    <related_id keyed_name="CM2 Baseline (D&amp;P)" type="Report">A6CD776E2433445EBB77F968C819459D</related_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+   <Item type="Item Report" id="98BC3DA9DBDA46FF93A6AAE4A68062BD" action="add">
+    <related_id keyed_name="CM2 Baseline (Enterprise)" type="Report">2FF4B7DF9F764CB7A36423FC4C48A5C6</related_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+   <Item type="Item Report" id="3FA0C4E8407F408C87AD6B4EC7A95020" action="add">
+    <related_id keyed_name="CM2 Baseline (Facilities)" type="Report">076AA24713B744828E95FA4D6C05CE6D</related_id>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+   <Item type="Item Report" id="D13D2A1B74594447981B13B6CE064DAB" action="add">
+    <related_id keyed_name="CM2 Baseline (ILS)" type="Report">8D82A0C06CDB4489AAB0C5F9FC54260F</related_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+   <Item type="Item Report" id="3724C5EA8E4D4B719104C00E8452A9B4" action="add">
+    <related_id keyed_name="CM2 Baseline (Info Systems)" type="Report">B909CF1CBD43410797C01E8D8F6C6976</related_id>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+   <Item type="Item Report" id="C19F65F00B864868A6627F5700DF0BCB" action="add">
+    <related_id keyed_name="CM2 Planning Bill" type="Report">80ACAC814DD64180B90A6EE129360338</related_id>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
   </Relationships>
  </Item>
  <Item type="ItemType" id="4F1AC04A2B484F3ABA4E20DB63808A88" action="edit">
@@ -801,6 +845,7 @@
     <readonly>0</readonly>
     <sort_order>128</sort_order>
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <stored_length>32</stored_length>
     <track_history>0</track_history>
     <name>item_number</name>
    </Item>
@@ -822,6 +867,24 @@
     <stored_length>512</stored_length>
     <track_history>0</track_history>
     <name>classification</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='4F1AC04A2B484F3ABA4E20DB63808A88' and name='effective_date'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Effective Date</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>effective_date</name>
    </Item>
    <Item type="Property" action="edit" where="source_id='4F1AC04A2B484F3ABA4E20DB63808A88' and name='generation'">
     <column_alignment>left</column_alignment>

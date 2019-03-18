@@ -75,9 +75,30 @@
       <source_id keyed_name="0C81DC63CEFF4AB19D11C7830DDFA9BC" type="Body">0C81DC63CEFF4AB19D11C7830DDFA9BC</source_id>
       <tab_index>768</tab_index>
       <tab_stop>1</tab_stop>
-      <x>540</x>
+      <x>510</x>
       <y>90</y>
       <name>change_type</name>
+     </Item>
+     <Item type="Field" id="28CE95FBD64946D9A64F84731E27FEB1" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>class structure</field_type>
+      <font_color>#000000</font_color>
+      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Classification</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>3712</sort_order>
+      <source_id keyed_name="0C81DC63CEFF4AB19D11C7830DDFA9BC" type="Body">0C81DC63CEFF4AB19D11C7830DDFA9BC</source_id>
+      <tab_index>128</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>640</x>
+      <y>90</y>
+      <name>classification</name>
      </Item>
      <Item type="Field" id="79DC36881BCC4179874308AA557797BA" action="add">
       <border_width>0</border_width>
@@ -528,6 +549,15 @@
     </Relationships>
    </Item>
   </Relationships>
+ </Item>
+ <Item type="Field" id="28CE95FBD64946D9A64F84731E27FEB1" action="edit">
+  <!-- Please note: this AML depends on the "CM2 IR" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>classification</name>
+    <source_id type="ItemType" keyed_name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+   </Item>
+  </propertytype_id>
  </Item>
  <Item type="Field" id="9741F712E8024E88985A93A2BEB9A79F" action="edit">
   <!-- Please note: this AML depends on the "CM2 IR" ItemType. Please make sure it exists before running this. -->

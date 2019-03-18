@@ -1,0 +1,41 @@
+﻿<AML>
+ <Item type="Permission" id="4962F4EA9DAF437E8804B0001C8CB6B8" action="add">
+  <is_private>0</is_private>
+  <name>PE_Deviation - In Review</name>
+  <Relationships>
+   <Item type="Access" id="D2A5849CEB7E48898E41A4C683003C51" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Deviation - In Review" type="Permission">4962F4EA9DAF437E8804B0001C8CB6B8</source_id>
+   </Item>
+   <Item type="Access" id="DBB44D6A2D484E8982C0ECC907F9847B" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Deviation - In Review" type="Permission">4962F4EA9DAF437E8804B0001C8CB6B8</source_id>
+   </Item>
+   <Item type="Access" id="DD432EE6D93F4B2695EFCD2704D9347C" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Deviation - In Review" type="Permission">4962F4EA9DAF437E8804B0001C8CB6B8</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

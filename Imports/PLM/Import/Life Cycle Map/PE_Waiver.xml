@@ -1,0 +1,118 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="3DB7481EC0674021BEF686A1A421BECD" action="add">
+  <description>PE - Waiver</description>
+  <start_state keyed_name="In Work" type="Life Cycle State">AE2542E789A34257A34E15985492C130</start_state>
+  <name>PE_Waiver</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="641BA21536334534B7299A8C62DA7A68" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Approved</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <state_permission_id keyed_name="PE_Waiver - Approved" type="Permission">8178CCABFF9147418DE21B3800E1ADDC</state_permission_id>
+    <x>378</x>
+    <y>99</y>
+    <name>Approved</name>
+   </Item>
+   <Item type="Life Cycle State" id="10BCA5ED806F451DACAB30BA28F7581B" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Expired</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <state_permission_id keyed_name="PE_Waiver - Approved" type="Permission">8178CCABFF9147418DE21B3800E1ADDC</state_permission_id>
+    <x>549</x>
+    <y>98</y>
+    <name>Expired</name>
+   </Item>
+   <Item type="Life Cycle State" id="801C08BD66204C90B8A1E651B2FA9188" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">In Review</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <state_permission_id keyed_name="PE_Waiver - In Review" type="Permission">DA97880E630F402EB9B1A5B6602BDCC6</state_permission_id>
+    <x>194</x>
+    <y>99</y>
+    <name>In Review</name>
+   </Item>
+   <Item type="Life Cycle State" id="AE2542E789A34257A34E15985492C130" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">In Work</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <state_permission_id keyed_name="PE_Waiver - In Work" type="Permission">486491A5130B4710A0E1BE63E3F9C80C</state_permission_id>
+    <x>58</x>
+    <y>98</y>
+    <name>In Work</name>
+   </Item>
+   <Item type="Life Cycle State" id="32A2184826194AF196824FC107DAED3A" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <label xml:lang="en">Rejected</label>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <state_permission_id keyed_name="PE_Waiver - Rejected" type="Permission">D739E9E22B594AE3B304742EB5C58DEA</state_permission_id>
+    <x>193</x>
+    <y>203</y>
+    <name>Rejected</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="EB60D345FDA342F78F1B9F56491242B5" action="add">
+    <from_state keyed_name="Approved" type="Life Cycle State">641BA21536334534B7299A8C62DA7A68</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Manufacturing" type="Identity">BABF5AE8735447B48C26489922E585FE</role>
+    <segments />
+    <sort_order>256</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <to_state keyed_name="Expired" type="Life Cycle State">10BCA5ED806F451DACAB30BA28F7581B</to_state>
+    <x>42</x>
+    <y>11</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="09D5456685DF414C9E8FA6308209A7B5" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">801C08BD66204C90B8A1E651B2FA9188</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments />
+    <sort_order>640</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <to_state keyed_name="Rejected" type="Life Cycle State">32A2184826194AF196824FC107DAED3A</to_state>
+    <x>-1</x>
+    <y>59</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="7B737FA4AFCC484F874474D05395C7A9" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">801C08BD66204C90B8A1E651B2FA9188</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <to_state keyed_name="Approved" type="Life Cycle State">641BA21536334534B7299A8C62DA7A68</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="D4AF0AD7496442E3A7CE80E60432F146" action="add">
+    <from_state keyed_name="In Review" type="Life Cycle State">801C08BD66204C90B8A1E651B2FA9188</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments>142,50</segments>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <to_state keyed_name="In Work" type="Life Cycle State">AE2542E789A34257A34E15985492C130</to_state>
+    <x>-88</x>
+    <y>-70</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="C596EDF8DA52428F9378D95BDB3EF456" action="add">
+    <from_state keyed_name="In Work" type="Life Cycle State">AE2542E789A34257A34E15985492C130</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="PE_Waiver" type="Life Cycle Map">3DB7481EC0674021BEF686A1A421BECD</source_id>
+    <to_state keyed_name="In Review" type="Life Cycle State">801C08BD66204C90B8A1E651B2FA9188</to_state>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
