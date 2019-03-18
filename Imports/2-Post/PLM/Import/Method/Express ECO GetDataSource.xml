@@ -1,0 +1,339 @@
+﻿<AML>
+ <Item type="Method" id="D08D45C383E6409A9691FE1811F1C9DF" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+
+Dictionary<String,String> selectProperties = new Dictionary<String,String>();
+selectProperties["Part"] = "unit";
+selectProperties["CAD"] = "";
+selectProperties["Document"] = "";
+
+selectProperties["Part BOM"] = "";
+selectProperties["Part BOM.related_id"] = "unit";
+
+
+string areParentAndChildItemsVisible = this.getAttribute("areParentAndChildItemsVisible");
+string affectedItemIds = this.getProperty("affectedItemIds", "");
+string[] affectedItemIdList = affectedItemIds.Split(',');
+string escapedAffectedItemIds;
+if (string.IsNullOrEmpty(affectedItemIds))
+{
+  escapedAffectedItemIds = affectedItemIds;
+}
+else
+{
+  List<string> ids = affectedItemIds.Split(',').ToList();
+  StringBuilder stringBuilder = new StringBuilder();
+  for (int k = 0; k < ids.Count; k++)
+  {
+    string id = ids[k];
+    stringBuilder.Append(System.Security.SecurityElement.Escape(CCO.DB.InnDatabase.QuoteValue(id)));
+    if (k != ids.Count - 1)
+    {
+      stringBuilder.Append("','");
+    }
+  }
+  escapedAffectedItemIds = "'" + stringBuilder + "'";
+}
+
+String getItemTypeAML =
+"<AML>" +
+"  <Item type='ItemType' action='get' select='name'>" +
+"   <name>{0}</name>" +
+"   <Relationships>" +
+"     <Item type='Morphae' action='get' select='related_id(name)'/>" +
+"   </Relationships>" +
+"  </Item>" +
+"</AML>";
+
+String changeControlledItemITAML = String.Format(getItemTypeAML, "Change Controlled Item");
+Item changeControlledItemIT = this.newItem();
+changeControlledItemIT.loadAML(changeControlledItemITAML);
+changeControlledItemIT = changeControlledItemIT.apply();
+if(changeControlledItemIT.isError())
+{
+  return changeControlledItemIT;
+}
+
+
+String changeControlledRelationshipITAML = String.Format(getItemTypeAML, "Change Controlled Relationship");
+Item changeControlledRelationshipIT = this.newItem();
+changeControlledRelationshipIT.loadAML(changeControlledRelationshipITAML);
+changeControlledRelationshipIT = changeControlledRelationshipIT.apply();
+if(changeControlledRelationshipIT.isError())
+{
+  return changeControlledRelationshipIT;
+}
+
+List<String> controlledItemTypeNames = new List<String>();
+
+Item controlledItemTypes = changeControlledItemIT.getItemsByXPath("./Relationships/Item[@type='Morphae']/related_id/Item");
+Dictionary<String, List<String>> itemTypeRelationshipsDict = new Dictionary<String, List<String>>();
+
+int controlledItemTypesCount = controlledItemTypes.getItemCount();
+for(int controlledItemTypeIndex = 0; controlledItemTypeIndex < controlledItemTypesCount; controlledItemTypeIndex++)
+{
+  Item controlledItemType = controlledItemTypes.getItemByIndex(controlledItemTypeIndex);
+  String controlledItemTypeName = controlledItemType.getProperty("name");
+  
+  controlledItemTypeNames.Add(CCO.Variables.InnDatabase.QuoteValue(controlledItemTypeName));
+  itemTypeRelationshipsDict.Add(controlledItemTypeName, new List<String>());
+}
+
+
+List<String> controlledRelationshipTypeNames = new List<String>();
+
+Item controlledRelationshipTypes = changeControlledRelationshipIT.getItemsByXPath("./Relationships/Item[@type='Morphae']/related_id/Item");
+
+int controlledRelationshipTypesCount = controlledRelationshipTypes.getItemCount();
+for(int controlledRelationshipTypeIndex = 0; controlledRelationshipTypeIndex < controlledRelationshipTypesCount; controlledRelationshipTypeIndex++)
+{
+  Item controlledRelationshipType = controlledRelationshipTypes.getItemByIndex(controlledRelationshipTypeIndex);
+  String controlledRelationshipTypeName = controlledRelationshipType.getProperty("name");
+  
+  controlledRelationshipTypeNames.Add(CCO.Variables.InnDatabase.QuoteValue(controlledRelationshipTypeName));
+}
+
+if(controlledItemTypeNames.Count > 0 && controlledRelationshipTypeNames.Count > 0)
+{
+  String sql = "select it.name itemTypeName, rt.NAME relationshipTypeName from [ITEMTYPE] it " +
+  "INNER JOIN [RELATIONSHIPTYPE] rt ON rt.SOURCE_ID = it.id " +
+  "WHERE it.name in ({0}) AND rt.name in ({1})";
+  
+  String itemTypeNames = "N'" + String.Join("',N'", controlledItemTypeNames.ToArray()) + "'";
+  String relationshipTypeNames = "N'" + String.Join("',N'", controlledRelationshipTypeNames.ToArray()) + "'";
+  
+  sql = String.Format(CultureInfo.InvariantCulture, sql, itemTypeNames, relationshipTypeNames);
+  
+  Aras.Server.Core.InnovatorDatabase conn = CCO.Variables.InnDatabase;
+  Aras.Server.Core.InnovatorDataSet restulDataSet = conn.ExecuteSelect(sql);
+
+  if (restulDataSet.RowsNumber <= 0)
+  {
+	const string errorString = "ItemType to RelationshipType mapping failed";
+	Item errorItem = this.getInnovator().newError(errorString);
+	return errorItem;
+  }
+  
+  while(!restulDataSet.Eof)
+  {
+  	String itemTypeName = (string)restulDataSet["itemTypeName"];
+  	String relationshipTypeName = (string)restulDataSet["relationshipTypeName"];
+  	 	
+  	itemTypeRelationshipsDict[itemTypeName].Add(relationshipTypeName);
+   	
+  	restulDataSet.MoveNext();
+  }
+}
+
+// sql don't optimize queries with 'like' condition in generation, so use 'is not null' instead
+// '%' in generation node is required to disable default is_current check
+String itemQueryAMLTemplate =
+"<AML>" +
+"  <Item type='{0}' action='get' select='id, name, item_number, major_rev, state, keyed_name{3}'>" +
+"    <generation condition='is not null'>%</generation>" +
+"    <Relationships>" + 
+"      <Item type='{1}' action='get' select='source_id, related_id(id, name, item_number, major_rev, state, keyed_name{4}), quantity, sort_order{5}'>" +
+"	     <OR>" +
+"          <source_id condition='in'>{2}</source_id>" +
+"          <AND>" +
+"            <related_id condition='in'>{2}</related_id>";
+if(areParentAndChildItemsVisible == "1") 
+{
+  itemQueryAMLTemplate +=
+  "          <source_id>" +
+  "            <Item type='{0}' action='get' select='id'>" +
+  "              <is_current>1</is_current>" +
+  "            </Item>" +
+  "          </source_id>";
+}
+else
+{
+  itemQueryAMLTemplate +=
+  "          <source_id condition='in'>{2}</source_id>";			
+}	
+itemQueryAMLTemplate +=
+"          </AND>" +
+"        </OR>" +
+"      </Item>" +
+"    </Relationships>" +
+"  </Item>" +
+"</AML>";
+
+
+Item result = inn.newResult("");
+XmlNode resultNode = result.dom.SelectSingleNode("//Result");
+
+Dictionary<string, bool> idsSelected = new Dictionary<string, bool>();
+
+Dictionary<string, XmlNode> sourceItemDict = new Dictionary<string, XmlNode>();
+
+foreach(String itemTypeName in controlledItemTypeNames)
+{
+  String selectAttr = "";
+  if(selectProperties.TryGetValue(itemTypeName, out selectAttr))
+  {
+  	if(!String.IsNullOrEmpty(selectAttr))
+  	{
+      selectAttr = "," + selectAttr;
+  	}
+  }
+  
+  List<String> itemTypeRelationshipsList = itemTypeRelationshipsDict[itemTypeName];
+    
+  foreach(String relationshipTypeName in itemTypeRelationshipsList)
+  {
+    String selectRelshipAttr = "";
+    if(selectProperties.TryGetValue(relationshipTypeName, out selectRelshipAttr))
+    {
+      if(!String.IsNullOrEmpty(selectRelshipAttr))
+      {
+        selectRelshipAttr = "," + selectRelshipAttr;
+      }
+    }
+  
+    String selectRelatedAttr = "";
+    if(selectProperties.TryGetValue(relationshipTypeName + ".related_id", out selectRelatedAttr))
+    {
+      if(!String.IsNullOrEmpty(selectRelatedAttr))
+      {
+        selectRelatedAttr = "," + selectRelatedAttr;
+      }
+    }
+      
+    String queryAML = String.Format(itemQueryAMLTemplate, System.Security.SecurityElement.Escape(itemTypeName), 
+		System.Security.SecurityElement.Escape(relationshipTypeName), escapedAffectedItemIds, System.Security.SecurityElement.Escape(selectAttr), 
+		System.Security.SecurityElement.Escape(selectRelatedAttr), System.Security.SecurityElement.Escape(selectRelshipAttr));
+    
+    Item queryItem = this.newItem();
+    queryItem.loadAML(queryAML);
+    queryItem = queryItem.apply();
+  
+    if(queryItem.isError())
+    {
+      if(queryItem.getErrorCode() != "0")
+      {
+        return queryItem;
+      }
+      else
+      {
+        continue;
+      }
+    }
+    
+    int childCount = queryItem.getItemCount();
+    for(int childIndex = 0; childIndex < childCount; childIndex++)
+    {
+      Item childItem = queryItem.getItemByIndex(childIndex);
+      String childItemId = childItem.getID();
+
+      XmlNode sourceItemNode;
+      
+      if(!sourceItemDict.TryGetValue(childItemId, out sourceItemNode))
+      {
+        sourceItemNode = resultNode.OwnerDocument.ImportNode(childItem.node, true);
+        resultNode.AppendChild(sourceItemNode);
+        sourceItemDict[childItemId] = sourceItemNode;
+      }
+      else
+      {
+        XmlNodeList relationshipItems = childItem.node.SelectNodes("Relationships/Item");
+        XmlNode relationshipsNode = sourceItemNode.SelectSingleNode("Relationships");
+        
+        foreach(XmlElement relationshipItem in relationshipItems)
+        {
+          relationshipsNode.AppendChild(resultNode.OwnerDocument.ImportNode(relationshipItem, true));
+        }
+      }
+      
+      idsSelected[childItemId]  = true; 
+    }  
+  }
+}
+
+List<String> notRequestedIdList = new List<String>();
+
+foreach(string affectedItemId in affectedItemIdList)
+{
+  if(!idsSelected.ContainsKey(affectedItemId))
+  {
+    notRequestedIdList.Add("'" + CCO.DB.InnDatabase.QuoteValue(System.Security.SecurityElement.Escape(affectedItemId)) + "'");
+  }
+}
+
+if(notRequestedIdList.Count == 0)
+{
+  return result;
+}
+
+String notRequestedItemsAmlTempalte =
+"<AML>" +
+"  <Item type='{0}' action='get' select='id, name, item_number, major_rev, state, keyed_name{2}' levels='0' >" +
+"    <id condition='in'>{1}</id>" + 
+"  </Item>" +
+"</AML>";
+
+foreach(String itemTypeName in controlledItemTypeNames)
+{
+  String selectAttr = "";
+  if(selectProperties.TryGetValue(itemTypeName, out selectAttr))
+  {
+  	if(!String.IsNullOrEmpty(selectAttr))
+  	{
+      selectAttr = "," + selectAttr;
+  	}
+  }
+	
+  String notRequestedIds = String.Join("," , notRequestedIdList.ToArray());
+  String queryAML = String.Format(notRequestedItemsAmlTempalte, System.Security.SecurityElement.Escape(itemTypeName),
+    notRequestedIds, System.Security.SecurityElement.Escape(selectAttr));
+  
+  Item queryItem = this.newItem();
+  queryItem.loadAML(queryAML);
+  queryItem = queryItem.apply();
+  
+  if(queryItem.isError())
+  {
+  	if(queryItem.getErrorCode() != "0")
+  	{
+      return queryItem;
+  	}
+  	else
+  	{
+      continue;
+  	}
+  }
+  
+  int childCount = queryItem.getItemCount();
+  for(int childIndex = 0; childIndex < childCount; childIndex++)
+  {
+  	Item childItem = queryItem.getItemByIndex(childIndex);
+  	String childItemId = childItem.getID();
+  	idsSelected[childItemId]  = true;
+  	resultNode.AppendChild(resultNode.OwnerDocument.ImportNode(childItem.node, true));
+  }  
+}
+
+// Optimize xml size
+var nodesToRemove = new string[] { "id", "source_id" };
+var tmpNodes = result.dom.SelectNodes("//" + String.Join(" | //", nodesToRemove));
+foreach (XmlNode tmpNode in tmpNodes)
+{
+  tmpNode.ParentNode.RemoveChild(tmpNode);
+}
+tmpNodes = result.dom.SelectNodes("//*[@typeId] | //related_id");
+foreach (XmlElement tmpNode in tmpNodes)
+{
+  tmpNode.RemoveAttribute("typeId");
+  if (tmpNode.Name == "related_id")
+  {
+    tmpNode.RemoveAttribute("type");
+    tmpNode.RemoveAttribute("keyed_name");
+  }
+}
+
+return result;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Express ECO GetDataSource</name>
+ </Item>
+</AML>

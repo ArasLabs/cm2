@@ -1,0 +1,8 @@
+﻿<AML>
+ <Item type="Sequence" id="998C92934CB54D78A184FE3DD5B3E81D" action="add">
+  <initial_value>100000</initial_value>
+  <prefix>CR </prefix>
+  <step>1</step>
+  <name>ECR</name>
+ </Item>
+</AML>

@@ -1,0 +1,173 @@
+﻿<AML>
+ <Item type="ItemType" id="FCAD6E3989234A6DB46771F937E8F1E6" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>polymorphic</implementation_type>
+  <instance_data>CM2_ORGANIZATION</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>1</is_versionable>
+  <label xml:lang="en">Organization</label>
+  <label_plural xml:lang="en">Organizations</label_plural>
+  <manual_versioning>0</manual_versioning>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs off</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>CM2 Organization</name>
+  <Relationships>
+   <Item type="Property" id="ECF3ABEBB4444943AC8FCD93F1D2F585" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Name</label>
+    <order_by>2</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>name</name>
+   </Item>
+   <Item type="Server Event" id="9C8895B1802B4BF3AC203716D7323A64" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeAdd" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeAdd</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+   </Item>
+   <Item type="Server Event" id="6D3B4619A3E24BBAAC22794CCCCB40BE" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeCopy" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeCopy</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeCopy</server_event>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+   </Item>
+   <Item type="Server Event" id="3EAFA48B73D947BFBDD6C56E999BCCBD" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeDelete" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeDelete</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeDelete</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+   </Item>
+   <Item type="Server Event" id="BDDA13F9891141AFB070F6A89B4868AA" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeLock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeLock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeLock</server_event>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+   </Item>
+   <Item type="Server Event" id="B48F4D32B1774168B3D5E81B750ABB6B" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUnlock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUnlock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUnlock</server_event>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+   </Item>
+   <Item type="Server Event" id="BF34DC5488D74ECC90D3600F9160D8BB" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUpdate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUpdate</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+   </Item>
+   <Item type="Server Event" id="87AD3BD61D7E458CB7BCCE27A5E40727" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeVersion" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeVersion</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeVersion</server_event>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="FCAD6E3989234A6DB46771F937E8F1E6" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='FCAD6E3989234A6DB46771F937E8F1E6' and name='itemtype'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="CM2 Organization">
+     <Item type="List" action="get" select="id" page="1" pagesize="1">
+      <name>CM2 Organization</name>
+     </Item>
+    </data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">ItemType</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>itemtype</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='FCAD6E3989234A6DB46771F937E8F1E6' and name='superseded_date'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Superseded Date</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="CM2 Organization" type="ItemType" name="CM2 Organization">FCAD6E3989234A6DB46771F937E8F1E6</source_id>
+    <track_history>0</track_history>
+    <name>superseded_date</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

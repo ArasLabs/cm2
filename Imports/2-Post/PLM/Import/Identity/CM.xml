@@ -1,0 +1,22 @@
+﻿<AML>
+ <Item type="Identity" id="F6624E9AE5504958A84E4B6A5831298B" action="add">
+  <description>Configuration Management group</description>
+  <is_alias>0</is_alias>
+  <name>CM</name>
+ </Item>
+ <Item type="Member" id="DA4C648CE4A44010A9ADBC73E9D3EC99" action="add">
+  <related_id keyed_name="Audit Release Analyst" type="Identity">F8CEF1DD2CCC4776816D40D4D8FA6E2E</related_id>
+  <sort_order>512</sort_order>
+  <source_id keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</source_id>
+ </Item>
+ <Item type="Member" id="EEEB9057E04E403390E2D24A72CC2DF3" action="add">
+  <related_id keyed_name="Change Implementation Leader" type="Identity">81CFAC7D108C43CDBD5A1C5112020E3F</related_id>
+  <sort_order>384</sort_order>
+  <source_id keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</source_id>
+ </Item>
+ <Item type="Member" id="F593AB715AF34761B12EBF5FE83B9C59" action="add">
+  <related_id keyed_name="Change Leader" type="Identity">B27017B16ED44274A1BED8D044E86BEA</related_id>
+  <sort_order>256</sort_order>
+  <source_id keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</source_id>
+ </Item>
+</AML>

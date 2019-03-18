@@ -1,9 +1,0 @@
-﻿<AML>
- <Item type="Sequence" id="FC0BFF7268A34B76B79952A569EDB023" action="add">
-  <initial_value>0</initial_value>
-  <pad_to>6</pad_to>
-  <pad_with>0</pad_with>
-  <prefix>IR </prefix>
-  <name>CM2 IR</name>
- </Item>
-</AML>

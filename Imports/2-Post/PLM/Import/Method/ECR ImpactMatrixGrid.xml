@@ -1,0 +1,2101 @@
+﻿<AML>
+ <Item type="Method" id="9E6C8991E2A14164AA33CD27E95D28E2" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[//*/ Client side Method: treeGrid1 misc. function
+// 
+// load with --> onLoad Event on Form: "ECR Impact Matrix"
+// works together with 'Base TreeGrid' - must be loaded first
+ImpactMatrixGrid = function ImpactMatrixGridFunc() {
+	var itemType = aras.getItemTypeForClient("Change Controlled Item");
+	var itemTypeNode = aras.getItemTypeForClient(document.thisItem.getAttribute("type")).node;
+	var affNode = itemTypeNode.selectSingleNode("./Relationships/Item[@type='RelationshipType']/related_id[@name='Affected Item']");
+	if (!affNode) {
+		aras.AlertError("Affected Item not found");
+	}
+	var affRelationshipName = aras.getItemProperty(affNode.parentNode, "name");
+	this.constants = {
+		itemTypeName: "Change Controlled Item",
+		affRelationshipName: affRelationshipName,
+		affRelationshipId: aras.getRelationshipTypeId(affRelationshipName),
+		affectedItemRelationshipId: aras.getRelationshipTypeId("Affected Item Relationship"),
+		affectedRelationshipPropertyId: aras.getRelationshipTypeId("Affected Relationship Property"),
+		edrTypes: {
+			"Document": true,
+			"CAD": true
+		}
+	};
+	this.icons = {};
+	this.IsExpandOnStart = true;
+
+	var variable_dom = aras.getItemFromServerByName("Variable", "PE_Impact_Matrix_expand", "value,default_value");
+	if (variable_dom) {
+		var value = variable_dom.getProperty("value") || variable_dom.getProperty("default_value");
+		this.IsExpandOnStart = !(value === "0");
+	}
+};
+ImpactMatrixGrid.prototype = new BaseTreeGrid();
+
+ImpactMatrixGrid.prototype.isEditable = function ImpactMatrixGrid_isEditable() {
+	var node = document.thisItem.node;
+	var state = aras.getItemProperty(node, "state", "null");
+	return aras.isTempEx(node) || ((!state || state === "New" || state === "In Planning") && aras.isLockedByUser(node));
+};
+ImpactMatrixGrid.prototype.areParentAndChildItemsVisible = function ImpactMatrixGrid_areParentAndChildItemsVisible(item) {
+	var state = aras.getItemProperty(item, "state", "null");
+	return (!state || state === "New" || state === "In Planning" || aras.isTempEx(item));
+};
+ImpactMatrixGrid.prototype.GetAffectedPartIds = function ImpactMatrixGrid_GetAffectedPartIds(forceGetRelationships) {
+	if (forceGetRelationships) {
+		var body =
+			"<related_id>" +
+			" <Item type=\"Affected Item\" action=\"get\">" +
+			"   <Relationships>" +
+			"     <Item type=\"Affected Item Relationship\" action=\"get\">" +
+			"      <related_id>" +
+			"         <Item type=\"Affected Relationship\" action=\"get\">" +
+			"          <Relationships>" +
+			"           <Item type=\"Affected Relationship Property\" action=\"get\">" +
+			"           </Item>" +
+			"          </Relationships>" +
+			"         </Item>" +
+			"      </related_id>" +
+			"     </Item>" +
+			"     <Item type=\"Affected Item Property\" action=\"get\">" +
+			"     </Item>" +
+			"   </Relationships>" +
+			" </Item>" +
+			"</related_id>";
+		aras.getItemRelationshipsEx(document.thisItem.node, this.constants.affRelationshipName, undefined, undefined, body, true);
+	}
+
+	var allIdsOfAffectedParts = "";
+	//Get affected items from cache and merge them with affected items from server
+	var affPartRels = document.thisItem.node.selectNodes("./Relationships/Item[@type='" + this.constants.affRelationshipName + "' and (not(@action) or (@action!='delete' and @action!='purge'))]/related_id/Item[@type='Affected Item']");
+
+	for (var i = 0; i < affPartRels.length; i++) {
+		var affPartRel = affPartRels[i],
+			changeItemAction = aras.getItemProperty(affPartRel, "item_action", ""),
+			changeAction = aras.getItemProperty(affPartRel, "action", ""),
+			partId;
+
+		if (changeAction === "Change" || changeAction === "Delete" || changeItemAction === "Revise" || changeItemAction === "Renumber" || changeItemAction === "Supersede" || changeItemAction === "Obsolete") {
+			partId = aras.getItemProperty(affPartRel, "affected_id", "");
+
+		} else if (changeAction === "Add" || changeItemAction === "Release") {
+			partId = aras.getItemProperty(affPartRel, "new_item_id", "");
+
+		} else if (changeAction === "None" || changeAction === "Review" || changeItemAction === "None" || changeItemAction === "Review") {
+			partId = aras.getItemProperty(affPartRel, "affected_id", "") || aras.getItemProperty(affPartRel, "new_item_id", "");
+
+		} else {
+			continue;
+		}
+
+		allIdsOfAffectedParts += (allIdsOfAffectedParts ? "," : "") + partId;
+	}
+
+	return allIdsOfAffectedParts;
+};
+ImpactMatrixGrid.prototype.RefreshNewItemDictionary = function ImpactMatrixGrid_RefreshNewItemDictionary() {
+	this.NewItemDictionary = {};
+
+	var newItemIds = "";
+	var itemNewItemDictionary = {};
+	var affectedItems = this.AffectedItemDictionary;
+	for (var key in affectedItems) {
+		if (affectedItems.hasOwnProperty(key)) {
+			var item = affectedItems[key];
+			var item_action = this.getProperty(item, "item_action");
+			var action = this.getProperty(item, "action");
+			if (action === "Change" || item_action === "Revise" || item_action === "Renumber" || item_action === "Supersede") {
+				var new_item_id = this.getProperty(item, "new_item_id");
+				if (new_item_id) {
+					itemNewItemDictionary[new_item_id] = this.getProperty(item, "id");
+					newItemIds += (newItemIds ? "," : "") + new_item_id;
+				}
+			}
+		}
+	}
+
+	if (newItemIds) {
+		var result = aras.soapSend("GetItem", "<Item type=\"Change Controlled Item\" idlist=\"" + newItemIds + "\"/>");
+		if (result.getFaultCode() != 0) {
+			aras.AlertError(result);
+			return;
+		}
+		var nodes = result.getResult();
+		var nodesCount = nodes.childNodes.length;
+		for (var i = 0; i < nodesCount; i++) {
+			var node = nodes.childNodes[i];
+			new_item_id = node.getAttribute("id");
+			var key = itemNewItemDictionary[new_item_id] + new_item_id;
+			this.NewItemDictionary[key] = node;
+		}
+	}
+};
+ImpactMatrixGrid.prototype.RefreshAffectedItemDictionary = function ImpactMatrixGrid_RefreshAffectedItemDictionary() {
+	this.AffectedItemDictionary = {};
+	var nodes = document.thisItem.node.selectNodes("./Relationships/Item[@type='" + this.constants.affRelationshipName + "' and (not(@action) or (@action!='delete' and @action!='purge'))]/related_id/Item[@type='Affected Item']");
+	var node, action, item_action, affected_id, interchangeable, new_item_id;
+
+	for (var i = 0; i < nodes.length; i++) {
+		node = nodes[i];
+		item_action = aras.getItemProperty(node, "item_action", "");
+		action = aras.getItemProperty(node, "action", "");
+		interchangeable = aras.getItemProperty(node, "interchangeable", "");
+		affected_id = aras.getItemProperty(node, "affected_id", "");
+		new_item_id = aras.getItemProperty(node, "new_item_id", "");
+
+		if (affected_id && (item_action !== "Release" && action !== "Add")) {
+			this.AffectedItemDictionary[affected_id] = node;
+		} else if (new_item_id && (item_action === "Release" || action === "Add" || ((action === "None" || action === "Review" || item_action === "None" || item_action === "Review") && !affected_id))) {
+			this.AffectedItemDictionary[new_item_id] = node;
+		}
+	}
+};
+ImpactMatrixGrid.prototype.RefreshEdrsDictionary = function ImpactMatrixGrid_RefreshEdrsDictionary() {
+	var edrAffectedItemRelationship = "Express EDR Affected Item";
+	var edrsDictionary = {};
+	this.edrsDictionary = this.edrsDictionary || {};
+	
+	var expressEcoEdrAml = "<Item type=\"Express ECO EDR\" action=\"get\">"
+		+ " <source_id>" + document.thisItem.getID() + "</source_id>"
+		+ " <related_id><Item><Relationships><Item type=\"" + edrAffectedItemRelationship 
+		+ "\" select=\"related_id\" related_expand=\"0\"></Item></Relationships></Item></related_id></Item>";
+		
+	var response = aras.soapSend("GetItem", expressEcoEdrAml);
+	if (response.getFaultCode() !== 0) {
+		return;
+	}
+	var edrNodes = response.getResult().selectNodes("./Item/related_id/Item");
+	var edrsCount = edrNodes.length;
+	for (var i = 0; i < edrsCount; i++) {
+		var edr = edrNodes[i];
+		var affectedItemNodes = edr.selectNodes("./Relationships/Item/related_id");
+		var affectedItemsCount = affectedItemNodes.length;
+		for (var j = 0; j < affectedItemsCount; j++) {
+			var affectedItem = affectedItemNodes[j];
+			edrsDictionary[affectedItem.text] = edr;
+		}
+	}
+	this.edrsDictionary = edrsDictionary;
+};
+ImpactMatrixGrid.prototype.RefreshGroupingTeamsDictionary = function ImpactMatrixGrid_RefreshGroupingTeamsDictionary(useCachedServerResponse) {
+	var groupingTeamsDictionary = {};
+	this.groupingTeamsDictionary = this.groupingTeamsDictionary || {};
+	var i, tmpItem, grouping, tmpStr, aml = 
+		"<Item type=\"Express ECO EDR Grouping\" select=\"grouping\">"
+			+ "<source_id>" + document.thisItem.getID() + "</source_id>"
+		+ "</Item>";
+	var deletedIds = {}, existingNodes = document.thisItem.node.selectNodes("./Relationships/Item[@type='Express ECO EDR Grouping']");
+	for (i = 0; i < existingNodes.length; i++) {
+		tmpItem = existingNodes[i];
+		tmpStr = tmpItem.getAttribute("action");
+		if (tmpStr === "purge" || tmpStr === "delete") {
+			deletedIds[tmpItem.getAttribute("id")] = true;
+		}
+	}
+	if (!useCachedServerResponse) {
+		var response = aras.soapSend("GetItem", aml);
+		if (response.getFaultCode() != 0) {
+			return;
+		}
+		var items = response.getResult().selectNodes("Item"),
+			fromServer = [];
+		for (i = 0; i < items.length; i++) {
+			tmpItem = items[i];
+			grouping = aras.getItemProperty(tmpItem, "grouping");
+			fromServer.push({id: tmpItem.getAttribute("id"), grouping: grouping});
+		}
+		this.groupingTeamsFromServer = fromServer;
+	}
+
+	for (i = 0; i < this.groupingTeamsFromServer.length; i++) {
+		tmpItem = this.groupingTeamsFromServer[i];
+		if (!deletedIds[tmpItem.id]) {
+			groupingTeamsDictionary[tmpItem.grouping] = true;
+		}
+	}
+
+	for (i = 0; i < existingNodes.length; i++) {
+		tmpItem = existingNodes[i];
+		grouping = aras.getItemProperty(tmpItem, "grouping");
+		tmpStr = tmpItem.getAttribute("action");
+		if (tmpStr !== "purge" && tmpStr !== "delete") {
+			groupingTeamsDictionary[grouping] = true;
+		}
+	}
+	this.groupingTeamsDictionary = groupingTeamsDictionary;
+};
+ImpactMatrixGrid.prototype.onBeforeInitialize = function ImpactMatrixGrid_onBeforeInitialize() {
+
+};
+ImpactMatrixGrid.prototype.initialize = function ImpactMatrixGrid_Initialize() {
+	this.onBeforeInitialize();
+
+	this.initializeContextMenu();
+	this.initializeToolbar();
+	this.initializeGridStructure();
+	
+	this.registerTopMenuEventsHandlers();
+
+	this.gridRefresh(true);
+};
+ImpactMatrixGrid.prototype.initializeContextMenu = function () {
+	this.defaultMenu = [
+		{ name: "impactmatrix.contextmenu.action_add_item", handler: new ActionAddNewItem() },
+		{ name: "impactmatrix.contextmenu.action_delete_row", handler: new ActionDeleteRow() },
+		{ separator: true },
+		{ name: "impactmatrix.contextmenu.action_add", handler: new ActionReleasePart() },
+		{ name: "impactmatrix.contextmenu.action_intchange", handler: new ActionRevisePart() },
+		{ name: "impactmatrix.contextmenu.action_nonintchange", handler: new ActionNonIntChgPart() },
+		{ name: "impactmatrix.contextmenu.action_delete", handler: new ActionObsoletePart() },
+		{ name: "impactmatrix.contextmenu.action_none", handler: new ActionNone() },
+		{ name: "impactmatrix.contextmenu.action_review", handler: new ActionReview() },
+		{ separator: true },
+		{ name: "impactmatrix.contextmenu.action_add_relationship", handler: new ActionAddRelationship() },
+		{ name: "impactmatrix.contextmenu.action_change_relationship", handler: new ActionChangeRelationship() },
+		{ name: "impactmatrix.contextmenu.action_delete_relationship", handler: new ActionRemoveRelationship() }
+	];
+};
+ImpactMatrixGrid.prototype.initializeToolbar = function () {
+	this.toolbarXmlUrl = aras.getI18NXMLResource("ImpactMatrixToolbar.xml", "../Solutions/PLM/");
+	this.toolbar.loadXml(this.toolbarXmlUrl);
+	this.toolbar.show();
+};
+ImpactMatrixGrid.prototype.initializeGridStructure = function () {
+	this.columnList = [
+		{ Name: "PN", Title: this.getColumnLabelByName("Change Controlled Item", "item_number"), Class: PNCellClass, Width: "250", Align: "l" },
+		{ Name: "Name", Title: this.getColumnLabelByName("Change Controlled Item", "name"), Class: NameCellClass, Width: "200", Align: "l" },
+		{ Name: "Rev", Title: this.getColumnLabelByName("Change Controlled Item", "major_rev"), Class: RevCellClass, Width: "80", Align: "c" },
+		{ Name: "State", Title: this.getColumnLabelByName("Change Controlled Item", "state"), Class: StateCellClass, Width: "100", Align: "l" },
+		{ Name: "SortOrder", Title: this.getColumnLabelByName("Change Controlled Relationship", "sort_order"), Class: SortOrderCellClass, Width: "80", Align: "l", Sort: "NUMERIC" },
+		{ Name: "Qty", Title: this.getColumnLabelByName("Change Controlled Relationship", "quantity"), Class: QtyCellClass, Width: "80", Align: "l", Sort: "NUMERIC" },
+		{ Name: "Unit", Title: this.getColumnLabelByName("Part", "unit"), Class: UnitCellClass, Width: "40", Align: "l" },
+		{ Name: "Action", Title: this.getColumnLabelByName("Affected Item", "item_action"), Class: ActionCellClass, Width: "100", Align: "c" },
+		{ Name: "NewPN", Title: this.getColumnLabelByName("Affected Item", "new_item_id"), Class: NewPNCellClass, Width: "200", Align: "l" },
+		{ Name: "NewState", Title: this.getColumnLabelByName("Change Controlled Item", "state"), Class: NewStateCellClass, Width: "100", Align: "l" },
+		{ Name: "NewRev", Title: this.getColumnLabelByName("Change Controlled Item", "major_rev"), Class: NewRevCellClass, Width: "100", Align: "c" }
+	];
+	this.columnList.forEach(function (c, i) {
+		c.DefaultOrder = i;
+	});
+
+	var head = "<thead>";
+	head = this.columnList.reduce(function (xml, column) {
+		return xml + "<th align=\"c\">" + column.Title + "</th>";
+	}, head);
+	head += "</thead>";
+
+	var list = "<list id=\"0\"><listitem value=\"\" label=\"\"/>";
+	list = this.GetAffectedItemCollectionList().reduce(function (xml, listitem) {
+		return xml + "<listitem value=\"" + listitem.value + "\" " +
+			"label=\"" + listitem.label + "\"/>";
+	}, list);
+	list += "</list>";
+
+	var body = "<columns>";
+	body = this.columnList.reduce(function (xml, column) {
+		var editAttribute = column.Edit ? "edit=\"" + column.Edit + "\" " : "";
+		var sortAttribute = column.Sort ? "sort=\"" + column.Sort + "\" " : "";
+		var columnXml = "<column "
+			+ "width=\"" + column.Width + "\" "
+			+ "align=\"" + column.Align + "\" "
+			+ sortAttribute
+			+ editAttribute
+			+ "order=\"" + column.DefaultOrder + "\" "
+			+ "colname=\"" + column.Name + "\" />";
+		return xml + columnXml;
+	}, body);
+	body += "</columns>";
+
+	var xml = "<table delim=\"|\" editable=\"true\" multiselect=\"true\">" + head + list + body + "</table>";
+	this.grid.InitXml(xml);
+};
+ImpactMatrixGrid.prototype.GetAffectedItemCollectionList = function ImpactMatrixGrid_GetAffectedItemCollectionList() {
+	var collectionListId = this.getDataSourceByName("Affected Item", "grouping");
+	var collectionListItems = aras.getListValues(collectionListId);
+	var collectionList = new Array(collectionListItems.length);
+	for (var i = 0; i < collectionListItems.length; i++) {
+		var item = collectionListItems[i];
+		collectionList[i] = {
+			label: aras.getItemProperty(item, "label"),
+			value: aras.getItemProperty(item, "value")
+		};
+	}
+	return collectionList;
+};
+ImpactMatrixGrid.prototype.GetDataSourceMethod = function ImpactMatrixGrid_GetDataSourceMethod() {
+	return "Express ECO GetDataSource";
+};
+ImpactMatrixGrid.prototype.GetDataSource = function ImpactMatrixGrid_GetDataSource(forceGetRelationships) {
+	var allIdsOfAffectedParts = this.GetAffectedPartIds(forceGetRelationships);
+	if (!allIdsOfAffectedParts) {
+		return;
+	}
+
+	var node = document.thisItem.node;
+
+	var impactAML =
+		"<AML>" +
+		"	<Item type=\"" + node.getAttribute("type") + "\" action=\"" + this.GetDataSourceMethod() + "\" areParentAndChildItemsVisible=\"" + (this.areParentAndChildItemsVisible(node) ? "1" : "0") + "\">" +
+		"     <affectedItemIds>" + allIdsOfAffectedParts + "</affectedItemIds>" +
+		"	</Item>" +
+		"</AML>";
+
+	var res = aras.soapSend("ApplyAML", impactAML);
+	if (res.getFaultCode() != 0) {
+		aras.AlertError(res);
+		return;
+	}
+
+	var impactDOM = res.getResult();
+	return impactDOM;
+};
+ImpactMatrixGrid.prototype.Draw = function ImpactMatrixGrid_Draw(forceGetRelationships) {
+
+	function getChildItemIds() {
+		var res = [];
+		var childItems = impactElements.selectNodes("./Item/Relationships/Item/related_id/Item");
+		for (var i = 0; i < childItems.length; i++) {
+			var childItemId = childItems[i].getAttribute("id");
+			if (childItems[i].parentNode.parentNode.parentNode.parentNode.getAttribute("id") != childItemId) {
+				res[childItemId] = true;
+			}
+		}
+		return res;
+	}
+
+	this.grid.removeAllRows();
+	this.GridRowUserData = {};
+
+	var impactElements = this.GetDataSource(forceGetRelationships);
+	this.RefreshAffectedItemDictionary();
+	this.RefreshNewItemDictionary();
+//	this.RefreshEdrsDictionary();
+//	this.RefreshGroupingTeamsDictionary();
+	if (!impactElements) {
+		return;
+	}
+	var childItemIdsDictionary = getChildItemIds();
+
+	var elementsCount = impactElements.childNodes.length;
+	for (var i = 0; i < elementsCount; i++) {
+		var impactItem = impactElements.childNodes[i];
+		var partId = impactItem.getAttribute("id");
+
+		if (!childItemIdsDictionary[partId]) {
+			var affectedItem = this.AffectedItemDictionary[partId];
+			var rowID = this.DrawPartRow(impactItem, null, affectedItem, null, null);
+			var parents = {};
+			this.DrawChildrens(impactElements, impactItem, partId, affectedItem, rowID, parents);
+		}
+	}
+};
+ImpactMatrixGrid.prototype.DrawChildrens = function ImpactMatrixGrid_DrawChildrens(impactElements, parentItem, parentItemId, parentAffectedItem, parent_row_id, parents) {
+	parents[parentItemId] = true;
+	var relatedItemIDs = parentItem.selectNodes("Relationships/Item/related_id/Item");
+
+	for (var i = 0; i < relatedItemIDs.length; i++) {
+		var childItem = relatedItemIDs[i];
+		var childID = childItem.getAttribute("id");
+		var tmpChild = impactElements.selectSingleNode("Item[@id = '" + childID + "']");
+		var relationshipNode = relatedItemIDs[i].parentNode.parentNode;
+
+		if (tmpChild) {
+			childItem = tmpChild;
+		}
+
+		var affectedItem = this.AffectedItemDictionary[childID];
+		var affectedRelationship = null;
+
+		if (parentAffectedItem) {
+			affectedRelationship = parentAffectedItem.selectSingleNode("Relationships/Item[@type='Affected Item Relationship' and (not(@action) or (@action!='delete' and @action!='purge'))]/related_id/Item[@type='Affected Relationship' and affected_rel_id = '" + relationshipNode.getAttribute("id") + "' and rel_action]");
+		}
+
+		var rowID = this.DrawPartRow(childItem, relationshipNode, affectedItem, affectedRelationship, parent_row_id);
+		if (parents[childID] !== true) {
+			this.DrawChildrens(impactElements, childItem, childID, affectedItem, rowID, parents);
+		}
+	}
+
+	if (parentAffectedItem) {
+		var affRelationships = parentAffectedItem.selectNodes("Relationships/Item[@type='Affected Item Relationship' and (not(@action) or (@action!='delete' and @action!='purge'))]/related_id/Item[@type='Affected Relationship' and rel_action = 'Attach']");
+		for (var i = 0; i < affRelationships.length; i++) {
+			this.DrawPartRow(null, null, null, affRelationships[i], parent_row_id);
+		}
+	}
+
+	delete parents[parentItemId];
+};
+ImpactMatrixGrid.prototype.DrawPartRow = function ImpactMatrixGrid_DrawPartRow(itemNode, relationshipNode, affectedItem, affectedRelationship, parentRowId) {
+	var data = { itemNode: itemNode, relationshipNode: relationshipNode, affectedItem: affectedItem, affectedRelationship: affectedRelationship, parentRowId: parentRowId };
+	var row = new RowClass(this, data);
+
+	var itemID = "";
+	var partItemType;
+	var icon = "";
+	var itemTypeId;
+
+	if (itemNode) {
+		itemID = itemNode.getAttribute("id");
+		itemTypeId = aras.getItemProperty(itemNode, "itemtype");
+		if (this.icons[itemTypeId]) {
+			icon = this.icons[itemTypeId];
+		} else {
+			var itemType = aras.getItemTypeForClient(itemTypeId, "id");
+			icon = this.getProperty(itemType.node, "open_icon");
+			this.icons[itemTypeId] = icon;
+		}
+	}
+
+	var newRowID = (parentRowId || "") + (itemID || affectedRelationship.getAttribute("id")) + this.getProperty(relationshipNode, "sort_order");
+
+	if (!parentRowId) {
+		this.grid.insertRoot(newRowID, row.getValues(), newRowID, icon, icon);
+	} else {
+		this.grid.insertNewChild(parentRowId, newRowID, row.getValues(), newRowID, icon, icon);
+	}
+
+	row.bind(newRowID);
+
+	return newRowID;
+};
+ImpactMatrixGrid.prototype.onBeginEditCell = function ImpactMatrixGrid_onBeginEditCell(eArg) {
+	var affectedItem,
+		rowID = eArg.rowId,
+		columnPosition = eArg.column,
+		columnName = this.columnList[columnPosition].Name,
+		isCellEditable = this.columnList[columnPosition].Edit;
+
+	if (!(isCellEditable && this.isEditable())) {
+		return false;
+	}
+
+	if (columnName === "Grouping") {
+		var rowData = this.GridRowUserData[rowID];
+		var rowItemId = rowData["gridData_rowItemID"];
+		affectedItem = this.AffectedItemDictionary[rowItemId];
+		if (!affectedItem) {
+			return false;
+		}
+		var action = aras.getItemProperty(affectedItem, "item_action");
+		if (action !== "Release" && action !== "Revise" && action !== "Renumber") {
+			return false;
+		}
+
+		var rowItemTypeName = rowData["gridData_rowItemType"];
+		return !!this.constants.edrTypes[rowItemTypeName];
+	}
+
+	if (columnName === "Qty" || columnName === "NewQty") {
+		var rowData = this.GridRowUserData[rowID];
+		var rowItemTypeName = rowData["gridData_rowItemType"];
+		if (this.constants.edrTypes[rowItemTypeName]) {
+			return false;
+		}
+	}
+
+	var parentRowId = this.grid.getParentId(rowID);
+	if (!parentRowId) {
+		return false;
+	}
+
+	var parentRowItemId = this.GridRowUserData[parentRowId]["gridData_rowItemID"];
+	affectedItem = this.AffectedItemDictionary[parentRowItemId];
+	if (!affectedItem) {
+		return false;
+	}
+
+	var affectedRelationshipID = this.GridRowUserData[rowID]["gridData_affectedRelationshipID"];
+	if (!affectedRelationshipID) {
+		return false;
+	}
+
+	var affRelship = affectedItem.selectSingleNode("Relationships/Item[@type='Affected Item Relationship']/related_id/Item[@type='Affected Relationship' and @id='" + affectedRelationshipID + "' and (rel_action = 'Attach' or rel_action='Modify')]");
+	if (!affRelship) {
+		return false;
+	}
+
+	var relAction = aras.getItemProperty(affRelship, "rel_action"),
+		itemNode = ("Attach" === relAction ? affectedItem : this.AffectedItemDictionary[parentRowItemId]),
+		itemAction = relAction ? aras.getItemProperty(itemNode, "item_action") : "",
+		itemActionIsValid = ("Revise" === itemAction || "Renumber" === itemAction);
+	return itemActionIsValid;
+};
+ImpactMatrixGrid.prototype.onValidateCell = function ImpactMatrixGrid_onValidateCell(eArg) {
+	var dataType;
+	var columnName = this.columnList[eArg.column].Name;
+	switch (columnName) {
+		case "NewQty":
+			dataType = "float";
+			break;
+		case "NewSortOrder":
+			dataType = "integer";
+			break;
+		default:
+			return true;
+	}
+	var propertyDefinition = {
+		data_type: dataType
+	};
+	if (!aras.isPropertyValueValid(propertyDefinition, eArg.value, "invariantLocale")) {
+		this.grid.edit_Experimental.setErrorMessage(aras.ValidationMsg);
+		return false;
+	}
+	return true;
+};
+ImpactMatrixGrid.prototype.onEndEditCell = function ImpactMatrixGrid_onEndEditCell(eArg) {
+	var affectedItem, rowItemId,
+		rowID = eArg.rowId,
+		columnPosition = eArg.column,
+		columnName = this.columnList[columnPosition].Name;
+
+	if (columnName === "Grouping") {
+		rowItemId = this.GridRowUserData[rowID]["gridData_rowItemID"];
+		affectedItem = this.AffectedItemDictionary[rowItemId];
+		if (!affectedItem) {
+			return;
+		}
+		var groupingValue = this.grid.cells(rowID, columnPosition).getValue();
+		aras.setItemProperty(affectedItem, "grouping", groupingValue);
+		this.RefreshGroupingTeamsDictionary(true);
+		if (groupingValue && !this.groupingTeamsDictionary[groupingValue]) {
+			var newItem = aras.newItem("Express ECO EDR Grouping");
+			aras.setItemProperty(newItem, "grouping", groupingValue);
+			var curNd = document.thisItem.node,
+				relationshipsNd = curNd.selectSingleNode("Relationships");
+			if (!relationshipsNd) {
+				relationshipsNd = curNd.appendChild(curNd.ownerDocument.createElement("Relationships"));
+			}
+			relationshipsNd.appendChild(relationshipsNd.ownerDocument.importNode(newItem, true));
+		}
+		this.SetIsDirtyAndUpdateAction(affectedItem);
+		return;
+	}
+	if (columnName === "NewPN") {
+		// New Number
+		rowItemId = this.GridRowUserData[rowID]["gridData_rowItemID"];
+		affectedItem = this.AffectedItemDictionary[rowItemId];
+		if (!affectedItem) {
+			return;
+		}
+
+		var itemNumber = this.grid.cells(rowID, columnPosition).getValue();
+		if (itemNumber === this.CellEditingState.oldValue) {
+			return;
+		} else if (!itemNumber) {
+			aras.setItemProperty(affectedItem, "new_item_id", "");
+			this.refreshGridWithTimout();
+			delete this.CellEditingState;
+			this.SetIsDirtyAndUpdateAction(affectedItem);
+			return;
+		}
+
+		var newItemDom = aras.getItemByKeyedName("Change Controlled Item", itemNumber);
+		if (newItemDom) {
+			aras.setItemProperty(affectedItem, "new_item_id", newItemDom.getAttribute("id"));
+			aras.setItemPropertyAttribute(affectedItem, "new_item_id", "keyed_name", aras.getKeyedNameEx(newItemDom));
+			this.refreshGridWithTimout();
+		} else {
+			return false;
+		}
+
+		delete this.CellEditingState;
+		this.SetIsDirtyAndUpdateAction(affectedItem);
+		return;
+	}
+
+	var parentRowId = this.grid.GetParentId(rowID);
+	if (!parentRowId) {
+		return;
+	}
+
+	var parentRowItemId = this.GridRowUserData[parentRowId]["gridData_rowItemID"];
+	affectedItem = this.AffectedItemDictionary[parentRowItemId];
+	if (!affectedItem) {
+		return;
+	}
+
+	var affectedRelationshipID = this.GridRowUserData[rowID]["gridData_affectedRelationshipID"];
+	if (!affectedRelationshipID) {
+		return;
+	}
+
+	var affRelship = affectedItem.selectSingleNode("Relationships/Item[@type='Affected Item Relationship']/related_id/Item[@type='Affected Relationship' and @id='" + affectedRelationshipID + "' and (rel_action = 'Attach' or rel_action='Modify')]");
+	if (!affRelship) {
+		return;
+	}
+
+	var property_name;
+	if (columnName === "NewSortOrder") {
+		property_name = "sort_order";
+	} else if (columnName === "NewQty") {
+		property_name = "quantity";
+	} else {
+		return;
+	}
+
+	var affRelshipProp = affRelship.selectSingleNode("Relationships/Item[@type='Affected Relationship Property' and property_name='" + property_name + "']");
+	var value = this.grid.cells(rowID, columnPosition).getValue();
+
+	if (value) {
+		if (!affRelshipProp) {
+			affRelshipProp = aras.newRelationship(this.constants.affectedRelationshipPropertyId, affRelship, false, window);
+		} else {
+			affRelshipProp.setAttribute("action", "edit");
+		}
+
+		aras.setItemProperty(affRelshipProp, "property_name", property_name);
+		aras.setItemProperty(affRelshipProp, "new_value", value);
+	} else if (affRelshipProp) {
+		// need to prevent show NaN in cell
+		this.grid.cells(rowID, columnPosition).setValue("");
+		if (aras.isTempEx(affRelshipProp)) {
+			affRelshipProp.parentNode.removeChild(affRelshipProp);
+		} else {
+			affRelshipProp.setAttribute("action", "delete");
+			aras.setItemProperty(affRelshipProp, "new_value", "");
+		}
+	}
+
+	return;
+};
+ImpactMatrixGrid.prototype.onBeforeSaveCommand = function ImpactMatrixGrid_onBeforeSaveCommand() {
+	var editManager = this.grid.grid_Experimental.edit;
+	if (editManager.isEditing() && !editManager._isValidInput()) {
+		return aras.getResource("PLM", "impactmatrix.message.validation_error");
+	}
+};
+ImpactMatrixGrid.prototype.onBeforeRefreshCommand = function ImpactMatrixGrid_onBeforeRefreshCommand() {
+	this.grid.turnEditOff();
+};
+ImpactMatrixGrid.prototype.SetIsDirtyAndUpdateAction = function ImpactMatrixGrid_SetIsDirtyAndUpdateAction(item) {
+	//+++ set action update if action is null
+	var ancestorAndSelf = item.selectNodes("ancestor-or-self::Item");
+	for (var i = 0; i < ancestorAndSelf.length; i++) {
+		var itemNode = ancestorAndSelf[i];
+		itemNode.setAttribute("isDirty", "1");
+		if (!itemNode.getAttribute("action")) {
+			itemNode.setAttribute("action", "update");
+		}
+	}
+};
+ImpactMatrixGrid.prototype.gridRefresh = function ImpactMatrixGrid_gridRefresh(forceGetRelationships) {
+	forceGetRelationships = !!forceGetRelationships;
+
+	this.setToolbarItemEnable("refresh_all", false);
+	this.grid.setPaintEnabled(false);
+	document.getElementById(this.grid.connectId_Experimental).style.display = "none";
+	document.getElementById("loadingInProgress").style.display = "";
+	var self = this;
+
+	setTimeout(function () {
+		try {
+			var gridState = self.GetGridState();
+			self.updateColumnStructure();
+			self.Draw(forceGetRelationships);
+			setTimeout(function () {
+				self.SetGridState(gridState);
+				if (typeof self.IsExpandOnStart === "boolean") {
+					self.IsExpandOnStart ? self.grid.expandAll() : self.grid.collapseAll();
+					delete self.IsExpandOnStart;
+				}
+			}, 0);
+		} finally {
+			document.getElementById("loadingInProgress").style.display = "none";
+			document.getElementById(self.grid.connectId_Experimental).style.display = "";
+			self.grid.setPaintEnabled(true);
+			self.toolbarRefresh();
+		}
+	}, 0);
+};
+ImpactMatrixGrid.prototype.updateColumnStructure = function ImpactMatrixGrid_updateColumnStructure() {
+	var ecoItem = document.thisItem.node;
+	var state = aras.getItemProperty(ecoItem, "state", null);
+	var isBeforeSpawnState = (!state || state === "New" || state === "In Planning" || aras.isTempEx(ecoItem));
+////	var groupingColumn = this.grid.getColumnIndex("Grouping");
+////	var edrColumn = this.grid.getColumnIndex("Edr");
+////	this.grid.setColumnVisible(groupingColumn, isBeforeSpawnState, this.columnList[groupingColumn].Width);
+////	this.grid.setColumnVisible(edrColumn, !isBeforeSpawnState, this.columnList[edrColumn].Width);
+};
+ImpactMatrixGrid.prototype.toolbarRefresh = function ImpactMatrixGrid_toolbarRefresh() {
+	this.setToolbarItemEnable("new", this.isEditable());
+	this.setToolbarItemEnable("expandall", true);
+	this.setToolbarItemEnable("collapseall", true);
+	this.setToolbarItemEnable("refresh_all", true);
+
+	this.toolbar.showLabels((aras.getVariable("ShowLabels") === "true"));
+};
+ImpactMatrixGrid.prototype.onToolbarClick = function ImpactMatrixGrid_onToolbarClick(eArg) {
+	var id = eArg.id;
+
+	switch (id) {
+		case "new":
+			var actANP = new ActionAddNewItem();
+			actANP.execute();
+			break;
+		case "expand_all":
+			this.expandAll(true);
+			break;
+		case "collapse_all":
+			this.expandAll(false);
+			break;
+		case "refresh_all":
+			this.gridRefresh(false);
+			break;
+	}
+};
+ImpactMatrixGrid.prototype.onGridMenuInit = function ImpactMatrixGrid_onGridMenuInit(eArg) {
+	if (this.isEditable()) {
+		var id_array = this.grid.getSelectedItemIds("|").split("|");
+
+		//reset menu items, enable all
+		for (var i = 0; i < this.defaultMenu.length; i++) {
+			if (!this.defaultMenu[i].separator) {
+				eArg.menuItems.push({
+					index: i,
+					label: aras.getResource("PLM", this.defaultMenu[i].name),
+					enabled: true,
+					handler: this.defaultMenu[i].handler
+				});
+			} else {
+				eArg.menuItems.push(this.defaultMenu[i]);
+			}
+		}
+
+		var lengthMenu = eArg.menuItems.length;
+		for (s = 0; id_array[0] !== "" && s < id_array.length; s++) {
+			var selRowId = id_array[s];
+			var rowItem = impactGrid.GridRowUserData[selRowId];
+			var selItem = rowItem.itemType && rowItem.itemId ? aras.getItemLastVersion(rowItem.itemType, rowItem.itemId) : undefined;
+			for (var i = 0; i < lengthMenu; i++) {
+				// if menu item was disabled once then it will be disabled for other rows.
+				if (eArg.menuItems[i].enabled === true) {
+					eArg.menuItems[i].enabled = eArg.menuItems[i].handler.Validate(selRowId, selItem);
+				}
+			}
+		}
+		return true;
+	}
+	return false;
+};
+ImpactMatrixGrid.prototype.onGridClick = function ImpactMatrixGrid_onGridClick(eArg) {
+};
+ImpactMatrixGrid.prototype.onGridDoubleClick = function ImpactMatrixGrid_onGridDoubleClick(eArg) {
+	var rowId = eArg.rowId;
+	var rowItem = this.GridRowUserData[rowId];
+	if (rowItem.itemId) {
+		aras.uiShowItem(rowItem.itemType, rowItem.itemId);
+	}
+};
+ImpactMatrixGrid.prototype.onGridLinkClick = function ImpactMatrixGrid_onGridLinkClick(eArg) {
+	eval("aras.uiShowItem(" + eArg.linkData + ")");
+};
+ImpactMatrixGrid.prototype.refreshGridWithTimout = function ImpactMatrixGrid_refreshGridWithTimout(forceGetRelationships) {
+	forceGetRelationships = !!forceGetRelationships;
+
+	//If Refresh will be called multiple times per one execution scope then postponned call of Refresh_Impl will be canceled and initiated new call
+	//That is mean that Refresh_Impl will be called once.
+	if (this.Refresh_Impl_timeout) {
+		clearTimeout(this.Refresh_Impl_timeout);
+		delete this.Refresh_Impl_timeout;
+	}
+	var self = this;
+	//Need setTimeout because during handling OnPopulated event document.thisItem contain old item and it will be refreshed after OnPopulated event
+	this.Refresh_Impl_timeout = setTimeout(function () {
+		self.gridRefresh(forceGetRelationships);
+	}, 0);
+};
+ImpactMatrixGrid.prototype.registerTopMenuEventsHandlers = function ImpactMatrixGrid_registerTopMenuEventsHandlers() {
+	var topWindow = TopWindowHelper.getMostTopWindowWithAras();
+	if (topWindow.registerCommandEventHandler) {
+		var onBeforeSave = this.onBeforeSaveCommand.bind(this);
+		var onBeforeRefresh = this.onBeforeRefreshCommand.bind(this);
+		var beforeSaveHandlerKey = topWindow.registerCommandEventHandler(window, onBeforeSave, "before", "save");
+		var beforeUnlockHandlerKey = topWindow.registerCommandEventHandler(window, onBeforeSave, "before", "unlock");
+		var beforeRefreshHandlerKey = topWindow.registerCommandEventHandler(window, onBeforeRefresh, "before", "refresh");
+
+		var self = this;
+		var handlerKeys = [beforeSaveHandlerKey, beforeUnlockHandlerKey, beforeRefreshHandlerKey];
+		window.addEventListener("unload", function () {
+			self.unRegisterTopMenuEventsHandlers(handlerKeys);
+		});
+	}
+};
+ImpactMatrixGrid.prototype.unRegisterTopMenuEventsHandlers = function ImpactMatrixGrid_registerTopMenuEventsHandlers(keys) {
+	var topWindow = TopWindowHelper.getMostTopWindowWithAras();
+	if (topWindow.unregisterCommandEventHandler) {
+		keys.forEach(function (key) {
+			topWindow.unregisterCommandEventHandler(key);
+		});
+	}
+};
+
+ActionBase.prototype.addNewRelatedAffectedItem = function (action, affectedItem, newItem) {
+	/// <summary>Add new related AffectedItem to Change item</summary>
+	var relatedItem = aras.newItem("Affected Item");
+	aras.itemsCache.addItem(relatedItem);
+
+	switch (action)
+	{
+	case "Revise":
+		aras.setItemProperty(relatedItem, "action", "Change");
+		aras.setItemProperty(relatedItem, "interchangeable", "1");
+		break;
+	case "NonIntChg":
+		aras.setItemProperty(relatedItem, "action", "Change");
+		aras.setItemProperty(relatedItem, "interchangeable", "0");
+		break;
+	case "Obsolete":
+		aras.setItemProperty(relatedItem, "action", "Delete");
+		aras.setItemProperty(relatedItem, "interchangeable", "0");
+		break;
+	case "Release":
+		aras.setItemProperty(relatedItem, "action", "Add");
+		aras.setItemProperty(relatedItem, "interchangeable", "0");
+		break;
+	default:
+    	aras.setItemProperty(relatedItem, "item_action", action);
+		aras.setItemProperty(relatedItem, "action", action);
+		aras.setItemProperty(relatedItem, "interchangeable", "0");
+		break;
+	}  //MAG maybe shouldn't be here?
+
+	if(newItem) {
+		aras.setItemProperty(relatedItem, "new_item_id", newItem.getAttribute("id"));
+		aras.setItemPropertyAttribute(relatedItem, "new_item_id", "keyed_name", aras.getKeyedNameEx(newItem));
+	}
+
+	if (affectedItem) {
+		aras.setItemProperty(relatedItem, "affected_id", affectedItem.getAttribute("id"));
+		aras.setItemPropertyAttribute(relatedItem, "affected_id", "keyed_name", aras.getKeyedNameEx(affectedItem));
+	}
+
+	aras.newRelationship(impactGrid.constants.affRelationshipId, document.thisItem.node, false, window, relatedItem);
+	impactGrid.refreshGridWithTimout();
+	return relatedItem;
+};
+ActionBase.prototype.changeRelatedAffectedItem = function (affectedItem, action, affectedIdItem, newItem) {
+
+	switch (action)
+	{
+	case "Revise":
+		aras.setItemProperty(affectedItem, "action", "Change");
+		aras.setItemProperty(affectedItem, "interchangeable", "1");
+		break;
+	case "NonIntChg":
+		aras.setItemProperty(affectedItem, "action", "Change");
+		aras.setItemProperty(affectedItem, "interchangeable", "0");
+		aras.setItemProperty(affectedItem, "grouping", "");
+		break;
+	case "Obsolete":
+		aras.setItemProperty(affectedItem, "action", "Delete");
+		aras.setItemProperty(affectedItem, "interchangeable", "0");
+		aras.setItemProperty(affectedItem, "grouping", "");
+		break;
+	case "Release":
+		aras.setItemProperty(affectedItem, "action", "Add");
+		aras.setItemProperty(affectedItem, "interchangeable", "0");
+		break;
+	default:
+    	aras.setItemProperty(affectedItem, "item_action", action);
+		aras.setItemProperty(affectedItem, "action", action);
+		aras.setItemProperty(affectedItem, "interchangeable", "0");
+		break;
+	}
+
+	if (newItem) {
+		aras.setItemProperty(affectedItem, "new_item_id", newItem.getAttribute("id"));
+		aras.setItemPropertyAttribute(affectedItem, "new_item_id", "keyed_name", aras.getKeyedNameEx(newItem));
+	}
+
+	if (affectedIdItem) {
+		aras.setItemProperty(affectedItem, "affected_id", affectedIdItem.getAttribute("id"));
+		aras.setItemPropertyAttribute(affectedItem, "affected_id", "keyed_name", aras.getKeyedNameEx(affectedIdItem));
+	}
+
+	//+++ set action update if action is null
+	var relshipNode = affectedItem.parentNode.parentNode;
+	relshipNode.setAttribute("isDirty", "1");
+	if (!relshipNode.getAttribute("action")) {
+		relshipNode.setAttribute("action", "update");
+	}
+
+	if (!affectedItem.getAttribute("action")) {
+		affectedItem.setAttribute("action", "update");
+	}
+
+	if (!document.thisItem.node.getAttribute("action")) {
+		document.thisItem.node.setAttribute("action", "update");
+	}
+	//---
+	impactGrid.refreshGridWithTimout();
+};
+
+/*++++					Add New “Part”							*/
+ActionAddNewItem = function ActionAddNewItemFunc() {
+};
+ActionAddNewItem.prototype = new ActionBase();
+
+ActionAddNewItem.prototype.execute = function ActionAddNewItem_execute() {
+	var self = this;
+
+	function searchCallback(searchedItem) {
+		if (!searchedItem) {
+			return;
+		}
+
+		var searchedItemId = aras.getItemProperty(searchedItem, "id", "");
+		var affectedItem = impactGrid.AffectedItemDictionary[searchedItemId];
+		if (affectedItem) {
+			aras.AlertError(aras.getResource("PLM", "impactmatrix.message.affected_item_exists"));
+			return;
+		}
+
+		var searchedItemState = aras.getItemProperty(searchedItem, "state", "");
+		switch (searchedItemState) {
+			case "Preliminary":
+				self.addNewRelatedAffectedItem("Review", null, searchedItem);
+				break;
+			case "Released":
+			case "Superseded":
+				self.addNewRelatedAffectedItem("Review", searchedItem, null);
+				break;
+			default:
+				aras.AlertError(aras.getResource("PLM", "impactmatrix.message.not_supported_state", searchedItemState));
+				break;
+		}
+	}
+
+	this.searchItem("Change Controlled Item", searchCallback);
+};
+/*-----						Add New “Part”						*/
+
+/*++++					Delete “Part”							*/
+ActionDeleteRow = function ActionDeleteRowFunc() {
+};
+ActionDeleteRow.prototype = new ActionBase();
+
+ActionDeleteRow.prototype.execute = function ActionDeleteRow_execute() {
+	var selectedIds = impactGrid.grid.getSelectedItemIds("|").split("|");
+	var id_array = selectedIds[0] ? selectedIds : [];
+
+	for (i = 0; i < id_array.length; i++) {
+		var selRowId = id_array[i];
+		var rowItem = impactGrid.GridRowUserData[selRowId];
+		var affectedItem = impactGrid.AffectedItemDictionary[rowItem.itemId];
+		var affectedRelationshipId = rowItem.gridData_affectedRelationshipID;
+
+		if (affectedRelationshipId) {
+			var parentRowId = impactGrid.grid.getParentId(selRowId);
+			var parentRowItemId = impactGrid.GridRowUserData[parentRowId]["gridData_rowItemID"];
+			var parentAffectedItem = impactGrid.AffectedItemDictionary[parentRowItemId];
+			var affRelship = parentAffectedItem.selectSingleNode("Relationships/Item[@type='Affected Item Relationship'  and (not(@action) or (@action!='delete' and @action!='purge'))]/related_id/Item[@type='Affected Relationship' and @id='" + affectedRelationshipId + "' ]");
+			var affItemRelationship = affRelship.parentNode.parentNode;
+			if (affItemRelationship.getAttribute("action") == "add") {
+				affItemRelationship.parentNode.removeChild(affItemRelationship);
+			} else {
+				affItemRelationship.setAttribute("action", "delete");
+				impactGrid.SetIsDirtyAndUpdateAction(affItemRelationship);
+			}
+		}
+
+		if (affectedItem) {
+			var ecoAffectedItem = affectedItem.parentNode.parentNode;
+			if (ecoAffectedItem.getAttribute("action") == "add") {
+				ecoAffectedItem.parentNode.removeChild(ecoAffectedItem);
+			} else {
+				ecoAffectedItem.setAttribute("action", "delete");
+				impactGrid.SetIsDirtyAndUpdateAction(ecoAffectedItem);
+			}
+		}
+	}
+	impactGrid.refreshGridWithTimout();
+};
+ActionDeleteRow.prototype.Validate = function ActionDeleteRow_Validate(selRowId, selItem) {
+	var rowItem = impactGrid.GridRowUserData[selRowId];
+	return (impactGrid.AffectedItemDictionary[rowItem.itemId] != undefined) || (rowItem.gridData_affectedRelationshipID != undefined);
+};
+/*-----						Delete “Part”						*/
+
+/*++++					Release “Part”							*/
+ActionReleasePart = function ActionReleasePartFunc() {
+};
+ActionReleasePart.prototype = new ActionBase();
+
+ActionReleasePart.prototype.executeItem = function ActionReleasePart_executeItem(rowItem, affectedItem, selRowId) {
+	if (!affectedItem) {
+		var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+		this.addNewRelatedAffectedItem("Release", null, selItem);
+	} else {
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		var newItem = aras.getItemLastVersion(rowItem.itemType, new_item_id);
+		this.changeRelatedAffectedItem(affectedItem, "Release", null, newItem);
+	}
+};
+ActionReleasePart.prototype.Validate = function ActionReleasePart_Validate(selRowId, selItem) {
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+
+	var selItemState = aras.getItemProperty(selItem, "state", "");
+	if (selItemState !== "Preliminary") {
+		return false;
+	}
+
+	if (affectedItem) {
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		if (!new_item_id) {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(affectedItem, "item_action", "");
+		var action = aras.getItemProperty(affectedItem, "action", "");
+		if(action !== "None" && action !== "Review" && item_action !== "None" && item_action !== "Review") {
+			return false;
+		}
+
+		var affected_id = aras.getItemProperty(affectedItem, "affected_id", "");
+		if (affected_id) {
+			return false;
+		}
+	}
+	return true;
+};
+/*-----						Release “Part”						*/
+
+/*++++					Revise “Part”							*/
+ActionRevisePart = function ActionRevisePartFunc() {
+};
+ActionRevisePart.prototype = new ActionBase();
+
+ActionRevisePart.prototype.executeItem = function ActionRevisePart_executeItem(rowItem, affectedItem, selRowId) {
+	if (!affectedItem) {
+		var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+		this.addNewRelatedAffectedItem("Revise", selItem, null);
+	} else {
+		this.changeRelatedAffectedItem(affectedItem, "Revise", null, null);
+	}
+};
+ActionRevisePart.prototype.Validate = function ActionRevisePart_Validate(selRowId, selItem) {
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+
+	var selItemState = aras.getItemProperty(selItem, "state", "");
+	if (selItemState !== "Released") {
+		return false;
+	}
+
+	if (affectedItem) {
+		var affected_id = aras.getItemProperty(affectedItem, "affected_id", "");
+		if (!affected_id) {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(affectedItem, "item_action", "");
+		var action = aras.getItemProperty(affectedItem, "action", "");
+		if(action != "None" && action != "Review" && item_action != "None" && item_action != "Review") {
+			return false;
+		}
+
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		if (new_item_id) {
+			return false;
+		}
+	}
+	return true;
+};
+/*-----						Revise “Part”						*/
+
+/*++++					Renumber “Part”							*/
+ActionRenumberPart = function ActionRenumberPartFunc() {
+};
+ActionRenumberPart.prototype = new ActionBase();
+
+ActionRenumberPart.prototype.executeItem = function ActionRenumberPart_executeItem(rowItem, affectedItem, selRowId) {
+	if (!affectedItem) {
+		var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+		this.addNewRelatedAffectedItem("Renumber", selItem, null);
+	} else {
+		this.changeRelatedAffectedItem(affectedItem, "Renumber", null, null);
+	}
+};
+ActionRenumberPart.prototype.Validate = function ActionRenumberPart_Validate(selRowId, selItem) {
+	var rowSourceItemType = impactGrid.GridRowUserData[selRowId]["gridData_rowItemType"];
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+
+	var selItemState = aras.getItemProperty(selItem, "state", "");
+	if (selItemState != "Released") {
+		return false;
+	}
+
+	if (affectedItem) {
+		var affected_id = aras.getItemProperty(affectedItem, "affected_id", "");
+		if (!affected_id) {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(affectedItem, "item_action", "");
+		var action = aras.getItemProperty(affectedItem, "action", "");
+		if(action != "None" && action != "Review" && item_action != "None" && item_action != "Review") {
+			return false;
+		}
+
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		if (new_item_id) {
+			return false;
+		}
+	}
+	return true;
+};
+/*-----						Renumber “Part”						*/
+
+/*++++					Supersede “Part”							*/
+ActionSupersedePart = function ActionSupersedePartFunc() {
+};
+ActionSupersedePart.prototype = new ActionBase();
+
+ActionSupersedePart.prototype.executeItem = function ActionSupersedePart_executeItem(rowItem, affectedItem, selRowId) {
+	alert(aras.getResource("PLM", "impactmatrix.message.search_released"));
+	var self = this;
+
+	function searchCallback(searchedItem) {
+		if (!searchedItem) {
+			return;
+		} else if (aras.getItemProperty(searchedItem, "state") != "Released") {
+			aras.AlertError(aras.getResource("PLM", "impactmatrix.message.should_be_released"));
+			return;
+		}
+
+		var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+		if (!affectedItem) {
+			self.addNewRelatedAffectedItem("Supersede", selItem, searchedItem);
+		} else {
+			self.changeRelatedAffectedItem(affectedItem, "Supersede", selItem, searchedItem);
+		}
+	}
+
+	this.searchItem("Change Controlled Item", searchCallback);
+};
+ActionSupersedePart.prototype.Validate = function ActionSupersedePart_Validate(selRowId, selItem) {
+	var rowItemType = impactGrid.GridRowUserData[selRowId]["gridData_rowItemType"];
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+
+	if (!affectedItem) {
+		var selItemState = aras.getItemProperty(selItem, "state", "");
+		return (selItemState === "Released");
+
+	} else {
+		var selItemState = aras.getItemProperty(selItem, "state", "");
+		if (selItemState != "Released") {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(affectedItem, "item_action", "");
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		if (item_action === "None" && !new_item_id) {
+			return true;
+		}
+
+		if (item_action == "Review") {
+			if (!new_item_id) {
+				return true;
+
+			} else {
+				var affected_id = aras.getItemProperty(affectedItem, "affected_id", "");
+				if (!affected_id) {
+					return false;
+				}
+
+				var newItem = aras.getItemLastVersion(rowItemType, new_item_id);
+				if (aras.getItemProperty(newItem, "state") !== "Released") {
+					return false;
+				}
+
+				if (aras.getItemProperty(newItem, "config_id", "0") !== aras.getItemProperty(selItem, "config_id", "1")) {
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+};
+/*-----						Supersede “Part”						*/
+
+/*++++					NonIntChg “Part”							*/
+ActionNonIntChgPart = function ActionNonIntChgPartFunc() {
+};
+ActionNonIntChgPart.prototype = new ActionBase();
+
+ActionNonIntChgPart.prototype.executeItem = function ActionNonIntChgPart_executeItem(rowItem, affectedItem, selRowId) {
+	alert(aras.getResource("PLM", "impactmatrix.message.search_preliminary"));
+	var self = this;
+
+	function searchCallback(searchedItem) {
+		if (!searchedItem) {
+			return;
+		} else if (aras.getItemProperty(searchedItem, "state") != "Preliminary") {
+			aras.AlertError(aras.getResource("PLM", "impactmatrix.message.should_be_preliminary"));
+			return;
+		}
+
+		var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+		if (!affectedItem) {
+			self.addNewRelatedAffectedItem("NonIntChg", selItem, searchedItem);
+		} else {
+			self.changeRelatedAffectedItem(affectedItem, "NonIntChg", selItem, searchedItem);
+		}
+	}
+
+	this.searchItem("Change Controlled Item", searchCallback);
+};
+ActionNonIntChgPart.prototype.Validate = function ActionNonIntChgPart_Validate(selRowId, selItem) {
+	var rowItemType = impactGrid.GridRowUserData[selRowId]["gridData_rowItemType"];
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+
+	if (!affectedItem) {
+		var selItemState = aras.getItemProperty(selItem, "state", "");
+		return (selItemState === "Released");
+
+	} else {
+		var selItemState = aras.getItemProperty(selItem, "state", "");
+		if (selItemState != "Released") {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(affectedItem, "item_action", "");
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		if (item_action === "None" && !new_item_id) {
+			return true;
+		}
+
+		if (item_action == "Review") {
+			if (!new_item_id) {
+				return true;
+
+			} else {
+				var affected_id = aras.getItemProperty(affectedItem, "affected_id", "");
+				if (!affected_id) {
+					return false;
+				}
+
+				var newItem = aras.getItemLastVersion(rowItemType, new_item_id);
+				if (aras.getItemProperty(newItem, "state") !== "Preliminary") {
+					return false;
+				}
+
+				if (aras.getItemProperty(newItem, "config_id", "0") !== aras.getItemProperty(selItem, "config_id", "1")) {
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+};
+/*-----						NonIntChg “Part”						*/
+
+/*++++					Obsolete “Part”							*/
+ActionObsoletePart = function ActionObsoletePartFunc() {
+};
+ActionObsoletePart.prototype = new ActionBase();
+
+ActionObsoletePart.prototype.executeItem = function ActionObsoletePart_executeItem(rowItem, affectedItem, selRowId) {
+	if (!affectedItem) {
+		var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+		this.addNewRelatedAffectedItem("Obsolete", selItem, null);
+	} else {
+		this.changeRelatedAffectedItem(affectedItem, "Obsolete", null, null);
+	}
+};
+ActionObsoletePart.prototype.Validate = function ActionObsoletePart_Validate(selRowId, selItem) {
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var rowSourceItemType = impactGrid.GridRowUserData[selRowId]["gridData_rowItemType"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+
+	var selItemState = aras.getItemProperty(selItem, "state", "");
+	if (selItemState !== "Released" && selItemState !== "Superseded") {
+		return false;
+	}
+
+	if (affectedItem) {
+		var affected_id = aras.getItemProperty(affectedItem, "affected_id", "");
+		if (!affected_id) {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(affectedItem, "item_action", "");
+		var action = aras.getItemProperty(affectedItem, "action", "");
+		if(action !== "None" && action !== "Review" && item_action !== "None" && item_action !== "Review") {
+			return false;
+		}
+
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		if (new_item_id) {
+			return false;
+		}
+	}
+	return true;
+};
+/*-----						Obsolete “Part”						*/
+
+/*++++					Review							*/
+ActionReview = function ActionReviewFunc() {
+};
+ActionReview.prototype = new ActionBase();
+
+ActionReview.prototype.executeItem = function ActionReview_executeItem(rowItem, affectedItem, selRowId) {
+	if (!affectedItem) {
+		var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+		var selItemState = aras.getItemProperty(selItem, "state");
+
+		if (selItemState === "Preliminary") {
+			this.addNewRelatedAffectedItem("Review", null, selItem);
+		} else if (selItemState === "Released") {
+			this.addNewRelatedAffectedItem("Review", selItem, null);
+		}
+	} else {
+		this.changeRelatedAffectedItem(affectedItem, "Review", null, null);
+	}
+};
+ActionReview.prototype.Validate = function ActionReview_Validate(selRowId, selItem) {
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+
+	if (!affectedItem) {
+		var selItemState = aras.getItemProperty(selItem, "state", "");
+		if (selItemState !== "Released" && selItemState !== "Preliminary") {
+			return false;
+		}
+	}
+
+	return true;
+};
+/*-----						Review						*/
+
+/*++++					None							*/
+ActionNone = function ActionNoneFunc() {
+};
+ActionNone.prototype = new ActionBase();
+
+ActionNone.prototype.executeItem = function ActionNone_executeItem(rowItem, affectedItem, selRowId) {
+	var itemTypeName = rowItem.itemType;
+	if (impactGrid.constants.edrTypes[itemTypeName]) {
+		aras.setItemProperty(affectedItem, "grouping", "");
+	}
+	this.changeRelatedAffectedItem(affectedItem, "None", null, null);
+};
+ActionNone.prototype.Validate = function ActionNone_Validate(selRowId, selItem) {
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+	return !!affectedItem;
+};
+/*-----						None						*/
+
+/*+++++       Relationship BASE ACTION			*/
+ActionRelationshipBase = function ActionRelationshipBaseFunc() {
+};
+ActionRelationshipBase.prototype = new ActionBase();
+
+ActionRelationshipBase.prototype.AddNewAffectedRelationshipItem = function ActionRelationshipBase_AddNewAffectedRelationshipItem(affectedItem, action, affRelItemID, newRelItemID) {
+	var relatedItem = aras.newItem("Affected Relationship");
+	aras.itemsCache.addItem(relatedItem);
+	aras.setItemProperty(relatedItem, "rel_action", action);
+
+	if (newRelItemID) {
+		aras.setItemProperty(relatedItem, "new_rel_id", newRelItemID);
+	}
+
+	if (affRelItemID) {
+		aras.setItemProperty(relatedItem, "affected_rel_id", affRelItemID);
+	}
+
+	aras.newRelationship(impactGrid.constants.affectedItemRelationshipId, affectedItem, false, window, relatedItem);
+	impactGrid.refreshGridWithTimout();
+	return relatedItem;
+};
+ActionRelationshipBase.prototype.AddNewAffectedRelationshipPropertyItem = function ActionRelationshipBase_AddNewAffectedRelationshipPropertyItem(affectedRelationship, property_name, new_value) {
+	var relship = aras.newRelationship(impactGrid.constants.affectedRelationshipPropertyId, affectedRelationship, false, window);
+	aras.setItemProperty(relship, "property_name", property_name);
+	aras.setItemProperty(relship, "new_value", new_value);
+	return relship;
+};
+/*----       Relationship BASE ACTION			*/
+
+/*++++					Add “Relationship”							*/
+ActionAddRelationship = function ActionAddRelationshipFunc() {
+};
+ActionAddRelationship.prototype = new ActionRelationshipBase();
+
+ActionAddRelationship.prototype.executeItem = function ActionAddRelationship_executeItem(rowItem, affectedItem, selRowId) {
+	var self = this;
+	var rowSourceItemType = impactGrid.GridRowUserData[selRowId]["gridData_rowItemType"];
+	function searchCallback(searchedItem) {
+		if (!searchedItem) {
+			return;
+		} else if (aras.getItemProperty(searchedItem, "state") !== "Released") {
+			aras.AlertError(aras.getResource("PLM", "impactmatrix.message.should_be_released"));
+			return;
+		}
+
+		var itemTypeCCR = aras.getItemTypeForClient("Change Controlled Relationship");
+		var itemTypeName = aras.getItemTypeName(aras.getItemProperty(searchedItem, "itemtype"));
+		var itemTypeRow = aras.getItemTypeForClient(rowSourceItemType);
+		var nodes = itemTypeRow.node.selectNodes("Relationships/Item[@type=\"RelationshipType\"]/related_id[@name='" + itemTypeName + "']");
+
+		if (!nodes.length) {
+			aras.AlertError(aras.getResource("PLM", "impactmatrix.message.check_allowed_relationship_for_item", rowSourceItemType, itemTypeName));
+			return;
+		}
+
+		for (var i = 0; i < nodes.length; i++) {
+			var relationshipsName = aras.getItemProperty(nodes[i].parentNode, "name");
+			if (itemTypeCCR.node.selectSingleNode("Relationships/Item/related_id[@name='" + relationshipsName + "']")) {
+				break;
+			} else if (i === nodes.length) {
+				aras.AlertError(aras.getResource("PLM", "impactmatrix.message.check_allowed_relationship_for_item", "Change Controlled Relationship", relationshipsName));
+				return;
+			}
+		}
+
+		if (!affectedItem) {
+			var selItem = aras.getItemLastVersion(rowItem.itemType, rowItem.itemId);
+			affectedItem = self.addNewRelatedAffectedItem("Review", selItem, null);
+		}
+		var affectedRelationship = self.AddNewAffectedRelationshipItem(affectedItem, "Attach", null, null);
+		self.AddNewAffectedRelationshipPropertyItem(affectedRelationship, "related_id", searchedItem.getAttribute("id"));
+	}
+	var options = { dialogWidth: 400, dialogHeight: 200, center: true };
+	var params = {
+		aras: aras,
+		title: aras.getResource("PLM", "impactmatrix.select_relationship.title"),
+		callback: function (itemType) {
+			aras.getMostTopWindowWithAras(window).setTimeout(function () {
+				self.searchItem(itemType || "Change Controlled Item", searchCallback);
+			}, 0);
+		}
+	};
+	var returnedValue = aras.modalDialogHelper.show("DefaultPopup", top, params, options, "../Solutions/PLM/scripts/SelectRelationship.html");
+};
+ActionAddRelationship.prototype.Validate = function ActionAddRelationship_Validate(selRowId, selItem) {
+	var selItemState = aras.getItemProperty(selItem, "state");
+	if (selItemState !== "Released") {
+		return false;
+	}
+
+	var rowData = impactGrid.GridRowUserData[selRowId];
+	var rowItemId = rowData["gridData_rowItemID"];
+	var affectedItem = impactGrid.AffectedItemDictionary[rowItemId];
+	var rowItemTypeName = rowData["gridData_rowItemType"];
+	
+	if (impactGrid.constants.edrTypes[rowItemTypeName]) {
+		return false;
+	}
+	
+	if (affectedItem) {
+		var item_action = aras.getItemProperty(affectedItem, "item_action", "");
+		var action = aras.getItemProperty(affectedItem, "action", "");
+		if(action !== "None" && action !== "Review" && action !== "Change" && item_action !== "None" && item_action !== "Review" && item_action !== "Renumber" && item_action !== "Revise") {
+			return false;
+		}
+
+		var new_item_id = aras.getItemProperty(affectedItem, "new_item_id", "");
+		if (new_item_id) {
+			return false;
+		}
+	}
+	return true;
+};
+/*-----						Add “Relationship”						*/
+
+/*++++					Change “Relationship”							*/
+ActionChangeRelationship = function ActionChangeRelationshipFunc() {
+};
+ActionChangeRelationship.prototype = new ActionRelationshipBase();
+
+ActionChangeRelationship.prototype.executeItem = function ActionChangeRelationship_executeItem(rowItem, affectedItem, selRowId) {
+	var parentRowId = impactGrid.grid.getParentId(selRowId);
+	var parentRowItem = impactGrid.GridRowUserData[parentRowId];
+
+	affectedItem = impactGrid.AffectedItemDictionary[parentRowItem.itemId];
+
+	if (!affectedItem) {
+		var parentItem = aras.getItemLastVersion(parentRowItem.itemType, parentRowItem.itemId);
+		affectedItem = this.addNewRelatedAffectedItem("Review", parentItem, null);
+	}
+
+	var bomID = rowItem["gridData_bomID"];
+	this.AddNewAffectedRelationshipItem(affectedItem, "Modify", bomID, null);
+};
+ActionChangeRelationship.prototype.Validate = function ActionChangeRelationship_Validate(selRowId, selItem) {
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	if (!rowItemId) {
+		return false;
+	}
+
+	var parentRowId = impactGrid.grid.getParentId(selRowId);
+	if (!parentRowId) {
+		return false;
+	}
+
+	var rowData = impactGrid.GridRowUserData[selRowId];
+	var rowItemTypeName = rowData["gridData_rowItemType"];
+	if (impactGrid.constants.edrTypes[rowItemTypeName]) {
+		return false;
+	}
+
+	var parentRowItemType = impactGrid.GridRowUserData[parentRowId]["gridData_rowItemType"];
+	var parentRowItemId = impactGrid.GridRowUserData[parentRowId]["gridData_rowItemID"];
+	var parentAffectedItem = impactGrid.AffectedItemDictionary[parentRowItemId];
+	var parentItem = aras.getItemLastVersion(parentRowItemType, parentRowItemId);
+	var parentItemState = aras.getItemProperty(parentItem, "state");
+	if (parentItemState !== "Released") {
+		return false;
+	}
+
+	if (parentAffectedItem) {
+		var bomID = impactGrid.GridRowUserData[selRowId]["gridData_bomID"];
+		var affRelship = parentAffectedItem.selectSingleNode("Relationships/Item[@type='Affected Item Relationship' and (not(@action) or (@action!='delete' and @action!='purge'))]/related_id/Item[@type='Affected Relationship' and affected_rel_id = '" + bomID + "' and rel_action]");
+		if (affRelship) {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(parentAffectedItem, "item_action", "");
+		var action = aras.getItemProperty(parentAffectedItem, "action", "");
+		if(action !== "None" && action !== "Review" && action !== "Change" && item_action !== "None" && item_action !== "Review" && item_action !== "Renumber" && item_action !== "Revise") {
+			return false;
+		}
+
+		var new_item_id = aras.getItemProperty(parentAffectedItem, "new_item_id", "");
+		if (new_item_id) {
+			return false;
+		}
+	}
+
+	return true;
+};
+/*-----						Change “Relationship”						*/
+
+/*++++					Remove “Relationship”							*/
+ActionRemoveRelationship = function ActionRemoveRelationshipFunc() {
+};
+ActionRemoveRelationship.prototype = new ActionChangeRelationship();
+
+ActionRemoveRelationship.prototype.executeItem = function ActionRemoveRelationship_executeItem(rowItem, affectedItem, selRowId) {
+	var parentRowId = impactGrid.grid.getParentId(selRowId);
+	var parentRowItem = impactGrid.GridRowUserData[parentRowId];
+	affectedItem = impactGrid.AffectedItemDictionary[parentRowItem.itemId];
+
+	if (!affectedItem) {
+		var parentItem = aras.getItemLastVersion(parentRowItem.itemType, parentRowItem.itemId);
+		affectedItem = this.addNewRelatedAffectedItem("Review", parentItem, null);
+	}
+
+	var bomID = rowItem["gridData_bomID"];
+	this.AddNewAffectedRelationshipItem(affectedItem, "Remove", bomID, null);
+};
+ActionRemoveRelationship.prototype.Validate = function ActionRemoveRelationship_Validate(selRowId, selItem) {
+	var rowItemId = impactGrid.GridRowUserData[selRowId]["gridData_rowItemID"];
+	if (!rowItemId) {
+		return false;
+	}
+
+	var parentRowId = impactGrid.grid.getParentId(selRowId);
+	if (!parentRowId) {
+		return false;
+	}
+
+	var rowData = impactGrid.GridRowUserData[selRowId];
+	var rowItemTypeName = rowData["gridData_rowItemType"];
+	if (impactGrid.constants.edrTypes[rowItemTypeName]) {
+		return false;
+	}
+
+	var parentRowItemType = impactGrid.GridRowUserData[parentRowId]["gridData_rowItemType"];
+	var parentRowItemId = impactGrid.GridRowUserData[parentRowId]["gridData_rowItemID"];
+	var parentAffectedItem = impactGrid.AffectedItemDictionary[parentRowItemId];
+	var parentItem = aras.getItemLastVersion(parentRowItemType, parentRowItemId);
+	var parentItemState = aras.getItemProperty(parentItem, "state");
+
+	if (parentItemState !== "Released") {
+		return false;
+	}
+
+	if (parentAffectedItem) {
+		var bomID = impactGrid.GridRowUserData[selRowId]["gridData_bomID"];
+		var affRelship = parentAffectedItem.selectSingleNode("Relationships/Item[@type='Affected Item Relationship' and (not(@action) or (@action!='delete' and @action!='purge'))]/related_id/Item[@type='Affected Relationship' and affected_rel_id = '" + bomID + "' and rel_action]");
+		if (affRelship) {
+			return false;
+		}
+
+		var item_action = aras.getItemProperty(parentAffectedItem, "item_action", "");
+		var action = aras.getItemProperty(parentAffectedItem, "action", "");
+		if(action != "None" && action != "Review" && action != "Change" && item_action != "None" && item_action != "Review" && item_action != "Renumber" && item_action != "Revise") {
+			return false;
+		}
+
+		var new_item_id = aras.getItemProperty(parentAffectedItem, "new_item_id", "");
+		if (new_item_id) {
+			return false;
+		}
+	}
+
+	return true;
+};
+/*-----						Remove “Relationship”						*/
+
+RowClass = function (grid, data) {
+	this.grid = grid;
+	this.data = data;
+
+	this.cells = [];
+	this.length = this.grid.columnList.length;
+
+	for (var cellIndex = 0; cellIndex < this.length; cellIndex++) {
+		var column = this.grid.columnList[cellIndex];
+		var cell;
+		if (column) {
+			cell = new column.Class();
+			cell.initialize(cellIndex, this.grid, this);
+		} else {
+			cell = new DefaultCellClass();
+			cell.initialize(cellIndex, this.grid, this);
+		}
+
+		this.cells[cell.name] = cell;
+	}
+};
+RowClass.prototype = {
+	grid: null,
+	cells: [],
+	length: 0,
+	data: null,
+
+	getValues: function () {
+		var rowText = [];
+		for (var cellName in this.cells) {
+			var cell = this.cells[cellName];
+			var domValue = cell.getValueFromDom();
+			var uiValue = cell.convertValueForUI(domValue);
+			rowText.push(uiValue);
+		}
+
+		return rowText.join("|");
+	},
+
+	bind: function (rowId) {
+		var itemID = "";
+		var partItemType;
+		var icon = "";
+		var itemTypeId;
+
+		if (this.data.itemNode) {
+			itemID = this.data.itemNode.getAttribute("id");
+			partItemType = this.data.itemNode.getAttribute("type");
+		}
+
+		if (!partItemType && this.data.newItemIdItem) {
+			var itemNodeItemTypeId = aras.getItemProperty(this.data.newItemIdItem, "itemtype");
+			partItemType = this.data.newItemIdItem.getAttribute("type");
+		}
+
+		this.grid.GridRowUserData[rowId] = {
+			itemType: partItemType,
+			itemId: itemID
+		};
+
+		this.grid.GridRowUserData[rowId]["gridData_rowItemType"] = partItemType;
+		this.grid.GridRowUserData[rowId]["gridData_rowItemID"] = itemID;
+
+		if (this.data.affectedRelationship) {
+			this.grid.GridRowUserData[rowId]["gridData_affectedRelationshipID"] = this.data.affectedRelationship.getAttribute("id");
+		}
+
+		if (this.data.relationshipNode) {
+			this.grid.GridRowUserData[rowId]["gridData_bomID"] = this.data.relationshipNode.getAttribute("id");
+		}
+
+		var rowBg = [];
+
+		for (var cellName in this.cells) {
+			var cell = this.cells[cellName];
+			var linkData = cell.getLink();
+			if (linkData) {
+				this.grid.setLink(rowId, linkData.type, linkData.id, cell.columnIndex);
+			}
+
+			var cellBg = cell.getBackgroundColor();
+			rowBg.push(cellBg);
+		}
+
+		this.grid.grid.setRowBgColor(rowId, rowBg.join("|"));
+	}
+};
+DefaultCellClass = function () {
+};
+DefaultCellClass.prototype = {
+	grid: null,
+	columnIndex: null,
+	row: null,
+
+	initialize: function (columnIndex, grid, row) {
+		this.grid = grid;
+		this.columnIndex = columnIndex;
+		this.name = this.grid.columnList[this.columnIndex].Name;
+		this.row = row;
+	},
+
+	getBackgroundColor: function () {
+		var color = "#ffffff";
+		if (this.row.data.affectedItem) {
+			color = "#e7deef";
+			if (this.row.data.itemNode) {
+				var itemTypeName = this.row.data.itemNode.getAttribute("type");
+				if (impactGrid.constants.edrTypes[itemTypeName]) {
+					color = "#fbe4d5";
+				}
+			}
+		}
+		return color;
+	},
+
+	getLink: function () {
+		return null;
+	},
+
+	convertValueForUI: function (value) {
+		return value;
+	},
+
+	getValueFromDom: function () {
+		return "";
+	}
+};
+
+function PNCellClass() {}
+
+PNCellClass.prototype = new DefaultCellClass();
+
+PNCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.itemNode) {
+		return this.grid.getProperty(this.row.data.itemNode, "item_number");
+	} else {
+		return "";
+	}
+};
+PNCellClass.prototype.getLink = function () {
+	var linkData = null;
+
+	if (this.row.data.itemNode) {
+		linkData = {};
+		linkData.id = this.row.data.itemNode.getAttribute("id");
+		linkData.type = this.row.data.itemNode.getAttribute("type");
+	}
+
+	return linkData;
+};
+
+function NameCellClass() {}
+
+NameCellClass.prototype = new DefaultCellClass();
+
+NameCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.itemNode) {
+		return this.grid.getProperty(this.row.data.itemNode, "name");
+	} else {
+		return "";
+	}
+};
+
+function RevCellClass() {}
+
+RevCellClass.prototype = new DefaultCellClass();
+
+RevCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.itemNode) {
+		return this.grid.getProperty(this.row.data.itemNode, "major_rev");
+	} else {
+		return "";
+	}
+};
+
+function StateCellClass() {}
+
+StateCellClass.prototype = new DefaultCellClass();
+
+StateCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.itemNode) {
+		return this.grid.getProperty(this.row.data.itemNode, "state");
+	} else {
+		return "";
+	}
+};
+
+function SortOrderCellClass() {}
+
+SortOrderCellClass.prototype = new DefaultCellClass();
+
+SortOrderCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.relationshipNode) {
+		return this.grid.getProperty(this.row.data.relationshipNode, "sort_order");
+	} else {
+		return "";
+	}
+};
+
+function QtyCellClass() {}
+
+QtyCellClass.prototype = new DefaultCellClass();
+
+QtyCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.relationshipNode) {
+		return this.grid.getProperty(this.row.data.relationshipNode, "quantity");
+	} else {
+		return "";
+	}
+};
+
+function UnitCellClass() {}
+
+UnitCellClass.prototype = new DefaultCellClass();
+
+UnitCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.itemNode) {
+		return this.grid.getProperty(this.row.data.itemNode, "unit");
+	} else {
+		return "";
+	}
+};
+
+function ActionCellClass() {}
+
+ActionCellClass.prototype = new DefaultCellClass();
+
+ActionCellClass.prototype.getValueFromDom = function() {
+	var action = this.grid.getProperty(this.row.data.affectedItem, "action");
+	if (action == "Change") {action = (this.grid.getProperty(this.row.data.affectedItem, "interchangeable")=="1") ? "Int Change" : "Non-Int Change";}
+	return action;
+}
+
+function InterchangeableCellClass() { }
+InterchangeableCellClass.prototype = new DefaultCellClass();
+
+InterchangeableCellClass.prototype.getValueFromDom = function() {
+	return this.grid.getProperty(this.row.data.affectedItem, "interchangeable");
+}
+
+function NewPNCellClass() { }
+NewPNCellClass.prototype = new DefaultCellClass();
+
+NewPNCellClass.prototype.getValueFromDom = function () {
+	var affectedItem = this.row.data.affectedItem;
+	var key = this.grid.getProperty(affectedItem, "id") + this.grid.getProperty(affectedItem, "new_item_id");
+	var newItemPart = this.grid.NewItemDictionary[key];
+	if (newItemPart) {
+		this.row.data.newItemIdItem = newItemPart;
+		return newItemPart;
+	}
+
+	return null;
+};
+
+NewPNCellClass.prototype.getLink = function () {
+	var linkData = null;
+
+	if (this.row.data.newItemIdItem) {
+		linkData = {};
+		linkData.id = this.row.data.newItemIdItem.getAttribute("id");
+		linkData.type = this.row.data.newItemIdItem.getAttribute("type");
+	}
+
+	return linkData;
+};
+
+NewPNCellClass.prototype.convertValueForUI = function (value) {
+	if (value) {
+		return aras.getKeyedNameEx(value);
+	} else {
+		return "";
+	}
+};
+
+function NewStateCellClass() {}
+
+NewStateCellClass.prototype = new DefaultCellClass();
+
+NewStateCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.newItemIdItem) {
+		return this.grid.getProperty(this.row.data.newItemIdItem, "state");
+	} else {
+		return "";
+	}
+};
+
+function NewRevCellClass() {}
+
+NewRevCellClass.prototype = new DefaultCellClass();
+
+NewRevCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.newItemIdItem) {
+		return this.grid.getProperty(this.row.data.newItemIdItem, "major_rev");
+	} else {
+		return "";
+	}
+};
+
+function RelActionCellClass() {}
+
+RelActionCellClass.prototype = new DefaultCellClass();
+
+RelActionCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.affectedRelationship) {
+		return this.grid.getProperty(this.row.data.affectedRelationship, "rel_action");
+	} else {
+		return "";
+	}
+};
+
+RelActionCellClass.prototype.getBackgroundColor = function () {
+	var color = "#ffffff";
+	if (this.row.data.affectedItem || this.row.data.affectedRelationship) {
+		color = "#e7deef";
+		if (this.row.data.itemNode) {
+			var itemTypeName = this.row.data.itemNode.getAttribute("type");
+			if (impactGrid.constants.edrTypes[itemTypeName]) {
+				color = "#fbe4d5";
+			}
+		}
+	}
+	return color;
+};
+
+function NewSortOrderCellClass() {}
+
+NewSortOrderCellClass.prototype = new DefaultCellClass();
+
+NewSortOrderCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.affectedRelationship) {
+		var affSortOrderProp = this.row.data.affectedRelationship.selectSingleNode("Relationships/Item[@type='Affected Relationship Property' and property_name='sort_order']");
+		return this.grid.getProperty(affSortOrderProp, "new_value");
+	} else {
+		return "";
+	}
+};
+
+NewSortOrderCellClass.prototype.getBackgroundColor = function () {
+	var color = "#ffffff";
+	if (this.row.data.affectedItem || this.row.data.affectedRelationship) {
+		color = "#e7deef";
+		if (this.row.data.itemNode) {
+			var itemTypeName = this.row.data.itemNode.getAttribute("type");
+			if (impactGrid.constants.edrTypes[itemTypeName]) {
+				color = "#fbe4d5";
+			}
+		}
+	}
+	return color;
+};
+
+function NewQtyCellClass() {}
+
+NewQtyCellClass.prototype = new DefaultCellClass();
+
+NewQtyCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.affectedRelationship) {
+		var affQuantityProp = this.row.data.affectedRelationship.selectSingleNode("Relationships/Item[@type='Affected Relationship Property' and property_name='quantity']");
+		return this.grid.getProperty(affQuantityProp, "new_value");
+	} else {
+		return "";
+	}
+};
+
+NewQtyCellClass.prototype.getBackgroundColor = function () {
+	var color = "#ffffff";
+	if (this.row.data.affectedItem || this.row.data.affectedRelationship) {
+		color = "#e7deef";
+		if (this.row.data.itemNode) {
+			var itemTypeName = this.row.data.itemNode.getAttribute("type");
+			if (impactGrid.constants.edrTypes[itemTypeName]) {
+				color = "#fbe4d5";
+			}
+		}
+	}
+	return color;
+};
+
+function NewRelCellClass() {}
+
+NewRelCellClass.prototype = new DefaultCellClass();
+
+NewRelCellClass.prototype.getValueFromDom = function () {
+	if (this.row.data.affectedRelationship) {
+		var affRelatedIdProp = this.row.data.affectedRelationship.selectSingleNode("Relationships/Item[@type='Affected Relationship Property' and property_name='related_id']");
+		var new_bom_rel_id = this.grid.getProperty(affRelatedIdProp, "new_value");
+
+		if (new_bom_rel_id) {
+			var newBomRelItem = aras.getItemById("Change Controlled Item", new_bom_rel_id);
+			return newBomRelItem;
+		}
+	} else {
+		return null;
+	}
+};
+
+NewRelCellClass.prototype.convertValueForUI = function (value) {
+	if (value) {
+		return aras.getKeyedNameEx(value);
+	} else {
+		return "";
+	}
+};
+
+NewRelCellClass.prototype.getBackgroundColor = function () {
+	var color = "#ffffff";
+	if (this.row.data.affectedItem || this.row.data.affectedRelationship) {
+		color = "#e7deef";
+		if (this.row.data.itemNode) {
+			var itemTypeName = this.row.data.itemNode.getAttribute("type");
+			if (impactGrid.constants.edrTypes[itemTypeName]) {
+				color = "#fbe4d5";
+			}
+		}
+	}
+	return color;
+};
+
+function CollectionCellClass() { }
+CollectionCellClass.prototype = new DefaultCellClass();
+
+CollectionCellClass.prototype.getValueFromDom = function () {
+	return this.grid.getProperty(this.row.data.affectedItem, "grouping");
+};
+
+function EdrCellClass() { }
+EdrCellClass.prototype = new DefaultCellClass();
+EdrCellClass.prototype.getValueFromDom = function () {
+	var affectedItem = this.row.data.affectedItem;
+	if (!affectedItem) {
+		return "";
+	}
+	var edr = this.grid.edrsDictionary[affectedItem.getAttribute("id")];
+	return edr ? this.grid.getProperty(edr, "item_number") : "";
+};
+EdrCellClass.prototype.getLink = function () {
+	var linkData = null;
+
+	var affectedItem = this.row.data.affectedItem;
+	if (affectedItem) {
+		var edr = this.grid.edrsDictionary[affectedItem.getAttribute("id")];
+		if (edr) {
+			linkData = { id: edr.getAttribute("id"), type: edr.getAttribute("type") };
+		}
+	}
+
+	return linkData;
+};]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>ECR ImpactMatrixGrid</name>
+ </Item>
+</AML>

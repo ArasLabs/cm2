@@ -1,0 +1,1296 @@
+﻿<AML>
+ <Item type="Workflow Map" id="EF4AA3A088594FA3BA55F82D713EEDAD" action="add">
+  <description xml:lang="en">Enterprise Change Request</description>
+  <node_bg_color>       </node_bg_color>
+  <node_label1_color>       </node_label1_color>
+  <node_label1_font />
+  <node_label2_color>       </node_label2_color>
+  <node_label2_font />
+  <node_name_color>       </node_name_color>
+  <node_name_font />
+  <node_size />
+  <process_owner keyed_name="Change Leader" type="Identity">B27017B16ED44274A1BED8D044E86BEA</process_owner>
+  <transition_line_color>       </transition_line_color>
+  <transition_name_color>       </transition_name_color>
+  <transition_name_font />
+  <name>CM2 CR</name>
+  <Relationships>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CR Approved" type="Activity Template">
+     <Item type="Activity Template" id="05AE05C2455D4EC9BA1DCD4AA223DEE2" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/Delete.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">CR Approved</message>
+      <priority>1</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>855</x>
+      <y>20</y>
+      <name>CR Approved</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="EE54C8F83E6241D3ABCDD6DF834067C1" action="add">
+        <related_id keyed_name="Manager" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Manager</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR Approved" type="Activity Template">05AE05C2455D4EC9BA1DCD4AA223DEE2</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template Transition" id="7640C8549B2541989C5F55EBC1F269FD" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="8702F414B9584EE3BCFF85829BCB7196" type="Life Cycle Transition">8702F414B9584EE3BCFF85829BCB7196</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR Approved" type="Activity Template">05AE05C2455D4EC9BA1DCD4AA223DEE2</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="19E0F1BAB79241F4B58B44B31DF604E1" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Combined CR-CN</name>
+        <related_id>4FB0C92F4E3B47D89F588A0030E34EDE</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR Approved" type="Activity Template">05AE05C2455D4EC9BA1DCD4AA223DEE2</source_id>
+        <x>4</x>
+        <y>-10</y>
+       </Item>
+       <Item type="Workflow Map Path" id="F8FC3E85EA8745D8865689B92DA55EFB" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Create CN</name>
+        <related_id>BB2417BE519A49C8B2F3DA8D32D8411D</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="CR Approved" type="Activity Template">05AE05C2455D4EC9BA1DCD4AA223DEE2</source_id>
+        <x>-4</x>
+        <y>49</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Start" type="Activity Template">
+     <Item type="Activity Template" id="A4B08011AE86444FBB502224A6CBBD96" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/WorkflowStart.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>0</is_end>
+      <is_start>1</is_start>
+      <message xml:lang="en">Start</message>
+      <priority>2</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>20</x>
+      <y>20</y>
+      <name>Start</name>
+      <Relationships>
+       <Item type="Workflow Map Path" id="9188C1C6E9374AAB93C4C0202CD9DBCA" action="add">
+        <authentication>none</authentication>
+        <is_default>1</is_default>
+        <is_override>0</is_override>
+        <name>go</name>
+        <related_id>04E98FC42E1E45F49C1F786C8FE73381</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Start" type="Activity Template">A4B08011AE86444FBB502224A6CBBD96</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Enterprise Change Assessment" type="Activity Template">
+     <Item type="Activity Template" id="05810B402B9144EF941E3B08C47D22FB" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please perform an Enterprise Change Assessment of the CR</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>342</x>
+      <y>20</y>
+      <name>Enterprise Change Assessment</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="08404FDBC6204E478C6A0AC32B662090" action="add">
+        <related_id keyed_name="Owner" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Owner</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="456D2679BF2A46D689C0E2C29970907C" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="C2C5D10B7441403D9D9633467549280C" action="add">
+        <description xml:lang="en">Assess change impact</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="7C2335F03CAA4CF49D4FAB41FD49A740" action="add">
+        <description xml:lang="en">Get input from other reviewers</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="504A0A025A044457AAEFC3E0E03A424B" action="add">
+        <description xml:lang="en">Make recommendations</description>
+        <is_required>0</is_required>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+        <sequence>3</sequence>
+       </Item>
+       <Item type="Activity Template Transition" id="0C5294FC6DFC4CAE903491FF3A368171" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="AA4F2E821DB141C9A8A69F441632CD7F" type="Life Cycle Transition">AA4F2E821DB141C9A8A69F441632CD7F</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+       </Item>
+       <Item type="Activity Template Transition" id="201EEC9FAEF745AFA14C0C8DC1C95DC4" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="9FD9D64B1F46430E84E359715B3F62F7" type="Life Cycle Transition">9FD9D64B1F46430E84E359715B3F62F7</related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="934746D9D6E246BAA3ADE910EA6ED55F" action="add">
+        <authentication>password</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Complete</name>
+        <related_id>EDA49BC5BD1A458A9364FBBF57E1E40B</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Enterprise Change Assessment" type="Activity Template">05810B402B9144EF941E3B08C47D22FB</source_id>
+        <x>24</x>
+        <y>13</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Route CR" type="Activity Template">
+     <Item type="Activity Template" id="EDA49BC5BD1A458A9364FBBF57E1E40B" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Review ECA and Route the CR</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>450</x>
+      <y>20</y>
+      <name>Route CR</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="C9B3408FDFDF4FA68FFEF772AD313110" action="add">
+        <related_id keyed_name="Manager" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Manager</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Route CR" type="Activity Template">EDA49BC5BD1A458A9364FBBF57E1E40B</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="F3DE55F5D7D04F7880707AD06E6448FF" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Route CR" type="Activity Template">EDA49BC5BD1A458A9364FBBF57E1E40B</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="2207AE4BB9B24BC280FFDA38AC99FFB4" action="add">
+        <description xml:lang="en">Review ECA recommendations</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Route CR" type="Activity Template">EDA49BC5BD1A458A9364FBBF57E1E40B</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="4B444AC4BBB84BEB97DD5305243818CB" action="add">
+        <description xml:lang="en">Prepare Cost Estimate</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Route CR" type="Activity Template">EDA49BC5BD1A458A9364FBBF57E1E40B</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="544463199FBA47EB801B30331F07481A" action="add">
+        <description xml:lang="en">Route the CR</description>
+        <is_required>0</is_required>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="Route CR" type="Activity Template">EDA49BC5BD1A458A9364FBBF57E1E40B</source_id>
+        <sequence>3</sequence>
+       </Item>
+       <Item type="Workflow Map Path" id="987F20CE8F95483BAE52B8BA29A93D9A" action="add">
+        <authentication>none</authentication>
+        <is_default>1</is_default>
+        <is_override>0</is_override>
+        <name>CRB Approve</name>
+        <related_id>85C06C1087BC4A46B535DB1600195291</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Route CR" type="Activity Template">EDA49BC5BD1A458A9364FBBF57E1E40B</source_id>
+        <x>-27</x>
+        <y>50</y>
+       </Item>
+       <Item type="Workflow Map Path" id="4861D5AF54694E54AA5B70C61E7A888D" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Fast Track Approve</name>
+        <related_id>2CB65343C2494152B6AFD20E9AAC5EDA</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Route CR" type="Activity Template">EDA49BC5BD1A458A9364FBBF57E1E40B</source_id>
+        <x>21</x>
+        <y>13</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Online CRB" type="Activity Template">
+     <Item type="Activity Template" id="67D0F986A65F46B7B43BBA3EF1EB4CEC" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Change Review Board</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>642</x>
+      <y>86</y>
+      <name>Online CRB</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="F24E6E4E747A436BA939EBC275193921" action="add">
+        <related_id keyed_name="Team Member" type="Identity">7635594273054F2BA32C1CADB31FD413</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+        <is_required>0</is_required>
+        <for_all_members>1</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="91B932B5F03340BEBED25BD829988AD1" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="40E6F2A679FD434FA8CBE71720FA21B7" action="add">
+        <description xml:lang="en">Review the CR and disposition</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Transition" id="D3753B22EC664F3BAB202DE8CF66DE37" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="60FA15074CD246908247E480DDCB8E84" type="Life Cycle Transition">60FA15074CD246908247E480DDCB8E84</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="6B5AA7B7D8CF44D8B4A8526BF2D98D91" action="add">
+        <authentication>password</authentication>
+        <is_default>1</is_default>
+        <is_override>0</is_override>
+        <name>Approve</name>
+        <related_id>05AE05C2455D4EC9BA1DCD4AA223DEE2</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+        <x>-4</x>
+        <y>-24</y>
+       </Item>
+       <Item type="Workflow Map Path" id="E1445D5ACD6F480188958E817A9D8432" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>1</is_override>
+        <name>Call Meeting</name>
+        <related_id>1F009B4A53E24139AC4167CA56D258DA</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+        <x>-70</x>
+        <y>46</y>
+       </Item>
+       <Item type="Workflow Map Path" id="4D4BBB34D1B547EE859D436155E8203F" action="add">
+        <authentication>password</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Disapprove</name>
+        <related_id>652FE749C7414B0A9177F0D18C9B5E8A</related_id>
+        <segments />
+        <sort_order>384</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+        <x>83</x>
+        <y>63</y>
+       </Item>
+       <Item type="Workflow Map Path" id="BCF708B9F9094AFDB78BD840D413C7A5" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Investigate</name>
+        <related_id>05810B402B9144EF941E3B08C47D22FB</related_id>
+        <segments>533,209|425,209</segments>
+        <sort_order>512</sort_order>
+        <source_id keyed_name="Online CRB" type="Activity Template">67D0F986A65F46B7B43BBA3EF1EB4CEC</source_id>
+        <x>-186</x>
+        <y>105</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Review Rejected CR" type="Activity Template">
+     <Item type="Activity Template" id="371CA8DF8E804E908DDAC8EAE95E55DE" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please review the rejected CR</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>111</x>
+      <y>108</y>
+      <name>Review Rejected CR</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="470D1FDA8FF946579F94E2FB7189B20C" action="add">
+        <related_id keyed_name="Creator" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Creator</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Review Rejected CR" type="Activity Template">371CA8DF8E804E908DDAC8EAE95E55DE</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="92838A3FCDDD4854B9CC627273285AE5" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Review Rejected CR" type="Activity Template">371CA8DF8E804E908DDAC8EAE95E55DE</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="B709FF898CBB41E9BDB25C2BCDB75B1E" action="add">
+        <description xml:lang="en">Review comments</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Review Rejected CR" type="Activity Template">371CA8DF8E804E908DDAC8EAE95E55DE</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="095A979A89E544BBA07089F0970095F5" action="add">
+        <description xml:lang="en">Modify the ECR and resubmit or cancel the ECR</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Review Rejected CR" type="Activity Template">371CA8DF8E804E908DDAC8EAE95E55DE</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Workflow Map Path" id="F68B367AEC8F406AA9F160ACE9DD0DFD" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Resubmit</name>
+        <related_id>C527F63EED2C4905900F264CFA467571</related_id>
+        <segments>232,120</segments>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Review Rejected CR" type="Activity Template">371CA8DF8E804E908DDAC8EAE95E55DE</source_id>
+        <x>53</x>
+        <y>-7</y>
+       </Item>
+       <Item type="Workflow Map Path" id="D61C7ACA2FD8482EA36E7EF2F8127195" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Cancel CR</name>
+        <related_id>C5EFB648717D46C289FD075A90321ACD</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Review Rejected CR" type="Activity Template">371CA8DF8E804E908DDAC8EAE95E55DE</source_id>
+        <x>5</x>
+        <y>16</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Submit CR" type="Activity Template">
+     <Item type="Activity Template" id="04E98FC42E1E45F49C1F786C8FE73381" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Submit the CR for review</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>110</x>
+      <y>20</y>
+      <name>Submit CR</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="7B6DB517256C44838EDE231969698F13" action="add">
+        <related_id keyed_name="Creator" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Creator</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Submit CR" type="Activity Template">04E98FC42E1E45F49C1F786C8FE73381</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="526616C2138641C38833DBC9CF0E9D8C" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Submit CR" type="Activity Template">04E98FC42E1E45F49C1F786C8FE73381</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="3D4E80001C8645F29EE9506F6118C9B5" action="add">
+        <description xml:lang="en">Attach known Affected Items</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Submit CR" type="Activity Template">04E98FC42E1E45F49C1F786C8FE73381</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="6B2D10EA183E404D889F5C2F1E567ADC" action="add">
+        <description xml:lang="en">Ensure the CR is ready for initial review</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Submit CR" type="Activity Template">04E98FC42E1E45F49C1F786C8FE73381</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Workflow Map Path" id="AB3018946040411C95073C377FE52FA0" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Submit</name>
+        <related_id>C527F63EED2C4905900F264CFA467571</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Submit CR" type="Activity Template">04E98FC42E1E45F49C1F786C8FE73381</source_id>
+        <x>28</x>
+        <y>-6</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CL Review" type="Activity Template">
+     <Item type="Activity Template" id="C527F63EED2C4905900F264CFA467571" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">An CR has been submitted, please review it</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>220</x>
+      <y>20</y>
+      <name>CL Review</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="4FA3743D309748249683FB4F52F6197A" action="add">
+        <related_id keyed_name="Manager" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Manager</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="324A16DE27C14722B2E84E0E4C1A856D" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="F54FF7978E6342768353881025909EA2" action="add">
+        <description xml:lang="en">Check CR form for completeness</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="A77B82AA1DE94578BF54E23428038F9F" action="add">
+        <description xml:lang="en">Search for similar CRs</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="4A4829B2368847479B9CB90FD961F9D6" action="add">
+        <description xml:lang="en">Review Affected Items, add additional if necessary</description>
+        <is_required>0</is_required>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <sequence>3</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="311949B28BB44CD88930C856C3C490F6" action="add">
+        <description xml:lang="en">Make sure the Assigned Creator is correct</description>
+        <is_required>1</is_required>
+        <sort_order>512</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <sequence>4</sequence>
+       </Item>
+       <Item type="Activity Template Transition" id="21812636C59E480CAC686CEDE786B2CD" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="FA0C3B23723E4423BCA1583516A2EA4F" type="Life Cycle Transition">FA0C3B23723E4423BCA1583516A2EA4F</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="733782EB7F874A8AA464D9635D1D30F1" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Change Assessment</name>
+        <related_id>05810B402B9144EF941E3B08C47D22FB</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <x>-30</x>
+        <y>-20</y>
+       </Item>
+       <Item type="Workflow Map Path" id="D8BC47FC6E5D46718497368B530C8552" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Reject</name>
+        <related_id>371CA8DF8E804E908DDAC8EAE95E55DE</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="CL Review" type="Activity Template">C527F63EED2C4905900F264CFA467571</source_id>
+        <x>-103</x>
+        <y>48</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CR Cancelled" type="Activity Template">
+     <Item type="Activity Template" id="C5EFB648717D46C289FD075A90321ACD" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/Delete.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">CR Cancelled</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>109</x>
+      <y>194</y>
+      <name>CR Cancelled</name>
+      <Relationships>
+       <Item type="Activity Template Transition" id="74CFCB204E1F41869A903AAC2C50B547" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="D7BE1DAD4BED43EB9DCD2B5B139184C2" type="Life Cycle Transition">D7BE1DAD4BED43EB9DCD2B5B139184C2</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR Cancelled" type="Activity Template">C5EFB648717D46C289FD075A90321ACD</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Prepare CRB" type="Activity Template">
+     <Item type="Activity Template" id="85C06C1087BC4A46B535DB1600195291" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Prepare for CRB</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>525</x>
+      <y>86</y>
+      <name>Prepare CRB</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="CC5BB87F48EE4B0080D3BB16BF085B7D" action="add">
+        <related_id keyed_name="Manager" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Manager</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Prepare CRB" type="Activity Template">85C06C1087BC4A46B535DB1600195291</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="416F7CBFD4F847CE94FB18BF4EBA1B74" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Prepare CRB" type="Activity Template">85C06C1087BC4A46B535DB1600195291</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="29D7A8CA81674085992830E8707CA81C" action="add">
+        <description xml:lang="en">Prepare CRB agenda</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Prepare CRB" type="Activity Template">85C06C1087BC4A46B535DB1600195291</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="FEC97E89C9FB4B45B2AEEAAE1B6A0075" action="add">
+        <description xml:lang="en">Review atendee list</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Prepare CRB" type="Activity Template">85C06C1087BC4A46B535DB1600195291</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="E6F7DFBF98534289BF7F919E8E2C1F09" action="add">
+        <description xml:lang="en">Choose online CRB or meeting</description>
+        <is_required>0</is_required>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="Prepare CRB" type="Activity Template">85C06C1087BC4A46B535DB1600195291</source_id>
+        <sequence>3</sequence>
+       </Item>
+       <Item type="Workflow Map Path" id="D5838F0DB9454F24A76EC0CE8010C57D" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Send to CRB</name>
+        <related_id>67D0F986A65F46B7B43BBA3EF1EB4CEC</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Prepare CRB" type="Activity Template">85C06C1087BC4A46B535DB1600195291</source_id>
+        <x>19</x>
+        <y>-3</y>
+       </Item>
+       <Item type="Workflow Map Path" id="CD9853F229074B79A3C0115CAEEED4DC" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Call CRB Meeting</name>
+        <related_id>1F009B4A53E24139AC4167CA56D258DA</related_id>
+        <segments>537,173</segments>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Prepare CRB" type="Activity Template">85C06C1087BC4A46B535DB1600195291</source_id>
+        <x>-100</x>
+        <y>50</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Disposition CR" type="Activity Template">
+     <Item type="Activity Template" id="2CB65343C2494152B6AFD20E9AAC5EDA" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Disposition the CR</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>642</x>
+      <y>20</y>
+      <name>Disposition CR</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="5B5C389966E346B6A9ADD45E95307337" action="add">
+        <related_id keyed_name="Owner" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Owner</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="D1C60CA89EEB4D35B54485F3881FA18C" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="8162E6CF764E495682E07BA1A366F693" action="add">
+        <description xml:lang="en">Review ECR details</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="F5031599AA4F494B8381AA2D556E4789" action="add">
+        <description xml:lang="en">Approve, disapprove or invetigate further</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Activity Template Transition" id="B6188CCCAF5349A9A2830267BD228201" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="60FA15074CD246908247E480DDCB8E84" type="Life Cycle Transition">60FA15074CD246908247E480DDCB8E84</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="8BD13BA36B0046A7A33AE960CDA7B039" action="add">
+        <authentication>password</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Disapprove</name>
+        <related_id>652FE749C7414B0A9177F0D18C9B5E8A</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+        <x>154</x>
+        <y>95</y>
+       </Item>
+       <Item type="Workflow Map Path" id="798BFCF1D3DB4958B73D5D77323B5B76" action="add">
+        <authentication>password</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Approve</name>
+        <related_id>05AE05C2455D4EC9BA1DCD4AA223DEE2</related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="B8CDF4A3ECAB4850A5DBDC144062E1AA" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Investigate</name>
+        <related_id>05810B402B9144EF941E3B08C47D22FB</related_id>
+        <segments>654,7|353,7</segments>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="Disposition CR" type="Activity Template">2CB65343C2494152B6AFD20E9AAC5EDA</source_id>
+        <x>-174</x>
+        <y>-11</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CRB Meeting" type="Activity Template">
+     <Item type="Activity Template" id="1F009B4A53E24139AC4167CA56D258DA" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <escalate_to keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</escalate_to>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Schedule and hold a CRB meeting</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>642</x>
+      <y>161</y>
+      <name>CRB Meeting</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="CE042D100729412383C3D54B527E5313" action="add">
+        <related_id keyed_name="Manager" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Manager</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template EMail" id="BA7ED75DC66E4F2590225D0A11FF9966" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM Activity Notification" type="EMail Message">D7DED4DE50BA4CD4817B4B4638C1CD78</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Task" id="1F24843CE63B439FA6CA059206AF69B1" action="add">
+        <description xml:lang="en">Schedule CRB Meeting</description>
+        <is_required>0</is_required>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <sequence>1</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="44116BD08BCC41938958678B63166639" action="add">
+        <description xml:lang="en">Chair CRB meeting</description>
+        <is_required>0</is_required>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <sequence>2</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="61532D2B972E4EB7B0564341728BE6F0" action="add">
+        <description xml:lang="en">Record meeting results</description>
+        <is_required>0</is_required>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <sequence>3</sequence>
+       </Item>
+       <Item type="Activity Template Task" id="76495E57D3CB4719A87FFB49D5DC8799" action="add">
+        <description xml:lang="en">Disposition CR</description>
+        <is_required>0</is_required>
+        <sort_order>512</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <sequence>4</sequence>
+       </Item>
+       <Item type="Activity Template Transition" id="10371D8645504642BFD7A722F08E6C53" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="60FA15074CD246908247E480DDCB8E84" type="Life Cycle Transition">60FA15074CD246908247E480DDCB8E84</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="E1F1E098C52E441DA31EA4835D708983" action="add">
+        <authentication>password</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Disapprove</name>
+        <related_id>652FE749C7414B0A9177F0D18C9B5E8A</related_id>
+        <segments>854,173</segments>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <x>123</x>
+        <y>16</y>
+       </Item>
+       <Item type="Workflow Map Path" id="BE8701D476334C868F3A5D81BB585CF8" action="add">
+        <authentication>password</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Approve</name>
+        <related_id>05AE05C2455D4EC9BA1DCD4AA223DEE2</related_id>
+        <segments />
+        <sort_order>256</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <x>86</x>
+        <y>-54</y>
+       </Item>
+       <Item type="Workflow Map Path" id="60BC4F23C2D14EC6943FA0D016D3F959" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Investigate</name>
+        <related_id>05810B402B9144EF941E3B08C47D22FB</related_id>
+        <segments>654,229|353,229</segments>
+        <sort_order>384</sort_order>
+        <source_id keyed_name="CRB Meeting" type="Activity Template">1F009B4A53E24139AC4167CA56D258DA</source_id>
+        <x>-98</x>
+        <y>45</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CR Disapproved" type="Activity Template">
+     <Item type="Activity Template" id="652FE749C7414B0A9177F0D18C9B5E8A" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/Delete.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">CR Disapproved</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>858</x>
+      <y>161</y>
+      <name>CR Disapproved</name>
+      <Relationships>
+       <Item type="Activity Template Transition" id="FA2DB91E91874DAEBB439DC8A92CB5E1" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="350CCF21126541B99786F5230B56536B" type="Life Cycle Transition">350CCF21126541B99786F5230B56536B</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR Disapproved" type="Activity Template">652FE749C7414B0A9177F0D18C9B5E8A</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>1664</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CR-CN Released" type="Activity Template">
+     <Item type="Activity Template" id="5EF861304D974FC88CFBFE1D5694B3E2" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>1409</x>
+      <y>21</y>
+      <name>CR-CN Released</name>
+      <Relationships>
+       <Item type="Activity Template Transition" id="F18BC670B58746579B9C730A3DCA06F6" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="55254AD67AD84431B34AF77516C00C49" type="Life Cycle Transition">55254AD67AD84431B34AF77516C00C49</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR-CN Released" type="Activity Template">5EF861304D974FC88CFBFE1D5694B3E2</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Create CN" type="Activity Template">
+     <Item type="Activity Template" id="BB2417BE519A49C8B2F3DA8D32D8411D" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>1</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>937</x>
+      <y>82</y>
+      <name>Create CN</name>
+     </Item>
+    </related_id>
+    <sort_order>1920</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CR-CN Planning" type="Activity Template">
+     <Item type="Activity Template" id="4FB0C92F4E3B47D89F588A0030E34EDE" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>961</x>
+      <y>21</y>
+      <name>CR-CN Planning</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="0D50E781F3F449BFB0B58FB000E6D672" action="add">
+        <related_id keyed_name="Owner" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Owner</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR-CN Planning" type="Activity Template">4FB0C92F4E3B47D89F588A0030E34EDE</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template Transition" id="4354DF816D404EFFBBCF57B7ED0F8CAD" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="10B93F4E58BD4673B8867ED1778D30A3" type="Life Cycle Transition">10B93F4E58BD4673B8867ED1778D30A3</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR-CN Planning" type="Activity Template">4FB0C92F4E3B47D89F588A0030E34EDE</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="6E8DAA1AAB4F42FCBA68D89739D9A363" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Complete</name>
+        <related_id>7E4C39B18B734E4DA4C623A45F0C799B</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR-CN Planning" type="Activity Template">4FB0C92F4E3B47D89F588A0030E34EDE</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>2048</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Update Documents" type="Activity Template">
+     <Item type="Activity Template" id="7E4C39B18B734E4DA4C623A45F0C799B" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>1079</x>
+      <y>21</y>
+      <name>Update Documents</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="6931D3229BF642969AE1734E9BEF415D" action="add">
+        <related_id keyed_name="Owner" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Owner</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Update Documents" type="Activity Template">7E4C39B18B734E4DA4C623A45F0C799B</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template Transition" id="DA5A4134D7A24EB3A2FC1D71B948372D" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="67DF7980B4C74F91BBD6A5B8607AE2DC" type="Life Cycle Transition">67DF7980B4C74F91BBD6A5B8607AE2DC</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Update Documents" type="Activity Template">7E4C39B18B734E4DA4C623A45F0C799B</source_id>
+       </Item>
+       <Item type="Activity Template Transition" id="9284BBD705BD4A17AB7B187DDD277402" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="DAC802F992E445DBB80465E6DF82C86B" type="Life Cycle Transition">DAC802F992E445DBB80465E6DF82C86B</related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Update Documents" type="Activity Template">7E4C39B18B734E4DA4C623A45F0C799B</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="0AE9CB4EC6CC40B482634C4F4BDDFFA8" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Complete</name>
+        <related_id>6DE22F1F78854180A647343E3820DCEE</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Update Documents" type="Activity Template">7E4C39B18B734E4DA4C623A45F0C799B</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>2176</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="Complete Implementation" type="Activity Template">
+     <Item type="Activity Template" id="6DE22F1F78854180A647343E3820DCEE" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>1208</x>
+      <y>21</y>
+      <name>Complete Implementation</name>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="1E5D4B5894134540BF5C9B902A39A0D1" action="add">
+        <related_id keyed_name="Owner" type="Identity">
+         <Item type="Identity" action="get" select="id">
+          <name>Owner</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Complete Implementation" type="Activity Template">6DE22F1F78854180A647343E3820DCEE</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Activity Template Transition" id="4DEBA7AAF36F4DA6B343BE80D4D0B5BC" action="add">
+        <controlled_itemtype keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</controlled_itemtype>
+        <event>on_activate</event>
+        <related_id keyed_name="5F9EF8FCA5F14CBD85471DA7B26001B7" type="Life Cycle Transition">5F9EF8FCA5F14CBD85471DA7B26001B7</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Complete Implementation" type="Activity Template">6DE22F1F78854180A647343E3820DCEE</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="5CBD6CF667AF4E6EA9D0F47F4FD18F9A" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Approve</name>
+        <related_id>32D44DD25DC442F3940E03D82573F3FE</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Complete Implementation" type="Activity Template">6DE22F1F78854180A647343E3820DCEE</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+       <Item type="Workflow Map Path" id="07E249C7E8D140879DC1EAB52F3F7E35" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Reject</name>
+        <related_id>7E4C39B18B734E4DA4C623A45F0C799B</related_id>
+        <segments>1177,12</segments>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="Complete Implementation" type="Activity Template">6DE22F1F78854180A647343E3820DCEE</source_id>
+        <x>-43</x>
+        <y>-28</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>2304</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" action="add">
+    <related_id keyed_name="CR-CN Audit" type="Activity Template">
+     <Item type="Activity Template" id="32D44DD25DC442F3940E03D82573F3FE" action="add">
+      <can_delegate>1</can_delegate>
+      <can_refuse>1</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <icon>../images/WorkflowNode.svg</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message xml:lang="en">Please Review...</message>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>1319</x>
+      <y>21</y>
+      <name>CR-CN Audit</name>
+      <Relationships>
+       <Item type="Activity Template Method" id="5C4D1D990CFA4189A5CDCF27D9817DF5" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="CM2 CN WF Assign" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>CM2 CN WF Assign</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR-CN Audit" type="Activity Template">32D44DD25DC442F3940E03D82573F3FE</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="48993A2DCF514419B81BDBC85CC6A4BC" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Complete</name>
+        <related_id>5EF861304D974FC88CFBFE1D5694B3E2</related_id>
+        <segments />
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR-CN Audit" type="Activity Template">32D44DD25DC442F3940E03D82573F3FE</source_id>
+        <x>0</x>
+        <y>0</y>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>2432</sort_order>
+    <source_id keyed_name="CM2 CR" type="Workflow Map">EF4AA3A088594FA3BA55F82D713EEDAD</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,8 +1,0 @@
-﻿<AML>
- <Item type="Sequence" id="6AF8DA807A3544679FEDDCC101CBB47E" action="add">
-  <initial_value>100000</initial_value>
-  <prefix>CN </prefix>
-  <step>1</step>
-  <name>ECN</name>
- </Item>
-</AML>

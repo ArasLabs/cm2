@@ -1,0 +1,82 @@
+﻿<AML>
+ <Item type="Permission" id="6452E4F7210D4E2BA18611CDF58B8DA6" action="add">
+  <is_private>0</is_private>
+  <name>CM2 CR Cost</name>
+  <Relationships>
+   <Item type="Access" id="069A06CEE050497E895B705D190CB3CC" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Creator" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Creator</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
+   </Item>
+   <Item type="Access" id="35B5A3DB09264CD48E3C06D29B4DED3E" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
+   </Item>
+   <Item type="Access" id="64E8E607A4B0442E8708D6D967BFDCB6" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Change Leader" type="Identity">B27017B16ED44274A1BED8D044E86BEA</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
+   </Item>
+   <Item type="Access" id="82D627E383664025B35B791E620E795D" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
+   </Item>
+   <Item type="Access" id="9206EFCE5A5F496A8E2EB19E0FE757AA" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="CM" type="Identity">F6624E9AE5504958A84E4B6A5831298B</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
+   </Item>
+   <Item type="Access" id="CBCCCF5B09654524971982287C372D26" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CM2 CR Cost" type="Permission">6452E4F7210D4E2BA18611CDF58B8DA6</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

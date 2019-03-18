@@ -1,7 +1,0 @@
-<imports>
-  <package name="com.aras.innovator.solution.Project" path="Project\Import" />
-  <package name="com.aras.innovator.solution.ApplicationCore" path="ApplicationCore\Import" />
-  <package name="com.aras.innovator.solution.PLM" path="PLM\Import">
-    <dependson name="com.aras.innovator.solution.ApplicationCore" />
-  </package>
-</imports>

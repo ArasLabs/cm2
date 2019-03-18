@@ -1,0 +1,26 @@
+﻿<AML>
+ <Item type="List" id="E602F0779B924AE7B63C5096812B6804" action="add">
+  <description>Sources of change</description>
+  <name>Change Sources</name>
+  <Relationships>
+   <Item type="Value" id="AC5A5D84BDE44EBABD60695415EE32C9" action="add">
+    <label xml:lang="en">Internal</label>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="Change Sources" type="List">E602F0779B924AE7B63C5096812B6804</source_id>
+    <value>Internal</value>
+   </Item>
+   <Item type="Value" id="62FAC8C97D8347A497C7EBF6BD0E03DC" action="add">
+    <label xml:lang="en">Customer</label>
+    <sort_order>2</sort_order>
+    <source_id keyed_name="Change Sources" type="List">E602F0779B924AE7B63C5096812B6804</source_id>
+    <value>Customer</value>
+   </Item>
+   <Item type="Value" id="7D318F4BC89148B6B3D3316D0B29ADF6" action="add">
+    <label xml:lang="en">Supplier</label>
+    <sort_order>3</sort_order>
+    <source_id keyed_name="Change Sources" type="List">E602F0779B924AE7B63C5096812B6804</source_id>
+    <value>Supplier</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

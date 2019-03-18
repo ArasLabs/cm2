@@ -1,0 +1,9 @@
+﻿<AML>
+ <Item type="Sequence" id="05ADB8053CE74072A7DD6B303796AA3C" action="add">
+  <initial_value>0</initial_value>
+  <pad_to>6</pad_to>
+  <pad_with>0</pad_with>
+  <prefix>AO </prefix>
+  <name>CM2 AO</name>
+ </Item>
+</AML>
