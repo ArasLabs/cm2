@@ -11,30 +11,6 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="mpp_Location" type="Form">B8B5A219640D4F2999B73DCFFE75224D</source_id>
     <Relationships>
-     <Item type="Field" id="FA46B4AAFB574C11B11047B3B6921229" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id="ITEM_INFO_INTERNAL_SPAN"/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById("ITEM_INFO_INTERNAL_SPAN").innerHTML = top.aras.uiDrawItemInfoTable(document.itemType);
-    top.aras.uiPopulateInfoTableWithItem(document.item, document);
-  }
-
-window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
-
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>512</sort_order>
-      <source_id keyed_name="427FA15FD24A4C8F89997A88D24444BE" type="Body">427FA15FD24A4C8F89997A88D24444BE</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
-     </Item>
      <Item type="Field" id="69B9EE30C4074DBAACCE5F27E1A178F5" action="add">
       <border_width>0</border_width>
       <display_length>120</display_length>
@@ -54,7 +30,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="427FA15FD24A4C8F89997A88D24444BE" type="Body">427FA15FD24A4C8F89997A88D24444BE</source_id>
       <tab_index>128</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>10</y>
       <name>item_number</name>
      </Item>
@@ -77,7 +53,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="427FA15FD24A4C8F89997A88D24444BE" type="Body">427FA15FD24A4C8F89997A88D24444BE</source_id>
       <tab_index>256</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>50</y>
       <name>name</name>
      </Item>

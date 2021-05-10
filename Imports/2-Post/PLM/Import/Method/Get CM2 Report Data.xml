@@ -61,7 +61,7 @@ public static Item GetStructure(Innovator inn, string selected_date, string item
     
     /**** get the relationships for the as-planned and as-released items ******/
     
-    Item released_structure = GetRelationships(inn, as_released.getID());
+    Item released_structure = GetRelationships(inn, as_released.getID(), selected_date);
     
     SetHierarchy(released_structure,level);
     
@@ -84,13 +84,13 @@ public static Item GetStructure(Innovator inn, string selected_date, string item
     }
     
     // build out each child BOM
-    Item boms = released_structure.getItemsByXPath("./Relationships/Item[@alias='Part BOM']");
+    Item boms = released_structure.getItemsByXPath("./Relationships/Item[@type='Part BOM']");
     if (!boms.isEmpty())
     {
         for (int i=0; i < boms.getItemCount(); i++)
         {
             Item bom = boms.getItemByIndex(i);
-            Item part = bom.getItemsByXPath("./Relationships/Item[@alias='Part_1']");
+            Item part = bom.getItemsByXPath("./related_id/Item");
             Item this_part = GetStructure(inn, selected_date, part.getProperty("item_number",""), level+1);
             
             // if successful, we remove the related item and replace with this_part
@@ -188,39 +188,95 @@ public static string NextRev(string letter)
     return NextRev(fragment) + 'A';
 }
 
-public static Item GetRelationships(Innovator inn, string item_id)
+public static Item GetRelationships(Innovator inn, string item_id, string selected_date)
 {
-    string qd_id = "223AF4086BFA4AA19472DE89DE47D485";
-
-    // get query definition with relationships
-    Item queryDef = inn.newItem("qry_QueryDefinition","get");
-    queryDef.setID(qd_id);
-    queryDef.setAttribute("levels","2");
-    queryDef = queryDef.apply();
+    string part_select = "classification,cn,effective_date,id,major_rev,model_id,name,release_date,release_date_plan,serial_number,item_number";
+    string doc_select = "classification,cn,effective_date,id,major_rev,mcr_id,name,release_date,release_date_plan,section,service_bulletin_id,item_number";
+    string cad_select = "classification,cn,effective_date,id,major_rev,name,release_date,release_date_plan,item_number";
+    string dw_select = "affected_part,effective_from,effective_to,id,major_rev,release_date,release_date_plan";
+    string rel_select = "id,source_id,sort_order,related_id";
     
-    string offset = "0";
-    string fetch = "100";
-    string offset_fetch = "<configuration><option><offset>" + offset + 
-                            "</offset><fetch>" + fetch + 
-                            "</fetch></option></configuration>";
-                            
-    // add CDATA element to query                    
-    XmlNode rootItem = queryDef.dom.SelectSingleNode("//Item[@type='qry_QueryDefinition']/Relationships/Item[1]");
-    XmlCDataSection cdata = queryDef.dom.CreateCDataSection(offset_fetch);
-    XmlElement newNode = queryDef.dom.CreateElement("offset_fetch_xml");
-    newNode.AppendChild(cdata);
-    rootItem.AppendChild(newNode);
+    // get Part and relationships
+    Item part = inn.newItem("Part","get");
+    part.setAttribute("select",part_select);
+    part.setID(item_id);
     
-    // pass id as a parameter
-    XmlNode paramItem = queryDef.dom.SelectSingleNode("//Item[@type='qry_QueryParameter']/value");
-    paramItem.InnerText = item_id;
+    Item part_docs = part.createRelationship("Part Document","get");
+    part_docs.setAttribute("select",rel_select + "(" + doc_select + ")");
+    part_docs.setAttribute("orderBy","sort_order");
     
-    // execute query
-    queryDef.setAction("qry_ExecuteQueryDefinition");
-    queryDef.setAttribute("levels","0");
-    queryDef = queryDef.apply();
+    Item part_cads = part.createRelationship("Part CAD","get");
+    part_cads.setAttribute("select",rel_select + "(" + cad_select + ")");
+    part_cads.setAttribute("orderBy","sort_order");
     
-    return queryDef;
+    Item part_boms = part.createRelationship("Part BOM","get");
+    part_boms.setAttribute("select",rel_select + "(" + part_select + "),quantity");
+    part_boms.setAttribute("orderBy","sort_order");
+    
+    Item part_alts = part.createRelationship("Part Alternate","get");
+    part_alts.setAttribute("select",rel_select + "(" + part_select + "),quantity");
+    part_alts.setAttribute("orderBy","sort_order");
+    
+    part = part.apply();
+    
+    // get deviations
+    Item devs = inn.newItem("PE_Deviation","get");
+    devs.setAttribute("select",dw_select);
+    devs.setProperty("affected_part",item_id);
+    devs.setProperty("effective_to",selected_date);
+    devs.setPropertyCondition("effective_to","ge");
+    devs = devs.apply();
+    
+    // get waivers
+    Item waivs = inn.newItem("PE_Waiver","get");
+    waivs.setAttribute("select",dw_select);
+    waivs.setProperty("affected_part",item_id);
+    waivs.setProperty("effective_to",selected_date);
+    waivs.setPropertyCondition("effective_to","ge");
+    waivs = waivs.apply();
+    
+    // if part has deviations and/or waivers, add them to the relationships
+    if (!devs.isError())
+    {
+        for (int i=0; i < devs.getItemCount(); i++)
+        {
+            Item dev = devs.getItemByIndex(i);
+            DateTime selected = DateTime.Parse(selected_date);
+            DateTime dev_from = DateTime.Parse(dev.getProperty("effective_from",""));
+            DateTime dev_to = DateTime.Parse(dev.getProperty("effective_to",""));
+            
+            if (selected < dev_from)
+                dev.setAttribute("date_check","before");
+                
+            if (selected >= dev_from && selected <= dev_to)
+                dev.setAttribute("date_check","in");
+                
+            Item rel = part.createRelationship("Part Deviation","get");
+            rel.setRelatedItem(dev);
+        }
+    }
+    
+    if (!waivs.isError())
+    {
+        for (int i=0; i < waivs.getItemCount(); i++)
+        {
+            Item waiv = waivs.getItemByIndex(i);
+            DateTime selected = DateTime.Parse(selected_date);
+            DateTime waiv_from = DateTime.Parse(waiv.getProperty("effective_from",""));
+            DateTime waiv_to = DateTime.Parse(waiv.getProperty("effective_to",""));
+            
+            if (selected < waiv_from)
+                waiv.setAttribute("date_check","before");
+                
+            if (selected >= waiv_from && selected <= waiv_to)
+                waiv.setAttribute("date_check","in");
+                
+            Item rel = part.createRelationship("Part Waiver","get");
+            rel.setRelatedItem(waiv);
+        }
+    }
+    
+    return part;
 }
 
 public static void SetHierarchy(Item thisItem, int level)

@@ -29,7 +29,7 @@
       <source_id keyed_name="728D9305D6DE4787962D089FF67268AB" type="Body">728D9305D6DE4787962D089FF67268AB</source_id>
       <tab_index>3328</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>90</y>
       <name>active</name>
      </Item>
@@ -52,30 +52,9 @@
       <source_id keyed_name="728D9305D6DE4787962D089FF67268AB" type="Body">728D9305D6DE4787962D089FF67268AB</source_id>
       <tab_index>3200</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>50</y>
       <name>description</name>
-     </Item>
-     <Item type="Field" id="1864711928B441DE8B634DDAE83E6E97" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
-  }
-  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>512</sort_order>
-      <source_id keyed_name="728D9305D6DE4787962D089FF67268AB" type="Body">728D9305D6DE4787962D089FF67268AB</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
      </Item>
      <Item type="Field" id="4D77CBED4CDF4E00B8D9431494E3B789" action="add">
       <border_width>0</border_width>
@@ -95,7 +74,7 @@
       <source_id keyed_name="728D9305D6DE4787962D089FF67268AB" type="Body">728D9305D6DE4787962D089FF67268AB</source_id>
       <tab_index>3072</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>10</y>
       <name>name</name>
      </Item>

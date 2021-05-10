@@ -29,8 +29,8 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>3712</tab_index>
       <tab_stop>1</tab_stop>
-      <x>355</x>
-      <y>8</y>
+      <x>165</x>
+      <y>10</y>
       <name>ao_type</name>
      </Item>
      <Item type="Field" id="2554413F5B2E4D3E898635EC673592EF" action="add">
@@ -51,7 +51,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4096</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>410</y>
       <name>authorized_by</name>
      </Item>
@@ -73,7 +73,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4224</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>450</y>
       <name>closed_by</name>
      </Item>
@@ -95,7 +95,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4352</tab_index>
       <tab_stop>1</tab_stop>
-      <x>380</x>
+      <x>190</x>
       <y>450</y>
       <name>closed_on</name>
      </Item>
@@ -119,7 +119,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>500</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>190</x>
+      <x>0</x>
       <y>250</y>
       <name>description</name>
      </Item>
@@ -143,30 +143,9 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>500</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>190</x>
+      <x>0</x>
       <y>330</y>
       <name>instructions</name>
-     </Item>
-     <Item type="Field" id="FD14913753BD4041B18D44FB449744DB" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
-  }
-  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>1792</sort_order>
-      <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
      </Item>
      <Item type="Field" id="85BC37D3C4244823B80F67528CF02320" action="add">
       <border_width>0</border_width>
@@ -186,7 +165,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4480</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>10</y>
       <name>item_number</name>
      </Item>
@@ -207,7 +186,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>896</tab_index>
       <tab_stop>1</tab_stop>
-      <x>590</x>
+      <x>400</x>
       <y>410</y>
       <name>managed_by_id</name>
      </Item>
@@ -228,7 +207,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>768</tab_index>
       <tab_stop>1</tab_stop>
-      <x>380</x>
+      <x>190</x>
       <y>410</y>
       <name>owned_by_id</name>
      </Item>
@@ -250,7 +229,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>3584</tab_index>
       <tab_stop>1</tab_stop>
-      <x>490</x>
+      <x>300</x>
       <y>210</y>
       <name>priority</name>
      </Item>
@@ -272,7 +251,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4736</tab_index>
       <tab_stop>1</tab_stop>
-      <x>370</x>
+      <x>180</x>
       <y>130</y>
       <name>project</name>
      </Item>
@@ -286,14 +265,14 @@
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
-      <label xml:lang="en">Release Date</label>
+      <label xml:lang="en">Effective Date</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
       <sort_order>2560</sort_order>
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4992</tab_index>
       <tab_stop>1</tab_stop>
-      <x>590</x>
+      <x>400</x>
       <y>210</y>
       <name>release_date</name>
      </Item>
@@ -315,7 +294,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>3200</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>90</y>
       <name>requested_by</name>
      </Item>
@@ -337,7 +316,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4608</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>130</y>
       <name>security</name>
      </Item>
@@ -359,7 +338,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>3328</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>210</y>
       <name>severity</name>
      </Item>
@@ -381,7 +360,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>3456</tab_index>
       <tab_stop>1</tab_stop>
-      <x>330</x>
+      <x>110</x>
       <y>210</y>
       <name>source</name>
      </Item>
@@ -402,7 +381,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>1408</tab_index>
       <tab_stop>1</tab_stop>
-      <x>590</x>
+      <x>400</x>
       <y>10</y>
       <name>state</name>
      </Item>
@@ -424,7 +403,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>4864</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>170</y>
       <name>status</name>
      </Item>
@@ -447,7 +426,7 @@
       <source_id keyed_name="2AEA9B3503A54C66BF45D388D5034BEB" type="Body">2AEA9B3503A54C66BF45D388D5034BEB</source_id>
       <tab_index>3072</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>50</y>
       <name>title</name>
      </Item>

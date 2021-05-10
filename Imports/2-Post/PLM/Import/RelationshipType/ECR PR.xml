@@ -32,21 +32,6 @@
     <unlock_on_logout>0</unlock_on_logout>
     <use_src_access>1</use_src_access>
     <name>ECR PR</name>
-    <Relationships>
-     <Item type="View" id="4F64B15B2669478EA16B2A4B84F4C1FE" action="add">
-      <client>js</client>
-      <related_id keyed_name="ECR PR" type="Form">215F2653EDC34E8DAF226A4F30815980</related_id>
-      <role keyed_name="World" type="Identity">
-       <Item type="Identity" action="get" select="id">
-        <name>World</name>
-       </Item>
-      </role>
-      <show_ssvc>0</show_ssvc>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="ECR PR" type="ItemType" name="ECR PR">83BBF4271B09417590A7FD9134307A37</source_id>
-      <type>default</type>
-     </Item>
-    </Relationships>
    </Item>
   </relationship_id>
   <sort_order>256</sort_order>
@@ -88,4 +73,6 @@
    </Item>
   </Relationships>
  </Item>
+ <Item type="View" action="delete" where="source_id='83BBF4271B09417590A7FD9134307A37'" />
+ <Item type="Form" action="delete" where="name='ECR PR'" />
 </AML>

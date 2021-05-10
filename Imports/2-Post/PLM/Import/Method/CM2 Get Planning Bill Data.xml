@@ -239,41 +239,6 @@ public static string NextRev(string letter)
     return NextRev(fragment) + 'A';
 }
 
-public static Item GetRelationships(Innovator inn, string item_id)
-{
-    string qd_id = "223AF4086BFA4AA19472DE89DE47D485";
-
-    // get query definition with relationships
-    Item queryDef = inn.newItem("qry_QueryDefinition","get");
-    queryDef.setID(qd_id);
-    queryDef.setAttribute("levels","2");
-    queryDef = queryDef.apply();
-    
-    string offset = "0";
-    string fetch = "100";
-    string offset_fetch = "<configuration><option><offset>" + offset + 
-                            "</offset><fetch>" + fetch + 
-                            "</fetch></option></configuration>";
-                            
-    // add CDATA element to query                    
-    XmlNode rootItem = queryDef.dom.SelectSingleNode("//Item[@type='qry_QueryDefinition']/Relationships/Item[1]");
-    XmlCDataSection cdata = queryDef.dom.CreateCDataSection(offset_fetch);
-    XmlElement newNode = queryDef.dom.CreateElement("offset_fetch_xml");
-    newNode.AppendChild(cdata);
-    rootItem.AppendChild(newNode);
-    
-    // pass id as a parameter
-    XmlNode paramItem = queryDef.dom.SelectSingleNode("//Item[@type='qry_QueryParameter']/value");
-    paramItem.InnerText = item_id;
-    
-    // execute query
-    queryDef.setAction("qry_ExecuteQueryDefinition");
-    queryDef.setAttribute("levels","0");
-    queryDef = queryDef.apply();
-    
-    return queryDef;
-}
-
 // this method returns the first generation that includes an added part, or the first generation that does not include a deleted part
 public static Item GetFirstParent(Innovator inn, string child_num, string parent_num, string qty, string change_type)
 {

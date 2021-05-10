@@ -29,21 +29,6 @@
     <unlock_on_logout>0</unlock_on_logout>
     <use_src_access>1</use_src_access>
     <name>ECR ECNs</name>
-    <Relationships>
-     <Item type="View" id="F0754CA1914443BDA81C670EEBCEEB15" action="add">
-      <client>js</client>
-      <related_id keyed_name="ECR ECNs" type="Form">E7CCCF2D7E0746A096F2B36482FCE61E</related_id>
-      <role keyed_name="World" type="Identity">
-       <Item type="Identity" action="get" select="id">
-        <name>World</name>
-       </Item>
-      </role>
-      <show_ssvc>0</show_ssvc>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="ECR ECNs" type="ItemType" name="ECR ECNs">B8E11F10F63A40B1ABD30516015DF88D</source_id>
-      <type>default</type>
-     </Item>
-    </Relationships>
    </Item>
   </relationship_id>
   <sort_order>896</sort_order>
@@ -51,7 +36,7 @@
   <name>ECR ECNs</name>
   <Relationships>
    <Item type="Relationship View" id="186486E423BC4A82808068DFFB87EF96" action="add">
-    <parameters>'ITName='+itemTypeName+'&amp;itemID='+itemID+'&amp;reverseITName=ECN&amp;reverseRelationshipName=ECN ECR'</parameters>
+    <parameters>'tgvdId=916EE585A5924458BDF920580A77F899&amp;startConditionProvider=ItemDefault({"id":"id"})'</parameters>
     <related_id keyed_name="World" type="Identity">
      <Item type="Identity" action="get" select="id">
       <name>World</name>
@@ -59,8 +44,10 @@
     </related_id>
     <sort_order>128</sort_order>
     <source_id keyed_name="ECR ECNs" type="RelationshipType">62D6759023B54AEDBF2191E62929A59D</source_id>
-    <start_page>../Solutions/PLM/scripts/ReverseItemsGrid.html</start_page>
+    <start_page>../Modules/aras.innovator.TreeGridView/Views/MainPage.html</start_page>
    </Item>
   </Relationships>
  </Item>
+ <Item type="View" action="delete" where="source_id='B8E11F10F63A40B1ABD30516015DF88D'" />
+ <Item type="Form" action="delete" where="name='ECR ECNs'" />
 </AML>

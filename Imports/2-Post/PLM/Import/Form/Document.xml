@@ -1,7 +1,7 @@
 ﻿<AML>
  <Item type="Form" id="D95D1B10CE6D47CDB7AE755108DBA13D" action="add">
   <category_form>0</category_form>
-  <height>399</height>
+  <height>235</height>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
   <width>759</width>
   <name>Document</name>
@@ -29,7 +29,7 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>3200</tab_index>
       <tab_stop>1</tab_stop>
-      <x>340</x>
+      <x>120</x>
       <y>90</y>
       <name>authoring_tool</name>
      </Item>
@@ -52,8 +52,8 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>3328</tab_index>
       <tab_stop>1</tab_stop>
-      <x>479</x>
-      <y>89</y>
+      <x>270</x>
+      <y>90</y>
       <name>authoring_tool_ver</name>
      </Item>
      <Item type="Field" id="3D64D3F95A264F5C87DC86220CB20981" action="add">
@@ -74,7 +74,7 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>40</tab_index>
       <tab_stop>1</tab_stop>
-      <x>200</x>
+      <x>0</x>
       <y>90</y>
       <name>classification</name>
      </Item>
@@ -96,7 +96,7 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>204384</tab_index>
       <tab_stop>1</tab_stop>
-      <x>400</x>
+      <x>200</x>
       <y>260</y>
       <name>cn</name>
      </Item>
@@ -120,7 +120,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>328</textarea_cols>
       <textarea_rows>54</textarea_rows>
-      <x>200</x>
+      <x>0</x>
       <y>130</y>
       <name>description</name>
      </Item>
@@ -142,8 +142,8 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>1280</tab_index>
       <tab_stop>1</tab_stop>
-      <x>205</x>
-      <y>250</y>
+      <x>550</x>
+      <y>190</y>
       <name>drawing_size</name>
      </Item>
      <Item type="Field" id="F6905EC0C0834B539B0CAA62141A32FE" action="add">
@@ -164,7 +164,7 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>1152</tab_index>
       <tab_stop>1</tab_stop>
-      <x>570</x>
+      <x>370</x>
       <y>90</y>
       <name>effective_date</name>
      </Item>
@@ -187,8 +187,8 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>103968</tab_index>
       <tab_stop>1</tab_stop>
-      <x>200</x>
-      <y>262</y>
+      <x>370</x>
+      <y>130</y>
       <name>from_template</name>
      </Item>
      <Item type="Field" id="722FCD35F1544393914DF3A63DF1EAB0" action="add">
@@ -211,8 +211,8 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>5</tab_index>
       <tab_stop>0</tab_stop>
-      <x>15</x>
-      <y>310</y>
+      <x>370</x>
+      <y>190</y>
       <name>has_change_pending</name>
      </Item>
      <Item type="Field" id="65F6A94DAEBC4C4CB90560794DE1A5B8" action="add">
@@ -235,8 +235,8 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>1</tab_index>
       <tab_stop>0</tab_stop>
-      <x>15</x>
-      <y>290</y>
+      <x>370</x>
+      <y>170</y>
       <name>has_files</name>
      </Item>
      <Item type="Field" id="230061929A8B49AEB981DB16762BFAA1" action="add">
@@ -259,32 +259,9 @@
       <tab_index>103840</tab_index>
       <tab_stop>1</tab_stop>
       <text_align>left</text_align>
-      <x>15</x>
-      <y>330</y>
+      <x>370</x>
+      <y>210</y>
       <name>is_template</name>
-     </Item>
-     <Item type="Field" id="5BEED77F8156441EB5F84CD974B48B84" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id="ITEM_INFO_INTERNAL_SPAN"/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById("ITEM_INFO_INTERNAL_SPAN").innerHTML = top.aras.uiDrawItemInfoTable(document.itemType);
-    top.aras.uiPopulateInfoTableWithItem(document.item, document);
-  }
-  window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>1280</sort_order>
-      <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
-      <tab_stop>0</tab_stop>
-      <x>-1</x>
-      <y>-5</y>
-      <z_index>-1</z_index>
-      <name>item_info</name>
      </Item>
      <Item type="Field" id="9DD19B318207479285640C3D4223E949" action="add">
       <border_width>0</border_width>
@@ -305,8 +282,8 @@
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>128</tab_index>
       <tab_stop>1</tab_stop>
-      <x>200</x>
-      <y>10</y>
+      <x>0</x>
+      <y>8</y>
       <name>item_number</name>
      </Item>
      <Item type="Field" id="504F2C1EE21A4DA3859417174756CD90" action="add">
@@ -323,24 +300,24 @@
 <script type="text/javascript">
 function createNewRevision()
 {
-  if(!top.aras.confirm(top.aras.getResource("plm", "createnewrevision.confirm")))
+  if(!aras.confirm(aras.getResource("plm", "createnewrevision.confirm")))
   { 
     return;
   }
-  var dom = top.aras.createXMLDocument();
+  var dom = aras.createXMLDocument();
   dom.loadXML(parent.item.xml);
   dom.documentElement.setAttribute('action', 'PE_CreateNewRevision');
 	
-  var res = top.aras.soapSend("ApplyMethod", dom.xml);
+  var res = aras.soapSend("ApplyMethod", dom.xml);
   if (res.getFaultCode() != 0)
   {
-    top.aras.AlertError(res);
+    aras.AlertError(res);
     return;
   }
   res = res.getResultsBody();
   dom.loadXML(res);
 
-  top.aras.uiReShowItemEx(parent.itemID, dom.documentElement, parent.viewMode);
+  aras.uiReShowItemEx(parent.itemID, dom.documentElement, parent.viewMode);
 }
 </script>]]></html_code>
       <is_disabled>0</is_disabled>
@@ -352,8 +329,8 @@ function createNewRevision()
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>2176</tab_index>
       <tab_stop>1</tab_stop>
-      <x>330</x>
-      <y>10</y>
+      <x>130</x>
+      <y>8</y>
       <z_index>-1</z_index>
       <name>major_rev</name>
      </Item>
@@ -375,7 +352,7 @@ function createNewRevision()
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>21760</tab_index>
       <tab_stop>1</tab_stop>
-      <x>570</x>
+      <x>370</x>
       <y>50</y>
       <name>managed_by_id</name>
      </Item>
@@ -400,7 +377,7 @@ function createNewRevision()
       <tab_stop>1</tab_stop>
       <textarea_cols>64</textarea_cols>
       <textarea_rows>2</textarea_rows>
-      <x>199</x>
+      <x>0</x>
       <y>49</y>
       <name>name</name>
      </Item>
@@ -422,8 +399,8 @@ function createNewRevision()
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>20480</tab_index>
       <tab_stop>1</tab_stop>
-      <x>570</x>
-      <y>10</y>
+      <x>370</x>
+      <y>8</y>
       <name>owned_by_id</name>
      </Item>
      <Item type="Field" id="FC62546BDEF048D4936011860BF8EA03" action="add">
@@ -444,7 +421,7 @@ function createNewRevision()
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>204256</tab_index>
       <tab_stop>1</tab_stop>
-      <x>400</x>
+      <x>200</x>
       <y>300</y>
       <name>release_date_plan</name>
      </Item>
@@ -466,7 +443,7 @@ function createNewRevision()
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_index>204128</tab_index>
       <tab_stop>1</tab_stop>
-      <x>200</x>
+      <x>0</x>
       <y>300</y>
       <name>source</name>
      </Item>
@@ -487,8 +464,8 @@ function createNewRevision()
       <sort_order>2560</sort_order>
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_stop>1</tab_stop>
-      <x>390</x>
-      <y>10</y>
+      <x>198</x>
+      <y>8</y>
       <name>state</name>
      </Item>
      <Item type="Field" id="B97538196732433EBE58752512DEF37F" action="add">
@@ -534,7 +511,7 @@ function createNewRevision()
       <tab_stop>1</tab_stop>
       <textarea_cols>328</textarea_cols>
       <textarea_rows>30</textarea_rows>
-      <x>200</x>
+      <x>0</x>
       <y>208</y>
       <name>version_comment</name>
      </Item>
@@ -554,7 +531,7 @@ function createNewRevision()
       <sort_order>5120</sort_order>
       <source_id keyed_name="1616C23245254BAD80BECBEC29A02D16" type="Body">1616C23245254BAD80BECBEC29A02D16</source_id>
       <tab_stop>1</tab_stop>
-      <x>730</x>
+      <x>530</x>
       <y>10</y>
       <name>xclass</name>
      </Item>

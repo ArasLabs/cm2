@@ -38,6 +38,7 @@ switch(activityName)
     	break;
 	
 	case "CN Audit":
+	case "CR-CN Audit":
     	assigneeID = controlledItem.getProperty("ara_id","");
     	if (assigneeID == "")
     	{

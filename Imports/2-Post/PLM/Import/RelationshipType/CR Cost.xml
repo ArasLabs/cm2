@@ -184,19 +184,6 @@
       <track_history>1</track_history>
       <name>recur</name>
      </Item>
-     <Item type="View" id="DCF7FCFBB496472C924D4131BCCD739C" action="add">
-      <client>js</client>
-      <related_id keyed_name="CR Cost" type="Form">DC5E451A829D4D8285CEDEEC7405DB57</related_id>
-      <role keyed_name="World" type="Identity">
-       <Item type="Identity" action="get" select="id">
-        <name>World</name>
-       </Item>
-      </role>
-      <show_ssvc>0</show_ssvc>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="CR Cost" type="ItemType" name="CR Cost">4A856E695F6F4A1688FEE1670AC5E673</source_id>
-      <type>default</type>
-     </Item>
      <Item type="Can Add" id="36515FE00915426D93371763ACFF7777" action="add">
       <can_add>1</can_add>
       <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
@@ -257,4 +244,6 @@
    </Item>
   </Relationships>
  </Item>
+ <Item type="View" action="delete" where="source_id='4A856E695F6F4A1688FEE1670AC5E673'" />
+ <Item type="Form" action="delete" where="name='CR Cost'" />
 </AML>

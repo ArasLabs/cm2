@@ -25,6 +25,7 @@ The Aras CM2 Community Project package adds to and modifies the base PLM applica
 
 Release | Notes
 --------|--------
+[v2.0.0](https://github.com/ArasLabs/CM2/releases/tag/v2.0.0) | Updated to support 12.0
 [v1.2.0](https://github.com/ArasLabs/CM2/releases/tag/v1.2.0) | Adds a simplified version of the Express ECO Impact Matrix onto the ECR, and adds an item action to convert an ECR to an ECN.
 [v1.1.0](https://github.com/ArasLabs/CM2/releases/tag/v1.1.0) | This release adds a Work Authorization, with an action to derive Work Authorization BOM. It also combines CR/CN capability on the CR form and workflow map.
 [v1.0.1](https://github.com/ArasLabs/CM2/releases/tag/v1.0.1) | Typo fix in readme.
@@ -34,6 +35,7 @@ Release | Notes
 
 Project | Aras
 --------|------
+[v2.0.0](https://github.com/ArasLabs/CM2/releases/tag/v2.0.0) | 12.0 SPX
 [v1.2.0](https://github.com/ArasLabs/CM2/releases/tag/v1.2.0) | 11.0 SP12+
 [v1.1.0](https://github.com/ArasLabs/CM2/releases/tag/v1.1.0) | 11.0 SP12+
 [v1.0.1](https://github.com/ArasLabs/CM2/releases/tag/v1.0.1) | 11.0 SP12+
@@ -47,7 +49,7 @@ Project | Aras
 ### Pre-requisites
 
 1. Aras Innovator installed
-2. PE 11.0 R4 installed
+2. PE 12.0 R1 installed
 3. Aras Package Import Utility
 4. CM2 Community Project package
 5. Code Tree overlay

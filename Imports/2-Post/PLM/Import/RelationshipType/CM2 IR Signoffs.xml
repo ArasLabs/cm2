@@ -29,21 +29,6 @@
     <unlock_on_logout>0</unlock_on_logout>
     <use_src_access>1</use_src_access>
     <name>CM2 IR Signoffs</name>
-    <Relationships>
-     <Item type="View" id="44A2ABFA591C4D6892CBBA277A88631B" action="add">
-      <client>js</client>
-      <related_id keyed_name="CM2 IR Signoffs" type="Form">285AF73575AB4BEC8FEA34B42550FED8</related_id>
-      <role keyed_name="World" type="Identity">
-       <Item type="Identity" action="get" select="id">
-        <name>World</name>
-       </Item>
-      </role>
-      <show_ssvc>0</show_ssvc>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="CM2 IR Signoffs" type="ItemType" name="CM2 IR Signoffs">9DFD6C117377442B823DA5CE7E36ACE8</source_id>
-      <type>default</type>
-     </Item>
-    </Relationships>
    </Item>
   </relationship_id>
   <sort_order>512</sort_order>
@@ -62,4 +47,6 @@
    </Item>
   </Relationships>
  </Item>
+ <Item type="View" action="delete" where="source_id='9DFD6C117377442B823DA5CE7E36ACE8'" />
+ <Item type="Form" action="delete" where="name='CM2 IR Signoffs'" />
 </AML>

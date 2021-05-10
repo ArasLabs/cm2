@@ -1,7 +1,7 @@
 ﻿<AML>
  <Item type="Form" id="34272F491C5B47A7BF0924A57C4FD4BA" action="add">
   <category_form>0</category_form>
-  <height>399</height>
+  <height>295</height>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
   <width>759</width>
   <name>PE_Deviation</name>
@@ -30,8 +30,8 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>4</tab_index>
       <tab_stop>1</tab_stop>
-      <x>150</x>
-      <y>200</y>
+      <x>0</x>
+      <y>210</y>
       <name>affected_part</name>
      </Item>
      <Item type="Field" id="8B3E5FEF23B54C139AC60C57DCF35C8F" action="add">
@@ -54,7 +54,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>350</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>150</x>
+      <x>0</x>
       <y>50</y>
       <name>description</name>
      </Item>
@@ -77,8 +77,8 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>5</tab_index>
       <tab_stop>1</tab_stop>
-      <x>150</x>
-      <y>245</y>
+      <x>0</x>
+      <y>250</y>
       <name>effective_from</name>
      </Item>
      <Item type="Field" id="EACB0BF07EE84E4BBD3006A1B9CCE7BE" action="add">
@@ -100,30 +100,9 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>6</tab_index>
       <tab_stop>1</tab_stop>
-      <x>260</x>
-      <y>245</y>
+      <x>110</x>
+      <y>250</y>
       <name>effective_to</name>
-     </Item>
-     <Item type="Field" id="4B106BBF6D3449E59613328FDAC2F1B0" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = top.aras.uiGetItemInfoTable(document.itemType);
-  }
-  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
      </Item>
      <Item type="Field" id="C7CBBA2413DB48B2BCAADB195179E56B" action="add">
       <border_width>0</border_width>
@@ -144,7 +123,7 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>1</tab_index>
       <tab_stop>1</tab_stop>
-      <x>150</x>
+      <x>0</x>
       <y>10</y>
       <name>item_number</name>
      </Item>
@@ -153,7 +132,7 @@
       <display_length_unit>px</display_length_unit>
       <field_type>item</field_type>
       <font_color>#000000</font_color>
-      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_family>arial, helvetica, sans-serif</font_family>
       <font_size>8pt</font_size>
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
@@ -166,8 +145,8 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>11792</tab_index>
       <tab_stop>1</tab_stop>
-      <x>305</x>
-      <y>200</y>
+      <x>155</x>
+      <y>210</y>
       <name>location</name>
      </Item>
      <Item type="Field" id="2C702B1C342744759036C84D6E6782E8" action="add">
@@ -188,7 +167,7 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>2</tab_index>
       <tab_stop>1</tab_stop>
-      <x>360</x>
+      <x>210</x>
       <y>10</y>
       <name>owned_by_id</name>
      </Item>
@@ -197,7 +176,7 @@
       <display_length_unit>px</display_length_unit>
       <field_type>textarea</field_type>
       <font_color>#000000</font_color>
-      <font_family>tahoma, arial, helvetica, sans-serif</font_family>
+      <font_family>arial, helvetica, sans-serif</font_family>
       <font_size>8pt</font_size>
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
@@ -212,8 +191,8 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>350</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>150</x>
-      <y>125</y>
+      <x>0</x>
+      <y>130</y>
       <name>reason</name>
      </Item>
      <Item type="Field" id="56C3FDEDB1724F6BA5924DCC354483CE" action="add">
@@ -235,7 +214,7 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>12048</tab_index>
       <tab_stop>1</tab_stop>
-      <x>260</x>
+      <x>110</x>
       <y>290</y>
       <name>release_date_plan</name>
      </Item>
@@ -257,7 +236,7 @@
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_index>11920</tab_index>
       <tab_stop>1</tab_stop>
-      <x>150</x>
+      <x>0</x>
       <y>290</y>
       <name>released_date</name>
      </Item>
@@ -278,7 +257,7 @@
       <sort_order>384</sort_order>
       <source_id keyed_name="657DEBCD29FF4FF4804F6BF41FC7864B" type="Body">657DEBCD29FF4FF4804F6BF41FC7864B</source_id>
       <tab_stop>0</tab_stop>
-      <x>260</x>
+      <x>110</x>
       <y>10</y>
       <name>state</name>
      </Item>

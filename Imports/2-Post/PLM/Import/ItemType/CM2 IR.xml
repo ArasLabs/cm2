@@ -465,6 +465,24 @@
  </Item>
  <Item type="ItemType" id="622CD8AFA3174EDE8E074BC06B829AC2" action="edit">
   <Relationships>
+   <Item type="Property" action="edit" where="source_id='622CD8AFA3174EDE8E074BC06B829AC2' and name='classification'">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Classification</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 IR" type="ItemType" name="CM2 IR">622CD8AFA3174EDE8E074BC06B829AC2</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>classification</name>
+   </Item>
    <Item type="Property" action="edit" where="source_id='622CD8AFA3174EDE8E074BC06B829AC2' and name='managed_by_id'">
     <column_alignment>left</column_alignment>
     <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
@@ -512,6 +530,7 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
+    <label xml:lang="en">State</label>
     <range_inclusive>0</range_inclusive>
     <readonly>1</readonly>
     <sort_order>1408</sort_order>

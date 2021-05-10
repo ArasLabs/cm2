@@ -8,7 +8,7 @@ var itemType = this.getType();
 var inn = this.getInnovator();
 var i18n = inn.getI18NSessionContext();
 var format = i18n.GetUIDatePattern("short_date_time");
-var baseDate = new Date().format(format);
+var baseDate = new Date().toString(format);
 
 params = {
     date: baseDate,

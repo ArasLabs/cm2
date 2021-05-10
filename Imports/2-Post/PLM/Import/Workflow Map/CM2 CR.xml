@@ -1263,6 +1263,14 @@
       <y>21</y>
       <name>CR-CN Audit</name>
       <Relationships>
+       <Item type="Activity Template Assignment" id="617AF98E4698433BB7BA51008B7FF49B" action="add">
+        <related_id keyed_name="Audit Release Analyst" type="Identity">F8CEF1DD2CCC4776816D40D4D8FA6E2E</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="CR-CN Audit" type="Activity Template">32D44DD25DC442F3940E03D82573F3FE</source_id>
+        <is_required>0</is_required>
+        <for_all_members>0</for_all_members>
+        <voting_weight>100</voting_weight>
+       </Item>
        <Item type="Activity Template Method" id="5C4D1D990CFA4189A5CDCF27D9817DF5" action="add">
         <event>on_activate</event>
         <related_id keyed_name="CM2 CN WF Assign" type="Method">

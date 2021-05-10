@@ -11,27 +11,6 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="CM2 WA BOM Header" type="Form">351D1764D8CA412B8280789309B6EC03</source_id>
     <Relationships>
-     <Item type="Field" id="A339022BD83D4F1694E53EEEB89B4F32" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
-  }
-  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>768</sort_order>
-      <source_id keyed_name="ACD4A8E11A8A4FDBBC873F978AE17692" type="Body">ACD4A8E11A8A4FDBBC873F978AE17692</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
-     </Item>
      <Item type="Field" id="F95124A9275F4B19A3E09A04869B0E6D" action="add">
       <border_width>0</border_width>
       <display_length_unit>px</display_length_unit>
@@ -50,7 +29,7 @@
       <source_id keyed_name="ACD4A8E11A8A4FDBBC873F978AE17692" type="Body">ACD4A8E11A8A4FDBBC873F978AE17692</source_id>
       <tab_index>3072</tab_index>
       <tab_stop>1</tab_stop>
-      <x>530</x>
+      <x>350</x>
       <y>10</y>
       <name>item_number</name>
      </Item>
@@ -71,7 +50,7 @@
       <source_id keyed_name="ACD4A8E11A8A4FDBBC873F978AE17692" type="Body">ACD4A8E11A8A4FDBBC873F978AE17692</source_id>
       <tab_index>1792</tab_index>
       <tab_stop>1</tab_stop>
-      <x>530</x>
+      <x>350</x>
       <y>90</y>
       <name>major_rev</name>
      </Item>
@@ -94,7 +73,7 @@
       <source_id keyed_name="ACD4A8E11A8A4FDBBC873F978AE17692" type="Body">ACD4A8E11A8A4FDBBC873F978AE17692</source_id>
       <tab_index>3328</tab_index>
       <tab_stop>1</tab_stop>
-      <x>180</x>
+      <x>0</x>
       <y>50</y>
       <name>physical_item_name</name>
      </Item>
@@ -116,7 +95,7 @@
       <source_id keyed_name="ACD4A8E11A8A4FDBBC873F978AE17692" type="Body">ACD4A8E11A8A4FDBBC873F978AE17692</source_id>
       <tab_index>3200</tab_index>
       <tab_stop>1</tab_stop>
-      <x>180</x>
+      <x>0</x>
       <y>10</y>
       <name>physical_item_number</name>
      </Item>
@@ -137,7 +116,7 @@
       <source_id keyed_name="ACD4A8E11A8A4FDBBC873F978AE17692" type="Body">ACD4A8E11A8A4FDBBC873F978AE17692</source_id>
       <tab_index>3456</tab_index>
       <tab_stop>1</tab_stop>
-      <x>530</x>
+      <x>350</x>
       <y>50</y>
       <name>release_date</name>
      </Item>

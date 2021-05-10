@@ -141,19 +141,6 @@
       <track_history>0</track_history>
       <name>limit_time_or_qty</name>
      </Item>
-     <Item type="View" id="6CF959EDAEE04E25A35404790C1C797F" action="add">
-      <client>js</client>
-      <related_id keyed_name="Part Alternate" type="Form">E91F301F13CB4A15A0408A8FB40FCB20</related_id>
-      <role keyed_name="World" type="Identity">
-       <Item type="Identity" action="get" select="id">
-        <name>World</name>
-       </Item>
-      </role>
-      <show_ssvc>0</show_ssvc>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="Part Alternate" type="ItemType" name="Part Alternate">7350C0705BB14CCBAC79D8D9FBC2F5E6</source_id>
-      <type>default</type>
-     </Item>
      <Item type="ItemType Life Cycle" id="A7BC4FB34541493E9EDFDF11A9F62991" action="add">
       <related_id keyed_name="Alternate Part" type="Life Cycle Map">CA091A7941184A8699B8BB7E31D85A8F</related_id>
       <sort_order>128</sort_order>
@@ -201,4 +188,6 @@
    </Item>
   </Relationships>
  </Item>
+ <Item type="View" action="delete" where="source_id='7350C0705BB14CCBAC79D8D9FBC2F5E6'" />
+ <Item type="Form" action="delete" where="name='Part Alternate'" />
 </AML>

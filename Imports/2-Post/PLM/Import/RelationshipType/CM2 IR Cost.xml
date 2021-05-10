@@ -183,19 +183,6 @@
       <track_history>1</track_history>
       <name>recur</name>
      </Item>
-     <Item type="View" id="09648F3441084069B023A2159CFF2948" action="add">
-      <client>js</client>
-      <related_id keyed_name="CM2 IR Cost" type="Form">A268BD60BD114F0F87AE9AD5CF4C2281</related_id>
-      <role keyed_name="World" type="Identity">
-       <Item type="Identity" action="get" select="id">
-        <name>World</name>
-       </Item>
-      </role>
-      <show_ssvc>0</show_ssvc>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="CM2 IR Cost" type="ItemType" name="CM2 IR Cost">AA288335B0B84F35A1F98A419ACD5981</source_id>
-      <type>default</type>
-     </Item>
     </Relationships>
    </Item>
   </relationship_id>
@@ -244,4 +231,6 @@
    </Item>
   </Relationships>
  </Item>
+ <Item type="View" action="delete" where="source_id='AA288335B0B84F35A1F98A419ACD5981'" />
+ <Item type="Form" action="delete" where="name='CM2 IR Cost'" />
 </AML>

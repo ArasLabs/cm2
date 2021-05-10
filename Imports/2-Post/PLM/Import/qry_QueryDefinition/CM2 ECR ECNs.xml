@@ -1,0 +1,87 @@
+﻿<AML>
+ <Item type="qry_QueryDefinition" id="446160E601B843FB80E19FBE96704150" action="add">
+  <name>CM2 ECR ECNs</name>
+  <Relationships>
+   <Item type="qry_QueryItem" id="1A7E8CA9A5CB402AA8460F5FEE55D741" action="add">
+    <item_type keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</item_type>
+    <ref_id>F084FBAAE2B44AFE89D5A5C6BA21034A</ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="qry_QueryDefinition">446160E601B843FB80E19FBE96704150</source_id>
+    <alias>ECR</alias>
+   </Item>
+   <Item type="qry_QueryItem" id="DC2AA9DF91134386AF046A7BFEF63537" action="add">
+    <item_type keyed_name="ECN ECR" type="ItemType" name="ECN ECR">8A1DE1C158FB41F0A19D1B3D631A3597</item_type>
+    <ref_id>562DBB87E6E2400BBB1AFE056800F485</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="qry_QueryDefinition">446160E601B843FB80E19FBE96704150</source_id>
+    <alias>ECN ECR related_id</alias>
+   </Item>
+   <Item type="qry_QueryItem" id="ABC2D444E4B24ADC87509F6249AF70D0" action="add">
+    <item_type keyed_name="ECN" type="ItemType" name="ECN">85F86794FACF42599F07019F7BEA1D46</item_type>
+    <ref_id>DAC6E48A353947E3AC0B676BFBF6CE0E</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="qry_QueryDefinition">446160E601B843FB80E19FBE96704150</source_id>
+    <alias>ECN</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="C3F2BE70A8E444959A7D00C4EF5AD145" action="add">
+      <property_name>item_number</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="ECN" type="qry_QueryItem">ABC2D444E4B24ADC87509F6249AF70D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="672871D98F37479D9627C1221A57D110" action="add">
+      <property_name>title</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="ECN" type="qry_QueryItem">ABC2D444E4B24ADC87509F6249AF70D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="7677F99595A74BCAAF429D8A0CDF1FB4" action="add">
+      <property_name>state</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="ECN" type="qry_QueryItem">ABC2D444E4B24ADC87509F6249AF70D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3CE0F187806D4D1EAF68402096B29402" action="add">
+      <property_name>effectivity_date</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="ECN" type="qry_QueryItem">ABC2D444E4B24ADC87509F6249AF70D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSortProperty" id="29FD8F7CA49C4980A6CA07BEBFC3C296" action="add">
+      <property_name>item_number</property_name>
+      <sort_order>128</sort_order>
+      <sort_order_direction>asc</sort_order_direction>
+      <source_id keyed_name="ECN" type="qry_QueryItem">ABC2D444E4B24ADC87509F6249AF70D0</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryReference" id="F7335991EF93498483A238AE67F88013" action="add">
+    <child_ref_id>F084FBAAE2B44AFE89D5A5C6BA21034A</child_ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="qry_QueryDefinition">446160E601B843FB80E19FBE96704150</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="F503DF4231D44626901495D68FC2C87F" action="add">
+    <child_ref_id>562DBB87E6E2400BBB1AFE056800F485</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="related_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>F084FBAAE2B44AFE89D5A5C6BA21034A</parent_ref_id>
+    <ref_id>60BDFD8CB46B46C0988537B19881862B</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="qry_QueryDefinition">446160E601B843FB80E19FBE96704150</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="AA0A8CC067704C90856DE7C107A0118D" action="add">
+    <child_ref_id>DAC6E48A353947E3AC0B676BFBF6CE0E</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="source_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>562DBB87E6E2400BBB1AFE056800F485</parent_ref_id>
+    <ref_id>3E5FBA22B91D449893F84596DAB1FCDC</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="qry_QueryDefinition">446160E601B843FB80E19FBE96704150</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

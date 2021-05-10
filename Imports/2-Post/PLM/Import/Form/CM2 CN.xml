@@ -32,7 +32,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>350</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>190</x>
+      <x>0</x>
       <y>290</y>
       <name>adnl_details</name>
      </Item>
@@ -54,7 +54,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>5760</tab_index>
       <tab_stop>1</tab_stop>
-      <x>810</x>
+      <x>620</x>
       <y>370</y>
       <name>ara_id</name>
      </Item>
@@ -76,7 +76,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>768</tab_index>
       <tab_stop>1</tab_stop>
-      <x>540</x>
+      <x>350</x>
       <y>90</y>
       <name>change_type</name>
      </Item>
@@ -98,7 +98,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>5888</tab_index>
       <tab_stop>1</tab_stop>
-      <x>590</x>
+      <x>400</x>
       <y>370</y>
       <name>cl_id</name>
      </Item>
@@ -120,7 +120,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>7040</tab_index>
       <tab_stop>1</tab_stop>
-      <x>810</x>
+      <x>620</x>
       <y>50</y>
       <name>cm2_implementation_plan</name>
      </Item>
@@ -144,7 +144,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>350</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>190</x>
+      <x>0</x>
       <y>130</y>
       <name>description</name>
      </Item>
@@ -166,7 +166,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>1536</tab_index>
       <tab_stop>1</tab_stop>
-      <x>810</x>
+      <x>620</x>
       <y>10</y>
       <name>effectivity_date</name>
      </Item>
@@ -188,30 +188,9 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>512</tab_index>
       <tab_stop>1</tab_stop>
-      <x>680</x>
+      <x>490</x>
       <y>90</y>
       <name>fast_track</name>
-     </Item>
-     <Item type="Field" id="3601EBF281A54547BFB9EA8A491D8E09" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
-  }
-  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>1920</sort_order>
-      <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
      </Item>
      <Item type="Field" id="3408E1001CE94A8481D867C164871D4F" action="add">
       <border_width>0</border_width>
@@ -232,7 +211,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>128</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>10</y>
       <name>item_number</name>
      </Item>
@@ -256,7 +235,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>350</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>590</x>
+      <x>400</x>
       <y>290</y>
       <name>key_dates</name>
      </Item>
@@ -278,7 +257,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>4480</tab_index>
       <tab_stop>1</tab_stop>
-      <x>290</x>
+      <x>100</x>
       <y>10</y>
       <name>major_rev</name>
      </Item>
@@ -299,7 +278,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>3584</tab_index>
       <tab_stop>1</tab_stop>
-      <x>390</x>
+      <x>200</x>
       <y>370</y>
       <name>managed_by_id</name>
      </Item>
@@ -320,7 +299,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>3456</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>370</y>
       <name>owned_by_id</name>
      </Item>
@@ -342,7 +321,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>640</tab_index>
       <tab_stop>1</tab_stop>
-      <x>430</x>
+      <x>240</x>
       <y>90</y>
       <name>priority</name>
      </Item>
@@ -364,7 +343,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>6784</tab_index>
       <tab_stop>1</tab_stop>
-      <x>440</x>
+      <x>250</x>
       <y>10</y>
       <name>project</name>
      </Item>
@@ -388,7 +367,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>750</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>190</x>
+      <x>0</x>
       <y>210</y>
       <name>proposed_solution</name>
      </Item>
@@ -412,7 +391,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>350</textarea_cols>
       <textarea_rows>50</textarea_rows>
-      <x>590</x>
+      <x>400</x>
       <y>130</y>
       <name>ramifications</name>
      </Item>
@@ -434,7 +413,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>896</tab_index>
       <tab_stop>1</tab_stop>
-      <x>600</x>
+      <x>410</x>
       <y>50</y>
       <name>requested_by</name>
      </Item>
@@ -456,7 +435,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>6016</tab_index>
       <tab_stop>1</tab_stop>
-      <x>340</x>
+      <x>150</x>
       <y>10</y>
       <name>security</name>
      </Item>
@@ -478,7 +457,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>6272</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>90</y>
       <name>severity</name>
      </Item>
@@ -500,7 +479,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>1024</tab_index>
       <tab_stop>1</tab_stop>
-      <x>280</x>
+      <x>90</x>
       <y>90</y>
       <name>source</name>
      </Item>
@@ -521,7 +500,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>384</tab_index>
       <tab_stop>1</tab_stop>
-      <x>670</x>
+      <x>480</x>
       <y>10</y>
       <name>state</name>
      </Item>
@@ -543,7 +522,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>6144</tab_index>
       <tab_stop>1</tab_stop>
-      <x>590</x>
+      <x>400</x>
       <y>10</y>
       <name>status</name>
      </Item>
@@ -564,7 +543,7 @@
       <source_id keyed_name="34F8B737D17643B2A2200AB150EFC884" type="Body">34F8B737D17643B2A2200AB150EFC884</source_id>
       <tab_index>5632</tab_index>
       <tab_stop>1</tab_stop>
-      <x>810</x>
+      <x>620</x>
       <y>90</y>
       <name>team_id</name>
      </Item>
@@ -588,7 +567,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>350</textarea_cols>
       <textarea_rows>15</textarea_rows>
-      <x>190</x>
+      <x>0</x>
       <y>50</y>
       <name>title</name>
      </Item>

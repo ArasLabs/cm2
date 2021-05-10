@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui_resources>
  
-  <!-- +++++ PLM\Client\javascript\gridTools.js +++++ -->
-  <resource key="gridtools.cannot_get_relship_id" value="Can not get relationship with id = {0}"/>
-  <resource key="gridtools.ok" value="It\'s Ok."/>
-  <resource key="gridtools.rel_item_not_found" value="Related (&quot;{0}&quot;) item with id &quot;{1}&quot; not found."/>
-  <resource key="gridtools.view" value="View &quot;{0}&quot;"/>
-  <resource key="gridtools.new" value="New"/>
-  <resource key="gridtools.delete" value="Delete"/>
-  <!--       PLM\Client\javascript\gridTools.js       -->
-  
-  <!-- +++++ PLM\Client\javascript\relationships_method.js +++++ -->
-  <resource key="relationships_method.select_relship" value="Select relationship, please!"/>
-  <resource key="relationships_method.already_opened" value="This item is already opened.
-  
-  And it\'s opened not from this configuration.
-  
-  You should be careful to not lose your data."/>
-  <!--       PLM\Client\javascript\relationships_method.js       -->
-  
   <!-- +++++ PLM\Client\scripts\Affected Items\ +++++ -->
   <resource key="affected_items.superseding_rev" value="Superseding Rev"/>
   <resource key="affected_items.getting_rt" value="   Getting RelationshipType ..."/>
@@ -26,13 +8,6 @@
   <resource key="affected_items.choose_type" value="Choose type, please"/>
   <resource key="affected_items.revision_full" value="Revision"/>
   <!--       PLM\Client\scripts\Affected Items\       -->
-  
-  <!-- +++++ PLM\Client\scripts\ManufacturedParts\Parts.html +++++ -->
-  <resource key="status_mes.get_props" value="   Getting Properties ..."/>
-  <resource key="status_mes.formatting_columns" value="   Formatting Columns ..."/>
-  <resource key="status_mes.get_grid_data" value="   Getting Grid Data ..."/>
-  <resource key="status_mes.populating_grid" value="   Populating Grid ..."/>
-  <!--       PLM\Client\scripts\ManufacturedParts\Parts.html       -->
   
   <!-- +++++ PLM\Import\Methods\checkAffectedType.xml +++++ -->
   <resource key="checkaffectedtype.can_not_get" value="Can not get 'Change Controlled Item' with id='{0}'"/>
@@ -67,7 +42,6 @@
 	
 	<!-- +++++ PLM\Client\scripts\ReverseGrid\ +++++ -->
 	<resource key="plm_reversegrid.invalidreverseproperty" value="Invalid reverse property name or data source"/>
-	<resource key="plm_reversegrid.invalidreverserelationship" value="Invalid reverse relationship item type"/>
 	<resource key="plm_reversegrid.invalidqueryparameters" value="reversePropertyName or reverseRelationshipName should be specified in parameters for RelationshipView page"/>
 	<!--			 PLM\Client\scripts\ReverseGrid\ 	 -->
 	
@@ -137,6 +111,7 @@
 	<resource key="pe_change_management.search" value="Search..."/>
 	<resource key="pe_change_management.onlyone_affected_item" value="Only one item may be added to a PR. Please select a single row."/>
 	<resource key="pe_change_management.affected_item_already_exist" value="Affected Item property already has value."/>
+	<resource key="pe_change_management.affected_item_cannot_be_added_due_to_change_item_state" value="Item(s) cannot be added to a '{0}' {1}."/>
 	<resource key="pe_change_management.choose_cm_options" value="Choose CM Options"/>
 	<!-- Product Engineering Change Management Options    -->
 	

@@ -11,6 +11,52 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="Project" type="Form">966A7B1F74C446E8A9E2C4B6C999A609</source_id>
     <Relationships/>
+      <Item type="Field" id="9BFEF38241514D819E2B572459052825" action="add">
+      <border_width>0</border_width>
+      <display_length>257</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="name" type="Property">BDED853F8AD644689210C0688F3BD271</propertytype_id>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="65DB9A274E814B92AFCB2CEC08123B06" type="Body">65DB9A274E814B92AFCB2CEC08123B06</source_id>
+      <tab_index>2</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>0</x>
+      <y>50</y>
+      <name>name</name>
+     </Item>
+     <Item type="Field" id="1D56369E2D554BCFA4BBE7D53EF6D391" action="add">
+      <border_width>0</border_width>
+      <display_length>114</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Project Number</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="project_number" type="Property">3DE88DD35079499096C7275F11E93B43</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="65DB9A274E814B92AFCB2CEC08123B06" type="Body">65DB9A274E814B92AFCB2CEC08123B06</source_id>
+      <tab_index>0</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>project_number</name>
+     </Item>
    </Item>
   </Relationships>
  </Item>

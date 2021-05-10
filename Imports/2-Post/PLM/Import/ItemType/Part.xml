@@ -2,7 +2,7 @@
  <Item type="ItemType" id="4F1AC04A2B484F3ABA4E20DB63808A88" action="add">
   <allow_private_permission>1</allow_private_permission>
   <auto_search>0</auto_search>
-  <class_structure><![CDATA[<class id="4F1AC04A2B484F3ABA4E20DB63808A88"><class name="Component" id="0D83A764A1EA0CB66E34980C4B50F7E7" /><class name="Assembly" id="512FF7893DBCD6D1AC1F55B87A480934" /><class name="Material" id="64801C21172EEEB61692B77CB5E0ABF1" /><class name="Software" id="74DB7ADB15E0E70BD729E8837D0FF3C9" /><class id="FE48D56AC36E41E39F75F5F12B145074" name="Phantom" /><class id="7B78B853961840079DCFF719F5A95303" name="MBOM only Part" /><class id="9864EF22DCE444068B7888E7D2D701F5" name="Demo Saleable" /><class id="EA21D36C4A214F5A81254615101B3624" name="Model" /><class id="7BEDCEC78DB24C2CAC8B75D5087B8FB8" name="Facilities"><class id="AC331A14B2AA442EBBE0B4CA4A6CE810" name="Facility" /><class id="0E2546704ECD4921B6080B4C6AB25349" name="System" /><class id="E9E63FBB53D24DFCAB5A585449816707" name="Component" /></class><class id="79903DE8B23C49DD9C69393EEB161644" name="IS" /><class id="C7A5A3B229BC487DB35EE584228179EB" name="Enterprise" /><class id="9CCE4A4ED61749FBAF01F8CA87B8F9F6" name="Tool" /><class id="02B01E5D4F804AE7820A6393C6B0829E" name="Application Requirements" /></class>]]></class_structure>
+  <class_structure><![CDATA[<class id="4F1AC04A2B484F3ABA4E20DB63808A88"><class name="Component" id="0D83A764A1EA0CB66E34980C4B50F7E7" /><class name="Assembly" id="512FF7893DBCD6D1AC1F55B87A480934" /><class name="Material" id="64801C21172EEEB61692B77CB5E0ABF1" /><class name="Software" id="74DB7ADB15E0E70BD729E8837D0FF3C9" /><class id="FE48D56AC36E41E39F75F5F12B145074" name="Phantom" /><class id="7B78B853961840079DCFF719F5A95303" name="MBOM only Part" /><class id="EA21D36C4A214F5A81254615101B3624" name="Model" /><class id="7BEDCEC78DB24C2CAC8B75D5087B8FB8" name="Facilities"><class id="AC331A14B2AA442EBBE0B4CA4A6CE810" name="Facility" /><class id="0E2546704ECD4921B6080B4C6AB25349" name="System" /><class id="E9E63FBB53D24DFCAB5A585449816707" name="Component" /></class><class id="79903DE8B23C49DD9C69393EEB161644" name="IS" /><class id="C7A5A3B229BC487DB35EE584228179EB" name="Enterprise" /><class id="9CCE4A4ED61749FBAF01F8CA87B8F9F6" name="Tool" /><class id="02B01E5D4F804AE7820A6393C6B0829E" name="Application Requirements" /></class>]]></class_structure>
   <close_icon>../images/Part.svg</close_icon>
   <default_page_size>25</default_page_size>
   <enforce_discovery>1</enforce_discovery>
@@ -174,6 +174,24 @@
     <track_history>1</track_history>
     <name>description</name>
    </Item>
+   <Item type="Property" id="0B51DC3C14AF40C283569F367E226908" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">End of Life Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>96152</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>end_of_life_date</name>
+   </Item>
    <Item type="Property" id="BD14F1CE2F544EB0912D48ED963B930C" action="add">
     <column_alignment>left</column_alignment>
     <data_type>string</data_type>
@@ -324,6 +342,23 @@
     <track_history>1</track_history>
     <name>name</name>
    </Item>
+   <Item type="Property" id="16391001A8C248F0AD7265C8C468084C" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>integer</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Number of Cycles Life</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>96280</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>number_of_cycles_life</name>
+   </Item>
    <Item type="Property" id="308BE6EC045C4DBFB0929665214BC79D" action="add">
     <column_alignment>left</column_alignment>
     <data_source keyed_name="CM2 Facility Status">30E74BEAE3524944A0514D74CD2DE6A3</data_source>
@@ -379,6 +414,24 @@
     <stored_length>16</stored_length>
     <track_history>0</track_history>
     <name>serial_number</name>
+   </Item>
+   <Item type="Property" id="9289EFBD1D794121A02F179B26CAE880" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Shelf Life Date</label>
+    <pattern>short_date</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>96024</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>shelf_life_date</name>
    </Item>
    <Item type="Property" id="29CCA13C125B47A3B4723101F5443B00" action="add">
     <column_alignment>left</column_alignment>
@@ -486,6 +539,66 @@
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
     <type>default</type>
    </Item>
+   <Item type="View" id="27B2C2B5B8AA4C488591CBB779DCC1DB" action="add">
+    <client>js</client>
+    <display_priority>0</display_priority>
+    <form_classification>Facilities/System</form_classification>
+    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="View" id="311632EC38D2421A8F739E840CAD62C4" action="add">
+    <client>js</client>
+    <display_priority>0</display_priority>
+    <form_classification>Facilities/Component</form_classification>
+    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="View" id="429E4CED10C14EB6AC7F35E27734B0DD" action="add">
+    <client>js</client>
+    <display_priority>0</display_priority>
+    <form_classification>IS</form_classification>
+    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="View" id="6B0DEC33CA6C4CE489D03E7D80E1146B" action="add">
+    <client>js</client>
+    <display_priority>0</display_priority>
+    <form_classification>Facilities/Facility</form_classification>
+    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <type>default</type>
+   </Item>
    <Item type="View" id="8D41EDA810F34CE3A78AE2AF4E566B40" action="add">
     <client>js</client>
     <display_priority>2</display_priority>
@@ -502,7 +615,7 @@
    </Item>
    <Item type="View" id="AADA4F7076E645E59A1896D2728D3372" action="add">
     <client>js</client>
-    <display_priority>1</display_priority>
+    <display_priority>3</display_priority>
     <related_id keyed_name="Part" type="Form">CAF99D0A8E6E44E9A681C38015FACE91</related_id>
     <role keyed_name="World" type="Identity">
      <Item type="Identity" action="get" select="id">
@@ -528,66 +641,6 @@
     <sort_order>640</sort_order>
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
     <type>default</type>
-   </Item>
-   <Item type="View" id="27B2C2B5B8AA4C488591CBB779DCC1DB" action="add">
-    <client>js</client>
-    <display_priority>0</display_priority>
-    <form_classification>Facilities/System</form_classification>
-    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
-    <role keyed_name="World" type="Identity">
-     <Item type="Identity" action="get" select="id">
-      <name>World</name>
-     </Item>
-    </role>
-    <show_ssvc>0</show_ssvc>
-    <sort_order>1280</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-    <type>edit</type>
-   </Item>
-   <Item type="View" id="311632EC38D2421A8F739E840CAD62C4" action="add">
-    <client>js</client>
-    <display_priority>0</display_priority>
-    <form_classification>Facilities/Component</form_classification>
-    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
-    <role keyed_name="World" type="Identity">
-     <Item type="Identity" action="get" select="id">
-      <name>World</name>
-     </Item>
-    </role>
-    <show_ssvc>0</show_ssvc>
-    <sort_order>1024</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-    <type>edit</type>
-   </Item>
-   <Item type="View" id="429E4CED10C14EB6AC7F35E27734B0DD" action="add">
-    <client>js</client>
-    <display_priority>0</display_priority>
-    <form_classification>IS</form_classification>
-    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
-    <role keyed_name="World" type="Identity">
-     <Item type="Identity" action="get" select="id">
-      <name>World</name>
-     </Item>
-    </role>
-    <show_ssvc>0</show_ssvc>
-    <sort_order>1408</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-    <type>edit</type>
-   </Item>
-   <Item type="View" id="6B0DEC33CA6C4CE489D03E7D80E1146B" action="add">
-    <client>js</client>
-    <display_priority>0</display_priority>
-    <form_classification>Facilities/Facility</form_classification>
-    <related_id keyed_name="CM2 Part Facility" type="Form">427E8C89EBA145369AB023B6022B2C5D</related_id>
-    <role keyed_name="World" type="Identity">
-     <Item type="Identity" action="get" select="id">
-      <name>World</name>
-     </Item>
-    </role>
-    <show_ssvc>0</show_ssvc>
-    <sort_order>1152</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-    <type>edit</type>
    </Item>
    <Item type="Server Event" id="33CF66E2ACE94F528BE19051DC5CC892" action="add">
     <event_version>version_1</event_version>
@@ -741,9 +794,19 @@
     <sort_order>1152</sort_order>
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
    </Item>
+   <Item type="Item Action" id="6867D9DBAAD16632FCA86F91283C4734" action="add">
+    <related_id keyed_name="Change Discussion Definition" type="Action">5B155B40AD8F405D812EF95BC5848214</related_id>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
    <Item type="Item Action" id="61CD5CB017834E77B081EE593D2D188E" action="add">
     <related_id keyed_name="VC_AddItemsToBookmarks" type="Action">FD4D2BE9E2B14919BF1973842A556AFD</related_id>
     <sort_order>1408</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+   <Item type="Item Action" id="1E54402169344178B31FC4F6BF594A3E" action="add">
+    <related_id keyed_name="gn_ShowGraphView" type="Action">218C3D38C640464F9AA65BFAC3CC02BA</related_id>
+    <sort_order>1536</sort_order>
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
    </Item>
    <Item type="ItemType Life Cycle" id="03F8D81C409149299E4FFABCB6BF98F5" action="add">
@@ -793,34 +856,14 @@
     <sort_order>512</sort_order>
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
    </Item>
-   <Item type="Item Report" id="9CD77B5F74EE4CBDBEE020D53330586D" action="add">
-    <related_id keyed_name="CM2 Baseline (D&amp;P)" type="Report">A6CD776E2433445EBB77F968C819459D</related_id>
-    <sort_order>640</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-   </Item>
-   <Item type="Item Report" id="98BC3DA9DBDA46FF93A6AAE4A68062BD" action="add">
-    <related_id keyed_name="CM2 Baseline (Enterprise)" type="Report">2FF4B7DF9F764CB7A36423FC4C48A5C6</related_id>
-    <sort_order>768</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-   </Item>
-   <Item type="Item Report" id="3FA0C4E8407F408C87AD6B4EC7A95020" action="add">
-    <related_id keyed_name="CM2 Baseline (Facilities)" type="Report">076AA24713B744828E95FA4D6C05CE6D</related_id>
-    <sort_order>896</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-   </Item>
-   <Item type="Item Report" id="D13D2A1B74594447981B13B6CE064DAB" action="add">
-    <related_id keyed_name="CM2 Baseline (ILS)" type="Report">8D82A0C06CDB4489AAB0C5F9FC54260F</related_id>
-    <sort_order>1024</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-   </Item>
-   <Item type="Item Report" id="3724C5EA8E4D4B719104C00E8452A9B4" action="add">
-    <related_id keyed_name="CM2 Baseline (Info Systems)" type="Report">B909CF1CBD43410797C01E8D8F6C6976</related_id>
-    <sort_order>1152</sort_order>
-    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
-   </Item>
    <Item type="Item Report" id="C19F65F00B864868A6627F5700DF0BCB" action="add">
     <related_id keyed_name="CM2 Planning Bill" type="Report">80ACAC814DD64180B90A6EE129360338</related_id>
     <sort_order>1280</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+   <Item type="Item Report" id="D1B5B2CE3BA44BE8938E83ED6C545F51" action="add">
+    <related_id keyed_name="CM2 Baseline Report" type="Report">3632F507C1834B5FA2EE432AA2071B29</related_id>
+    <sort_order>1408</sort_order>
     <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
    </Item>
   </Relationships>

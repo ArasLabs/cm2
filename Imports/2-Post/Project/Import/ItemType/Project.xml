@@ -93,11 +93,11 @@
     <is_keyed>1</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
+    <is_unique>1</is_unique>
     <keyed_name_order>1</keyed_name_order>
     <label xml:lang="en">Project Number</label>
     <order_by>1</order_by>
     <range_inclusive>0</range_inclusive>
-    <readonly>1</readonly>
     <sort_order>0</sort_order>
     <source_id keyed_name="Project" type="ItemType" name="Project">02184EDAA80D499CB6EC94B159966DBE</source_id>
     <track_history>0</track_history>

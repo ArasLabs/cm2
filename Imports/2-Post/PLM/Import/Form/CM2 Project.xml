@@ -11,27 +11,6 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="CM2 Project" type="Form">007724B3E0144FA19D2AC6B965ADDEE6</source_id>
     <Relationships>
-     <Item type="Field" id="4917A7E036BE420D9247ECC291033158" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
-  }
-  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>384</sort_order>
-      <source_id keyed_name="3ED448A851584E42B19373460053F14E" type="Body">3ED448A851584E42B19373460053F14E</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
-     </Item>
      <Item type="Field" id="AB0D969EA89948409FFFF758D00F164A" action="add">
       <border_width>0</border_width>
       <display_length_unit>px</display_length_unit>
@@ -50,8 +29,8 @@
       <source_id keyed_name="3ED448A851584E42B19373460053F14E" type="Body">3ED448A851584E42B19373460053F14E</source_id>
       <tab_index>3072</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
-      <y>10</y>
+      <x>0</x>
+      <y>0</y>
       <name>item_number</name>
      </Item>
      <Item type="Field" id="357C8526AE494BD6972A924EAFDDFD76" action="add">
@@ -72,7 +51,7 @@
       <source_id keyed_name="3ED448A851584E42B19373460053F14E" type="Body">3ED448A851584E42B19373460053F14E</source_id>
       <tab_index>3200</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>50</y>
       <name>name</name>
      </Item>

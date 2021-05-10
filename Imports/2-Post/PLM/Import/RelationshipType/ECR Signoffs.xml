@@ -29,21 +29,6 @@
     <unlock_on_logout>0</unlock_on_logout>
     <use_src_access>1</use_src_access>
     <name>ECR Signoffs</name>
-    <Relationships>
-     <Item type="View" id="531220C1BFBC49E7BA1E54C741AB49F0" action="add">
-      <client>js</client>
-      <related_id keyed_name="ECR Signoffs" type="Form">55D7CB3031E04E97931BF40E5236ACD0</related_id>
-      <role keyed_name="World" type="Identity">
-       <Item type="Identity" action="get" select="id">
-        <name>World</name>
-       </Item>
-      </role>
-      <show_ssvc>0</show_ssvc>
-      <sort_order>128</sort_order>
-      <source_id keyed_name="ECR Signoffs" type="ItemType" name="ECR Signoffs">4CA515D31AEF49B1A23734B68FD28262</source_id>
-      <type>default</type>
-     </Item>
-    </Relationships>
    </Item>
   </relationship_id>
   <sort_order>1024</sort_order>
@@ -62,4 +47,6 @@
    </Item>
   </Relationships>
  </Item>
+ <Item type="View" action="delete" where="source_id='4CA515D31AEF49B1A23734B68FD28262'" />
+ <Item type="Form" action="delete" where="name='ECR Signoffs'" />
 </AML>

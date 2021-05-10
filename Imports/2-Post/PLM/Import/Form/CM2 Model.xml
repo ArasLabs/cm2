@@ -29,30 +29,9 @@
       <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
       <tab_index>3200</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>110</y>
       <name>active</name>
-     </Item>
-     <Item type="Field" id="128E0571E3BE49D49DA99E3C3E9F0CEF" action="add">
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
-  }
-  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>384</sort_order>
-      <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
-      <tab_stop>0</tab_stop>
-      <x>0</x>
-      <y>0</y>
-      <name>item_info</name>
      </Item>
      <Item type="Field" id="7743B04A67CF452B8050E17D95782796" action="add">
       <border_width>0</border_width>
@@ -72,7 +51,7 @@
       <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
       <tab_index>3072</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>10</y>
       <name>name</name>
      </Item>
@@ -95,7 +74,7 @@
       <source_id keyed_name="5B74D76E53A64233AC298E984AD903C8" type="Body">5B74D76E53A64233AC298E984AD903C8</source_id>
       <tab_index>3328</tab_index>
       <tab_stop>1</tab_stop>
-      <x>190</x>
+      <x>0</x>
       <y>60</y>
       <name>sequence_id</name>
      </Item>

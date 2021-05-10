@@ -1,0 +1,28 @@
+﻿<AML>
+ <Item type="List" id="712CA0DAA08E40FFADFAEB20BCDC9BD5" action="add">
+  <name>Part InvControlType</name>
+  <Relationships>
+   <Item type="Value" id="4E5CE60A4EC54C9EA9CC3F954741E207" action="add">
+    <inactive>0</inactive>
+    <label xml:lang="en">Serial</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Part InvControlType" type="List">712CA0DAA08E40FFADFAEB20BCDC9BD5</source_id>
+    <value>Serial</value>
+   </Item>
+   <Item type="Value" id="D62D0482509A4AF38D01EF3E86844FC2" action="add">
+    <inactive>0</inactive>
+    <label xml:lang="en">Lot / Batch</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Part InvControlType" type="List">712CA0DAA08E40FFADFAEB20BCDC9BD5</source_id>
+    <value>Lot</value>
+   </Item>
+   <Item type="Value" id="E26043A90E69480E97BC171C267D38A4" action="add">
+    <inactive>0</inactive>
+    <label xml:lang="en">No Control</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Part InvControlType" type="List">712CA0DAA08E40FFADFAEB20BCDC9BD5</source_id>
+    <value>None</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

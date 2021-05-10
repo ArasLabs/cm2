@@ -1,7 +1,7 @@
 ﻿<AML>
  <Item type="Form" id="CAF99D0A8E6E44E9A681C38015FACE91" action="add">
   <category_form>0</category_form>
-  <height>399</height>
+  <height>300</height>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
   <width>784</width>
   <name>Part</name>
@@ -29,7 +29,7 @@
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>95384</tab_index>
       <tab_stop>1</tab_stop>
-      <x>400</x>
+      <x>190</x>
       <y>250</y>
       <name>cage_code</name>
      </Item>
@@ -51,7 +51,7 @@
       <sort_order>256</sort_order>
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>0</tab_stop>
-      <x>200</x>
+      <x>0</x>
       <y>210</y>
       <name>classification</name>
       <Relationships>
@@ -95,7 +95,7 @@
       <sort_order>384</sort_order>
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>1</tab_stop>
-      <x>200</x>
+      <x>0</x>
       <y>290</y>
       <name>classSpecificFields_border</name>
      </Item>
@@ -117,9 +117,31 @@
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>95128</tab_index>
       <tab_stop>1</tab_stop>
-      <x>400</x>
-      <y>210</y>
+      <x>370</x>
+      <y>130</y>
       <name>cn</name>
+     </Item>
+     <Item type="Field" id="91D77D8688BD4D16B67406F873DF2935" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Control Type</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="control_type" type="Property">8889FC374F6B494BA027F80FC9059B4E</propertytype_id>
+      <sort_order>5376</sort_order>
+      <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
+      <tab_index>95896</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>211</y>
+      <name>control_type</name>
      </Item>
      <Item type="Field" id="004371CE07864203A06EAB62791E9EC6" action="add">
       <border_width>0</border_width>
@@ -144,7 +166,7 @@
       <sort_order>512</sort_order>
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>0</tab_stop>
-      <x>449</x>
+      <x>249</x>
       <y>89</y>
       <name>cost</name>
      </Item>
@@ -163,7 +185,7 @@
       <sort_order>640</sort_order>
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>1</tab_stop>
-      <x>480</x>
+      <x>280</x>
       <y>90</y>
       <name>cost_basis</name>
      </Item>
@@ -187,7 +209,7 @@
       <tab_stop>1</tab_stop>
       <textarea_cols>328</textarea_cols>
       <textarea_rows>54</textarea_rows>
-      <x>200</x>
+      <x>0</x>
       <y>130</y>
       <name>description</name>
      </Item>
@@ -208,7 +230,7 @@
       <sort_order>896</sort_order>
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>0</tab_stop>
-      <x>570</x>
+      <x>370</x>
       <y>89</y>
       <name>effective_date</name>
      </Item>
@@ -224,24 +246,24 @@
 <script type="text/javascript">
 function createNewRevision()
 {
-  if(!top.aras.confirm(top.aras.getResource("plm", "createnewrevision.confirm")))
+  if(!aras.confirm(aras.getResource("plm", "createnewrevision.confirm")))
   { 
     return;
   }
-  var dom = top.aras.createXMLDocument();
+  var dom = aras.createXMLDocument();
   dom.loadXML(parent.item.xml);
   dom.documentElement.setAttribute('action', 'PE_CreateNewRevision');
 	
-  var res = top.aras.soapSend("ApplyMethod", dom.xml);
+  var res = aras.soapSend("ApplyMethod", dom.xml);
   if (res.getFaultCode() != 0)
   {
-    top.aras.AlertError(res);
+    aras.AlertError(res);
     return;
   }
   res = res.getResultsBody();
   dom.loadXML(res);
 
-  top.aras.uiReShowItemEx(parent.itemID, dom.documentElement, parent.viewMode);
+  aras.uiReShowItemEx(parent.itemID, dom.documentElement, parent.viewMode);
 }
 </script>]]></html_code>
       <is_disabled>0</is_disabled>
@@ -274,39 +296,9 @@ function createNewRevision()
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>900</tab_index>
       <tab_stop>0</tab_stop>
-      <x>15</x>
+      <x>0</x>
       <y>290</y>
       <name>has_change_pending</name>
-     </Item>
-     <Item type="Field" id="DDFC8B609D4742BB84A1691888A01391" action="add">
-      <border_width>0</border_width>
-      <display_length_unit>px</display_length_unit>
-      <field_type>html</field_type>
-      <font_color>#000000</font_color>
-      <font_family>arial, helvetica, sans-serif</font_family>
-      <font_size>8pt</font_size>
-      <font_weight>bold</font_weight>
-      <html_code><![CDATA[<span id="ITEM_INFO_INTERNAL_SPAN"/>
-<script>
-  populate_ITEM_INFO_INTERNAL_SPAN = function()
-  {
-    document.getElementById("ITEM_INFO_INTERNAL_SPAN").innerHTML = top.aras.uiDrawItemInfoTable(document.itemType);
-    top.aras.uiPopulateInfoTableWithItem(document.item, document);
-  }
-
-window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
-
-</script>]]></html_code>
-      <is_disabled>0</is_disabled>
-      <is_visible>1</is_visible>
-      <label_position>top</label_position>
-      <list_no_blank>0</list_no_blank>
-      <sort_order>1024</sort_order>
-      <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
-      <tab_stop>1</tab_stop>
-      <x>1</x>
-      <y>1</y>
-      <name>item_info</name>
      </Item>
      <Item type="Field" id="B7D23A69AF9B4F8BBB7063ABFF86AA5C" action="add">
       <border_width>0</border_width>
@@ -327,7 +319,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>5</tab_index>
       <tab_stop>1</tab_stop>
-      <x>200</x>
+      <x>0</x>
       <y>10</y>
       <name>item_number</name>
      </Item>
@@ -354,7 +346,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <sort_order>1152</sort_order>
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>0</tab_stop>
-      <x>330</x>
+      <x>130</x>
       <y>10</y>
       <name>major_rev</name>
      </Item>
@@ -376,7 +368,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>50</tab_index>
       <tab_stop>1</tab_stop>
-      <x>379</x>
+      <x>179</x>
       <y>89</y>
       <name>make_buy</name>
      </Item>
@@ -398,7 +390,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>30</tab_index>
       <tab_stop>1</tab_stop>
-      <x>570</x>
+      <x>370</x>
       <y>50</y>
       <name>managed_by_id</name>
      </Item>
@@ -421,7 +413,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>20</tab_index>
       <tab_stop>1</tab_stop>
-      <x>200</x>
+      <x>0</x>
       <y>50</y>
       <name>name</name>
      </Item>
@@ -443,7 +435,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>10</tab_index>
       <tab_stop>1</tab_stop>
-      <x>570</x>
+      <x>370</x>
       <y>10</y>
       <name>owned_by_id</name>
      </Item>
@@ -465,7 +457,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>95256</tab_index>
       <tab_stop>1</tab_stop>
-      <x>200</x>
+      <x>0</x>
       <y>250</y>
       <name>release_date_plan</name>
      </Item>
@@ -489,7 +481,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>0</tab_stop>
       <width>160</width>
-      <x>390</x>
+      <x>190</x>
       <y>10</y>
       <name>state</name>
      </Item>
@@ -511,8 +503,8 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>1</tab_stop>
       <width>150</width>
-      <x>570</x>
-      <y>130</y>
+      <x>370</x>
+      <y>170</y>
       <name>thumbnail</name>
      </Item>
      <Item type="Field" id="462AB69CE2FE49B29F34394A4A2D7A5B" action="add">
@@ -533,7 +525,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_index>40</tab_index>
       <tab_stop>1</tab_stop>
-      <x>330</x>
+      <x>130</x>
       <y>90</y>
       <name>unit</name>
      </Item>
@@ -553,7 +545,7 @@ window.addEventListener("load", populate_ITEM_INFO_INTERNAL_SPAN);
       <sort_order>4736</sort_order>
       <source_id keyed_name="83907DEF8B3044A08BDCBB77B1C0517E" type="Body">83907DEF8B3044A08BDCBB77B1C0517E</source_id>
       <tab_stop>1</tab_stop>
-      <x>796</x>
+      <x>596</x>
       <y>9</y>
       <name>xclass</name>
      </Item>

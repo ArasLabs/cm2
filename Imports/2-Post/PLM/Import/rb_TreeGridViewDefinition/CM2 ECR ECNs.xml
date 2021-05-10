@@ -1,0 +1,98 @@
+﻿<AML>
+ <Item type="rb_TreeGridViewDefinition" id="916EE585A5924458BDF920580A77F899" action="add">
+  <max_child_items>100</max_child_items>
+  <max_query_depth>1</max_query_depth>
+  <max_query_depth_is_onload>1</max_query_depth_is_onload>
+  <query_definition keyed_name="CM2 ECR ECNs" type="qry_QueryDefinition">446160E601B843FB80E19FBE96704150</query_definition>
+  <name>CM2 ECR ECNs</name>
+  <Relationships>
+   <Item type="rb_ColumnDefinition" id="EC3441C1D8694AFCA0E0F749A4D5982E" action="add">
+    <builder_method keyed_name="rb_DefaultColumnBuilderMethod" type="Method">AD1F071AA1B1437396D7ABCD67D10EA7</builder_method>
+    <header xml:lang="en">CN Number</header>
+    <name>CM2 ECR ECNs</name>
+    <position_order>0</position_order>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="rb_TreeGridViewDefinition">916EE585A5924458BDF920580A77F899</source_id>
+    <width>155</width>
+    <Relationships>
+     <Item type="rb_ColumnMapping" id="826AAF4FED214EDF9D8369EE05B8D7E2" action="add">
+      <cell_view_type>Item</cell_view_type>
+      <data_template>{"id": "INVALID_ID_VALUE", "type": "ECN"}</data_template>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="EC3441C1D8694AFCA0E0F749A4D5982E" type="rb_ColumnDefinition">EC3441C1D8694AFCA0E0F749A4D5982E</source_id>
+      <template>{"text_template":"{ECN.item_number}","icon":"../images/ECN.svg","item_type_name":"ECN","item_id":"{ECN.id}"}</template>
+      <tree_row_ref_id>49ADEE09F9FD467F8AA0FCF278DBEBDC</tree_row_ref_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="rb_ColumnDefinition" id="838CBD1B4D6E4DCCA217444C52B4060B" action="add">
+    <builder_method keyed_name="rb_DefaultColumnBuilderMethod" type="Method">AD1F071AA1B1437396D7ABCD67D10EA7</builder_method>
+    <header xml:lang="en">Title</header>
+    <name>816D79D05E154D4EBC0000CE37D6E3EC</name>
+    <position_order>1</position_order>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="rb_TreeGridViewDefinition">916EE585A5924458BDF920580A77F899</source_id>
+    <width>482</width>
+    <Relationships>
+     <Item type="rb_ColumnMapping" id="26251B2D72624482B8CFCD8ED4CB8E24" action="add">
+      <cell_view_type>Text</cell_view_type>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="838CBD1B4D6E4DCCA217444C52B4060B" type="rb_ColumnDefinition">838CBD1B4D6E4DCCA217444C52B4060B</source_id>
+      <template>{"text_template":"{ECN.title}"}</template>
+      <tree_row_ref_id>49ADEE09F9FD467F8AA0FCF278DBEBDC</tree_row_ref_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="rb_ColumnDefinition" id="87B298341ECE48BCB638D8F72F1D87B5" action="add">
+    <builder_method keyed_name="rb_DefaultColumnBuilderMethod" type="Method">AD1F071AA1B1437396D7ABCD67D10EA7</builder_method>
+    <header xml:lang="en">State</header>
+    <name>F51ED42EA3CF4DF7BDDBA023E740CBE0</name>
+    <position_order>2</position_order>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="rb_TreeGridViewDefinition">916EE585A5924458BDF920580A77F899</source_id>
+    <width>100</width>
+    <Relationships>
+     <Item type="rb_ColumnMapping" id="2D0639A9A6C447BF890F1A4BC1D27757" action="add">
+      <cell_view_type>Text</cell_view_type>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="87B298341ECE48BCB638D8F72F1D87B5" type="rb_ColumnDefinition">87B298341ECE48BCB638D8F72F1D87B5</source_id>
+      <template>{"text_template":"{ECN.state}"}</template>
+      <tree_row_ref_id>49ADEE09F9FD467F8AA0FCF278DBEBDC</tree_row_ref_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="rb_ColumnDefinition" id="4A6CC81D9C74402BAF1B0169A21A69E2" action="add">
+    <builder_method keyed_name="rb_DefaultColumnBuilderMethod" type="Method">AD1F071AA1B1437396D7ABCD67D10EA7</builder_method>
+    <header xml:lang="en">Effectvity</header>
+    <name>32ACC7C27D2B4C06AAB34CD5E679620D</name>
+    <position_order>3</position_order>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="rb_TreeGridViewDefinition">916EE585A5924458BDF920580A77F899</source_id>
+    <width>197</width>
+    <Relationships>
+     <Item type="rb_ColumnMapping" id="BC69DA8896FB4643AF9885B7D577973D" action="add">
+      <cell_view_type>Date</cell_view_type>
+      <data_template>{ECN.effectivity_date}</data_template>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="4A6CC81D9C74402BAF1B0169A21A69E2" type="rb_ColumnDefinition">4A6CC81D9C74402BAF1B0169A21A69E2</source_id>
+      <template>{"text_template":"{ECN.effectivity_date}","date_format":"short_date_time"}</template>
+      <tree_row_ref_id>49ADEE09F9FD467F8AA0FCF278DBEBDC</tree_row_ref_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="rb_TreeRowDefinition" id="E92F2C1E47324DA588D9E344E0EB208F" action="add">
+    <query_item_ref_id>DAC6E48A353947E3AC0B676BFBF6CE0E</query_item_ref_id>
+    <ref_id>49ADEE09F9FD467F8AA0FCF278DBEBDC</ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="rb_TreeGridViewDefinition">916EE585A5924458BDF920580A77F899</source_id>
+   </Item>
+   <Item type="rb_TreeRowReference" id="1AF10333DCD2409FA569F145E180F10F" action="add">
+    <child_ref_id>49ADEE09F9FD467F8AA0FCF278DBEBDC</child_ref_id>
+    <reference_type>child</reference_type>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="CM2 ECR ECNs" type="rb_TreeGridViewDefinition">916EE585A5924458BDF920580A77F899</source_id>
+    <view_order>128</view_order>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
