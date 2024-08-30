@@ -142,24 +142,6 @@
     <track_history>0</track_history>
     <name>affected_rev</name>
    </Item>
-   <Item type="Property" id="AC171595E70F4FD0BD801FCB5005B7C0" action="add">
-    <column_alignment>left</column_alignment>
-    <column_width>40</column_width>
-    <data_type>federated</data_type>
-    <is_hidden>0</is_hidden>
-    <is_hidden2>0</is_hidden2>
-    <is_indexed>0</is_indexed>
-    <is_keyed>0</is_keyed>
-    <is_multi_valued>0</is_multi_valued>
-    <is_required>0</is_required>
-    <label xml:lang="en">Type</label>
-    <range_inclusive>0</range_inclusive>
-    <readonly>1</readonly>
-    <sort_order>128</sort_order>
-    <source_id keyed_name="Affected Item" type="ItemType" name="Affected Item">BFAAB0F6838D4F80BF12CB328FF5B097</source_id>
-    <track_history>0</track_history>
-    <name>affected_type</name>
-   </Item>
    <Item type="Property" id="FD4BBB685C804ECB97BAC94DC44DA534" action="add">
     <column_alignment>left</column_alignment>
     <data_type>date</data_type>
